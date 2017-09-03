@@ -1,0 +1,21 @@
+The maps will be stored in a XML format (https://pugixml.org). The level will reference the SmartTextures ID. An example:
+
+<Map name = "Example Level">
+    <Background>ExampleLevelBackground</Background>
+    <Prop type = "Static" x = 100 y = 150>ExampleLevelBuilding</Prop>
+    <Prop type = "Spawn" x = 20 y = 80>ExampleLevelSpawnPoint</Prop>
+</Map>
+
+What information does a Prop need to know in order to create stuff?
+1) Texture. A) That's the main element in the prop tags.
+2) Where should it be placed? Co-ordinates in 
+3) Is it collidable? This can be true or false. In an attribute.
+4) Any special properties (E.g. spawn point)? Should these really be handled by a single class? These need such spefic programming that it would be more complex to keep a single class.
+
+How should the XML look?
+
+<Map name = "Map Layout" Width = 1000 Height = 650>
+    <Prop Collides=true X = 10 Y = 10>TestHouseRuins</Prop>
+    <Spawn X = 20 Y = 10 Type = "Player">Spawner</Spawn>
+    <Spawn X = 200 Y = 1000 Type = "Enemy">Spawner</Spawn>
+</Map>

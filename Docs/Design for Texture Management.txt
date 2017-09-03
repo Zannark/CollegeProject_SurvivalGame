@@ -1,0 +1,25 @@
+There are 3 main ways of loading in textures:
+
+    [1] Load in a texture off of the storage device each time it's needed -
+        Pros:
+            - Simple.
+        Cons:
+            - Slow.
+
+    [2] Create a cache of textures, if a texture has already been loaded create a refence to it else load it in then -
+        pros:
+            - Speed increase.
+            - Memory Efficent.
+        Cons:
+            - Could cause slow down at run time the the first time a texture is used.
+
+    [3] Preload all textures into a cache, before the player starts to play the game - 
+        pros:
+            - removes slow down at play time from accessing a storage device.
+            - Memory Effiecent.
+        
+        Cons:
+            - Higher room for human error.
+            - Increased loading time.
+
+Answer of today shall be [3]. Human error will be noticable and easily fixable, the loading time will not be increased as much as play time slow down would be if [1] or [2] was used.
