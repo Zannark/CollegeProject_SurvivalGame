@@ -45,7 +45,11 @@ Map MapLoader::Load()
 	float Height = stof(string(RootNode->first_attribute("height")->value()));
 	LoadedMap = Map(Vector2f(Width, Height));
 	
-
+	///Load in all of the props into the map.
+	for (xml_node<char>* PropNode = RootNode->first_node("Prop"); PropNode; PropNode = PropNode->next_sibling("Prop"))
+	{
+		
+	}
 
 	return LoadedMap;
 }
