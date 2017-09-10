@@ -3,13 +3,14 @@
 #include <vector>
 #include <stdexcept>
 #include <iostream>
+#include <fstream>
 #include "SmartTexture.h"
 #include "Prop.h"
-#include "pugixml.hpp"
 #include "Common.h"
 #include "Map.h"
+#include "rapidxml.hpp"
 
-using namespace pugi;
+using namespace rapidxml;
 using namespace std;
 
 /// <summary>
@@ -24,8 +25,7 @@ public:
 	Map Load();
 
 private:
-	vector<Prop> MapProps;
-	xml_parse_result ParseResult;
-	xml_document MapDocument;
+	xml_document<> MapDocument;
+	vector<char> MapContents;
 };
 

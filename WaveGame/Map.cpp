@@ -4,6 +4,11 @@ Map::Map()
 {
 }
 
+Map::Map(Vector2f Dimensions)
+{
+	this->MapDimensions = Dimensions;
+}
+
 
 Map::~Map()
 {

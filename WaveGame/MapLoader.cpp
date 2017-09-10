@@ -10,9 +10,20 @@ MapLoader::MapLoader(string MapFile)
 	if (!FS::exists(MapPath))
 		throw runtime_error("Failed to locate map file " + MapFile);
 
-	this->ParseResult = this->MapDocument.load_file(MapFile.c_str());
-}
+	ifstream File(MapFile);
 
+	try
+	{
+		this->MapContents = vector<char>((istreambuf_iterator<char>(File)), istreambuf_iterator<char>());
+		this->MapContents.push_back('\0');
+		this->MapDocument.parse<0>(&this->MapContents[0]);
+	}
+	catch (parse_error &e)
+	{
+		cerr << "Rapid XML has thrown a parsing error with map \"" << MapFile << "\" " << e.what() << endl;
+		WaitForAnyKeyAndExit();
+	}
+}
 
 MapLoader::~MapLoader()
 {
@@ -22,7 +33,19 @@ Map MapLoader::Load()
 {
 	Map LoadedMap;
 
-	for(xml_node_iterator Iter = )
+	xml_node<char>* RootNode = this->MapDocument.first_node("Map");
+
+	if (!RootNode)
+	{
+		cerr << "Failed to find the root node in the map." << endl;
+		WaitForAnyKeyAndExit();
+	}
+
+	float Width = stof(string(RootNode->first_attribute("width")->value()));
+	float Height = stof(string(RootNode->first_attribute("height")->value()));
+	LoadedMap = Map(Vector2f(Width, Height));
+	
+
 
 	return LoadedMap;
 }

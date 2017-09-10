@@ -1,4 +1,4 @@
-The maps will be stored in a XML format (https://pugixml.org). The level will reference the SmartTextures ID. An example:
+The maps will be stored in a XML format (http://rapidxml.sourceforge.net/index.htm). The level will reference the SmartTextures ID. An example:
 
 <Map name = "Example Level">
     <Background>ExampleLevelBackground</Background>
