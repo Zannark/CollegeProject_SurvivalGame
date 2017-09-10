@@ -1,4 +1,4 @@
-The maps will be stored in a XML format (http://rapidxml.sourceforge.net/index.htm). The level will reference the SmartTextures ID. An example:
+The maps will be stored in a xML format (http://rapidxml.sourceforge.net/index.htm). The level will reference the SmartTextures ID. An example:
 
 What information does a Prop need to know in order to create stuff?
 1) Texture. A) That's the main element in the prop tags.
@@ -6,13 +6,14 @@ What information does a Prop need to know in order to create stuff?
 3) Is it collidable? This can be true or false. In an attribute.
 4) Any special properties (E.g. spawn point)? Should these really be handled by a single class? These need such spefic programming that it would be more complex to keep a single class.
 
-How should the XML look?
+How should the xML look?
 
-<Map name = "Map Layout" Width = "1000" Height = "650">
-    <Prop Collides="true" X = "10" Y = "10">TestHouseRuins</Prop>
-    <Prop Collides="true" X = "10" Y = "10">TestHouseRuins</Prop>
-    <Spawn X = "20" Y = "10" Type = "Player">Spawner</Spawn>
-    <Spawn X = "200" Y = "1000" Type = "Enemy">Spawner</Spawn>
+<Map name = "Map Layout" width = "1000" height = "650">
+    <Prop collides="true" x = "10" y = "10">TestHouseRuins</Prop>
+    <Prop collides="true" x = "10" y = "10">TestHouseRuins</Prop>
+    <Prop collides="true" x = "10" y = "10" type = "static" delay = "0.5">TestFountainRuins</Prop>
+    <Spawn x = "20" y = "10" type = "Player">Spawner</Spawn>
+    <Spawn x = "200" y = "1000" type = "Enemy">Spawner</Spawn>
 </Map>
 
 Static attribute means that it is not animated, dynamic is animated and has what the delay should be inbetween frame switching.

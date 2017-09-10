@@ -1,5 +1,6 @@
 #include <iostream>
 #include <SFML\Graphics.hpp>
+#include "Common.h"
 #include "GameTime.h"
 #include "MapLoader.h"
 
@@ -11,6 +12,8 @@ int main(void)
 	GameTime::Init();	
 	MapLoader Load("Test.xml");
 	Load.Load();
+
+	StringToBool("true");
 
 	RenderWindow *Window = new RenderWindow(VideoMode(800, 600, 32), "Test Window");
 	while (Window->isOpen())
