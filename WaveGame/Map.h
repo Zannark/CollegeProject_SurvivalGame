@@ -19,6 +19,8 @@ public:
 
 	void AddProp(shared_ptr<Prop> Prop);
 	void Draw(RenderWindow *Window);
+	vector<shared_ptr<Prop>> GetPropsWithTag(string Tag);
+
 private:
 	vector<shared_ptr<Prop>> MapProps;
 	Vector2f MapDimensions;

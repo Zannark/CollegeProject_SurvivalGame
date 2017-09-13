@@ -27,3 +27,16 @@ void Map::Draw(RenderWindow * Window)
 	for (shared_ptr<Prop> P : this->MapProps)
 		P->Draw(Window);
 }
+
+vector<shared_ptr<Prop>> Map::GetPropsWithTag(string Tag)
+{
+	vector<shared_ptr<Prop>> Props;
+
+	for (shared_ptr<Prop> P : this->MapProps)
+	{
+		if (P->GetTag() == Tag)
+			Props.push_back(P);
+	}
+
+	return Props;
+}
