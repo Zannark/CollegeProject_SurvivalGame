@@ -9,18 +9,21 @@
 *.userosscache
 *.sln.docstates
 
-!Debug
-!Debug/Assets
-!Debug/**/*.xml
-
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
+*.dll
+*.exe
+
+*.tlog
+*.lastbuildstate
+*.idb
+
 # Build results
-[Dd]ebug/
-[Dd]ebugPublic/
-[Rr]elease/
-[Rr]eleases/
+#[Dd]ebug/
+#[Dd]ebugPublic/
+#[Rr]elease/
+#[Rr]eleases/
 x64/
 x86/
 bld/
