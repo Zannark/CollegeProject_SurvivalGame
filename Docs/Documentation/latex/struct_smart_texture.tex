@@ -1,0 +1,90 @@
+\hypertarget{struct_smart_texture}{}\section{Smart\+Texture Struct Reference}
+\label{struct_smart_texture}\index{Smart\+Texture@{Smart\+Texture}}
+
+
+Defines both a sf\+::\+Texture and a sf\+::\+Sprite. Keeping them in the same location for convience and safety.  
+
+
+
+
+{\ttfamily \#include $<$Smart\+Texture.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_smart_texture_a1709abdbcbba9136de0acce7a243a88e}{Smart\+Texture} (string Path)
+\begin{DoxyCompactList}\small\item\em Constructs a Smart Texture from a path, relative to the executable. \end{DoxyCompactList}\item 
+\hyperlink{struct_smart_texture_a46ac388243d615cbd00feac8fcb0f7fc}{Smart\+Texture} (Texture Tex)
+\begin{DoxyCompactList}\small\item\em Constructs a Smart Texture from a copy of a sf\+::\+Texture. \end{DoxyCompactList}\item 
+void \hyperlink{struct_smart_texture_ae8e39d3a1b4b325c1da2d300ba623e17}{Draw} (Render\+Window $\ast$Window)
+\begin{DoxyCompactList}\small\item\em Renders the sf\+::\+Sprite to a window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_smart_texture_abd3e8f969fccfab6c0bec0a3968c0f1a}\label{struct_smart_texture_abd3e8f969fccfab6c0bec0a3968c0f1a}} 
+shared\+\_\+ptr$<$ Texture $>$ {\bfseries Tex}
+\item 
+\mbox{\Hypertarget{struct_smart_texture_ac5a0faec8f404b30eea9edd1ee4690f6}\label{struct_smart_texture_ac5a0faec8f404b30eea9edd1ee4690f6}} 
+Sprite {\bfseries Smart\+Sprite}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Defines both a sf\+::\+Texture and a sf\+::\+Sprite. Keeping them in the same location for convience and safety. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_smart_texture_a1709abdbcbba9136de0acce7a243a88e}\label{struct_smart_texture_a1709abdbcbba9136de0acce7a243a88e}} 
+\index{Smart\+Texture@{Smart\+Texture}!Smart\+Texture@{Smart\+Texture}}
+\index{Smart\+Texture@{Smart\+Texture}!Smart\+Texture@{Smart\+Texture}}
+\subsubsection{\texorpdfstring{Smart\+Texture()}{SmartTexture()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Smart\+Texture\+::\+Smart\+Texture (\begin{DoxyParamCaption}\item[{string}]{Path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a Smart Texture from a path, relative to the executable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Path} & The relative path to the texture file on disk.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{struct_smart_texture_a46ac388243d615cbd00feac8fcb0f7fc}\label{struct_smart_texture_a46ac388243d615cbd00feac8fcb0f7fc}} 
+\index{Smart\+Texture@{Smart\+Texture}!Smart\+Texture@{Smart\+Texture}}
+\index{Smart\+Texture@{Smart\+Texture}!Smart\+Texture@{Smart\+Texture}}
+\subsubsection{\texorpdfstring{Smart\+Texture()}{SmartTexture()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Smart\+Texture\+::\+Smart\+Texture (\begin{DoxyParamCaption}\item[{Texture}]{Tex }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a Smart Texture from a copy of a sf\+::\+Texture. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Tex} & The sf\+::\+Texture to make a \hyperlink{struct_smart_texture}{Smart\+Texture} from.\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_smart_texture_ae8e39d3a1b4b325c1da2d300ba623e17}\label{struct_smart_texture_ae8e39d3a1b4b325c1da2d300ba623e17}} 
+\index{Smart\+Texture@{Smart\+Texture}!Draw@{Draw}}
+\index{Draw@{Draw}!Smart\+Texture@{Smart\+Texture}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Smart\+Texture\+::\+Draw (\begin{DoxyParamCaption}\item[{Render\+Window $\ast$}]{Window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Renders the sf\+::\+Sprite to a window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Window} & A pointer to the sf\+::\+Render\+Window which the sf\+::\+Sprite will be drawn to.\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Wave\+Game/Smart\+Texture.\+h\end{DoxyCompactItemize}

@@ -4,9 +4,10 @@ Map::Map()
 {
 }
 
-Map::Map(Vector2f Dimensions)
+Map::Map(Vector2f Dimensions, string BackgroundID)
 {
 	this->MapDimensions = Dimensions;
+	this->Background = TextureCache::GetTexure(BackgroundID);
 }
 
 

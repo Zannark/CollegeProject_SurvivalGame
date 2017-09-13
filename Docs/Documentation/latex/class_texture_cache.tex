@@ -1,0 +1,46 @@
+\hypertarget{class_texture_cache}{}\section{Texture\+Cache Class Reference}
+\label{class_texture_cache}\index{Texture\+Cache@{Texture\+Cache}}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_texture_cache_a60e9f696d701a6f62418ae8fc6c4b2c0}{Init} ()
+\begin{DoxyCompactList}\small\item\em Loads in all the textures for the in game objects at load time. \end{DoxyCompactList}\item 
+static \hyperlink{struct_smart_texture}{Smart\+Texture} \hyperlink{class_texture_cache_a2f8d74bc575243c5bf064aa7d7e35b8d}{Get\+Texure} (string ID)
+\begin{DoxyCompactList}\small\item\em Gets a texture from the map Texture\+Cache\+::\+Textures by use of the ID. If the Texture does not exsist then a std\+::runtime\+\_\+error is thrown. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_texture_cache_a2f8d74bc575243c5bf064aa7d7e35b8d}\label{class_texture_cache_a2f8d74bc575243c5bf064aa7d7e35b8d}} 
+\index{Texture\+Cache@{Texture\+Cache}!Get\+Texure@{Get\+Texure}}
+\index{Get\+Texure@{Get\+Texure}!Texture\+Cache@{Texture\+Cache}}
+\subsubsection{\texorpdfstring{Get\+Texure()}{GetTexure()}}
+{\footnotesize\ttfamily \hyperlink{struct_smart_texture}{Smart\+Texture} Texture\+Cache\+::\+Get\+Texure (\begin{DoxyParamCaption}\item[{string}]{ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Gets a texture from the map Texture\+Cache\+::\+Textures by use of the ID. If the Texture does not exsist then a std\+::runtime\+\_\+error is thrown. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ID} & The ID of the texture which is to be accessed.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the texture.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_texture_cache_a60e9f696d701a6f62418ae8fc6c4b2c0}\label{class_texture_cache_a60e9f696d701a6f62418ae8fc6c4b2c0}} 
+\index{Texture\+Cache@{Texture\+Cache}!Init@{Init}}
+\index{Init@{Init}!Texture\+Cache@{Texture\+Cache}}
+\subsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void Texture\+Cache\+::\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Loads in all the textures for the in game objects at load time. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Wave\+Game/Texture\+Cache.\+h\item 
+Wave\+Game/Texture\+Cache.\+cpp\end{DoxyCompactItemize}

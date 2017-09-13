@@ -4,11 +4,12 @@
 #include <stdexcept>
 #include <iostream>
 #include <fstream>
+#include <rapidxml.hpp>
 #include "SmartTexture.h"
 #include "Prop.h"
 #include "Common.h"
 #include "Map.h"
-#include "rapidxml.hpp"
+
 
 using namespace rapidxml;
 using namespace std;
@@ -27,5 +28,7 @@ public:
 private:
 	xml_document<> MapDocument;
 	vector<char> MapContents;
+
+	void CheckAttribute(string AttributeName, xml_attribute<char>* Attribute);
 };
 

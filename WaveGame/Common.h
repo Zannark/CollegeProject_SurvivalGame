@@ -5,10 +5,11 @@
 #include <iostream>
 #include <algorithm>
 #include <string>
+#include <SFML\Graphics.hpp>
 
 namespace FS = std::experimental::filesystem;
 
-extern void WaitForAnyKeyAndExit(int ReturnCode = -1);
-extern bool StringToBool(std::string Bool);
+extern void WaitForAnyKeyAndExit(int ReturnCode = EXIT_FAILURE);
+extern bool StringToBool(std::string Str);
 extern std::string ToUpper(std::string Str);
 extern std::string ToLower(std::string Str);

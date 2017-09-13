@@ -1,5 +1,6 @@
 #include <iostream>
 #include <SFML\Graphics.hpp>
+#include "TextureCache.h"
 #include "Common.h"
 #include "GameTime.h"
 #include "MapLoader.h"
@@ -9,12 +10,11 @@ using namespace sf;
 
 int main(void)
 {
+	TextureCache::Init();
 	GameTime::Init();	
 	MapLoader Load("Test.xml");
 	Load.Load();
-
-	StringToBool("true");
-
+	
 	RenderWindow *Window = new RenderWindow(VideoMode(800, 600, 32), "Test Window");
 	while (Window->isOpen())
 	{
@@ -26,9 +26,7 @@ int main(void)
 		}
 
 		Window->clear();
-
-
-
+		
 		Window->display();
 		GameTime::Update();
 	}

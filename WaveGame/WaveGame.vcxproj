@@ -89,7 +89,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)/Deps/SFML/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/Deps/rapidxml/;$(SolutionDir)/Deps/SFML/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
@@ -105,7 +105,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)/Deps/SFML/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/Deps/rapidxml/;$(SolutionDir)/Deps/SFML/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
@@ -167,10 +167,6 @@
     <ClInclude Include="Map.h" />
     <ClInclude Include="MapLoader.h" />
     <ClInclude Include="Prop.h" />
-    <ClInclude Include="rapidxml.hpp" />
-    <ClInclude Include="rapidxml_iterators.hpp" />
-    <ClInclude Include="rapidxml_print.hpp" />
-    <ClInclude Include="rapidxml_utils.hpp" />
     <ClInclude Include="SmartTexture.h" />
     <ClInclude Include="TextureCache.h" />
   </ItemGroup>

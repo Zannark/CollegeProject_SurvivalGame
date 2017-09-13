@@ -50,6 +50,11 @@ struct SmartTexture
 		Window->draw(this->SmartSprite);
 	}
 
+	void SetPosition(Vector2f Position)
+	{
+		this->SmartSprite.setPosition(Position);
+	}
+
 	shared_ptr<Texture> Tex;
 	Sprite SmartSprite;
 };

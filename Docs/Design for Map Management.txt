@@ -6,9 +6,9 @@ What information does a Prop need to know in order to create stuff?
 3) Is it collidable? This can be true or false. In an attribute.
 4) Any special properties (E.g. spawn point)? Should these really be handled by a single class? These need such spefic programming that it would be more complex to keep a single class.
 
-How should the xML look?
+How should the XML look?
 
-<Map name = "Map Layout" width = "1000" height = "650">
+<Map name = "Map Layout" width = "1000" height = "650" background="DefaultBack">
     <Prop collides="true" x = "10" y = "10">TestHouseRuins</Prop>
     <Prop collides="true" x = "10" y = "10">TestHouseRuins</Prop>
     <Prop collides="true" x = "10" y = "10" type = "static" delay = "0.5">TestFountainRuins</Prop>

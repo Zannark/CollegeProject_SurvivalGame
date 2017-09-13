@@ -1,0 +1,3 @@
+Rapid XML - http://rapidxml.sourceforge.net/
+Doctest - https://github.com/onqtam/doctest
+SFML - https://www.sfml-dev.org/
