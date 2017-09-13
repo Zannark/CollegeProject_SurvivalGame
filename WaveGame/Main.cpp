@@ -13,7 +13,7 @@ int main(void)
 	TextureCache::Init();
 	GameTime::Init();	
 	MapLoader Load("Test.xml");
-	Load.Load();
+	Map M = Load.Load();
 	
 	RenderWindow *Window = new RenderWindow(VideoMode(800, 600, 32), "Test Window");
 	while (Window->isOpen())
@@ -26,7 +26,7 @@ int main(void)
 		}
 
 		Window->clear();
-		
+		M.Draw(Window);
 		Window->display();
 		GameTime::Update();
 	}

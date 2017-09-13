@@ -17,5 +17,13 @@ Map::~Map()
 
 void Map::AddProp(shared_ptr<Prop> Prop)
 {
+	this->MapProps.push_back(Prop);
+}
 
+void Map::Draw(RenderWindow * Window)
+{
+	this->Background.Draw(Window);
+
+	for (shared_ptr<Prop> P : this->MapProps)
+		P->Draw(Window);
 }

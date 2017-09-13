@@ -9,7 +9,8 @@ void TextureCache::Init()
 {
 	const string AssetPath = "Assets/";
 
-	Textures["Test"] = SmartTexture(AssetPath + "Test.png");
+	Textures["Test"] = SmartTexture(AssetPath + "TestSquare.png");
+	Textures["DefaultBackground"] = SmartTexture(AssetPath + "Test.png");
 }
 
 /// <summary>

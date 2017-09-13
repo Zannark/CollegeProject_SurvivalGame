@@ -18,7 +18,7 @@ public:
 	~Map();
 
 	void AddProp(shared_ptr<Prop> Prop);
-
+	void Draw(RenderWindow *Window);
 private:
 	vector<shared_ptr<Prop>> MapProps;
 	Vector2f MapDimensions;

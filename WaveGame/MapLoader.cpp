@@ -44,10 +44,17 @@ Map MapLoader::Load()
 		cerr << "Failed to find the root node in the map." << endl;
 		WaitForAnyKeyAndExit();
 	}
+	
+	///Get map information
+	///Width
+	float Width = stof(string(this->GetAttribute("width", RootNode)));	
+	
+	///Height
+	float Height = stof(this->GetAttribute("height", RootNode));
 
-	float Width = stof(string(RootNode->first_attribute("width")->value()));
-	float Height = stof(string(RootNode->first_attribute("height")->value()));
-	LoadedMap = Map(Vector2f(Width, Height));
+	///Background
+	string BackgroundID = this->GetAttribute("background", RootNode);
+	LoadedMap = Map(Vector2f(Width, Height), BackgroundID);
 	
 	///Load in all of the props into the map.
 	for (xml_node<char>* PropNode = RootNode->first_node("Prop"); PropNode; PropNode = PropNode->next_sibling("Prop"))
@@ -55,36 +62,24 @@ Map MapLoader::Load()
 		shared_ptr<Prop> P = make_shared<Prop>(PropNode->value());
 
 		///Get the collision information
-		xml_attribute<char>* Attribute = PropNode->first_attribute("collides");
-		this->CheckAttribute("collides", Attribute);
-		P->SetCollision(StringToBool(Attribute->value()));
+		P->SetCollision(StringToBool(this->GetAttribute("collides", PropNode)));
 		
 		///Get the location of prop in the world.
 		///X
 		Vector2f Position(0, 0);
-		Attribute = PropNode->first_attribute("x");
-		this->CheckAttribute("x", Attribute);
-		Position.x = stof(Attribute->value());
+		Position.x = stof(this->GetAttribute("x", PropNode));
 		
 		///Y
-		Attribute = PropNode->first_attribute("y");
-		this->CheckAttribute("y", Attribute);
-		Position.y = stof(Attribute->value());
+		Position.y = stof(this->GetAttribute("y", PropNode));
 		P->SetPosition(Position);
 
 		///Get if the prop is animated or not.
-		Attribute = PropNode->first_attribute("type");
-		this->CheckAttribute("type", Attribute);
-		bool IsStatic = ((Attribute->value() == "static") ? true : false);
+		bool IsStatic = ((ToUpper(this->GetAttribute("type", PropNode)) == "STATIC") ? true : false);
 		P->SetStatic(IsStatic);
 
 		///If animated 
 		if (!IsStatic)
-		{
-			Attribute = PropNode->first_attribute("delay");
-			this->CheckAttribute("delay", Attribute);
-			Position.y = stof(Attribute->value());
-		}
+			 P->SetAnimationDelay(stof(this->GetAttribute("delay", PropNode)));
 		
 		LoadedMap.AddProp(P);
 	}
@@ -99,4 +94,11 @@ void MapLoader::CheckAttribute(string AttributeName, xml_attribute<char>* Attrib
 		cerr << "No prop information about" << AttributeName << "." << endl;
 		WaitForAnyKeyAndExit();
 	}
+}
+
+string MapLoader::GetAttribute(string AttributeName, xml_node<char>* Node)
+{
+	xml_attribute<char>* Attribute = Node->first_attribute((char*)AttributeName.c_str());
+	this->CheckAttribute(AttributeName, Attribute);
+	return string(Attribute->value());
 }

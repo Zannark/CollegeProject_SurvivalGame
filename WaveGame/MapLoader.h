@@ -30,5 +30,6 @@ private:
 	vector<char> MapContents;
 
 	void CheckAttribute(string AttributeName, xml_attribute<char>* Attribute);
+	string GetAttribute(string AttributeName, xml_node<char>* Node);
 };
 

@@ -7,6 +7,12 @@
 #include <string>
 #include <SFML\Graphics.hpp>
 
+#ifdef _DEBUG
+#define DOCTEST_CONFIG_IMPLEMENT
+#else
+#define DOCTEST_CONFIG_DISABLE
+#endif /// _DEBUG
+
 namespace FS = std::experimental::filesystem;
 
 extern void WaitForAnyKeyAndExit(int ReturnCode = EXIT_FAILURE);
