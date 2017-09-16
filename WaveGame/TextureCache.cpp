@@ -11,6 +11,7 @@ void TextureCache::Init()
 
 	Textures["Test"] = SmartTexture(AssetPath + "TestSquare.png");
 	Textures["DefaultBackground"] = SmartTexture(AssetPath + "Test.png");
+	Textures["DefaultPlayer"] = SmartTexture(AssetPath + "Tarn.png");
 }
 
 /// <summary>

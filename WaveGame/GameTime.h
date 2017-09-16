@@ -11,12 +11,12 @@ class GameTime
 {
 public:
 	static void Init();
-	static int DeltaTime();
+	static float DeltaTime();
 	static void Update();
 
 private:
-	static int CurrentDelta;
-	static int PreviousDelta;
+	static float CurrentDelta;
+	static float PreviousDelta;
 	static Clock DeltaTimer;
 };
 

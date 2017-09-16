@@ -55,6 +55,11 @@ struct SmartTexture
 		this->SmartSprite.setPosition(Position);
 	}
 
+	void Move(Vector2f Offset)
+	{
+		this->SmartSprite.move(Offset);
+	}
+
 	shared_ptr<Texture> Tex;
 	Sprite SmartSprite;
 };

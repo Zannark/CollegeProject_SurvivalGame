@@ -1,8 +1,8 @@
 #include "GameTime.h"
 
 Clock GameTime::DeltaTimer = Clock();
-int GameTime::CurrentDelta = 0.0f;
-int GameTime::PreviousDelta = 0.0f;
+float GameTime::CurrentDelta = 0.0f;
+float GameTime::PreviousDelta = 0.0f;
 
 /// <summary>
 /// Initalises the game timer.
@@ -17,10 +17,10 @@ void GameTime::Init()
 /// <summary>
 /// Gets the time that the previous frame took to complete.
 /// </summary>
-/// <retuns>The deltatime (in ms).</returns>
-int GameTime::DeltaTime()
+/// <returns>The deltatime (in ms).</returns>
+float GameTime::DeltaTime()
 {
-	if (PreviousDelta <= 1)
+	if (PreviousDelta >= 1)
 		return 1;
 	return PreviousDelta;
 }
@@ -32,6 +32,6 @@ void GameTime::Update()
 {
 	Time Dt = DeltaTimer.getElapsedTime();
 	PreviousDelta = CurrentDelta;
-	CurrentDelta = Dt.asMilliseconds();
+	CurrentDelta = Dt.asSeconds();
 	DeltaTimer.restart();
 }
