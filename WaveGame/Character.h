@@ -11,7 +11,7 @@ using namespace sf;
 class Character
 {
 public:
-	Character(string PlayerTexture = "DefaultPlayer", float PlayerSpeed = 5.0f);
+	Character(RenderWindow *Window, string PlayerTexture = "DefaultPlayer", float PlayerSpeed = 150.0f);
 	~Character();
 
 	void Update(RenderWindow *Window, float dt);
@@ -20,7 +20,10 @@ public:
 private:
 	SmartTexture PlayerTexture;
 	float PlayerSpeed;
-	
+	View Camera;
+	Vector2f Offset;
+
 	void HandleMovement(RenderWindow* Window, float dt);
+	void HandleCamera(RenderWindow* Window, float dt);
 };
 

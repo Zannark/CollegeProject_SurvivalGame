@@ -15,9 +15,10 @@ int main(void)
 	GameTime::Init();	
 	MapLoader Load("Test.xml");
 	Map M = Load.Load();
-	Character Char = Character();
 		
 	RenderWindow *Window = new RenderWindow(VideoMode(800, 600, 32), "Test Window");
+	Character Char = Character(Window);
+
 	while (Window->isOpen())
 	{
 		Event E;
