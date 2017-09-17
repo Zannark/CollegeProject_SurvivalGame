@@ -65,6 +65,11 @@ struct SmartTexture
 		return this->SmartSprite.getPosition();
 	}
 
+	Vector2u GetDimensions()
+	{
+		return this->Tex->getSize();
+	}
+
 	shared_ptr<Texture> Tex;
 	Sprite SmartSprite;
 };

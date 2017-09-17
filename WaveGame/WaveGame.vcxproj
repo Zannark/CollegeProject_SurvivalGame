@@ -161,6 +161,7 @@
     <ClCompile Include="MapLoader.cpp" />
     <ClCompile Include="Prop.cpp" />
     <ClCompile Include="TextureCache.cpp" />
+    <ClCompile Include="VectorMaths.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character.h" />
@@ -171,6 +172,7 @@
     <ClInclude Include="Prop.h" />
     <ClInclude Include="SmartTexture.h" />
     <ClInclude Include="TextureCache.h" />
+    <ClInclude Include="VectorMaths.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
