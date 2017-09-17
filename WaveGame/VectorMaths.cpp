@@ -40,22 +40,3 @@ float Dot(Vector2f Vec1, Vector2f Vec2)
 {
 	return ((Vec1.x * Vec2.x) + (Vec1.y * Vec2.y));
 }
-
-/// <summary>
-/// Finds all the points (corners) on a texture.
-/// </summary>
-/// <param name = "Texture">The texture to find the points on.</param>
-/// <returns>The points.</returns>
-vector<Vector2f> GetPoints(SmartTexture& Texture)
-{
-	Vector2u Dimensions = Texture.GetDimensions();
-	Vector2f Position = Texture.GetPosition();
-	vector<Vector2f> Points = vector<Vector2f>(4);
-
-	Points[0] = Position;
-	Points[1] = Vector2f(Position.x + Dimensions.x, Position.y);
-	Points[2] = Vector2f(Position.x, Position.y + Dimensions.y);
-	Points[3] = Vector2f(Position.x + Dimensions.x, Position.y + Dimensions.y);
-
-	return Points;
-}
