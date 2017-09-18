@@ -3,7 +3,11 @@
 Character::Character(RenderWindow *Window, string PlayerTexture, float PlayerSpeed)
 {
 	this->PlayerTexture = TextureCache::GetTexure(PlayerTexture);
+
 	this->PlayerSpeed = PlayerSpeed;
+	this->HalfWidth = (this->PlayerTexture.GetDimensions().x / 2);
+	this->HalfHeight = (this->PlayerTexture.GetDimensions().y / 2);
+
 	this->Camera = View(this->PlayerTexture.GetPosition(), Vector2f(Window->getSize().x, Window->getSize().y));
 	Window->setView(this->Camera);
 }
@@ -26,7 +30,7 @@ void Character::Draw(RenderWindow* Window)
 void Character::HandleMovement(RenderWindow* Window, float dt)
 {
 	this->Offset = Vector2f();
-	
+
 	if (Keyboard::isKeyPressed(Keyboard::Key::W))
 		Offset.y -= this->PlayerSpeed;
 

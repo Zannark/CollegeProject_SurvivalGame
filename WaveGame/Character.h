@@ -5,6 +5,7 @@
 #include "Common.h"
 #include "SmartTexture.h"
 #include "TextureCache.h"
+#include "VectorMaths.h"
 
 using namespace sf;
 
@@ -19,9 +20,12 @@ public:
 
 private:
 	SmartTexture PlayerTexture;
-	float PlayerSpeed;
 	View Camera;
 	Vector2f Offset;
+
+	float PlayerSpeed;
+	float HalfWidth;
+	float HalfHeight;
 
 	void HandleMovement(RenderWindow* Window, float dt);
 	void HandleCamera(RenderWindow* Window, float dt);

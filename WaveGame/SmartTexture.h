@@ -50,6 +50,10 @@ struct SmartTexture
 		Window->draw(this->SmartSprite);
 	}
 
+	/// <summary>
+	/// Sets the position of the sprite in the window.
+	/// </summary>
+	/// <param name = "Position">The position of the sprite.</param>
 	void SetPosition(Vector2f Position)
 	{
 		this->SmartSprite.setPosition(Position);

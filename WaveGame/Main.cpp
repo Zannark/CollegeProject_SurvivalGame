@@ -27,8 +27,7 @@ int main(void)
 			if (E.type == Event::Closed)
 				Window->close();
 		}
-
-		//cout << GameTime::DeltaTime() << endl;
+				
 		Char.Update(Window, GameTime::DeltaTime());
 
 		Window->clear();
