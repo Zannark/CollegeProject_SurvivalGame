@@ -6,7 +6,7 @@
 #include <algorithm>
 #include <string>
 #include <SFML\Graphics.hpp>
-#include <doctest\doctest.h>
+#include "Unittest.h"
 
 #define PI 3.142
 
