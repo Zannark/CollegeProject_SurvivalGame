@@ -1,0 +1,3 @@
+<Map width = "1000" height = "1000" background="DefaultBackground">
+	<Prop type = "Static" x = "10" y = "10" collides = "true">Test</Prop>
+</Map>

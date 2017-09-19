@@ -6,12 +6,7 @@
 #include <algorithm>
 #include <string>
 #include <SFML\Graphics.hpp>
-
-#ifdef _DEBUG
-#define DOCTEST_CONFIG_IMPLEMENT
-#else
-#define DOCTEST_CONFIG_DISABLE
-#endif /// _DEBUG
+#include <doctest\doctest.h>
 
 #define PI 3.142
 
@@ -21,3 +16,5 @@ extern void WaitForAnyKeyAndExit(int ReturnCode = EXIT_FAILURE);
 extern bool StringToBool(std::string Str);
 extern std::string ToUpper(std::string Str);
 extern std::string ToLower(std::string Str);
+extern double ToRadians(double Degrees);
+extern double ToDegrees(double Radians);

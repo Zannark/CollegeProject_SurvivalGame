@@ -34,6 +34,18 @@ bool StringToBool(string Str)
 
 	return false;
 }
+TEST_CASE("String to bool")
+{
+	CHECK_FALSE(StringToBool("Fail"));
+	CHECK(StringToBool("True"));
+	CHECK_FALSE(StringToBool("False"));
+	CHECK_FALSE(StringToBool("0"));
+	CHECK(StringToBool("1"));
+	CHECK(StringToBool("TRuE"));
+	CHECK(StringToBool("true"));
+	CHECK_FALSE(StringToBool("FAlSe"));
+	CHECK_FALSE(StringToBool("false"));
+}
 
 /// <Summary>
 /// Turns every letter in a string to a upper case letter.
@@ -48,6 +60,12 @@ std::string ToUpper(std::string Str)
 
 	return Return;
 }
+TEST_CASE("String to upper case")
+{
+	CHECK_FALSE(ToUpper("hello world") == "hello world");
+	CHECK(ToUpper("hello world") == "HELLO WORLD");
+	CHECK(ToUpper("HELLO WORLD") == "HELLO WORLD");
+}
 
 /// <Summary>
 /// Turns every letter in a string to a lower case letter.
@@ -61,4 +79,20 @@ std::string ToLower(std::string Str)
 		Return += (char)tolower(C);
 
 	return Return;
+}
+TEST_CASE("String to lowercase case")
+{
+	CHECK_FALSE(ToLower("HELLO WORLD") == "HELLO WORLD");
+	CHECK(ToLower("hello world") == "hello world");
+	CHECK(ToLower("HELLO WORLD") == "hello world");
+}
+
+double ToRadians(double Degrees)
+{
+	return Degrees * PI / 180;
+}
+
+double ToDegrees(double Radians)
+{
+	return Radians * 180 / PI;
 }

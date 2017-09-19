@@ -5,9 +5,12 @@
 #include "GameTime.h"
 #include "MapLoader.h"
 #include "Character.h"
+#include "Unittest.h"
 
 using namespace std;
 using namespace sf;
+
+#ifndef UNITTEST
 
 int main(void)
 {
@@ -40,3 +43,26 @@ int main(void)
 	delete Window;
 	return 0;
 }
+
+#else
+
+#include <iostream>
+
+using namespace std;
+
+int main(int argc, char** argv)
+{
+	doctest::Context Context;
+
+	Context.setOption("abort-after", 10);
+	Context.setOption("order-by", "name");
+	Context.setOption("no-breaks", true);
+	Context.applyCommandLine(argc, argv);
+	
+	Context.run();
+
+	cin.get();
+	return 0;
+}
+
+#endif // !UNITTEST
