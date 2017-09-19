@@ -17,17 +17,32 @@ Character::~Character()
 {
 }
 
+/// <summary>
+/// Updates the players game logic. This includes health, movement, etc...
+/// </summary>
+/// <param name = "Window">A pointer to the render target. Needed for some logic.</param>
+/// <param name = "dt">Delta Time</param>
 void Character::Update(RenderWindow* Window, float dt)
 {	
 	this->HandleMovement(Window, dt);
+	this->HandleRotation(Window);
 	this->HandleCamera(Window, dt);
 }
 
+/// <summary>
+/// Renders the character to the screen.
+/// </summary>
+/// <param name = "Window>The render target.</param>
 void Character::Draw(RenderWindow* Window)
 {
 	this->PlayerTexture.Draw(Window);
 }
 
+/// <summary>
+/// Handles all the logic for moving the player between two points.
+/// </summary>
+/// <param name = "Window">A pointer to the render target. Needed for some logic.</param>
+/// <param name = "dt">Delta Time</param>
 void Character::HandleMovement(RenderWindow* Window, float dt)
 {
 	this->Offset = Vector2f();
@@ -46,17 +61,30 @@ void Character::HandleMovement(RenderWindow* Window, float dt)
 
 	Offset *= dt;
 	this->PlayerTexture.Move(Offset);
-
-	Vector2i MousePosition = Mouse::getPosition(*Window);
-	float Angle = atan2(MousePosition.y - this->PlayerTexture.GetPosition().y, MousePosition.x - this->PlayerTexture.GetPosition().x);
-	Angle *= (180 / 3.142);
-
-	if (Angle < 360)
-		Angle = 360 - (-Angle);
-
-	this->PlayerTexture.SmartSprite.setRotation(Angle);
 }
 
+/// <summary>
+/// Handles the logic for rotating the player.
+/// </summary>
+/// <param name = "Window">A pointer to the render target. Needed for some logic.</param>
+void Character::HandleRotation(sf::RenderWindow * Window)
+{
+	Vector2i MousePosition = Mouse::getPosition(*Window);
+
+	this->Angle = atan2(Window->getPosition().y - MousePosition.y, Window->getPosition().x - MousePosition.x);
+	this->Angle *= (180 / PI);
+
+	if (this->Angle < 360)
+		this->Angle += 360;
+
+	this->PlayerTexture.SmartSprite.setRotation(this->Angle + 90);
+}
+
+/// <summary>
+/// Moves the camera.
+/// </summary>
+/// <param name = "Window">A pointer to the render target.</param>
+/// <param name = "dt">Delta Time</param>
 void Character::HandleCamera(RenderWindow* Window, float dt)
 {
 	this->Camera.move(this->Offset);

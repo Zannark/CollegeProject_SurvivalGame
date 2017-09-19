@@ -27,8 +27,10 @@ private:
 	float PlayerSpeed;
 	float HalfWidth;
 	float HalfHeight;
+	float Angle;
 
 	void HandleMovement(RenderWindow* Window, float dt);
+	void HandleRotation(RenderWindow * Window);
 	void HandleCamera(RenderWindow* Window, float dt);
 };
 

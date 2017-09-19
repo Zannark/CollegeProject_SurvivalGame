@@ -13,6 +13,8 @@
 #define DOCTEST_CONFIG_DISABLE
 #endif /// _DEBUG
 
+#define PI 3.142
+
 namespace FS = std::experimental::filesystem;
 
 extern void WaitForAnyKeyAndExit(int ReturnCode = EXIT_FAILURE);
