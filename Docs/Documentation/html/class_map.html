@@ -65,16 +65,109 @@ $(function() {
 <div class="title">Map Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Defines the world which the player can move around in and interact with.  
+ <a href="class_map.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_map_8h_source.html">Map.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aacaf79e1f034d2dfae1af8cfd162a00b"><td class="memItemLeft" align="right" valign="top"><a id="aacaf79e1f034d2dfae1af8cfd162a00b"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Map</b> (Vector2f Dimensions)</td></tr>
-<tr class="separator:aacaf79e1f034d2dfae1af8cfd162a00b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc6fdc8687757b818ba754eab7ddd4cb"><td class="memItemLeft" align="right" valign="top"><a id="afc6fdc8687757b818ba754eab7ddd4cb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>AddProp</b> (shared_ptr&lt; <a class="el" href="class_prop.html">Prop</a> &gt; <a class="el" href="class_prop.html">Prop</a>)</td></tr>
+<tr class="memitem:a446aef181066f72ac57cede14bf074c3"><td class="memItemLeft" align="right" valign="top"><a id="a446aef181066f72ac57cede14bf074c3"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Map</b> (Vector2f Dimensions, string BackgroundID)</td></tr>
+<tr class="separator:a446aef181066f72ac57cede14bf074c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc6fdc8687757b818ba754eab7ddd4cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map.html#afc6fdc8687757b818ba754eab7ddd4cb">AddProp</a> (shared_ptr&lt; <a class="el" href="class_prop.html">Prop</a> &gt; <a class="el" href="class_prop.html">Prop</a>)</td></tr>
+<tr class="memdesc:afc6fdc8687757b818ba754eab7ddd4cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a prop to the world.  <a href="#afc6fdc8687757b818ba754eab7ddd4cb">More...</a><br /></td></tr>
 <tr class="separator:afc6fdc8687757b818ba754eab7ddd4cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae77582db3c3888918280828f6cc13952"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map.html#ae77582db3c3888918280828f6cc13952">Draw</a> (RenderWindow *Window)</td></tr>
+<tr class="memdesc:ae77582db3c3888918280828f6cc13952"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders all the props, and the background, to the screen.  <a href="#ae77582db3c3888918280828f6cc13952">More...</a><br /></td></tr>
+<tr class="separator:ae77582db3c3888918280828f6cc13952"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5699a7168473d092a590ee99dff38b3d"><td class="memItemLeft" align="right" valign="top">vector&lt; shared_ptr&lt; <a class="el" href="class_prop.html">Prop</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map.html#a5699a7168473d092a590ee99dff38b3d">GetPropsWithTag</a> (string Tag)</td></tr>
+<tr class="memdesc:a5699a7168473d092a590ee99dff38b3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns all the props in the world that has a certain tag.  <a href="#a5699a7168473d092a590ee99dff38b3d">More...</a><br /></td></tr>
+<tr class="separator:a5699a7168473d092a590ee99dff38b3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Defines the world which the player can move around in and interact with. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="afc6fdc8687757b818ba754eab7ddd4cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc6fdc8687757b818ba754eab7ddd4cb">&#9670;&nbsp;</a></span>AddProp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Map::AddProp </td>
+          <td>(</td>
+          <td class="paramtype">shared_ptr&lt; <a class="el" href="class_prop.html">Prop</a> &gt;&#160;</td>
+          <td class="paramname"><em>Prop</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a prop to the world. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="class_prop.html" title="Props are object in the maps environment. ">Prop</a></td><td>The prop to add.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae77582db3c3888918280828f6cc13952"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae77582db3c3888918280828f6cc13952">&#9670;&nbsp;</a></span>Draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Map::Draw </td>
+          <td>(</td>
+          <td class="paramtype">RenderWindow *&#160;</td>
+          <td class="paramname"><em>Window</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Renders all the props, and the background, to the screen. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Window</td><td>The rende target.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5699a7168473d092a590ee99dff38b3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5699a7168473d092a590ee99dff38b3d">&#9670;&nbsp;</a></span>GetPropsWithTag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; shared_ptr&lt; <a class="el" href="class_prop.html">Prop</a> &gt; &gt; Map::GetPropsWithTag </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>Tag</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns all the props in the world that has a certain tag. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Tag</td><td>The tag to find props with.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The props with that tag.</dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>WaveGame/<a class="el" href="_map_8h_source.html">Map.h</a></li>
 <li>WaveGame/Map.cpp</li>
@@ -82,7 +175,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>AddProp</b> (shared_p
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 11 2017 15:21:02 for CollegeProject_SurvivalGame by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Sep 20 2017 23:09:37 for CollegeProject_SurvivalGame by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

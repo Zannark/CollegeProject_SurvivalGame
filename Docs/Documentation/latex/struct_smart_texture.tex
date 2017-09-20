@@ -17,7 +17,17 @@ Defines both a sf\+::\+Texture and a sf\+::\+Sprite. Keeping them in the same lo
 \hyperlink{struct_smart_texture_a46ac388243d615cbd00feac8fcb0f7fc}{Smart\+Texture} (Texture Tex)
 \begin{DoxyCompactList}\small\item\em Constructs a Smart Texture from a copy of a sf\+::\+Texture. \end{DoxyCompactList}\item 
 void \hyperlink{struct_smart_texture_ae8e39d3a1b4b325c1da2d300ba623e17}{Draw} (Render\+Window $\ast$Window)
-\begin{DoxyCompactList}\small\item\em Renders the sf\+::\+Sprite to a window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Renders the sf\+::\+Sprite to a window. \end{DoxyCompactList}\item 
+void \hyperlink{struct_smart_texture_a2e8af63d05559a8e7d2c7b6b3c6f207e}{Set\+Position} (Vector2f Position)
+\begin{DoxyCompactList}\small\item\em Sets the position of the sprite in the window. \end{DoxyCompactList}\item 
+void \hyperlink{struct_smart_texture_a26caafb4d4e040df68143747758569c0}{Move} (Vector2f Offset)
+\begin{DoxyCompactList}\small\item\em Moves the the sprite. \end{DoxyCompactList}\item 
+Vector2f \hyperlink{struct_smart_texture_aec1d814d4f3dbbc6d5bf39e569b5fa30}{Get\+Position} ()
+\begin{DoxyCompactList}\small\item\em Gets the position of the sprite. \end{DoxyCompactList}\item 
+Vector2u \hyperlink{struct_smart_texture_a18d5089ac0e730deb87bda09377f5402}{Get\+Dimensions} ()
+\begin{DoxyCompactList}\small\item\em Gets the dimensions of the sprites texture. \end{DoxyCompactList}\item 
+vector$<$ Vector2f $>$ \hyperlink{struct_smart_texture_a38430739f5dce9ba11b9d91395ba4e30}{Get\+Points} ()
+\begin{DoxyCompactList}\small\item\em Finds all the points (corners) on a texture. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -81,6 +91,80 @@ Renders the sf\+::\+Sprite to a window.
 
 \begin{DoxyParams}{Parameters}
 {\em Window} & A pointer to the sf\+::\+Render\+Window which the sf\+::\+Sprite will be drawn to.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{struct_smart_texture_a18d5089ac0e730deb87bda09377f5402}\label{struct_smart_texture_a18d5089ac0e730deb87bda09377f5402}} 
+\index{Smart\+Texture@{Smart\+Texture}!Get\+Dimensions@{Get\+Dimensions}}
+\index{Get\+Dimensions@{Get\+Dimensions}!Smart\+Texture@{Smart\+Texture}}
+\subsubsection{\texorpdfstring{Get\+Dimensions()}{GetDimensions()}}
+{\footnotesize\ttfamily Vector2u Smart\+Texture\+::\+Get\+Dimensions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the dimensions of the sprites texture. 
+
+\begin{DoxyReturn}{Returns}
+the dimensions of the sprites texture.
+\end{DoxyReturn}
+\mbox{\Hypertarget{struct_smart_texture_a38430739f5dce9ba11b9d91395ba4e30}\label{struct_smart_texture_a38430739f5dce9ba11b9d91395ba4e30}} 
+\index{Smart\+Texture@{Smart\+Texture}!Get\+Points@{Get\+Points}}
+\index{Get\+Points@{Get\+Points}!Smart\+Texture@{Smart\+Texture}}
+\subsubsection{\texorpdfstring{Get\+Points()}{GetPoints()}}
+{\footnotesize\ttfamily vector$<$Vector2f$>$ Smart\+Texture\+::\+Get\+Points (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Finds all the points (corners) on a texture. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Texture} & The texture to find the points on.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The points.
+\end{DoxyReturn}
+\mbox{\Hypertarget{struct_smart_texture_aec1d814d4f3dbbc6d5bf39e569b5fa30}\label{struct_smart_texture_aec1d814d4f3dbbc6d5bf39e569b5fa30}} 
+\index{Smart\+Texture@{Smart\+Texture}!Get\+Position@{Get\+Position}}
+\index{Get\+Position@{Get\+Position}!Smart\+Texture@{Smart\+Texture}}
+\subsubsection{\texorpdfstring{Get\+Position()}{GetPosition()}}
+{\footnotesize\ttfamily Vector2f Smart\+Texture\+::\+Get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the position of the sprite. 
+
+\begin{DoxyReturn}{Returns}
+The position of the sprite.
+\end{DoxyReturn}
+\mbox{\Hypertarget{struct_smart_texture_a26caafb4d4e040df68143747758569c0}\label{struct_smart_texture_a26caafb4d4e040df68143747758569c0}} 
+\index{Smart\+Texture@{Smart\+Texture}!Move@{Move}}
+\index{Move@{Move}!Smart\+Texture@{Smart\+Texture}}
+\subsubsection{\texorpdfstring{Move()}{Move()}}
+{\footnotesize\ttfamily void Smart\+Texture\+::\+Move (\begin{DoxyParamCaption}\item[{Vector2f}]{Offset }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Moves the the sprite. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Offset} & The amount of pixels to move the sprite by from their current location.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{struct_smart_texture_a2e8af63d05559a8e7d2c7b6b3c6f207e}\label{struct_smart_texture_a2e8af63d05559a8e7d2c7b6b3c6f207e}} 
+\index{Smart\+Texture@{Smart\+Texture}!Set\+Position@{Set\+Position}}
+\index{Set\+Position@{Set\+Position}!Smart\+Texture@{Smart\+Texture}}
+\subsubsection{\texorpdfstring{Set\+Position()}{SetPosition()}}
+{\footnotesize\ttfamily void Smart\+Texture\+::\+Set\+Position (\begin{DoxyParamCaption}\item[{Vector2f}]{Position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the position of the sprite in the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Position} & The position of the sprite.\\
 \hline
 \end{DoxyParams}
 

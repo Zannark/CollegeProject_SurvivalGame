@@ -76,17 +76,18 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a1f310e807ddb53d1a1278c4a0a2785ed"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_time.html#a1f310e807ddb53d1a1278c4a0a2785ed">Init</a> ()</td></tr>
 <tr class="memdesc:a1f310e807ddb53d1a1278c4a0a2785ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initalises the game timer.  <a href="#a1f310e807ddb53d1a1278c4a0a2785ed">More...</a><br /></td></tr>
 <tr class="separator:a1f310e807ddb53d1a1278c4a0a2785ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2108b642689adae6830b9e8c9c04b535"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_time.html#a2108b642689adae6830b9e8c9c04b535">DeltaTime</a> ()</td></tr>
-<tr class="separator:a2108b642689adae6830b9e8c9c04b535"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d9927ce7e6cf48da7e8b48a4f1b917f"><td class="memItemLeft" align="right" valign="top"><a id="a2d9927ce7e6cf48da7e8b48a4f1b917f"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> ()</td></tr>
+<tr class="memitem:a49de1938f0810dc7ba3eaea27211a95d"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_time.html#a49de1938f0810dc7ba3eaea27211a95d">DeltaTime</a> ()</td></tr>
+<tr class="memdesc:a49de1938f0810dc7ba3eaea27211a95d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the time that the previous frame took to complete.  <a href="#a49de1938f0810dc7ba3eaea27211a95d">More...</a><br /></td></tr>
+<tr class="separator:a49de1938f0810dc7ba3eaea27211a95d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d9927ce7e6cf48da7e8b48a4f1b917f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_time.html#a2d9927ce7e6cf48da7e8b48a4f1b917f">Update</a> ()</td></tr>
+<tr class="memdesc:a2d9927ce7e6cf48da7e8b48a4f1b917f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the delta timer.  <a href="#a2d9927ce7e6cf48da7e8b48a4f1b917f">More...</a><br /></td></tr>
 <tr class="separator:a2d9927ce7e6cf48da7e8b48a4f1b917f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class detailing information about the time which frames take to complete. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a2108b642689adae6830b9e8c9c04b535"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2108b642689adae6830b9e8c9c04b535">&#9670;&nbsp;</a></span>DeltaTime()</h2>
+<a id="a49de1938f0810dc7ba3eaea27211a95d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49de1938f0810dc7ba3eaea27211a95d">&#9670;&nbsp;</a></span>DeltaTime()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -95,7 +96,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> ()<
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int GameTime::DeltaTime </td>
+          <td class="memname">float GameTime::DeltaTime </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -108,7 +109,8 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> ()<
 </table>
 </div><div class="memdoc">
 
-<p></p>
+<p>Gets the time that the previous frame took to complete. </p>
+<dl class="section return"><dt>Returns</dt><dd>The deltatime (in ms).</dd></dl>
 
 </div>
 </div>
@@ -139,6 +141,33 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> ()<
 
 </div>
 </div>
+<a id="a2d9927ce7e6cf48da7e8b48a4f1b917f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d9927ce7e6cf48da7e8b48a4f1b917f">&#9670;&nbsp;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GameTime::Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates the delta timer. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>WaveGame/<a class="el" href="_game_time_8h_source.html">GameTime.h</a></li>
 <li>WaveGame/GameTime.cpp</li>
@@ -146,7 +175,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> ()<
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 11 2017 15:21:02 for CollegeProject_SurvivalGame by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Sep 20 2017 23:09:37 for CollegeProject_SurvivalGame by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

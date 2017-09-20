@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['init',['Init',['../class_game_time.html#a1f310e807ddb53d1a1278c4a0a2785ed',1,'GameTime::Init()'],['../class_texture_cache.html#a60e9f696d701a6f62418ae8fc6c4b2c0',1,'TextureCache::Init()']]]
+  ['deltatime',['DeltaTime',['../class_game_time.html#a49de1938f0810dc7ba3eaea27211a95d',1,'GameTime']]],
+  ['draw',['Draw',['../class_character.html#a8eac1c2dd0f9368f5fe04b3dc401f1a6',1,'Character::Draw()'],['../class_map.html#ae77582db3c3888918280828f6cc13952',1,'Map::Draw()'],['../class_prop.html#a55c4fb13383f6f5edc7b64066b0c2bc4',1,'Prop::Draw()'],['../struct_smart_texture.html#ae8e39d3a1b4b325c1da2d300ba623e17',1,'SmartTexture::Draw()']]]
 ];

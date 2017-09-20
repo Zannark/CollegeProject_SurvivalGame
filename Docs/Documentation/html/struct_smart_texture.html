@@ -83,6 +83,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae8e39d3a1b4b325c1da2d300ba623e17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_smart_texture.html#ae8e39d3a1b4b325c1da2d300ba623e17">Draw</a> (RenderWindow *Window)</td></tr>
 <tr class="memdesc:ae8e39d3a1b4b325c1da2d300ba623e17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders the sf::Sprite to a window.  <a href="#ae8e39d3a1b4b325c1da2d300ba623e17">More...</a><br /></td></tr>
 <tr class="separator:ae8e39d3a1b4b325c1da2d300ba623e17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e8af63d05559a8e7d2c7b6b3c6f207e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_smart_texture.html#a2e8af63d05559a8e7d2c7b6b3c6f207e">SetPosition</a> (Vector2f Position)</td></tr>
+<tr class="memdesc:a2e8af63d05559a8e7d2c7b6b3c6f207e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the position of the sprite in the window.  <a href="#a2e8af63d05559a8e7d2c7b6b3c6f207e">More...</a><br /></td></tr>
+<tr class="separator:a2e8af63d05559a8e7d2c7b6b3c6f207e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26caafb4d4e040df68143747758569c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_smart_texture.html#a26caafb4d4e040df68143747758569c0">Move</a> (Vector2f Offset)</td></tr>
+<tr class="memdesc:a26caafb4d4e040df68143747758569c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the the sprite.  <a href="#a26caafb4d4e040df68143747758569c0">More...</a><br /></td></tr>
+<tr class="separator:a26caafb4d4e040df68143747758569c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec1d814d4f3dbbc6d5bf39e569b5fa30"><td class="memItemLeft" align="right" valign="top">Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_smart_texture.html#aec1d814d4f3dbbc6d5bf39e569b5fa30">GetPosition</a> ()</td></tr>
+<tr class="memdesc:aec1d814d4f3dbbc6d5bf39e569b5fa30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the position of the sprite.  <a href="#aec1d814d4f3dbbc6d5bf39e569b5fa30">More...</a><br /></td></tr>
+<tr class="separator:aec1d814d4f3dbbc6d5bf39e569b5fa30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18d5089ac0e730deb87bda09377f5402"><td class="memItemLeft" align="right" valign="top">Vector2u&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_smart_texture.html#a18d5089ac0e730deb87bda09377f5402">GetDimensions</a> ()</td></tr>
+<tr class="memdesc:a18d5089ac0e730deb87bda09377f5402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the dimensions of the sprites texture.  <a href="#a18d5089ac0e730deb87bda09377f5402">More...</a><br /></td></tr>
+<tr class="separator:a18d5089ac0e730deb87bda09377f5402"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38430739f5dce9ba11b9d91395ba4e30"><td class="memItemLeft" align="right" valign="top">vector&lt; Vector2f &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_smart_texture.html#a38430739f5dce9ba11b9d91395ba4e30">GetPoints</a> ()</td></tr>
+<tr class="memdesc:a38430739f5dce9ba11b9d91395ba4e30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds all the points (corners) on a texture.  <a href="#a38430739f5dce9ba11b9d91395ba4e30">More...</a><br /></td></tr>
+<tr class="separator:a38430739f5dce9ba11b9d91395ba4e30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -199,13 +214,171 @@ Sprite&#160;</td><td class="memItemRight" valign="bottom"><b>SmartSprite</b></td
 
 </div>
 </div>
+<a id="a18d5089ac0e730deb87bda09377f5402"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18d5089ac0e730deb87bda09377f5402">&#9670;&nbsp;</a></span>GetDimensions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector2u SmartTexture::GetDimensions </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the dimensions of the sprites texture. </p>
+<dl class="section return"><dt>Returns</dt><dd>the dimensions of the sprites texture.</dd></dl>
+
+</div>
+</div>
+<a id="a38430739f5dce9ba11b9d91395ba4e30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38430739f5dce9ba11b9d91395ba4e30">&#9670;&nbsp;</a></span>GetPoints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;Vector2f&gt; SmartTexture::GetPoints </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Finds all the points (corners) on a texture. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Texture</td><td>The texture to find the points on.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The points.</dd></dl>
+
+</div>
+</div>
+<a id="aec1d814d4f3dbbc6d5bf39e569b5fa30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec1d814d4f3dbbc6d5bf39e569b5fa30">&#9670;&nbsp;</a></span>GetPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector2f SmartTexture::GetPosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the position of the sprite. </p>
+<dl class="section return"><dt>Returns</dt><dd>The position of the sprite.</dd></dl>
+
+</div>
+</div>
+<a id="a26caafb4d4e040df68143747758569c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26caafb4d4e040df68143747758569c0">&#9670;&nbsp;</a></span>Move()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SmartTexture::Move </td>
+          <td>(</td>
+          <td class="paramtype">Vector2f&#160;</td>
+          <td class="paramname"><em>Offset</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moves the the sprite. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Offset</td><td>The amount of pixels to move the sprite by from their current location.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2e8af63d05559a8e7d2c7b6b3c6f207e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e8af63d05559a8e7d2c7b6b3c6f207e">&#9670;&nbsp;</a></span>SetPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SmartTexture::SetPosition </td>
+          <td>(</td>
+          <td class="paramtype">Vector2f&#160;</td>
+          <td class="paramname"><em>Position</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the position of the sprite in the window. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Position</td><td>The position of the sprite.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>WaveGame/<a class="el" href="_smart_texture_8h_source.html">SmartTexture.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 11 2017 15:21:02 for CollegeProject_SurvivalGame by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Sep 20 2017 23:09:37 for CollegeProject_SurvivalGame by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

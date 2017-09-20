@@ -1,14 +1,82 @@
 \hypertarget{class_map}{}\section{Map Class Reference}
 \label{class_map}\index{Map@{Map}}
+
+
+Defines the world which the player can move around in and interact with.  
+
+
+
+
+{\ttfamily \#include $<$Map.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_map_aacaf79e1f034d2dfae1af8cfd162a00b}\label{class_map_aacaf79e1f034d2dfae1af8cfd162a00b}} 
-{\bfseries Map} (Vector2f Dimensions)
+\mbox{\Hypertarget{class_map_a446aef181066f72ac57cede14bf074c3}\label{class_map_a446aef181066f72ac57cede14bf074c3}} 
+{\bfseries Map} (Vector2f Dimensions, string Background\+ID)
 \item 
+void \hyperlink{class_map_afc6fdc8687757b818ba754eab7ddd4cb}{Add\+Prop} (shared\+\_\+ptr$<$ \hyperlink{class_prop}{Prop} $>$ \hyperlink{class_prop}{Prop})
+\begin{DoxyCompactList}\small\item\em Adds a prop to the world. \end{DoxyCompactList}\item 
+void \hyperlink{class_map_ae77582db3c3888918280828f6cc13952}{Draw} (Render\+Window $\ast$Window)
+\begin{DoxyCompactList}\small\item\em Renders all the props, and the background, to the screen. \end{DoxyCompactList}\item 
+vector$<$ shared\+\_\+ptr$<$ \hyperlink{class_prop}{Prop} $>$ $>$ \hyperlink{class_map_a5699a7168473d092a590ee99dff38b3d}{Get\+Props\+With\+Tag} (string Tag)
+\begin{DoxyCompactList}\small\item\em Returns all the props in the world that has a certain tag. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Defines the world which the player can move around in and interact with. 
+
+
+
+\subsection{Member Function Documentation}
 \mbox{\Hypertarget{class_map_afc6fdc8687757b818ba754eab7ddd4cb}\label{class_map_afc6fdc8687757b818ba754eab7ddd4cb}} 
-void {\bfseries Add\+Prop} (shared\+\_\+ptr$<$ \hyperlink{class_prop}{Prop} $>$ \hyperlink{class_prop}{Prop})
-\end{DoxyCompactItemize}
+\index{Map@{Map}!Add\+Prop@{Add\+Prop}}
+\index{Add\+Prop@{Add\+Prop}!Map@{Map}}
+\subsubsection{\texorpdfstring{Add\+Prop()}{AddProp()}}
+{\footnotesize\ttfamily void Map\+::\+Add\+Prop (\begin{DoxyParamCaption}\item[{shared\+\_\+ptr$<$ \hyperlink{class_prop}{Prop} $>$}]{Prop }\end{DoxyParamCaption})}
+
+
+
+Adds a prop to the world. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{class_prop}{Prop}} & The prop to add.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_map_ae77582db3c3888918280828f6cc13952}\label{class_map_ae77582db3c3888918280828f6cc13952}} 
+\index{Map@{Map}!Draw@{Draw}}
+\index{Draw@{Draw}!Map@{Map}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Map\+::\+Draw (\begin{DoxyParamCaption}\item[{Render\+Window $\ast$}]{Window }\end{DoxyParamCaption})}
+
+
+
+Renders all the props, and the background, to the screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Window} & The rende target.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_map_a5699a7168473d092a590ee99dff38b3d}\label{class_map_a5699a7168473d092a590ee99dff38b3d}} 
+\index{Map@{Map}!Get\+Props\+With\+Tag@{Get\+Props\+With\+Tag}}
+\index{Get\+Props\+With\+Tag@{Get\+Props\+With\+Tag}!Map@{Map}}
+\subsubsection{\texorpdfstring{Get\+Props\+With\+Tag()}{GetPropsWithTag()}}
+{\footnotesize\ttfamily vector$<$ shared\+\_\+ptr$<$ \hyperlink{class_prop}{Prop} $>$ $>$ Map\+::\+Get\+Props\+With\+Tag (\begin{DoxyParamCaption}\item[{string}]{Tag }\end{DoxyParamCaption})}
+
+
+
+Returns all the props in the world that has a certain tag. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Tag} & The tag to find props with.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The props with that tag.
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

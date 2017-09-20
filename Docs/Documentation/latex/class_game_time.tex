@@ -14,11 +14,10 @@ A class detailing information about the time which frames take to complete.
 \item 
 static void \hyperlink{class_game_time_a1f310e807ddb53d1a1278c4a0a2785ed}{Init} ()
 \begin{DoxyCompactList}\small\item\em Initalises the game timer. \end{DoxyCompactList}\item 
-static int \hyperlink{class_game_time_a2108b642689adae6830b9e8c9c04b535}{Delta\+Time} ()
-\item 
-\mbox{\Hypertarget{class_game_time_a2d9927ce7e6cf48da7e8b48a4f1b917f}\label{class_game_time_a2d9927ce7e6cf48da7e8b48a4f1b917f}} 
-static void {\bfseries Update} ()
-\end{DoxyCompactItemize}
+static float \hyperlink{class_game_time_a49de1938f0810dc7ba3eaea27211a95d}{Delta\+Time} ()
+\begin{DoxyCompactList}\small\item\em Gets the time that the previous frame took to complete. \end{DoxyCompactList}\item 
+static void \hyperlink{class_game_time_a2d9927ce7e6cf48da7e8b48a4f1b917f}{Update} ()
+\begin{DoxyCompactList}\small\item\em Updates the delta timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -27,16 +26,19 @@ A class detailing information about the time which frames take to complete.
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_game_time_a2108b642689adae6830b9e8c9c04b535}\label{class_game_time_a2108b642689adae6830b9e8c9c04b535}} 
+\mbox{\Hypertarget{class_game_time_a49de1938f0810dc7ba3eaea27211a95d}\label{class_game_time_a49de1938f0810dc7ba3eaea27211a95d}} 
 \index{Game\+Time@{Game\+Time}!Delta\+Time@{Delta\+Time}}
 \index{Delta\+Time@{Delta\+Time}!Game\+Time@{Game\+Time}}
 \subsubsection{\texorpdfstring{Delta\+Time()}{DeltaTime()}}
-{\footnotesize\ttfamily int Game\+Time\+::\+Delta\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily float Game\+Time\+::\+Delta\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
+Gets the time that the previous frame took to complete. 
 
-
+\begin{DoxyReturn}{Returns}
+The deltatime (in ms).
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_game_time_a1f310e807ddb53d1a1278c4a0a2785ed}\label{class_game_time_a1f310e807ddb53d1a1278c4a0a2785ed}} 
 \index{Game\+Time@{Game\+Time}!Init@{Init}}
 \index{Init@{Init}!Game\+Time@{Game\+Time}}
@@ -46,6 +48,16 @@ A class detailing information about the time which frames take to complete.
 
 
 Initalises the game timer. 
+
+\mbox{\Hypertarget{class_game_time_a2d9927ce7e6cf48da7e8b48a4f1b917f}\label{class_game_time_a2d9927ce7e6cf48da7e8b48a4f1b917f}} 
+\index{Game\+Time@{Game\+Time}!Update@{Update}}
+\index{Update@{Update}!Game\+Time@{Game\+Time}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Game\+Time\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Updates the delta timer. 
 
 
 

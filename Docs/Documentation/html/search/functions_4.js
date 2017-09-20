@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['maploader',['MapLoader',['../class_map_loader.html#a5130ee7aa0d69b3b882cd618a2ed0018',1,'MapLoader']]]
+  ['load',['Load',['../class_map_loader.html#a9091d4af0b00a48ae7d9e8e1e46cd0fd',1,'MapLoader']]]
 ];

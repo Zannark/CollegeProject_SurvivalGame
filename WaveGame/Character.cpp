@@ -33,7 +33,7 @@ void Character::Update(RenderWindow* Window, float dt)
 /// <summary>
 /// Renders the character to the screen.
 /// </summary>
-/// <param name = "Window>The render target.</param>
+/// <param name = "Window">The render target.</param>
 void Character::Draw(RenderWindow* Window)
 {
 	this->PlayerTexture.Draw(Window);

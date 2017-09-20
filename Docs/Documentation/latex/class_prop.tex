@@ -12,13 +12,26 @@ Props are object in the maps environment.
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_prop_a4fae2e07c120d8d5a22e8e0e516a0cbd}{Prop} (string Texture\+ID, string Tag=\char`\"{}\char`\"{})
+\hyperlink{class_prop_a1e207bb51ed3d92ec2c93d45dfcbcabf}{Prop} (string Texture\+ID, string Tag=\char`\"{}\char`\"{}, bool Is\+Static=true)
 \begin{DoxyCompactList}\small\item\em Loads in the texture. \end{DoxyCompactList}\item 
 void \hyperlink{class_prop_a55c4fb13383f6f5edc7b64066b0c2bc4}{Draw} (Render\+Window $\ast$Window)
 \begin{DoxyCompactList}\small\item\em Renders the texture to the screen. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_prop_a1fdb0adb8f604a33f029bc24c66c9740}\label{class_prop_a1fdb0adb8f604a33f029bc24c66c9740}} 
-string {\bfseries Get\+Tag} ()
-\end{DoxyCompactItemize}
+string \hyperlink{class_prop_a1fdb0adb8f604a33f029bc24c66c9740}{Get\+Tag} ()
+\begin{DoxyCompactList}\small\item\em Getters. \end{DoxyCompactList}\item 
+bool \hyperlink{class_prop_a560525a45eae6c401f33cc699cbb7dec}{Get\+Static} ()
+\begin{DoxyCompactList}\small\item\em Gets if the prop is animated or not. \end{DoxyCompactList}\item 
+bool \hyperlink{class_prop_a7f1a501490f335812e0edc06ba3f9bcb}{Get\+Collision} ()
+\begin{DoxyCompactList}\small\item\em Gets if the prop does any collision. \end{DoxyCompactList}\item 
+void \hyperlink{class_prop_aa082e05be14b0d17d28e58edc5311099}{Set\+Tag} (string Tag)
+\begin{DoxyCompactList}\small\item\em Setters. \end{DoxyCompactList}\item 
+void \hyperlink{class_prop_a5f94f90ac04f9b1469dd79c16ca9cd1e}{Set\+Static} (bool Static)
+\begin{DoxyCompactList}\small\item\em Sets if the prop is animated or not, usually only called when the prop is loaded in. \end{DoxyCompactList}\item 
+void \hyperlink{class_prop_af3ed9a53c617166e29a655d39a884999}{Set\+Collision} (bool Collision)
+\begin{DoxyCompactList}\small\item\em Sets if the prop carries out collision or not, usually only called when the prop is loaded in. \end{DoxyCompactList}\item 
+void \hyperlink{class_prop_abb90ef176de5d431de4714d94bfa3bf2}{Set\+Position} (Vector2f Position)
+\begin{DoxyCompactList}\small\item\em Sets the position of the prop. \end{DoxyCompactList}\item 
+void \hyperlink{class_prop_a7577e928046cad8d2217f1c68370d8cb}{Set\+Animation\+Delay} (float Delay)
+\begin{DoxyCompactList}\small\item\em Sets the amount of time each animation frame takes, usually only called when the prop is loaded in. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -27,11 +40,11 @@ Props are object in the maps environment.
 
 
 \subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_prop_a4fae2e07c120d8d5a22e8e0e516a0cbd}\label{class_prop_a4fae2e07c120d8d5a22e8e0e516a0cbd}} 
+\mbox{\Hypertarget{class_prop_a1e207bb51ed3d92ec2c93d45dfcbcabf}\label{class_prop_a1e207bb51ed3d92ec2c93d45dfcbcabf}} 
 \index{Prop@{Prop}!Prop@{Prop}}
 \index{Prop@{Prop}!Prop@{Prop}}
 \subsubsection{\texorpdfstring{Prop()}{Prop()}}
-{\footnotesize\ttfamily Prop\+::\+Prop (\begin{DoxyParamCaption}\item[{string}]{Texture\+ID,  }\item[{string}]{Tag = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Prop\+::\+Prop (\begin{DoxyParamCaption}\item[{string}]{Texture\+ID,  }\item[{string}]{Tag = {\ttfamily \char`\"{}\char`\"{}},  }\item[{bool}]{Is\+Static = {\ttfamily true} }\end{DoxyParamCaption})}
 
 
 
@@ -40,6 +53,10 @@ Loads in the texture.
 
 \begin{DoxyParams}{Parameters}
 {\em Texture\+ID} & The ID of the texture which is to be loaded.\\
+\hline
+{\em Tag} & The props tag.\\
+\hline
+{\em Is\+Static} & True if the prop does not have an animation, false otherwise.\\
 \hline
 \end{DoxyParams}
 
@@ -55,7 +72,125 @@ Loads in the texture.
 
 Renders the texture to the screen. 
 
-A pointer to the window which is being rendered to.
+A pointer to the window which is being rendered to.\mbox{\Hypertarget{class_prop_a7f1a501490f335812e0edc06ba3f9bcb}\label{class_prop_a7f1a501490f335812e0edc06ba3f9bcb}} 
+\index{Prop@{Prop}!Get\+Collision@{Get\+Collision}}
+\index{Get\+Collision@{Get\+Collision}!Prop@{Prop}}
+\subsubsection{\texorpdfstring{Get\+Collision()}{GetCollision()}}
+{\footnotesize\ttfamily bool Prop\+::\+Get\+Collision (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets if the prop does any collision. 
+
+\begin{DoxyReturn}{Returns}
+True if the prop carries out any collision, false otherwise.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_prop_a560525a45eae6c401f33cc699cbb7dec}\label{class_prop_a560525a45eae6c401f33cc699cbb7dec}} 
+\index{Prop@{Prop}!Get\+Static@{Get\+Static}}
+\index{Get\+Static@{Get\+Static}!Prop@{Prop}}
+\subsubsection{\texorpdfstring{Get\+Static()}{GetStatic()}}
+{\footnotesize\ttfamily bool Prop\+::\+Get\+Static (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets if the prop is animated or not. 
+
+\begin{DoxyReturn}{Returns}
+True if the prop does not have an animation, false otherwise.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_prop_a1fdb0adb8f604a33f029bc24c66c9740}\label{class_prop_a1fdb0adb8f604a33f029bc24c66c9740}} 
+\index{Prop@{Prop}!Get\+Tag@{Get\+Tag}}
+\index{Get\+Tag@{Get\+Tag}!Prop@{Prop}}
+\subsubsection{\texorpdfstring{Get\+Tag()}{GetTag()}}
+{\footnotesize\ttfamily string Prop\+::\+Get\+Tag (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getters. 
+
+Gets the tag of the prop, used for finding objects in the map.
+
+\begin{DoxyReturn}{Returns}
+The props tag
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_prop_a7577e928046cad8d2217f1c68370d8cb}\label{class_prop_a7577e928046cad8d2217f1c68370d8cb}} 
+\index{Prop@{Prop}!Set\+Animation\+Delay@{Set\+Animation\+Delay}}
+\index{Set\+Animation\+Delay@{Set\+Animation\+Delay}!Prop@{Prop}}
+\subsubsection{\texorpdfstring{Set\+Animation\+Delay()}{SetAnimationDelay()}}
+{\footnotesize\ttfamily void Prop\+::\+Set\+Animation\+Delay (\begin{DoxyParamCaption}\item[{float}]{Delay }\end{DoxyParamCaption})}
+
+
+
+Sets the amount of time each animation frame takes, usually only called when the prop is loaded in. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Delay} & The amount of time, in seconds, each animation frame takes.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_prop_af3ed9a53c617166e29a655d39a884999}\label{class_prop_af3ed9a53c617166e29a655d39a884999}} 
+\index{Prop@{Prop}!Set\+Collision@{Set\+Collision}}
+\index{Set\+Collision@{Set\+Collision}!Prop@{Prop}}
+\subsubsection{\texorpdfstring{Set\+Collision()}{SetCollision()}}
+{\footnotesize\ttfamily void Prop\+::\+Set\+Collision (\begin{DoxyParamCaption}\item[{bool}]{Collision }\end{DoxyParamCaption})}
+
+
+
+Sets if the prop carries out collision or not, usually only called when the prop is loaded in. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Collision} & True if collides, false otherwise.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_prop_abb90ef176de5d431de4714d94bfa3bf2}\label{class_prop_abb90ef176de5d431de4714d94bfa3bf2}} 
+\index{Prop@{Prop}!Set\+Position@{Set\+Position}}
+\index{Set\+Position@{Set\+Position}!Prop@{Prop}}
+\subsubsection{\texorpdfstring{Set\+Position()}{SetPosition()}}
+{\footnotesize\ttfamily void Prop\+::\+Set\+Position (\begin{DoxyParamCaption}\item[{Vector2f}]{Position }\end{DoxyParamCaption})}
+
+
+
+Sets the position of the prop. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Position} & The location in the world where the prop is.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_prop_a5f94f90ac04f9b1469dd79c16ca9cd1e}\label{class_prop_a5f94f90ac04f9b1469dd79c16ca9cd1e}} 
+\index{Prop@{Prop}!Set\+Static@{Set\+Static}}
+\index{Set\+Static@{Set\+Static}!Prop@{Prop}}
+\subsubsection{\texorpdfstring{Set\+Static()}{SetStatic()}}
+{\footnotesize\ttfamily void Prop\+::\+Set\+Static (\begin{DoxyParamCaption}\item[{bool}]{Static }\end{DoxyParamCaption})}
+
+
+
+Sets if the prop is animated or not, usually only called when the prop is loaded in. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Static} & True if non animated, false otherwise.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_prop_aa082e05be14b0d17d28e58edc5311099}\label{class_prop_aa082e05be14b0d17d28e58edc5311099}} 
+\index{Prop@{Prop}!Set\+Tag@{Set\+Tag}}
+\index{Set\+Tag@{Set\+Tag}!Prop@{Prop}}
+\subsubsection{\texorpdfstring{Set\+Tag()}{SetTag()}}
+{\footnotesize\ttfamily void Prop\+::\+Set\+Tag (\begin{DoxyParamCaption}\item[{string}]{Tag }\end{DoxyParamCaption})}
+
+
+
+Setters. 
+
+Sets the props tag, usually only called when the prop is loaded in.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Tag} & The tag which the prop needs to have.\\
+\hline
+\end{DoxyParams}
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

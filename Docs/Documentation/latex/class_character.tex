@@ -1,0 +1,48 @@
+\hypertarget{class_character}{}\section{Character Class Reference}
+\label{class_character}\index{Character@{Character}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_character_a15ed1692ab60831cce3df30cf1824b93}\label{class_character_a15ed1692ab60831cce3df30cf1824b93}} 
+{\bfseries Character} (Render\+Window $\ast$Window, string Player\+Texture=\char`\"{}Default\+Player\char`\"{}, float Player\+Speed=150.\+0f)
+\item 
+void \hyperlink{class_character_a4a0a0f23c0a4c15a8c61069441093ef5}{Update} (Render\+Window $\ast$Window, float dt)
+\begin{DoxyCompactList}\small\item\em Updates the players game logic. This includes health, movement, etc... \end{DoxyCompactList}\item 
+void \hyperlink{class_character_a8eac1c2dd0f9368f5fe04b3dc401f1a6}{Draw} (Render\+Window $\ast$Window)
+\begin{DoxyCompactList}\small\item\em Renders the character to the screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_character_a8eac1c2dd0f9368f5fe04b3dc401f1a6}\label{class_character_a8eac1c2dd0f9368f5fe04b3dc401f1a6}} 
+\index{Character@{Character}!Draw@{Draw}}
+\index{Draw@{Draw}!Character@{Character}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Character\+::\+Draw (\begin{DoxyParamCaption}\item[{Render\+Window $\ast$}]{Window }\end{DoxyParamCaption})}
+
+
+
+Renders the character to the screen. 
+
+$<$param name = "Window$>$The render target.\mbox{\Hypertarget{class_character_a4a0a0f23c0a4c15a8c61069441093ef5}\label{class_character_a4a0a0f23c0a4c15a8c61069441093ef5}} 
+\index{Character@{Character}!Update@{Update}}
+\index{Update@{Update}!Character@{Character}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Character\+::\+Update (\begin{DoxyParamCaption}\item[{Render\+Window $\ast$}]{Window,  }\item[{float}]{dt }\end{DoxyParamCaption})}
+
+
+
+Updates the players game logic. This includes health, movement, etc... 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Window} & A pointer to the render target. Needed for some logic.\\
+\hline
+{\em dt} & Delta Time\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Wave\+Game/Character.\+h\item 
+Wave\+Game/Character.\+cpp\end{DoxyCompactItemize}
