@@ -59,16 +59,28 @@ struct SmartTexture
 		this->SmartSprite.setPosition(Position);
 	}
 
+	/// <summary>
+	/// Moves the the sprite.
+	/// </summary>
+	/// <param name = "Offset">The amount of pixels to move the sprite by from their current location.</param>
 	void Move(Vector2f Offset)
 	{
 		this->SmartSprite.move(Offset);
 	}
 
-	Vector2f GetPosition()
+	/// <summary>
+	///	Gets the position of the sprite.
+	/// </summary>
+	/// <returns>The position of the sprite.</returns>
+	Vector2f GetPosition() 
 	{
 		return this->SmartSprite.getPosition();
 	}
 
+	/// <summary>
+	/// Gets the dimensions of the sprites texture.
+	/// <summary>
+	/// <returns>the dimensions of the sprites texture.</returns>
 	Vector2u GetDimensions()
 	{
 		return this->Tex->getSize();

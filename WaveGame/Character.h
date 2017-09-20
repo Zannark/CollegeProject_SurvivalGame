@@ -28,6 +28,7 @@ private:
 	float HalfWidth;
 	float HalfHeight;
 	float Angle;
+	float StrafeSpeed;
 
 	void HandleMovement(RenderWindow* Window, float dt);
 	void HandleRotation(RenderWindow * Window);

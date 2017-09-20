@@ -40,3 +40,13 @@ float Dot(Vector2f Vec1, Vector2f Vec2)
 {
 	return ((Vec1.x * Vec2.x) + (Vec1.y * Vec2.y));
 }
+
+/// <summary>
+/// Finds the vector perpendicular to the given vector.
+/// </summary>
+/// <param name = "Vec">The vector to find the perpendicular of.</param>
+/// <returns>The purpendicular vector.</returns>
+Vector2f Perpendicular(Vector2f Vec)
+{
+	return Vector2f(-Vec.y, Vec.x);
+}

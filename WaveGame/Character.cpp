@@ -5,6 +5,7 @@ Character::Character(RenderWindow *Window, string PlayerTexture, float PlayerSpe
 	this->PlayerTexture = TextureCache::GetTexure(PlayerTexture);
 
 	this->PlayerSpeed = PlayerSpeed;
+	this->StrafeSpeed = 100.0f;
 	this->HalfWidth = (this->PlayerTexture.GetDimensions().x / 2);
 	this->HalfHeight = (this->PlayerTexture.GetDimensions().y / 2);
 	this->PlayerTexture.SmartSprite.setOrigin(this->HalfWidth, this->HalfHeight);
@@ -24,8 +25,8 @@ Character::~Character()
 /// <param name = "dt">Delta Time</param>
 void Character::Update(RenderWindow* Window, float dt)
 {	
-	this->HandleMovement(Window, dt);
 	this->HandleRotation(Window);
+	this->HandleMovement(Window, dt);
 	this->HandleCamera(Window, dt);
 }
 
@@ -46,20 +47,23 @@ void Character::Draw(RenderWindow* Window)
 void Character::HandleMovement(RenderWindow* Window, float dt)
 {
 	this->Offset = Vector2f();
+	Vector2f Direction = Vector2f(cos(ToRadians(this->Angle)), sin(ToRadians(this->Angle)));
+	
+	if (Magnitude(Direction) > 0)
+		Direction = Normalise(Direction);
+
+	Vector2f Per = Perpendicular(Direction);
 
 	if (Keyboard::isKeyPressed(Keyboard::Key::W))
-		Offset.y -= this->PlayerSpeed;
-
-	if (Keyboard::isKeyPressed(Keyboard::Key::S))
-		Offset.y += this->PlayerSpeed;
-
+	{
+		Offset.x += this->PlayerSpeed * Direction.x * dt;
+		Offset.y += this->PlayerSpeed * Direction.y * dt;
+	}
 	if (Keyboard::isKeyPressed(Keyboard::Key::A))
-		Offset.x -= this->PlayerSpeed;
-
+		Offset.x -= Per.x * this->StrafeSpeed * dt;
 	if (Keyboard::isKeyPressed(Keyboard::Key::D))
-		Offset.x += this->PlayerSpeed;
+		Offset.x += Per.x * this->StrafeSpeed * dt;
 
-	Offset *= dt;
 	this->PlayerTexture.Move(Offset);
 }
 

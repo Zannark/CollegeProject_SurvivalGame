@@ -8,7 +8,7 @@
 #include <SFML\Graphics.hpp>
 #include "Unittest.h"
 
-#define PI 3.142
+#define PI 3.141592653
 
 namespace FS = std::experimental::filesystem;
 

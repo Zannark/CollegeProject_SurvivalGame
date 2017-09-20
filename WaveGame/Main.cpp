@@ -21,7 +21,7 @@ int main(void)
 		
 	RenderWindow *Window = new RenderWindow(VideoMode(1024, 720, 32), "Test Window");
 	Character Char = Character(Window);
-
+	
 	while (Window->isOpen())
 	{
 		Event E;
@@ -47,6 +47,7 @@ int main(void)
 #else
 
 #include <iostream>
+#include <doctest\doctest.h>
 
 using namespace std;
 
