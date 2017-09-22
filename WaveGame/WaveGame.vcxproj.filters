@@ -42,6 +42,9 @@
     <ClCompile Include="VectorMaths.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SFML_Collision.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TextureCache.h">
@@ -72,6 +75,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Unittest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML_Collision.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

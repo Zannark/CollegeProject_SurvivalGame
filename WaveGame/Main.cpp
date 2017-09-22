@@ -1,6 +1,5 @@
 #include <iostream>
 #include <SFML\Graphics.hpp>
-#include <Box2D\Box2D.h>
 #include "TextureCache.h"
 #include "Common.h"
 #include "GameTime.h"
@@ -23,9 +22,6 @@ int main(void)
 	RenderWindow *Window = new RenderWindow(VideoMode(1024, 720, 32), "Test Window");
 	Character Char = Character(Window);
 
-	cout << ToPixels(1) << endl;
-	cout << ToMeters(3779.5275590551) << endl;
-	
 	while (Window->isOpen())
 	{
 		Event E;
