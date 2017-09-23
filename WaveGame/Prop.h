@@ -21,6 +21,7 @@ public:
 	string GetTag();
 	bool GetStatic();
 	bool GetCollision();
+	SmartTexture GetTexture();
 
 	///Setters.
 	void SetTag(string Tag);

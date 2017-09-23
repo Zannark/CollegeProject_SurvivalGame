@@ -36,6 +36,11 @@ void Map::Draw(RenderWindow* Window)
 		P->Draw(Window);
 }
 
+void Map::Update(RenderWindow* Window, Character& P, float dt)
+{
+	this->HandleCollision(Window, P, dt);
+}
+
 /// <summary>
 /// Returns all the props in the world that has a certain tag.
 /// </summary>
@@ -52,4 +57,17 @@ vector<shared_ptr<Prop>> Map::GetPropsWithTag(string Tag)
 	}
 
 	return Props;
+}
+
+void Map::HandleCollision(RenderWindow* Window, Character& P, float dt)
+{
+	/// For now I will iterate over every prop in the map.
+	/// This isn't ideal, it's too slow for large maps.
+	/// But our current map has 1 prop, so it's all good in the hood.
+	
+	for (shared_ptr<Prop> Prop : this->MapProps)
+	{
+		if(Prop->GetCollision())
+			P.SetCanMove(!Collision::BoundingBoxTest(P.GetTexture().SmartSprite, Prop->GetTexture().SmartSprite));
+	}
 }

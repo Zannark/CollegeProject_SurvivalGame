@@ -53,6 +53,11 @@ bool Prop::GetCollision()
 	return this->DoesCollision;
 }
 
+SmartTexture Prop::GetTexture()
+{
+	return this->STexture;
+}
+
 /// <summary>
 /// Sets the props tag, usually only called when the prop is loaded in.
 /// <summary>

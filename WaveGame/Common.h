@@ -9,6 +9,7 @@
 #include "Unittest.h"
 
 #define PI 3.141592653
+#define PIXEL_IN_METERS 3779.5275590551
 
 namespace FS = std::experimental::filesystem;
 
@@ -18,3 +19,5 @@ extern std::string ToUpper(std::string Str);
 extern std::string ToLower(std::string Str);
 extern double ToRadians(double Degrees);
 extern double ToDegrees(double Radians);
+extern double ToPixels(double Meters);
+extern double ToMeters(double Pixels);

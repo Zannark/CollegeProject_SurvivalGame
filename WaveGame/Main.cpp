@@ -4,7 +4,7 @@
 #include "Common.h"
 #include "GameTime.h"
 #include "MapLoader.h"
-#include "Character.h"
+#include "Player.h"
 #include "Unittest.h"
 
 using namespace std;
@@ -20,8 +20,8 @@ int main(void)
 	Map M = Load.Load();
 		
 	RenderWindow *Window = new RenderWindow(VideoMode(1024, 720, 32), "Test Window");
-	Character Char = Character(Window);
-	
+	Player Char = Player(Window);
+
 	while (Window->isOpen())
 	{
 		Event E;
@@ -30,7 +30,8 @@ int main(void)
 			if (E.type == Event::Closed)
 				Window->close();
 		}
-				
+		
+		M.Update(Window, Char, GameTime::DeltaTime());
 		Char.Update(Window, GameTime::DeltaTime());
 
 		Window->clear();

@@ -63,14 +63,44 @@ std::string ToLower(std::string Str)
 	return Return;
 }
 
+///<summary>
+/// Converts degrees into radians.
+///</summary>
+///<param name = "Degrees">The degrees to convert.</param>
+///<returns>The radian value of the given degrees.</returns>
 double ToRadians(double Degrees)
 {
 	return Degrees * PI / 180;
 }
 
+///<summary>
+/// Converts radians into degrees.
+///</summary>
+///<param name = "Radians">The Radians to convert.</param>
+///<returns>The degree value of the given Radians.</returns>
 double ToDegrees(double Radians)
 {
 	return Radians * 180 / PI;
+}
+
+///<summary>
+/// Converts Pixels into meters.
+///</summary>
+///<param name = "Meters">The meters to convert.</param>
+///<returns>The value in pixels.</returns>
+double ToPixels(double Meters)
+{
+	return Meters * PIXEL_IN_METERS;
+}
+
+///<summary>
+/// Converts meters into pixels.
+///</summary>
+///<param name = "Pixels">The pixels to convert.</param>
+///<returns>The value in meters.</returns>
+double ToMeters(double Pixels)
+{
+	return Pixels / PIXEL_IN_METERS;
 }
 
 ///Work around
