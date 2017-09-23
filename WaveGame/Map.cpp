@@ -68,6 +68,6 @@ void Map::HandleCollision(RenderWindow* Window, Character& P, float dt)
 	for (shared_ptr<Prop> Prop : this->MapProps)
 	{
 		if(Prop->GetCollision())
-			P.SetCanMove(!Collision::BoundingBoxTest(Prop->GetTexture().SmartSprite, P.GetTexture().SmartSprite));
+			P.SetCanMove(!Collision::BoundingBoxTest(P.GetTexture().SmartSprite, Prop->GetTexture().SmartSprite));
 	}
 }

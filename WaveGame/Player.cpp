@@ -39,39 +39,26 @@ void Player::Update(RenderWindow* Window, float dt)
 void Player::HandleMovement(RenderWindow* Window, float dt)
 {
 	this->Offset = Vector2f();
-	this->Direction = Vector2f(cos(ToRadians(this->Angle)), sin(ToRadians(this->Angle)));
+
+	if (Keyboard::isKeyPressed(Keyboard::Key::W) && this->CanMoveInDirection)
+		Offset.y -= this->PlayerSpeed * dt;
+	else if(Keyboard::isKeyPressed(Keyboard::Key::W) && !this->CanMoveInDirection)
+		Offset.y += this->PlayerSpeed * dt;
+
+	if (Keyboard::isKeyPressed(Keyboard::Key::S) && this->CanMoveInDirection)
+		Offset.y += this->PlayerSpeed * dt;
+	else if (Keyboard::isKeyPressed(Keyboard::Key::S) && !this->CanMoveInDirection)
+		Offset.y -= this->PlayerSpeed * dt;
+		
+	if (Keyboard::isKeyPressed(Keyboard::Key::A) && this->CanMoveInDirection)
+		Offset.x -= this->PlayerSpeed * dt;
+	else if (Keyboard::isKeyPressed(Keyboard::Key::A) && !this->CanMoveInDirection)
+		Offset.x += this->PlayerSpeed * dt;
 	
-	if (Magnitude(Direction) > 0)
-		Direction = Normalise(Direction);
-
-	Vector2f Per = Perpendicular(Direction);
-
-	if (Keyboard::isKeyPressed(Keyboard::Key::W) && this->LastDirectionCouldntMove != this->Direction)
-	{
-		Offset.x += this->PlayerSpeed * Direction.x * dt;
-		Offset.y += this->PlayerSpeed * Direction.y * dt;
-	}
-	else if(Keyboard::isKeyPressed(Keyboard::Key::W) && this->LastDirectionCouldntMove == this->Direction && !this->CanMoveInDirection)
-	{
-		Offset.x -= this->PlayerSpeed * Direction.x * dt;
-		Offset.y -= this->PlayerSpeed * Direction.y * dt;
-	}
-	
-	if (Keyboard::isKeyPressed(Keyboard::Key::S) && this->LastDirectionCouldntMove != this->Direction)
-	{
-		Offset.x -= this->PlayerSpeed * Direction.x * dt;
-		Offset.y -= this->PlayerSpeed * Direction.y * dt;
-	}
-	else if (Keyboard::isKeyPressed(Keyboard::Key::S) && this->LastDirectionCouldntMove == this->Direction && !this->CanMoveInDirection)
-	{
-		Offset.x += this->PlayerSpeed * Direction.x * dt;
-		Offset.y += this->PlayerSpeed * Direction.y * dt;
-	}
-
-	/*if (Keyboard::isKeyPressed(Keyboard::Key::A))
-		Offset.x -= Per.x * this->StrafeSpeed * dt;
-	if (Keyboard::isKeyPressed(Keyboard::Key::D))
-		Offset.x += Per.x * this->StrafeSpeed * dt;*/
+	if (Keyboard::isKeyPressed(Keyboard::Key::D) && this->CanMoveInDirection)
+		Offset.x += this->PlayerSpeed * dt;
+	else if (Keyboard::isKeyPressed(Keyboard::Key::D) && !this->CanMoveInDirection)
+		Offset.x -= this->PlayerSpeed * dt;
 
 	this->CharacterTexture.Move(Offset);
 }
@@ -90,7 +77,7 @@ void Player::HandleRotation(sf::RenderWindow * Window)
 	if (this->Angle < 360)
 		this->Angle += 360;
 
-	this->CharacterTexture.SmartSprite.setRotation(this->Angle + 90);
+	this->CharacterTexture.SmartSprite.setRotation(this->Angle - 90);
 }
 
 /// <summary>
