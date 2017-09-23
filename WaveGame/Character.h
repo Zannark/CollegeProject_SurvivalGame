@@ -13,25 +13,22 @@ using namespace sf;
 class Character
 {
 public:
-	Character(RenderWindow *Window, string PlayerTexture = "DefaultPlayer", float PlayerSpeed = 150.0f);
+	Character();
 	~Character();
 
-	void Update(RenderWindow *Window, float dt);
 	void Draw(RenderWindow *Window);
+	virtual void Update(RenderWindow *Window, float dt);
+	
+	SmartTexture GetTexture() const;
+	void SetCanMove(bool CanMove);
 
-private:
-	SmartTexture PlayerTexture;
-	View Camera;
-	Vector2f Offset;
-
-	float PlayerSpeed;
+protected:
+	SmartTexture CharacterTexture;
 	float HalfWidth;
 	float HalfHeight;
-	float Angle;
-	float StrafeSpeed;
-
-	void HandleMovement(RenderWindow* Window, float dt);
-	void HandleRotation(RenderWindow * Window);
-	void HandleCamera(RenderWindow* Window, float dt);
+	bool CanMoveInDirection;
+	Vector2f Direction;
+	///To keep track of the last direction where the player couldn't go in that direction.
+	Vector2f LastDirectionCouldntMove;
 };
 

@@ -1,0 +1,21 @@
+What type of collision am I using?
+    - AABB with SAT because it handles rotation.
+
+How will players be handled with rotating into walls?
+    - Players will be allowed to rotate into walls, slightly if the corner rotates out of the bounding box.
+        Why?
+            - The issue can be seen as two different solutions. A) Clip into wall slightly and it's easier and more proformant or B) Use a different type of collision, which is more complex, to not allow clipping.
+                Are there any other methods?
+                    - A work around could be to have a larger than the sprite bounding box so they can't get so close, even when rotated.
+                        Why this?
+                            - It's an easy to implement method.
+                        Why not this?
+                            - While it'll look ok to the player when they're against the wall at just the right rotation, at alot of other rotations there is a noticeable gap.
+                Why A?
+                    - Easy to do, and if the draw calls are done in the right answer it could look like they're going slightly into them (I.E if theres an over hang on a building).
+                Why not A?
+                    - It could look bad or be a distraction.
+                Why B?
+                    - The collision would be perfect and this discusion wouldn't be needed.
+                Why not B?
+                    - It is slower than other forms of collision, can introduce very complex bugs, and would be very time consouming to intoduce.

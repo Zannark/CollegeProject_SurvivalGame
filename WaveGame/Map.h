@@ -4,6 +4,8 @@
 #include <vector>
 #include "Prop.h"
 #include "TextureCache.h"
+#include "Character.h"
+#include "SFML_Collision.h"
 
 using namespace std;
 
@@ -19,11 +21,14 @@ public:
 
 	void AddProp(shared_ptr<Prop> Prop);
 	void Draw(RenderWindow *Window);
+	void Update(RenderWindow *Window, Character& P, float dt);
 	vector<shared_ptr<Prop>> GetPropsWithTag(string Tag);
-
+	
 private:
 	vector<shared_ptr<Prop>> MapProps;
 	Vector2f MapDimensions;
 	SmartTexture Background;
+
+	void HandleCollision(RenderWindow *Window, Character& P, float dt);
 };
 
