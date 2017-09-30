@@ -7,11 +7,13 @@
 #include "SmartTexture.h"
 #include "TextureCache.h"
 #include "VectorMaths.h"
-#include "Character.h"
+//#include "Character.h"
 #include "SFML_Collision.h"
 #include "Map.h"
 
 using namespace sf;
+
+class Character;
 
 class Player : public Character
 {

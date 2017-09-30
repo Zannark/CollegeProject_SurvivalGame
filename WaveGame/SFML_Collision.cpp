@@ -2,6 +2,9 @@
 * File:   collision.cpp
 * Author: Nick (original version), ahnonay (SFML2 compatibility)
 */
+
+#pragma warning(disable : 4244)
+
 #include <SFML\Graphics.hpp>
 #include <map>
 #include "SFML_Collision.h"
@@ -188,3 +191,5 @@ namespace Collision
 		return true;
 	}
 }
+
+#pragma warning(default : 4244)

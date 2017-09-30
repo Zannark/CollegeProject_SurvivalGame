@@ -6,6 +6,7 @@
 #include "MapLoader.h"
 #include "Player.h"
 #include "Unittest.h"
+#include "Enemy.h"
 
 using namespace std;
 using namespace sf;
@@ -18,7 +19,7 @@ int main(void)
 	GameTime::Init();	
 	MapLoader Load("Test.xml");
 	Map M = Load.Load();
-		
+
 	RenderWindow *Window = new RenderWindow(VideoMode(1024, 720, 32), "Test Window");
 	Player Char = Player(Window);
 

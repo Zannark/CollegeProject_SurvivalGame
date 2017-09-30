@@ -6,11 +6,11 @@ Player::Player(RenderWindow *Window, string CharacterTexture, float PlayerSpeed)
 
 	this->PlayerSpeed = PlayerSpeed;
 	this->StrafeSpeed = 100.0f;
-	this->HalfWidth = (this->CharacterTexture.GetDimensions().x / 2);
-	this->HalfHeight = (this->CharacterTexture.GetDimensions().y / 2);
+	this->HalfWidth = (float)(this->CharacterTexture.GetDimensions().x / 2);
+	this->HalfHeight = (float)(this->CharacterTexture.GetDimensions().y / 2);
 	this->CharacterTexture.SmartSprite.setOrigin(this->HalfWidth, this->HalfHeight);
 	
-	this->Camera = View(this->CharacterTexture.GetPosition(), Vector2f(Window->getSize().x, Window->getSize().y));
+	this->Camera = View(this->CharacterTexture.GetPosition(), Vector2f((float)Window->getSize().x, (float)Window->getSize().y));
 	Window->setView(this->Camera);
 }
 
@@ -71,8 +71,8 @@ void Player::HandleRotation(sf::RenderWindow * Window)
 {
 	Vector2i MousePosition = Mouse::getPosition(*Window);
 
-	this->Angle = atan2(Window->getPosition().y - MousePosition.y, Window->getPosition().x - MousePosition.x);
-	this->Angle *= (180 / PI);
+	this->Angle = (float)atan2(Window->getPosition().y - MousePosition.y, Window->getPosition().x - MousePosition.x);
+	this->Angle *= (float)(180 / PI);
 
 	if (this->Angle < 360)
 		this->Angle += 360;

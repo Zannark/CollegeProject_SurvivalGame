@@ -11,6 +11,14 @@
 #define PI 3.141592653
 #define PIXEL_IN_METERS 3779.5275590551
 
+namespace CommonData
+{
+	///<summary>
+	/// Used for IDing individual enemies.
+	///</summary>
+	static int CurrentID = 0; 
+}
+
 namespace FS = std::experimental::filesystem;
 
 extern void WaitForAnyKeyAndExit(int ReturnCode = EXIT_FAILURE);
