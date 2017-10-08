@@ -43,22 +43,22 @@ void Player::HandleMovement(RenderWindow* Window, float dt)
 	if (Keyboard::isKeyPressed(Keyboard::Key::W) && this->CanMoveInDirection)
 		Offset.y -= this->PlayerSpeed * dt;
 	else if(Keyboard::isKeyPressed(Keyboard::Key::W) && !this->CanMoveInDirection)
-		Offset.y += this->PlayerSpeed * dt;
+		Offset.y += (this->PlayerSpeed * dt) + 10;
 
 	if (Keyboard::isKeyPressed(Keyboard::Key::S) && this->CanMoveInDirection)
 		Offset.y += this->PlayerSpeed * dt;
 	else if (Keyboard::isKeyPressed(Keyboard::Key::S) && !this->CanMoveInDirection)
-		Offset.y -= this->PlayerSpeed * dt;
+		Offset.y -= (this->PlayerSpeed * dt) + 10;
 		
 	if (Keyboard::isKeyPressed(Keyboard::Key::A) && this->CanMoveInDirection)
 		Offset.x -= this->PlayerSpeed * dt;
 	else if (Keyboard::isKeyPressed(Keyboard::Key::A) && !this->CanMoveInDirection)
-		Offset.x += this->PlayerSpeed * dt;
+		Offset.x += (this->PlayerSpeed * dt) + 10;
 	
 	if (Keyboard::isKeyPressed(Keyboard::Key::D) && this->CanMoveInDirection)
 		Offset.x += this->PlayerSpeed * dt;
 	else if (Keyboard::isKeyPressed(Keyboard::Key::D) && !this->CanMoveInDirection)
-		Offset.x -= this->PlayerSpeed * dt;
+		Offset.x -= (this->PlayerSpeed * dt) + 10;
 
 	this->CharacterTexture.Move(Offset);
 }

@@ -20,9 +20,12 @@ public:
 	~Map();
 
 	void AddProp(shared_ptr<Prop> Prop);
-	void Draw(RenderWindow *Window);
+	void DrawBackground(RenderWindow *Window);
+	void DrawProps(RenderWindow *Window);
 	void Update(RenderWindow *Window, Character& P, float dt);
 	vector<shared_ptr<Prop>> GetPropsWithTag(string Tag);
+	vector<shared_ptr<Prop>> GetProps(void);
+	SmartTexture GetBackground(void);
 	
 private:
 	vector<shared_ptr<Prop>> MapProps;
