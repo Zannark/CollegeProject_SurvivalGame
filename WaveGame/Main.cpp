@@ -7,6 +7,8 @@
 #include "Player.h"
 #include "Unittest.h"
 #include "Enemy.h"
+#include "FSM.h"
+#include "NavigationMesh.h"
 
 using namespace std;
 using namespace sf;
@@ -22,6 +24,10 @@ int main(void)
 
 	RenderWindow *Window = new RenderWindow(VideoMode(1024, 720, 32), "Test Window");
 	Player Char = Player(Window);
+	
+	Window->setFramerateLimit(30);
+
+	//NavigationMesh Mesh = NavigationMesh(&M);
 
 	while (Window->isOpen())
 	{
@@ -36,8 +42,12 @@ int main(void)
 		Char.Update(Window, GameTime::DeltaTime());
 
 		Window->clear();
-		M.Draw(Window);
+		M.DrawBackground(Window);
 		Char.Draw(Window);
+		M.DrawProps(Window);
+		
+		//Mesh.Draw(Window);
+
 		Window->display();
 		GameTime::Update();
 	}

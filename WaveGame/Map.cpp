@@ -28,10 +28,13 @@ void Map::AddProp(shared_ptr<Prop> Prop)
 /// Renders all the props, and the background, to the screen.
 /// </summary>
 /// <param name = "Window">The rende target.</param>
-void Map::Draw(RenderWindow* Window)
+void Map::DrawBackground(RenderWindow* Window)
 {
 	this->Background.Draw(Window);
+}
 
+void Map::DrawProps(RenderWindow * Window)
+{
 	for (shared_ptr<Prop> P : this->MapProps)
 		P->Draw(Window);
 }
@@ -57,6 +60,16 @@ vector<shared_ptr<Prop>> Map::GetPropsWithTag(string Tag)
 	}
 
 	return Props;
+}
+
+vector<shared_ptr<Prop>> Map::GetProps(void)
+{
+	return this->MapProps;
+}
+
+SmartTexture Map::GetBackground(void)
+{
+	return this->Background;
 }
 
 void Map::HandleCollision(RenderWindow* Window, Character& P, float dt)
