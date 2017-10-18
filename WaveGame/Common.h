@@ -6,26 +6,17 @@
 #include <algorithm>
 #include <string>
 #include <SFML\Graphics.hpp>
-#include "Unittest.h"
 
+#define PRINT_ENUM_VALUE(x) cout << #x << endl
 #define PI 3.141592653
-#define PIXEL_IN_METERS 3779.5275590551
-
-namespace CommonData
-{
-	///<summary>
-	/// Used for IDing individual enemies.
-	///</summary>
-	static int CurrentID = 0; 
-}
-
 namespace FS = std::experimental::filesystem;
 
-extern void WaitForAnyKeyAndExit(int ReturnCode = EXIT_FAILURE);
-extern bool StringToBool(std::string Str);
-extern std::string ToUpper(std::string Str);
-extern std::string ToLower(std::string Str);
-extern double ToRadians(double Degrees);
-extern double ToDegrees(double Radians);
-extern double ToPixels(double Meters);
-extern double ToMeters(double Pixels);
+namespace Engine::Misc
+{	
+	extern void WaitForAnyKeyAndExit(int ReturnCode = EXIT_FAILURE);
+	extern bool StringToBool(std::string Str);
+	extern std::string ToUpper(std::string Str);
+	extern std::string ToLower(std::string Str);
+	extern double ToRadians(double Degrees);
+	extern double ToDegrees(double Radians);
+}

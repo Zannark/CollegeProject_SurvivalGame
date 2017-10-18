@@ -2,7 +2,6 @@
 
 #include <SFML\Graphics.hpp>
 #include <vector>
-#include "SmartTexture.h"
 
 using namespace sf;
 using namespace std;

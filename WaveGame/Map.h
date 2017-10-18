@@ -1,37 +1,26 @@
 #pragma once
 
-#include <memory>
 #include <vector>
-#include "Prop.h"
-#include "TextureCache.h"
-#include "Character.h"
-#include "SFML_Collision.h"
+#include <SFML\Graphics.hpp>
+#include <memory>
+#include "GameTexture.h"
 
 using namespace std;
 
-/// <summary>
-/// Defines the world which the player can move around in and interact with.
-/// </summary>
-class Map
+namespace Engine::Core
 {
-public:
-	Map();
-	Map(Vector2f Dimensions, string BackgroundID);
-	~Map();
+	class Map
+	{
+	public:
+		Map();
+		~Map();
 
-	void AddProp(shared_ptr<Prop> Prop);
-	void DrawBackground(RenderWindow *Window);
-	void DrawProps(RenderWindow *Window);
-	void Update(RenderWindow *Window, Character& P, float dt);
-	vector<shared_ptr<Prop>> GetPropsWithTag(string Tag);
-	vector<shared_ptr<Prop>> GetProps(void);
-	SmartTexture GetBackground(void);
-	
-private:
-	vector<shared_ptr<Prop>> MapProps;
-	Vector2f MapDimensions;
-	SmartTexture Background;
+		void AddProp(string ID, Vector2f Position);
 
-	void HandleCollision(RenderWindow *Window, Character& P, float dt);
-};
-
+		void DrawBackground(shared_ptr<RenderWindow> Window);
+		void DrawProps(shared_ptr<RenderWindow> Window);
+	private:
+		GameTexture Background;
+		vector<GameTexture> Props;
+	};
+}
