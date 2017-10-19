@@ -50,6 +50,11 @@ namespace Engine::Core
 		shared_ptr<Sprite> GameSprite;
 	};
 
-	static Cache<GameTexture> TextureCache = Cache<GameTexture>();
+	class TextureCache
+	{
+	public:
+		static Cache<GameTexture> Cache;
+	};
+	extern void InitTextureCache();
 }
 

@@ -33,22 +33,16 @@ namespace Engine::Core
 		}
 
 		///<summary>
-		///Adds Item into the storage.
+		///Adds Item into the storage, if it isn't already in the storage.
 		///</summary>
 		///<param name = "ID">The string ID of the item to be added.</param>
 		///<param name = "Item">The item to be added.</param>
 		///<returns>The item which was added.</returns>
-		///<exception cref = "std::runtime_error">Throws if there is already an item in the storage with the ID</exception>
 		T Add(string ID, T Item)
 		{
-			if (this->Storage.find(ID) != this->Storage.end())
-			{
-				this->Storage.insert(ID, Item);
-				return Item;
-			}
-			
-			string ErrorMessage = string("There is already an item with the ID of: ") + ID;
-			throw runtime_error(ErrorMessage);
+			if (this->Storage.find(ID) == this->Storage.end())
+				this->Storage[ID] = Item;
+			return Item;
 		}
 
 	private:

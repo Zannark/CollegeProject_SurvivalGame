@@ -1,5 +1,7 @@
 #include "GameTexture.h"
 
+Engine::Core::Cache<Engine::Core::GameTexture> Engine::Core::TextureCache::Cache = Engine::Core::Cache<Engine::Core::GameTexture>();
+
 Engine::Core::GameTexture::GameTexture(const string& Path)
 {
 	if (!this->Tex.loadFromFile(Path))
@@ -52,4 +54,10 @@ void Engine::Core::GameTexture::Draw(shared_ptr<RenderWindow> RenderWindow)
 		throw runtime_error("The RenderWindow cannot be null (at Engine::Core::GameTexture).");
 
 	RenderWindow->draw(*this->GameSprite);
+}
+
+void Engine::Core::InitTextureCache()
+{
+	TextureCache::Cache.Add("Assets/Background.png", GameTexture("Assets/Background.png"));
+	TextureCache::Cache.Add("Assets/Tarn.png", GameTexture("Assets/Tarn.png"));
 }

@@ -15,12 +15,13 @@ namespace Engine::Core
 		Map();
 		~Map();
 
+		void AddBackground(string ID);
 		void AddProp(string ID, Vector2f Position);
 
 		void DrawBackground(shared_ptr<RenderWindow> Window);
 		void DrawProps(shared_ptr<RenderWindow> Window);
 	private:
 		GameTexture Background;
-		vector<GameTexture> Props;
+		vector<shared_ptr<GameTexture>> Props;
 	};
 }

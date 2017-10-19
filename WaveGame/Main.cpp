@@ -7,10 +7,11 @@ using namespace sf;
 
 int main(int argc, char** argv)
 {
+	Engine::Core::InitTextureCache();
 	shared_ptr<RenderWindow> Window = make_shared<RenderWindow>(VideoMode(800, 600, 32), "Game");
 	Event E;
 
-	Engine::Core::MapLoader::Load("");
+	Engine::Core::Map M = Engine::Core::MapLoader::Load("Test.xml");
 
 	while (Window->isOpen())
 	{
@@ -23,7 +24,8 @@ int main(int argc, char** argv)
 		}
 
 		Window->clear(Color::Cyan);
-		
+		M.DrawBackground(Window);
+		M.DrawProps(Window);
 		Window->display();
 	}
 

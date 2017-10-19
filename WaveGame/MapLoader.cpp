@@ -1,18 +1,7 @@
 #include "MapLoader.h"
 
 Engine::Core::Map Engine::Core::MapLoader::Load(string Path)
-{
-	xml_document<> MapDocument;
-	vector<char> MapContents;
-
-	fstream File(Path);
-
-	if (!File)
-	{
-		string ErrorMessage = string("Failed to open file: ") + Path;
-		throw runtime_error(ErrorMessage);
-	}
-	
+{	
 	auto CheckAttribute = [](string AttributeName, xml_attribute<char>* Attribute) -> void 
 	{
 		if (!Attribute)
@@ -29,12 +18,48 @@ Engine::Core::Map Engine::Core::MapLoader::Load(string Path)
 		return string(Attribute->value());
 	};
 
-	Map M = Map();
+	xml_document<> MapDocument;
+	vector<char> MapContents;
 
+	fstream File(Path);
+
+	if (!File)
+	{
+		string ErrorMessage = string("Failed to open file: ") + Path;
+		throw runtime_error(ErrorMessage);
+	}
+
+	try
+	{
+		MapContents = vector<char>((istreambuf_iterator<char>(File)), istreambuf_iterator<char>());
+		MapContents.push_back('\0');
+		MapDocument.parse<0>(&MapContents[0]);
+	}
+	catch (parse_error &e)
+	{
+		throw runtime_error(e.what());
+	}
+
+	Map M = Map();
 	xml_node<char>* Root = MapDocument.first_node("Map");
+
+	if (!Root)
+		throw runtime_error("Failed to find the root node of the map document 'Map'.");
+
+	M.AddBackground(GetAttribute("Background", Root));
 	
-	string BackgroundID = GetAttribute("Background", Root);
-	cout << BackgroundID << endl;
+	///Load in all of the props into the map.
+	for (xml_node<char>* PropNode = Root->first_node("Prop"); PropNode; PropNode = PropNode->next_sibling("Prop"))
+	{
+		///Get the location of prop in the world.
+		///X
+		Vector2f Position(0, 0);
+		Position.x = stof(GetAttribute("X", PropNode));
+		///Y
+		Position.y = stof(GetAttribute("Y", PropNode));
+
+		M.AddProp(string(PropNode->value()), Position);
+	}
 
 	return M;
 }
