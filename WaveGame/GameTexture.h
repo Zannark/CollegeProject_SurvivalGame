@@ -36,7 +36,25 @@ namespace Engine::Core
 		///Sets the position of the sprite, in 2D space.
 		///</summary>
 		///<param name = "Position">The position to set the </param>
-		void SetPosition(Vector2f Position);
+		void SetPosition(const Vector2f& Position);
+
+		///<summary>
+		///Sets the rotation of the texture.
+		///</summary>
+		///<param name = "Angle">The angle to set the player to.</param>
+		void SetRotation(float Angle);
+
+		///<summary>
+		///Sets the origin for rotating the texutre.
+		///</summary>
+		///<param name = "Position">The position, relative to the sprite, to rotate the texture by.</param>
+		void SetOrigin(const Vector2f& Position);
+
+		///<summary>
+		///Moves the texture a given amount of pixels across the screen.
+		///</summary>
+		///<param name = "Offset">The amount of pixels to move the texture by from its current position.</param>
+		void Move(const Vector2f& Offset);
 
 		///<summary>
 		///Renders the texture to the screen.

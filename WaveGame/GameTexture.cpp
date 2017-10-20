@@ -43,9 +43,24 @@ shared_ptr<Sprite> Engine::Core::GameTexture::GetSFMLSprite(void)
 	return this->GameSprite;
 }
 
-void Engine::Core::GameTexture::SetPosition(Vector2f Position)
+void Engine::Core::GameTexture::SetPosition(const Vector2f& Position)
 {
 	this->GameSprite->setPosition(Position);
+}
+
+void Engine::Core::GameTexture::SetRotation(float Angle)
+{
+	this->GameSprite->setRotation(Angle);
+}
+
+void Engine::Core::GameTexture::SetOrigin(const Vector2f& Position)
+{
+	this->GameSprite->setOrigin(Position);
+}
+
+void Engine::Core::GameTexture::Move(const Vector2f& Offset)
+{
+	this->GameSprite->move(Offset);
 }
 
 void Engine::Core::GameTexture::Draw(shared_ptr<RenderWindow> RenderWindow)
