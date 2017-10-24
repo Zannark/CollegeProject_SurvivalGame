@@ -29,6 +29,12 @@ namespace Engine::Core
 		void AddProp(string ID, Vector2f Position);
 
 		///<summary>
+		///Gets all props which are loaded into the map.
+		///</summary>
+		///<returns>The props which are loaded in the map.</returns>
+		vector<shared_ptr<GameTexture>> GetProps(void);
+
+		///<summary>
 		///Draws the background. The background is the first thing which should be drawn.
 		///This ensures that the props, player and enemies are on top of it.
 		///</summary>

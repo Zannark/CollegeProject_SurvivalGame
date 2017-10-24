@@ -20,6 +20,11 @@ void Engine::Core::Map::AddProp(string ID, Vector2f Position)
 	this->Props.push_back(Tex);
 }
 
+vector<shared_ptr<Engine::Core::GameTexture>> Engine::Core::Map::GetProps(void)
+{
+	return this->Props;
+}
+
 void Engine::Core::Map::DrawBackground(shared_ptr<RenderWindow> Window)
 {
 	this->Background.Draw(Window);

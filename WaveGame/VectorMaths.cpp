@@ -6,7 +6,7 @@
 /// <param name = "Vec1">The starting point.</param>
 /// <param name = "Vec2">The ending point.</param>
 /// <returns>The distance between the two vectors, as a vector</returns>
-Vector2f Distance(Vector2f Vec1, Vector2f Vec2)
+Vector2f Engine::Core::Distance(Vector2f Vec1, Vector2f Vec2)
 {
 	return Vec1 - Vec2;
 }
@@ -16,7 +16,7 @@ Vector2f Distance(Vector2f Vec1, Vector2f Vec2)
 /// </summary>
 /// <param name = "Vec">The vector to find the length of</param>
 /// <returns>The length of the vector.</returns>
-float Magnitude(Vector2f Vec)
+float Engine::Core::Magnitude(Vector2f Vec)
 {
 	return sqrt((Vec.x * Vec.x) + (Vec.y * Vec.y));
 }
@@ -26,7 +26,7 @@ float Magnitude(Vector2f Vec)
 /// </summary>
 /// <param name = "Vec">The vector to normalise.</param> 
 /// <returns>The normalised vector.</returns>
-Vector2f Normalise(Vector2f Vec)
+Vector2f Engine::Core::Normalise(Vector2f Vec)
 {
 	return Vector2f(Vec.x/ Magnitude(Vec), Vec.y / Magnitude(Vec));
 }
@@ -36,7 +36,7 @@ Vector2f Normalise(Vector2f Vec)
 /// <summary>
 /// <param name = "Vec1">The first vector to find the dot product of.</param>
 /// <param name = "Vec2">The second vector to find the dot product of.</param>
-float Dot(Vector2f Vec1, Vector2f Vec2)
+float Engine::Core::Dot(Vector2f Vec1, Vector2f Vec2)
 {
 	return ((Vec1.x * Vec2.x) + (Vec1.y * Vec2.y));
 }
@@ -46,7 +46,7 @@ float Dot(Vector2f Vec1, Vector2f Vec2)
 /// </summary>
 /// <param name = "Vec">The vector to find the perpendicular of.</param>
 /// <returns>The purpendicular vector.</returns>
-Vector2f Perpendicular(Vector2f Vec)
+Vector2f Engine::Core::Perpendicular(Vector2f Vec)
 {
 	return Vector2f(-Vec.y, Vec.x);
 }

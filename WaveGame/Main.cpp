@@ -7,6 +7,8 @@
 
 using namespace sf;
 
+#ifndef UNITTEST
+
 int main(int argc, char** argv)
 {
 	Engine::Core::InitTextureCache();
@@ -26,7 +28,7 @@ int main(int argc, char** argv)
 			}
 		}
 
-		P.Update(Window, GameTime::DeltaTime());
+		P.Update(Window, M, GameTime::DeltaTime());
 
 		Window->clear(Color::Cyan);
 		M.DrawBackground(Window);
@@ -40,3 +42,7 @@ int main(int argc, char** argv)
 
 	return 0;
 }
+#else
+#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+#include <doctest\doctest.h>
+#endif // !Unittest

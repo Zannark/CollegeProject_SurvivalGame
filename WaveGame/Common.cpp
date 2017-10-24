@@ -1,5 +1,9 @@
 #include "Common.h"
 
+#ifdef UNITTEST
+#include <doctest\doctest.h>
+#endif
+
 using namespace std;
 using namespace sf;
 
@@ -36,6 +40,21 @@ namespace Engine::Misc
 
 		return false;
 	}
+#ifdef UNITTEST
+	TEST_CASE("String To Bool Tests")
+	{
+		CHECK(StringToBool("TRUE") == true);
+		CHECK(StringToBool("true") == true);
+		CHECK(StringToBool("TrUe") == true);
+		CHECK(StringToBool("1") == true);
+
+		CHECK(StringToBool("Toast") == false);
+		CHECK(StringToBool("FALSE") == false);
+		CHECK(StringToBool("false") == false);
+		CHECK(StringToBool("FaLsE") == false);
+		CHECK(StringToBool("0") == false);
+	}
+#endif // !UNITTEST
 
 	/// <Summary>
 	/// Turns every letter in a string to a upper case letter.
@@ -50,6 +69,14 @@ namespace Engine::Misc
 
 		return Return;
 	}
+#ifdef UNITTEST
+	TEST_CASE("To Upper Tests")
+	{
+		CHECK(ToUpper("hello, world!") == "HELLO, WORLD!");
+		CHECK(ToUpper("hello, WORLD!") == "HELLO, WORLD!");
+		CHECK(ToUpper("HELLO, WORLD!") == "HELLO, WORLD!");
+	}
+#endif // !UNITTEST
 
 	/// <Summary>
 	/// Turns every letter in a string to a lower case letter.
@@ -64,7 +91,15 @@ namespace Engine::Misc
 
 		return Return;
 	}
-
+#ifdef UNITTEST
+	TEST_CASE("To Lower Tests")
+	{
+		CHECK(ToLower("HELLO, WORLD!") == "hello, world!");
+		CHECK(ToLower("hello, WORLD!") == "hello, world!");
+		CHECK(ToLower("HELLO, WORLD!") == "hello, world!");
+	}
+#endif // !UNITTEST
+	
 	///<summary>
 	/// Converts degrees into radians.
 	///</summary>

@@ -2,10 +2,14 @@
 
 #include <memory>
 #include <math.h>
+#include <map>
 #include <SFML\Graphics.hpp>
 #include "Common.h"
 #include "Character.h"
 #include "GameTexture.h"
+#include "Map.h"
+#include "SFML_Collision.h"
+#include "VectorMaths.h"
 
 using namespace std;
 using namespace sf;
@@ -20,12 +24,14 @@ namespace Engine::Gameplay
 		Player();
 		~Player();
 
-		void Update(shared_ptr<RenderWindow> Window, float dt) override;
+		void Update(shared_ptr<RenderWindow> Window, Map M, float dt) override;
 	
 	private:
 		float MovementSpeed;
+		map<string, Vector2f> Directions;
 		
-		void HandleMovement(float dt);
+		void HandleMovement(Map M, float dt);
 		void HandleRotation(shared_ptr<RenderWindow> Window, float dt);
+		bool CheckCollision(Map M);
 	};
 }
