@@ -3,6 +3,7 @@
 #include "MapLoader.h"
 #include "Player.h"
 #include "GameTime.h"
+#include "NavigationMesh.h"
 #include <SFML\Graphics.hpp>
 
 using namespace sf;
@@ -18,6 +19,8 @@ int main(int argc, char** argv)
 	Engine::Gameplay::Player P = Engine::Gameplay::Player();
 	Engine::Core::Map M = Engine::Core::MapLoader::Load("Test.xml");
 
+	NavigationMesh Mesh = NavigationMesh(Window, M);
+
 	while (Window->isOpen())
 	{
 		while (Window->pollEvent(E))
@@ -31,11 +34,11 @@ int main(int argc, char** argv)
 		P.Update(Window, M, GameTime::DeltaTime());
 
 		Window->clear(Color::Cyan);
+		
 		M.DrawBackground(Window);
-		
 		P.Draw(Window);
-		
 		M.DrawProps(Window);
+		
 		Window->display();
 		GameTime::Update();
 	}
