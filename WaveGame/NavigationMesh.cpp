@@ -4,10 +4,26 @@ Engine::Core::NavigationNode::NavigationNode(Vector2f Location)
 {
 	this->Point = Location;
 	
-	this->Shape = RectangleShape(Vector2f(1, 1));
-	this->Shape.setFillColor(Color::Red);
-	this->Shape.setOutlineColor(Color::Transparent);
-	this->Shape.setOutlineThickness(0);
+	this->Shape = make_shared<RectangleShape>(Vector2f(1, 1));
+	this->Shape->setFillColor(Color(0, 75, 168));
+	this->Shape->setOutlineColor(Color::Black);
+	this->Shape->setOutlineThickness(1);
+	this->Shape->setPosition(Location);
+}
+
+bool Engine::Core::NavigationNode::operator==(const NavigationNode & Rhs)
+{
+	return (this->Point == Rhs.Point);
+}
+
+bool Engine::Core::NavigationNode::operator==(const Vector2f& Rhs)
+{
+	return (this->Point == Rhs);
+}
+
+void Engine::Core::NavigationNode::DebugDraw(shared_ptr<RenderWindow> Window)
+{
+	Window->draw(*this->Shape);
 }
 
 Engine::Core::NavigationMesh::NavigationMesh(shared_ptr<RenderWindow> Window, Map M)
@@ -20,29 +36,37 @@ void Engine::Core::NavigationMesh::CreateNavigationMesh(const std::shared_ptr<sf
 {
 	lock_guard<mutex> Guard(this->LoadingMuxtex);
 
-	Clock C;
-	C.restart();
-
 	auto Props = M.GetProps();
-
-	for (int x = 0; x < (int)Window->getSize().x; x += 5)
+	
+	for (int x = 0; x < (int)Window->getSize().x; x += NODE_DISTANCE)
 	{
-		for (int y = 0; y < (int)Window->getSize().y; y += 5)
+		for (int y = 0; y < (int)Window->getSize().y; y += NODE_DISTANCE)
 		{
 			for (auto P : Props)
 			{
 				///Used to make sure theres no props in this location.
 				FloatRect Tester = FloatRect(x, y, 1, 1);
-				if (!P->GetSFMLSprite()->getGlobalBounds().intersects(Tester))
+				auto SearchResult = find(this->NavNodes.begin(), this->NavNodes.end(), NavigationNode(Vector2f(x, y)));
+				if (!P->GetSFMLSprite()->getGlobalBounds().intersects(Tester) && SearchResult == this->NavNodes.end())
 					this->NavNodes.push_back(NavigationNode(Vector2f(x, y)));
 			}
 		}
 	}
 
-	cout << "Took " << C.getElapsedTime().asSeconds() << " seconds to create the Navigation Mesh" << endl;
+	cout << this->NavNodes.size() << endl;
 }
 
 Engine::Core::NavigationMesh::~NavigationMesh()
 {
 
+}
+
+void Engine::Core::NavigationMesh::DebugDraw(shared_ptr<RenderWindow> Window)
+{
+	if (this->LoadingMuxtex.try_lock())
+	{
+		for (int i = 0; i < this->NavNodes.size(); i++)
+			this->NavNodes[i].DebugDraw(Window);
+		this->LoadingMuxtex.unlock();
+	}
 }
