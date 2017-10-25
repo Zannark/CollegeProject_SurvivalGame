@@ -2,9 +2,12 @@
 
 #include <memory>
 #include <vector>
+#include <functional>
 #include <SFML\Graphics.hpp>
 #include <SFML\Main.hpp>
 #include <iostream>
+#include <thread>
+#include <mutex>
 #include "Common.h"
 #include "Map.h"
 
@@ -30,5 +33,9 @@ namespace Engine::Core
 
 	private:
 		vector<NavigationNode> NavNodes;
+		mutex LoadingMuxtex;
+		thread LoadingThread;
+
+		void CreateNavigationMesh(const std::shared_ptr<sf::RenderWindow> &Window, Map M);
 	};
 }

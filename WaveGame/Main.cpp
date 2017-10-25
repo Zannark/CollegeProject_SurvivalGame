@@ -19,7 +19,7 @@ int main(int argc, char** argv)
 	Engine::Gameplay::Player P = Engine::Gameplay::Player();
 	Engine::Core::Map M = Engine::Core::MapLoader::Load("Test.xml");
 
-	NavigationMesh Mesh = NavigationMesh(Window, M);
+	NavigationMesh Mesh(Window, M);
 
 	while (Window->isOpen())
 	{
