@@ -42,15 +42,23 @@ void Engine::Core::NavigationMesh::CreateNavigationMesh(const std::shared_ptr<sf
 	{
 		for (int y = 0; y < (int)Window->getSize().y; y += NODE_DISTANCE)
 		{
+			///Used to make sure theres no props in this location.
+			FloatRect Tester = FloatRect(x, y, 1, 1);
+			///Used for finding if the node is placed in a location where a prop is.
+			bool DoesCollision = false;
+			
 			for (auto P : Props)
 			{
-				///Used to make sure theres no props in this location.
-				FloatRect Tester = FloatRect(x, y, 1, 1);
-				auto SearchResult = find(this->NavNodes.begin(), this->NavNodes.end(), NavigationNode(Vector2f(x, y)));
-				if (!P->GetSFMLSprite()->getGlobalBounds().intersects(Tester) && SearchResult == this->NavNodes.end())
-					this->NavNodes.push_back(NavigationNode(Vector2f(x, y)));
+				if (P->GetSFMLSprite()->getGlobalBounds().intersects(Tester))
+				{
+					DoesCollision = true;
+					break;
+				}
 			}
-		}
+
+			if (!DoesCollision)
+				this->NavNodes.push_back(NavigationNode(Vector2f(x, y)));
+		}	
 	}
 
 	cout << this->NavNodes.size() << endl;
