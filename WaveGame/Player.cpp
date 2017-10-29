@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Engine::Gameplay::Player::Player()
+Engine::GamePlay::Player::Player()
 {
 	this->Texture = make_shared<GameTexture>(TextureCache::Cache.Access("Assets/Tarn.png"));
 	this->MovementSpeed = 150.0f;
@@ -14,17 +14,17 @@ Engine::Gameplay::Player::Player()
 	this->Directions["Still"] = Vector2f(0, 0);
 }
 
-Engine::Gameplay::Player::~Player()
+Engine::GamePlay::Player::~Player()
 {
 }
 
-void Engine::Gameplay::Player::Update(shared_ptr<RenderWindow> Window, Map M, float dt)
+void Engine::GamePlay::Player::Update(shared_ptr<RenderWindow> Window, Map M, float dt)
 {	
 	this->HandleMovement(M, dt);
 	this->HandleRotation(Window, dt);
 }
 
-void Engine::Gameplay::Player::HandleMovement(Map M, float dt)
+void Engine::GamePlay::Player::HandleMovement(Map M, float dt)
 {
 	Vector2f Offset = Vector2f(0, 0);
 
@@ -43,7 +43,7 @@ void Engine::Gameplay::Player::HandleMovement(Map M, float dt)
 	this->Texture->Move(Offset);
 }
 
-void Engine::Gameplay::Player::HandleRotation(shared_ptr<RenderWindow> Window, float dt)
+void Engine::GamePlay::Player::HandleRotation(shared_ptr<RenderWindow> Window, float dt)
 {
 	this->Angle = atan2(Mouse::getPosition(*Window).y - this->Texture->GetSFMLSprite()->getPosition().y,
 						Mouse::getPosition(*Window).x - this->Texture->GetSFMLSprite()->getPosition().x);
@@ -56,7 +56,7 @@ void Engine::Gameplay::Player::HandleRotation(shared_ptr<RenderWindow> Window, f
 	this->Texture->SetRotation(Angle + 90);
 }
 
-bool Engine::Gameplay::Player::CheckCollision(Map M)
+bool Engine::GamePlay::Player::CheckCollision(Map M)
 {
 	for (auto Prop : M.GetProps())
 		if (Collision::BoundingBoxTest(*this->Texture->GetSFMLSprite(), *Prop->GetSFMLSprite()))

@@ -57,13 +57,18 @@ namespace Engine::Core
 		///The point data of the Node.
 		///</summary>
 		Vector2f Point;
+
+		///<summary>
+		///The estimated distance to the destination.
+		///</summary>
+		float Estimate;
 	};
 
 	///<summary>
 	///A mesh of all the NavigationNodes, used for A* pathfinding.
 	///</summary>
 	class NavigationMesh
-	{
+	{ 
 	public:
 		///<summary>
 		///Constructs the nodes and places them in 2D space.

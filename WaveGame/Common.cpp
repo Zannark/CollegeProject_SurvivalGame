@@ -7,6 +7,39 @@
 using namespace std;
 using namespace sf;
 
+///Just for debugging purposes.
+namespace
+{
+	///<summary>
+	///Sees if two values are within a range of eachother.
+	///Used for the unit testing because floating point numbers can be finicky.
+	///</summary>
+	///<param name = "x">The value being tested.</param>
+	///<param name = "y">The value to compare against.</param>
+	///<param name = "Range">The margin of error for floating point. Default is 0.5f</param>
+	bool ApproximateEquals(float x, float y, float Range = 0.5f)
+	{
+		float Lower = y - Range;
+		float Upper = y + Range;
+
+		return ((x <= Upper) && (x >= Lower));
+	}
+#ifdef UNITTEST
+	TEST_CASE("Approximate Equals Test")
+	{
+		CHECK(ApproximateEquals(15.5f, 16.0f, 0.5f));
+		CHECK(ApproximateEquals(15.5f, 15.0f, 0.5f));
+		CHECK(ApproximateEquals(10.5f, 10.7f, 1.0f));
+		CHECK(ApproximateEquals(10.5f, 9.5f, 1.0f));
+
+		CHECK_FALSE(ApproximateEquals(10.5f, 1.0f, 1.0f));
+		CHECK_FALSE(ApproximateEquals(10.5f, 90000.5f, 0.0f));
+		CHECK_FALSE(ApproximateEquals(10.5f, 9.4f, 1.0f));
+		CHECK_FALSE(ApproximateEquals(10.5f, 11.8f, 1.0f));
+	}
+#endif //UNITTEST
+}
+
 namespace Engine::Misc
 {
 	/// <summary>
@@ -54,7 +87,7 @@ namespace Engine::Misc
 		CHECK(StringToBool("FaLsE") == false);
 		CHECK(StringToBool("0") == false);
 	}
-#endif // !UNITTEST
+#endif //UNITTEST
 
 	/// <Summary>
 	/// Turns every letter in a string to a upper case letter.
@@ -76,7 +109,7 @@ namespace Engine::Misc
 		CHECK(ToUpper("hello, WORLD!") == "HELLO, WORLD!");
 		CHECK(ToUpper("HELLO, WORLD!") == "HELLO, WORLD!");
 	}
-#endif // !UNITTEST
+#endif //UNITTEST
 
 	/// <Summary>
 	/// Turns every letter in a string to a lower case letter.
@@ -98,7 +131,7 @@ namespace Engine::Misc
 		CHECK(ToLower("hello, WORLD!") == "hello, world!");
 		CHECK(ToLower("HELLO, WORLD!") == "hello, world!");
 	}
-#endif // !UNITTEST
+#endif //UNITTEST
 	
 	///<summary>
 	/// Converts degrees into radians.
@@ -119,4 +152,27 @@ namespace Engine::Misc
 	{
 		return Radians * 180 / PI;
 	}
+
+	///<summary>
+	///Works out the euclidean distance between two points.
+	///</summary>
+	///<param name = "P">The start point.</param>
+	///<param name = "Q">The end point.</param>
+	float EuclideanDistance(sf::Vector2f P, sf::Vector2f Q)
+	{
+		///First attempt of getting code from a fancy looking formula...
+		float x = pow(P.x - Q.x, 2);
+		float y = pow(P.y - Q.y, 2);
+
+		return sqrtf(x + y);
+	}
+#ifdef UNITTEST
+	TEST_CASE("Euclidean Distance Tests")
+	{
+		CHECK(ApproximateEquals(EuclideanDistance(sf::Vector2f(10, 40), sf::Vector2f(100, 30)), 90.5539f, 0.1f));
+		CHECK(ApproximateEquals(EuclideanDistance(sf::Vector2f(15, 600), sf::Vector2f(1, 500)), 100.9752f, 0.1f));
+		CHECK(ApproximateEquals(EuclideanDistance(sf::Vector2f(0, 0), sf::Vector2f(50, 45)), 67.2681f, 0.1f));
+		CHECK(ApproximateEquals(EuclideanDistance(sf::Vector2f(17, 320), sf::Vector2f(82, 21)), 305.9837f, 0.1f));
+	}
+#endif
 }

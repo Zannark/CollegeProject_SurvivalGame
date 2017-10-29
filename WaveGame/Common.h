@@ -7,7 +7,6 @@
 #include <string>
 #include <SFML\Graphics.hpp>
 
-#define PRINT_ENUM_VALUE(x) cout << #x << endl
 #define PI 3.141592653
 namespace FS = std::experimental::filesystem;
 
@@ -19,4 +18,5 @@ namespace Engine::Misc
 	extern std::string ToLower(std::string Str);
 	extern double ToRadians(double Degrees);
 	extern double ToDegrees(double Radians);
+	extern float EuclideanDistance(sf::Vector2f P, sf::Vector2f Q);
 }

@@ -16,6 +16,8 @@ namespace Engine::GamePlay
 		Enemy(shared_ptr<NavigationMesh> Mesh);
 		~Enemy();
 
+		void Update(shared_ptr<RenderWindow> Window, Map M, float dt);
+
 	private:
 		shared_ptr<NavigationMesh> Mesh;
 		shared_ptr<GameTexture> Texture;

@@ -16,7 +16,7 @@ using namespace sf;
 using namespace Engine::Core;
 using namespace Engine::Misc;
 
-namespace Engine::Gameplay
+namespace Engine::GamePlay
 {
 	class Player : public Character
 	{
