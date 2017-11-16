@@ -160,7 +160,6 @@ namespace Engine::Misc
 	///<param name = "Q">The end point.</param>
 	float EuclideanDistance(sf::Vector2f P, sf::Vector2f Q)
 	{
-		///First attempt of getting code from a fancy looking formula...
 		float x = pow(P.x - Q.x, 2);
 		float y = pow(P.y - Q.y, 2);
 

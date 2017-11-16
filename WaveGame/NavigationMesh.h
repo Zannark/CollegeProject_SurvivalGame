@@ -15,7 +15,7 @@
 using namespace sf;
 using namespace std;
 
-#define NODE_DISTANCE 15
+#define NODE_DISTANCE 15.0f
 
 namespace Engine::Core
 {

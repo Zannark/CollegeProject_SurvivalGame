@@ -2,10 +2,10 @@
 
 Engine::GamePlay::Player::Player()
 {
-	this->Texture = make_shared<GameTexture>(TextureCache::Cache.Access("Assets/Tarn.png"));
+	this->Texture = make_shared<GameTexture>(TextureCache::Cache.Access("Assets/Player.png"));
 	this->MovementSpeed = 150.0f;
 
-	this->Texture->SetOrigin(Vector2f(this->Texture->GetSFMLTexture().getSize().x / 2, this->Texture->GetSFMLTexture().getSize().y / 2));
+	this->Texture->SetOrigin(Vector2f((float)(this->Texture->GetSFMLTexture().getSize().x / 2), (float)(this->Texture->GetSFMLTexture().getSize().y / 2)));
 
 	this->Directions["Up"] = Vector2f(0, -1);
 	this->Directions["Down"] = Vector2f(0, 1);
@@ -48,7 +48,7 @@ void Engine::GamePlay::Player::HandleRotation(shared_ptr<RenderWindow> Window, f
 	this->Angle = atan2(Mouse::getPosition(*Window).y - this->Texture->GetSFMLSprite()->getPosition().y,
 						Mouse::getPosition(*Window).x - this->Texture->GetSFMLSprite()->getPosition().x);
 
-	this->Angle *= (180 / PI);
+	this->Angle *= (float)(180 / PI);
 
 	if (Angle < 0)
 		Angle += 360;

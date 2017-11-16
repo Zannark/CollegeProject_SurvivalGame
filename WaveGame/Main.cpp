@@ -16,7 +16,7 @@ int main(int argc, char** argv)
 	shared_ptr<RenderWindow> Window = make_shared<RenderWindow>(VideoMode(800, 600, 32), "Game");
 	Event E;
 	
-	Engine::Gameplay::Player P = Engine::Gameplay::Player();
+	Engine::GamePlay::Player P = Engine::GamePlay::Player();
 	Engine::Core::Map M = Engine::Core::MapLoader::Load("Test.xml");
 
 	shared_ptr<NavigationMesh> Mesh = make_shared<NavigationMesh>(Window, M);

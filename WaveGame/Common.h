@@ -5,10 +5,31 @@
 #include <iostream>
 #include <algorithm>
 #include <string>
+#include <exception>
 #include <SFML\Graphics.hpp>
 
 #define PI 3.141592653
 namespace FS = std::experimental::filesystem;
+
+///<summary>
+/// A macro to ruduce the amount of clutter from error checking.
+/// Checks if an expression is true, if it is an exception is thrown.
+///</summary>
+///<param name = "Expression">The expression to be tested.</param>
+///<param name = "Message">The message which is to be used in the exception. Must be string or char*.</param>
+#define ERROR_IF_TRUE(Expression, Message) \
+	if(Expression) \
+		throw std::runtime_error(Message);
+
+///<summary>
+/// A macro to ruduce the amount of clutter from error checking.
+/// Checks if an expression is false, if it is an exception is thrown.
+///</summary>
+///<param name = "Expression">The expression to be tested.</param>
+///<param name = "Message">The message which is to be used in the exception. Must be string or char*.</param>
+#define ERROR_IF_FALSE(Expression, Message) \
+	if (!Expression) \
+		throw std::runtime_error(Message);
 
 namespace Engine::Misc
 {	
