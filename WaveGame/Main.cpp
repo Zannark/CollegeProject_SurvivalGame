@@ -19,7 +19,7 @@ int main(int argc, char** argv)
 	Engine::GamePlay::Player P = Engine::GamePlay::Player();
 	Engine::Core::Map M = Engine::Core::MapLoader::Load("Test.xml");
 
-	shared_ptr<NavigationMesh> Mesh = make_shared<NavigationMesh>(Window, M);
+	shared_ptr<NavigationMesh> Mesh = make_shared<NavigationMesh>(Window, P, M);
 
 	while (Window->isOpen())
 	{
@@ -32,6 +32,7 @@ int main(int argc, char** argv)
 		}
 
 		P.Update(Window, M, GameTime::DeltaTime());
+		Mesh->Update(P, GameTime::DeltaTime());
 
 		Window->clear(Color::Cyan);
 		

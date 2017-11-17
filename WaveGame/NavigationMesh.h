@@ -5,17 +5,21 @@
 #include <functional>
 #include <SFML\Graphics.hpp>
 #include <SFML\Main.hpp>
+#include <SFML\System.hpp>
 #include <iostream>
 #include <thread>
 #include <mutex>
 #include <algorithm>
 #include "Common.h"
 #include "Map.h"
+#include "Player.h"
 
 using namespace sf;
 using namespace std;
+using namespace Engine::GamePlay;
 
 #define NODE_DISTANCE 15.0f
+#define INTERVAL_LIMIT 10
 
 namespace Engine::Core
 {
@@ -24,7 +28,7 @@ namespace Engine::Core
 	///</summary>
 	struct NavigationNode
 	{
-		NavigationNode(Vector2f Location);
+		NavigationNode(Vector2f Location, Player P);
 
 		///<summary>
 		///Compares itself with another NavigationNode object.
@@ -39,6 +43,12 @@ namespace Engine::Core
 		///<param name = "Rhs">The Vector2f on the right hand side.</param>
 		///<returns>True if they match, otherwise false.</returns>
 		bool operator==(const Vector2f& Rhs);
+				
+		///<summary>
+		///Calculates the euclidean distance to the player, for the heuristic.
+		///</summary>
+		///<param name = "P">The Player.</param>
+		void CalculateDistance(Player P);
 
 		///<summary>
 		///Used to draw the NavigationNode object for debugging purposes.
@@ -74,9 +84,11 @@ namespace Engine::Core
 		///Constructs the nodes and places them in 2D space.
 		///No NavigationNodes are placed in on top of Props and are 15 pixels apart from each other (on both x and y axis).
 		///</summary>
-		NavigationMesh(shared_ptr<RenderWindow> Window, Map M);
+		NavigationMesh(shared_ptr<RenderWindow> Window, Player P, Map M);
 		~NavigationMesh();
 		
+		void Update(Player P, float dt);
+
 		///<summary>
 		///Used to draw vector of NavigationNode objects for debugging purposes.
 		///Not to be used in game.
@@ -88,7 +100,12 @@ namespace Engine::Core
 		vector<NavigationNode> NavNodes;
 		mutex LoadingMuxtex;
 		thread LoadingThread;
+
+		mutex NodeUpdateMutex;
+		thread NodeUpdateThread;
+		int CurrentNodePosition;
+		int IntervalCounter; //Incremented once per frame.
 		
-		void CreateNavigationMesh(const std::shared_ptr<sf::RenderWindow> &Window, Map M);
+		void CreateNavigationMesh(const std::shared_ptr<sf::RenderWindow> &Window, Player P, Map M);
 	};
 }
