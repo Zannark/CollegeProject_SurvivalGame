@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['character',['Character',['../class_character.html',1,'']]]
+  ['bitmaskmanager',['BitmaskManager',['../class_collision_1_1_bitmask_manager.html',1,'Collision']]]
 ];

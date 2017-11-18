@@ -87,7 +87,7 @@ void Engine::Core::NavigationMesh::Update(Player P, float dt)
 		///This feels a bit cheatyyyy...?
 		for (int Counter = 0; this->CurrentNodePosition < this->NavNodes.size(); this->CurrentNodePosition++)
 		{
-			if (Counter <= 100)
+			if (Counter <= UPDATE_LIMIT)
 			{
 				this->NavNodes[this->CurrentNodePosition].CalculateDistance(P);
 				Counter += 1;

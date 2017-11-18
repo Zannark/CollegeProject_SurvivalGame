@@ -1,0 +1,99 @@
+\hypertarget{class_engine_1_1_core_1_1_game_texture}{}\section{Engine\+:\+:Core\+:\+:Game\+Texture Class Reference}
+\label{class_engine_1_1_core_1_1_game_texture}\index{Engine\+::\+Core\+::\+Game\+Texture@{Engine\+::\+Core\+::\+Game\+Texture}}
+
+
+Wraps around the S\+F\+ML texture and puts both sf\+::\+Texture and sf\+::\+Sprite into one object. /summary$>$  
+
+
+
+
+{\ttfamily \#include $<$Game\+Texture.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_game_texture_ae9eb069dd4a60ad5af6e19ca35432ea2}\label{class_engine_1_1_core_1_1_game_texture_ae9eb069dd4a60ad5af6e19ca35432ea2}} 
+{\bfseries Game\+Texture} (const string \&Path)
+\item 
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_game_texture_a5d6076b052118c2212b103cbdf3ea836}\label{class_engine_1_1_core_1_1_game_texture_a5d6076b052118c2212b103cbdf3ea836}} 
+{\bfseries Game\+Texture} (const \hyperlink{class_engine_1_1_core_1_1_game_texture}{Game\+Texture} \&Tex)
+\item 
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_game_texture_aac115d213538922ab88a656b6780b6b3}\label{class_engine_1_1_core_1_1_game_texture_aac115d213538922ab88a656b6780b6b3}} 
+{\bfseries Game\+Texture} (Texture Tex)
+\item 
+\hyperlink{class_engine_1_1_core_1_1_game_texture_a37c2ee2ebfdfc3301b6070d2df10d59a}{$\sim$\+Game\+Texture} ()
+\item 
+Texture \hyperlink{class_engine_1_1_core_1_1_game_texture_a07e51ed155d0c9b24197444b473cbf19}{Get\+S\+F\+M\+L\+Texture} (void) const
+\item 
+shared\+\_\+ptr$<$ Sprite $>$ \hyperlink{class_engine_1_1_core_1_1_game_texture_aec2df0beae7b8693160e20c1fd3588ac}{Get\+S\+F\+M\+L\+Sprite} (void)
+\item 
+void \hyperlink{class_engine_1_1_core_1_1_game_texture_ae1f94e0f1b86e99ed4508ccdda4872d6}{Set\+Position} (const Vector2f \&Position)
+\item 
+void \hyperlink{class_engine_1_1_core_1_1_game_texture_a5ed78714df6128f09c35c25e2271dc05}{Set\+Rotation} (float Angle)
+\item 
+void \hyperlink{class_engine_1_1_core_1_1_game_texture_aa01df5d689abf48b1d442da329485eeb}{Set\+Origin} (const Vector2f \&Position)
+\item 
+void \hyperlink{class_engine_1_1_core_1_1_game_texture_af0169ac026c5b15cb3195d1199b13d33}{Move} (const Vector2f \&Offset)
+\item 
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_game_texture_a103ed3e78d64382d3e82b5fca05ceccd}\label{class_engine_1_1_core_1_1_game_texture_a103ed3e78d64382d3e82b5fca05ceccd}} 
+void {\bfseries Draw} (shared\+\_\+ptr$<$ Render\+Window $>$ Render\+Window)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Wraps around the S\+F\+ML texture and puts both sf\+::\+Texture and sf\+::\+Sprite into one object. /summary$>$ 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_game_texture_a37c2ee2ebfdfc3301b6070d2df10d59a}\label{class_engine_1_1_core_1_1_game_texture_a37c2ee2ebfdfc3301b6070d2df10d59a}} 
+\index{Engine\+::\+Core\+::\+Game\+Texture@{Engine\+::\+Core\+::\+Game\+Texture}!````~Game\+Texture@{$\sim$\+Game\+Texture}}
+\index{````~Game\+Texture@{$\sim$\+Game\+Texture}!Engine\+::\+Core\+::\+Game\+Texture@{Engine\+::\+Core\+::\+Game\+Texture}}
+\subsubsection{\texorpdfstring{$\sim$\+Game\+Texture()}{~GameTexture()}}
+{\footnotesize\ttfamily Engine\+::\+Core\+::\+Game\+Texture\+::$\sim$\+Game\+Texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+summary$>$ Gets the sf\+::\+Texture which is used by the object. /summary$>$ returns$>$The sf\+::\+Texture used.
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_game_texture_aec2df0beae7b8693160e20c1fd3588ac}\label{class_engine_1_1_core_1_1_game_texture_aec2df0beae7b8693160e20c1fd3588ac}} 
+\index{Engine\+::\+Core\+::\+Game\+Texture@{Engine\+::\+Core\+::\+Game\+Texture}!Get\+S\+F\+M\+L\+Sprite@{Get\+S\+F\+M\+L\+Sprite}}
+\index{Get\+S\+F\+M\+L\+Sprite@{Get\+S\+F\+M\+L\+Sprite}!Engine\+::\+Core\+::\+Game\+Texture@{Engine\+::\+Core\+::\+Game\+Texture}}
+\subsubsection{\texorpdfstring{Get\+S\+F\+M\+L\+Sprite()}{GetSFMLSprite()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ Sprite $>$ Engine\+::\+Core\+::\+Game\+Texture\+::\+Get\+S\+F\+M\+L\+Sprite (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+summary$>$ Sets the position of the sprite, in 2D space. /summary$>$ param name = \char`\"{}\+Position\char`\"{}$>$The position to set the \mbox{\Hypertarget{class_engine_1_1_core_1_1_game_texture_a07e51ed155d0c9b24197444b473cbf19}\label{class_engine_1_1_core_1_1_game_texture_a07e51ed155d0c9b24197444b473cbf19}} 
+\index{Engine\+::\+Core\+::\+Game\+Texture@{Engine\+::\+Core\+::\+Game\+Texture}!Get\+S\+F\+M\+L\+Texture@{Get\+S\+F\+M\+L\+Texture}}
+\index{Get\+S\+F\+M\+L\+Texture@{Get\+S\+F\+M\+L\+Texture}!Engine\+::\+Core\+::\+Game\+Texture@{Engine\+::\+Core\+::\+Game\+Texture}}
+\subsubsection{\texorpdfstring{Get\+S\+F\+M\+L\+Texture()}{GetSFMLTexture()}}
+{\footnotesize\ttfamily Texture Engine\+::\+Core\+::\+Game\+Texture\+::\+Get\+S\+F\+M\+L\+Texture (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+summary$>$ Gets the sf\+::\+Sprite used by the object. /summary$>$ returns$>$A shared\+\_\+ptr to the sf\+::sprite.\mbox{\Hypertarget{class_engine_1_1_core_1_1_game_texture_af0169ac026c5b15cb3195d1199b13d33}\label{class_engine_1_1_core_1_1_game_texture_af0169ac026c5b15cb3195d1199b13d33}} 
+\index{Engine\+::\+Core\+::\+Game\+Texture@{Engine\+::\+Core\+::\+Game\+Texture}!Move@{Move}}
+\index{Move@{Move}!Engine\+::\+Core\+::\+Game\+Texture@{Engine\+::\+Core\+::\+Game\+Texture}}
+\subsubsection{\texorpdfstring{Move()}{Move()}}
+{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Game\+Texture\+::\+Move (\begin{DoxyParamCaption}\item[{const Vector2f \&}]{Offset }\end{DoxyParamCaption})}
+
+summary$>$ Renders the texture to the screen. /summary$>$ param name = \char`\"{}\+Render\+Window\char`\"{}$>$The window to draw to.
+
+exception cref = \char`\"{}std\+::runtime\+\_\+error\char`\"{}$>$Throws if Render\+Window is a nullptr.\mbox{\Hypertarget{class_engine_1_1_core_1_1_game_texture_aa01df5d689abf48b1d442da329485eeb}\label{class_engine_1_1_core_1_1_game_texture_aa01df5d689abf48b1d442da329485eeb}} 
+\index{Engine\+::\+Core\+::\+Game\+Texture@{Engine\+::\+Core\+::\+Game\+Texture}!Set\+Origin@{Set\+Origin}}
+\index{Set\+Origin@{Set\+Origin}!Engine\+::\+Core\+::\+Game\+Texture@{Engine\+::\+Core\+::\+Game\+Texture}}
+\subsubsection{\texorpdfstring{Set\+Origin()}{SetOrigin()}}
+{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Game\+Texture\+::\+Set\+Origin (\begin{DoxyParamCaption}\item[{const Vector2f \&}]{Position }\end{DoxyParamCaption})}
+
+summary$>$ Moves the texture a given amount of pixels across the screen. /summary$>$ param name = \char`\"{}\+Offset\char`\"{}$>$The amount of pixels to move the texture by from its current position.\mbox{\Hypertarget{class_engine_1_1_core_1_1_game_texture_ae1f94e0f1b86e99ed4508ccdda4872d6}\label{class_engine_1_1_core_1_1_game_texture_ae1f94e0f1b86e99ed4508ccdda4872d6}} 
+\index{Engine\+::\+Core\+::\+Game\+Texture@{Engine\+::\+Core\+::\+Game\+Texture}!Set\+Position@{Set\+Position}}
+\index{Set\+Position@{Set\+Position}!Engine\+::\+Core\+::\+Game\+Texture@{Engine\+::\+Core\+::\+Game\+Texture}}
+\subsubsection{\texorpdfstring{Set\+Position()}{SetPosition()}}
+{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Game\+Texture\+::\+Set\+Position (\begin{DoxyParamCaption}\item[{const Vector2f \&}]{Position }\end{DoxyParamCaption})}
+
+summary$>$ Sets the rotation of the texture. /summary$>$ param name = \char`\"{}\+Angle\char`\"{}$>$The angle to set the player to.\mbox{\Hypertarget{class_engine_1_1_core_1_1_game_texture_a5ed78714df6128f09c35c25e2271dc05}\label{class_engine_1_1_core_1_1_game_texture_a5ed78714df6128f09c35c25e2271dc05}} 
+\index{Engine\+::\+Core\+::\+Game\+Texture@{Engine\+::\+Core\+::\+Game\+Texture}!Set\+Rotation@{Set\+Rotation}}
+\index{Set\+Rotation@{Set\+Rotation}!Engine\+::\+Core\+::\+Game\+Texture@{Engine\+::\+Core\+::\+Game\+Texture}}
+\subsubsection{\texorpdfstring{Set\+Rotation()}{SetRotation()}}
+{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Game\+Texture\+::\+Set\+Rotation (\begin{DoxyParamCaption}\item[{float}]{Angle }\end{DoxyParamCaption})}
+
+summary$>$ Sets the origin for rotating the texutre. /summary$>$ param name = \char`\"{}\+Position\char`\"{}$>$The position, relative to the sprite, to rotate the texture by.
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Wave\+Game/Game\+Texture.\+h\item 
+Wave\+Game/Game\+Texture.\+cpp\end{DoxyCompactItemize}

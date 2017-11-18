@@ -1,0 +1,47 @@
+\hypertarget{class_engine_1_1_core_1_1_character}{}\section{Engine\+:\+:Core\+:\+:Character Class Reference}
+\label{class_engine_1_1_core_1_1_character}\index{Engine\+::\+Core\+::\+Character@{Engine\+::\+Core\+::\+Character}}
+Inheritance diagram for Engine\+:\+:Core\+:\+:Character\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_engine_1_1_core_1_1_character}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_character_aea290308ddc56ab784c87f85e6b7f254}\label{class_engine_1_1_core_1_1_character_aea290308ddc56ab784c87f85e6b7f254}} 
+Vector2f {\bfseries Get\+Position} (void)
+\item 
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_character_ae009c4273cb264195b09c9213be091bf}\label{class_engine_1_1_core_1_1_character_ae009c4273cb264195b09c9213be091bf}} 
+void {\bfseries Draw} (shared\+\_\+ptr$<$ Render\+Window $>$ Window)
+\item 
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_character_a3942a81285869375d899ae2d703e7f0b}\label{class_engine_1_1_core_1_1_character_a3942a81285869375d899ae2d703e7f0b}} 
+virtual void {\bfseries Update} (shared\+\_\+ptr$<$ Render\+Window $>$ Window, \hyperlink{class_engine_1_1_core_1_1_map}{Map} M, float dt)=0
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_character_a16677d58863fb7ca126b8fd87c4201ba}\label{class_engine_1_1_core_1_1_character_a16677d58863fb7ca126b8fd87c4201ba}} 
+void {\bfseries Vector\+To\+Direction} (Vector2f \&Vec)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_character_ad98ac89b7c82b587306e83b5aa6acf07}\label{class_engine_1_1_core_1_1_character_ad98ac89b7c82b587306e83b5aa6acf07}} 
+float {\bfseries Angle}
+\item 
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_character_aacac55c620345c41b3eb09f4abbd4318}\label{class_engine_1_1_core_1_1_character_aacac55c620345c41b3eb09f4abbd4318}} 
+Vector2f {\bfseries Direction}
+\item 
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_character_ab749582f4376b908cdf23d6cc4ac2fe2}\label{class_engine_1_1_core_1_1_character_ab749582f4376b908cdf23d6cc4ac2fe2}} 
+Vector2f \hyperlink{class_engine_1_1_core_1_1_character_ab749582f4376b908cdf23d6cc4ac2fe2}{Last\+Good\+Position}
+\begin{DoxyCompactList}\small\item\em Saves the last position where the character could move freely. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_character_a289559b0eea38088ed1135ef8cf994dd}\label{class_engine_1_1_core_1_1_character_a289559b0eea38088ed1135ef8cf994dd}} 
+shared\+\_\+ptr$<$ \hyperlink{class_engine_1_1_core_1_1_game_texture}{Game\+Texture} $>$ {\bfseries Texture}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Wave\+Game/Character.\+h\item 
+Wave\+Game/Character.\+cpp\end{DoxyCompactItemize}
