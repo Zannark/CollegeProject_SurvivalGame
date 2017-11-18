@@ -1,38 +1,37 @@
 #pragma once
 
-#include <SFML\Graphics.hpp>
+#include <memory>
 #include <math.h>
-
+#include <map>
+#include <SFML\Graphics.hpp>
 #include "Common.h"
-#include "SmartTexture.h"
-#include "TextureCache.h"
-#include "VectorMaths.h"
-//#include "Character.h"
-#include "SFML_Collision.h"
+#include "Character.h"
+#include "GameTexture.h"
 #include "Map.h"
+#include "SFML_Collision.h"
+#include "VectorMaths.h"
 
+using namespace std;
 using namespace sf;
+using namespace Engine::Core;
+using namespace Engine::Misc;
 
-class Character;
-
-class Player : public Character
+namespace Engine::GamePlay
 {
-public:
-	Player(RenderWindow *Window, string PlayerTexture = "DefaultPlayer", float PlayerSpeed = 150.0f);
-	~Player();
+	class Player : public Character
+	{
+	public:
+		Player();
+		~Player();
 
-	void Update(RenderWindow *Window, float dt);
+		void Update(shared_ptr<RenderWindow> Window, Map M, float dt) override;
 	
-private:
-	View Camera;
-	Vector2f Offset;
-
-	float PlayerSpeed;
-	float Angle;
-	float StrafeSpeed;
-
-	void HandleMovement(RenderWindow* Window, float dt);
-	void HandleRotation(RenderWindow * Window);
-	void HandleCamera(RenderWindow* Window, float dt);
-};
-
+	private:
+		float MovementSpeed;
+		map<string, Vector2f> Directions;
+		
+		void HandleMovement(Map M, float dt);
+		void HandleRotation(shared_ptr<RenderWindow> Window, float dt);
+		bool CheckCollision(Map M);
+	};
+}

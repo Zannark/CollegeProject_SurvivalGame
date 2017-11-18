@@ -1,58 +1,25 @@
 #pragma once
 
-#include <ctime>
-#include <SFML\Graphics.hpp>
+#include <memory>
+#include "NavigationMesh.h"
+#include "GameTexture.h"
 #include "Character.h"
-#include "Player.h"
 
-using namespace sf;
+using namespace Engine::Core;
+using namespace std;
 
-/// <summary>
-/// Defines all of the states for the enemy.
-/// </summary>
-enum class EnemyStates
+namespace Engine::GamePlay
 {
-	/// <summary>
-	/// What the enemy does to begin with, when it first spawns in.
-	/// </summary>
-	STATE_IDLE = 0,
+	class Enemy : public Character
+	{
+	public:
+		Enemy(shared_ptr<NavigationMesh> Mesh);
+		~Enemy();
 
-	/// <summary>
-	/// What the enemy does as it walks to the player.
-	/// </summary>
-	STATE_MOVING_TOWARDS_PLAYER,
+		void Update(shared_ptr<RenderWindow> Window, Map M, float dt);
 
-	/// <summary>
-	///	The second thing the enemy does.
-	/// This is what is done, while the enemy checks the distance between itself and the player.
-	/// Takes place every three frames.
-	/// </summary>
-	STATE_RANGE_CHECK,
-
-	/// <summary>
-	///	The state when the player attacks.
-	/// </summary>
-	STATE_ATTACK
-};
-
-class Enemy : public Character
-{
-public:
-	Enemy();
-	~Enemy();
-
-	void SetState(EnemyStates State);
-	
-	void Update(RenderWindow *Window, Player &P, float dt);
-
-	int GetID(void);
-	EnemyStates GetState();
-private:
-	int ID;
-	EnemyStates State;
-
-	void UpdateRange(RenderWindow *Window, Player &P, float dt);
-	void UpdateAttack(RenderWindow *Window, Player &P, float dt);
-	void UpdateMoveToPlayer(RenderWindow *Window, Player &P, float dt);
-};
-
+	private:
+		shared_ptr<NavigationMesh> Mesh;
+		shared_ptr<GameTexture> Texture;
+	};
+}

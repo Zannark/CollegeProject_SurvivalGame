@@ -1,34 +1,34 @@
 #pragma once
 
-#include <SFML\Graphics.hpp>
-#include <math.h>
-
-#include "Common.h"
-#include "SmartTexture.h"
-#include "TextureCache.h"
+#include <iostream>
+#include <memory>
+#include "GameTexture.h"
+#include "Map.h"
 #include "VectorMaths.h"
 
-using namespace sf;
+using namespace std;
 
-class Character
+namespace Engine::Core
 {
-public:
-	Character();
-	~Character();
+	class Character
+	{
+	public:
+		Character();
+		~Character();
 
-	void Draw(RenderWindow *Window);
-	virtual void Update(RenderWindow *Window, float dt);
-	
-	SmartTexture GetTexture() const;
-	void SetCanMove(bool CanMove);
+		Vector2f GetPosition(void);
+		void Draw(shared_ptr<RenderWindow> Window);
 
-protected:
-	SmartTexture CharacterTexture;
-	float HalfWidth;
-	float HalfHeight;
-	bool CanMoveInDirection;
-	Vector2f Direction;
-	///To keep track of the last direction where the player couldn't go in that direction.
-	Vector2f LastDirectionCouldntMove;
-};
+		virtual void Update(shared_ptr<RenderWindow> Window, Map M, float dt) = 0;
 
+	protected:
+		float Angle;
+		Vector2f Direction;
+		
+		///Saves the last position where the character could move freely.
+		Vector2f LastGoodPosition;
+		shared_ptr<GameTexture> Texture;
+
+		void VectorToDirection(Vector2f& Vec);
+	};
+}

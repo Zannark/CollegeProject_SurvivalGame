@@ -1,35 +1,22 @@
 #pragma once
 
+#include <string>
 #include <vector>
-#include <stdexcept>
-#include <iostream>
 #include <fstream>
 #include <rapidxml.hpp>
-#include "SmartTexture.h"
-#include "Prop.h"
-#include "Common.h"
+#include <exception>
+#include <iostream>
 #include "Map.h"
-
+#include "Common.h"
 
 using namespace rapidxml;
 using namespace std;
 
-/// <summary>
-/// Responisble for loading in the map from XML files.
-/// </summary>
-class MapLoader
+namespace Engine::Core
 {
-public:
-	MapLoader(string MapFile);
-	~MapLoader();
-
-	Map Load();
-
-private:
-	xml_document<> MapDocument;
-	vector<char> MapContents;
-
-	void CheckAttribute(string AttributeName, xml_attribute<char>* Attribute);
-	string GetAttribute(string AttributeName, xml_node<char>* Node);
-};
-
+	class MapLoader
+	{
+	public:
+		static Map Load(string Path);
+	};
+}

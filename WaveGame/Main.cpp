@@ -1,81 +1,54 @@
-#include <iostream>
-#include <SFML\Graphics.hpp>
-#include "TextureCache.h"
+#include "GameTexture.h"
 #include "Common.h"
-#include "GameTime.h"
 #include "MapLoader.h"
 #include "Player.h"
-#include "Unittest.h"
-#include "Enemy.h"
-#include "FSM.h"
+#include "GameTime.h"
 #include "NavigationMesh.h"
+#include <SFML\Graphics.hpp>
 
-using namespace std;
 using namespace sf;
 
 #ifndef UNITTEST
 
-int main(void)
+int main(int argc, char** argv)
 {
-	TextureCache::Init();
-	GameTime::Init();	
-	MapLoader Load("Test.xml");
-	Map M = Load.Load();
-
-	RenderWindow *Window = new RenderWindow(VideoMode(1024, 720, 32), "Test Window");
-	Player Char = Player(Window);
+	Engine::Core::InitTextureCache();
+	shared_ptr<RenderWindow> Window = make_shared<RenderWindow>(VideoMode(800, 600, 32), "Game");
+	Event E;
 	
-	Window->setFramerateLimit(30);
+	Engine::GamePlay::Player P = Engine::GamePlay::Player();
+	Engine::Core::Map M = Engine::Core::MapLoader::Load("Test.xml");
 
-	//NavigationMesh Mesh = NavigationMesh(&M);
+	shared_ptr<NavigationMesh> Mesh = make_shared<NavigationMesh>(Window, P, M);
 
 	while (Window->isOpen())
 	{
-		Event E;
 		while (Window->pollEvent(E))
 		{
-			if (E.type == Event::Closed)
+			if(E.type == Event::Closed)
+			{
 				Window->close();
+			}
 		}
-		
-		M.Update(Window, Char, GameTime::DeltaTime());
-		Char.Update(Window, GameTime::DeltaTime());
 
-		Window->clear();
-		M.DrawBackground(Window);
-		Char.Draw(Window);
-		M.DrawProps(Window);
+		P.Update(Window, M, GameTime::DeltaTime());
+		Mesh->Update(P, GameTime::DeltaTime());
+
+		Window->clear(Color::Cyan);
 		
-		//Mesh.Draw(Window);
+		M.DrawBackground(Window);
+		P.Draw(Window);
+		M.DrawProps(Window);
+	
+		Mesh->DebugDraw(Window);
 
 		Window->display();
 		GameTime::Update();
 	}
 
-	delete Window;
 	return 0;
 }
-
 #else
-
-#include <iostream>
+#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include <doctest\doctest.h>
-
-using namespace std;
-
-int main(int argc, char** argv)
-{
-	doctest::Context Context;
-
-	Context.setOption("abort-after", 10);
-	Context.setOption("order-by", "name");
-	Context.setOption("no-breaks", true);
-	Context.applyCommandLine(argc, argv);
-	
-	Context.run();
-
-	cin.get();
-	return 0;
-}
-
-#endif // !UNITTEST
+#endif // !Unittest

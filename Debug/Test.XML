@@ -1,4 +1,7 @@
-<Map width = "1000" height = "1000" background="DefaultBackground">
-	<Prop type = "Static" x = "150" y = "150" collides = "true">Test</Prop>
-	<Prop type = "Static" x = "400" y = "200" collides = "true">Test</Prop>
+<Map Background="Assets/Background.png">
+<Prop X = "100" Y = "100">Assets/Player.png</Prop>
+<Prop X = "50" Y = "50">Assets/Player.png</Prop>
+<Prop X = "50" Y = "150">Assets/Player.png</Prop>
+<Prop X = "600" Y = "70">Assets/Player.png</Prop>
+<Prop X = "750" Y = "150">Assets/Player.png</Prop>
 </Map>

@@ -1,37 +1,54 @@
 #pragma once
 
-#include <memory>
 #include <vector>
-#include "Prop.h"
-#include "TextureCache.h"
-#include "Character.h"
-#include "SFML_Collision.h"
+#include <SFML\Graphics.hpp>
+#include <memory>
+#include "GameTexture.h"
 
 using namespace std;
 
-/// <summary>
-/// Defines the world which the player can move around in and interact with.
-/// </summary>
-class Map
+namespace Engine::Core
 {
-public:
-	Map();
-	Map(Vector2f Dimensions, string BackgroundID);
-	~Map();
+	class Map
+	{
+	public:
+		Map();
+		~Map();
 
-	void AddProp(shared_ptr<Prop> Prop);
-	void DrawBackground(RenderWindow *Window);
-	void DrawProps(RenderWindow *Window);
-	void Update(RenderWindow *Window, Character& P, float dt);
-	vector<shared_ptr<Prop>> GetPropsWithTag(string Tag);
-	vector<shared_ptr<Prop>> GetProps(void);
-	SmartTexture GetBackground(void);
-	
-private:
-	vector<shared_ptr<Prop>> MapProps;
-	Vector2f MapDimensions;
-	SmartTexture Background;
+		///<summary>
+		///Sets what the background texture is for the map.
+		///</summary>
+		///<param name = "ID">A string which is the ID of the texture for the background.</param>
+		void AddBackground(string ID);
 
-	void HandleCollision(RenderWindow *Window, Character& P, float dt);
-};
+		///<summary>
+		///Adds a prop to the Props vector, so they can be drawn.
+		///</summary>
+		///<param name = "ID">A string which is the ID for the texture.</param>
+		///<param name = "Position">A Vector2f which contains the on screen position for the prop.</param>
+		void AddProp(string ID, Vector2f Position);
 
+		///<summary>
+		///Gets all props which are loaded into the map.
+		///</summary>
+		///<returns>The props which are loaded in the map.</returns>
+		vector<shared_ptr<GameTexture>> GetProps(void);
+
+		///<summary>
+		///Draws the background. The background is the first thing which should be drawn.
+		///This ensures that the props, player and enemies are on top of it.
+		///</summary>
+		///<param name = "Window">A pointer to the RenderWindow is being drawn to.</param>
+		void DrawBackground(shared_ptr<RenderWindow> Window);
+
+		///<summary>
+		///Draws the prop to the screen.
+		///</summary>
+		///<param name = "Window">A pointer to the RenderWindow is being drawn to.</param>
+		void DrawProps(shared_ptr<RenderWindow> Window);
+
+	private:
+		GameTexture Background;
+		vector<shared_ptr<GameTexture>> Props;
+	};
+}

@@ -1,92 +1,65 @@
 #include "Player.h"
 
-Player::Player(RenderWindow *Window, string CharacterTexture, float PlayerSpeed)
+Engine::GamePlay::Player::Player()
 {
-	this->CharacterTexture = TextureCache::GetTexure(CharacterTexture);
+	this->Texture = make_shared<GameTexture>(TextureCache::Cache.Access("Assets/Player.png"));
+	this->MovementSpeed = 150.0f;
 
-	this->PlayerSpeed = PlayerSpeed;
-	this->StrafeSpeed = 100.0f;
-	this->HalfWidth = (float)(this->CharacterTexture.GetDimensions().x / 2);
-	this->HalfHeight = (float)(this->CharacterTexture.GetDimensions().y / 2);
-	this->CharacterTexture.SmartSprite.setOrigin(this->HalfWidth, this->HalfHeight);
-	
-	this->Camera = View(this->CharacterTexture.GetPosition(), Vector2f((float)Window->getSize().x, (float)Window->getSize().y));
-	Window->setView(this->Camera);
+	this->Texture->SetOrigin(Vector2f((float)(this->Texture->GetSFMLTexture().getSize().x / 2), (float)(this->Texture->GetSFMLTexture().getSize().y / 2)));
+
+	this->Directions["Up"] = Vector2f(0, -1);
+	this->Directions["Down"] = Vector2f(0, 1);
+	this->Directions["Left"] = Vector2f(-1, 0);
+	this->Directions["Right"] = Vector2f(1, 0);
+	this->Directions["Still"] = Vector2f(0, 0);
 }
 
-Player::~Player()
+Engine::GamePlay::Player::~Player()
 {
 }
 
-/// <summary>
-/// Updates the players game logic. This includes health, movement, etc...
-/// </summary>
-/// <param name = "Window">A pointer to the render target. Needed for some logic.</param>
-/// <param name = "dt">Delta Time</param>
-void Player::Update(RenderWindow* Window, float dt)
+void Engine::GamePlay::Player::Update(shared_ptr<RenderWindow> Window, Map M, float dt)
 {	
-	this->HandleRotation(Window);
-	this->HandleMovement(Window, dt);
-	this->HandleCamera(Window, dt);
+	this->HandleMovement(M, dt);
+	this->HandleRotation(Window, dt);
 }
 
-
-/// <summary>
-/// Handles all the logic for moving the player between two points.
-/// </summary>
-/// <param name = "Window">A pointer to the render target. Needed for some logic.</param>
-/// <param name = "dt">Delta Time</param>
-void Player::HandleMovement(RenderWindow* Window, float dt)
+void Engine::GamePlay::Player::HandleMovement(Map M, float dt)
 {
-	this->Offset = Vector2f();
+	Vector2f Offset = Vector2f(0, 0);
 
-	if (Keyboard::isKeyPressed(Keyboard::Key::W) && this->CanMoveInDirection)
-		Offset.y -= this->PlayerSpeed * dt;
-	else if(Keyboard::isKeyPressed(Keyboard::Key::W) && !this->CanMoveInDirection)
-		Offset.y += (this->PlayerSpeed * dt) + 10;
+	if (Keyboard::isKeyPressed(Keyboard::Key::W))
+		Offset.y -= this->MovementSpeed * dt;
 
-	if (Keyboard::isKeyPressed(Keyboard::Key::S) && this->CanMoveInDirection)
-		Offset.y += this->PlayerSpeed * dt;
-	else if (Keyboard::isKeyPressed(Keyboard::Key::S) && !this->CanMoveInDirection)
-		Offset.y -= (this->PlayerSpeed * dt) + 10;
-		
-	if (Keyboard::isKeyPressed(Keyboard::Key::A) && this->CanMoveInDirection)
-		Offset.x -= this->PlayerSpeed * dt;
-	else if (Keyboard::isKeyPressed(Keyboard::Key::A) && !this->CanMoveInDirection)
-		Offset.x += (this->PlayerSpeed * dt) + 10;
-	
-	if (Keyboard::isKeyPressed(Keyboard::Key::D) && this->CanMoveInDirection)
-		Offset.x += this->PlayerSpeed * dt;
-	else if (Keyboard::isKeyPressed(Keyboard::Key::D) && !this->CanMoveInDirection)
-		Offset.x -= (this->PlayerSpeed * dt) + 10;
+	if (Keyboard::isKeyPressed(Keyboard::Key::S))
+		Offset.y += this->MovementSpeed * dt;
 
-	this->CharacterTexture.Move(Offset);
+	if (Keyboard::isKeyPressed(Keyboard::Key::A))
+		Offset.x -= this->MovementSpeed * dt;
+
+	if (Keyboard::isKeyPressed(Keyboard::Key::D))
+		Offset.x += this->MovementSpeed * dt;
+
+	this->Texture->Move(Offset);
 }
 
-/// <summary>
-/// Handles the logic for rotating the player.
-/// </summary>
-/// <param name = "Window">A pointer to the render target. Needed for some logic.</param>
-void Player::HandleRotation(sf::RenderWindow * Window)
+void Engine::GamePlay::Player::HandleRotation(shared_ptr<RenderWindow> Window, float dt)
 {
-	Vector2i MousePosition = Mouse::getPosition(*Window);
+	this->Angle = atan2(Mouse::getPosition(*Window).y - this->Texture->GetSFMLSprite()->getPosition().y,
+						Mouse::getPosition(*Window).x - this->Texture->GetSFMLSprite()->getPosition().x);
 
-	this->Angle = (float)atan2(Window->getPosition().y - MousePosition.y, Window->getPosition().x - MousePosition.x);
 	this->Angle *= (float)(180 / PI);
 
-	if (this->Angle < 360)
-		this->Angle += 360;
+	if (Angle < 0)
+		Angle += 360;
 
-	this->CharacterTexture.SmartSprite.setRotation(this->Angle - 90);
+	this->Texture->SetRotation(Angle + 90);
 }
 
-/// <summary>
-/// Moves the camera.
-/// </summary>
-/// <param name = "Window">A pointer to the render target.</param>
-/// <param name = "dt">Delta Time</param>
-void Player::HandleCamera(RenderWindow* Window, float dt)
+bool Engine::GamePlay::Player::CheckCollision(Map M)
 {
-	this->Camera.move(this->Offset);
-	Window->setView(this->Camera);
-}
+	for (auto Prop : M.GetProps())
+		if (Collision::BoundingBoxTest(*this->Texture->GetSFMLSprite(), *Prop->GetSFMLSprite()))
+			return true;
+	return false;
+}		
