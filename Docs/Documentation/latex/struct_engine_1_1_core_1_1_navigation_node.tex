@@ -1,0 +1,100 @@
+\hypertarget{struct_engine_1_1_core_1_1_navigation_node}{}\section{Engine\+:\+:Core\+:\+:Navigation\+Node Struct Reference}
+\label{struct_engine_1_1_core_1_1_navigation_node}\index{Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}}
+
+
+An object which represents point in 2D space for the Navigation mesh. /summary$>$  
+
+
+
+
+{\ttfamily \#include $<$Navigation\+Mesh.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_engine_1_1_core_1_1_navigation_node_ae3912b3f6efd3ba94b71bdab5d70a049}{Navigation\+Node} (Vector2f Location, \hyperlink{class_engine_1_1_game_play_1_1_player}{Player} P)
+\item 
+bool \hyperlink{struct_engine_1_1_core_1_1_navigation_node_a12cffe89f89aac9623ae2530dd556dc7}{operator==} (const \hyperlink{struct_engine_1_1_core_1_1_navigation_node}{Navigation\+Node} \&Rhs)
+\item 
+bool \hyperlink{struct_engine_1_1_core_1_1_navigation_node_a4093291628771c2de79b2b1a8ea2ec82}{operator==} (const Vector2f \&Rhs)
+\item 
+void \hyperlink{struct_engine_1_1_core_1_1_navigation_node_ac61bc4291a133693de436a3e875c8c39}{Calculate\+Distance} (\hyperlink{class_engine_1_1_game_play_1_1_player}{Player} P)
+\item 
+void \hyperlink{struct_engine_1_1_core_1_1_navigation_node_a453d05d915929841a1f3d8f228996d37}{Debug\+Draw} (shared\+\_\+ptr$<$ Render\+Window $>$ Window)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+shared\+\_\+ptr$<$ Rectangle\+Shape $>$ \hyperlink{struct_engine_1_1_core_1_1_navigation_node_a7a1470734947944ba351df516e2a7cc1}{Shape}
+\item 
+Vector2f \hyperlink{struct_engine_1_1_core_1_1_navigation_node_a09e7506d996f8bd91b478f3e013fd48e}{Point}
+\item 
+\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_a707b571c58bffbf140fd4f6ebe6a4f37}\label{struct_engine_1_1_core_1_1_navigation_node_a707b571c58bffbf140fd4f6ebe6a4f37}} 
+float {\bfseries Estimate}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An object which represents point in 2D space for the Navigation mesh. /summary$>$ 
+
+summary$>$ A mesh of all the Navigation\+Nodes, used for A$\ast$ pathfinding. /summary$>$ 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_ae3912b3f6efd3ba94b71bdab5d70a049}\label{struct_engine_1_1_core_1_1_navigation_node_ae3912b3f6efd3ba94b71bdab5d70a049}} 
+\index{Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}!Navigation\+Node@{Navigation\+Node}}
+\index{Navigation\+Node@{Navigation\+Node}!Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}}
+\subsubsection{\texorpdfstring{Navigation\+Node()}{NavigationNode()}}
+{\footnotesize\ttfamily Engine\+::\+Core\+::\+Navigation\+Node\+::\+Navigation\+Node (\begin{DoxyParamCaption}\item[{Vector2f}]{Location,  }\item[{\hyperlink{class_engine_1_1_game_play_1_1_player}{Player}}]{P }\end{DoxyParamCaption})}
+
+summary$>$ Compares itself with another \hyperlink{struct_engine_1_1_core_1_1_navigation_node}{Navigation\+Node} object. /summary$>$ param name = \char`\"{}\+Rhs\char`\"{}$>$The \hyperlink{struct_engine_1_1_core_1_1_navigation_node}{Navigation\+Node} on the right hand side.
+
+returns$>$True if they match, otherwise false.
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_ac61bc4291a133693de436a3e875c8c39}\label{struct_engine_1_1_core_1_1_navigation_node_ac61bc4291a133693de436a3e875c8c39}} 
+\index{Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}!Calculate\+Distance@{Calculate\+Distance}}
+\index{Calculate\+Distance@{Calculate\+Distance}!Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}}
+\subsubsection{\texorpdfstring{Calculate\+Distance()}{CalculateDistance()}}
+{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Navigation\+Node\+::\+Calculate\+Distance (\begin{DoxyParamCaption}\item[{\hyperlink{class_engine_1_1_game_play_1_1_player}{Player}}]{P }\end{DoxyParamCaption})}
+
+summary$>$ Used to draw the \hyperlink{struct_engine_1_1_core_1_1_navigation_node}{Navigation\+Node} object for debugging purposes. Not to be used in game. /summary$>$ param name = \char`\"{}\+Window\char`\"{}$>$A pointer to the Render\+Window in use.\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_a453d05d915929841a1f3d8f228996d37}\label{struct_engine_1_1_core_1_1_navigation_node_a453d05d915929841a1f3d8f228996d37}} 
+\index{Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}!Debug\+Draw@{Debug\+Draw}}
+\index{Debug\+Draw@{Debug\+Draw}!Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}}
+\subsubsection{\texorpdfstring{Debug\+Draw()}{DebugDraw()}}
+{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Navigation\+Node\+::\+Debug\+Draw (\begin{DoxyParamCaption}\item[{shared\+\_\+ptr$<$ Render\+Window $>$}]{Window }\end{DoxyParamCaption})}
+
+summary$>$ A visual representation of the \hyperlink{struct_engine_1_1_core_1_1_navigation_node}{Navigation\+Node}. Used for debugging, not for in game use. /summary$>$ \mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_a12cffe89f89aac9623ae2530dd556dc7}\label{struct_engine_1_1_core_1_1_navigation_node_a12cffe89f89aac9623ae2530dd556dc7}} 
+\index{Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}!operator==@{operator==}}
+\index{operator==@{operator==}!Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Engine\+::\+Core\+::\+Navigation\+Node\+::operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_engine_1_1_core_1_1_navigation_node}{Navigation\+Node} \&}]{Rhs }\end{DoxyParamCaption})}
+
+summary$>$ Compares itself with a point in 2D space. /summary$>$ param name = \char`\"{}\+Rhs\char`\"{}$>$The Vector2f on the right hand side.
+
+returns$>$True if they match, otherwise false.\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_a4093291628771c2de79b2b1a8ea2ec82}\label{struct_engine_1_1_core_1_1_navigation_node_a4093291628771c2de79b2b1a8ea2ec82}} 
+\index{Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}!operator==@{operator==}}
+\index{operator==@{operator==}!Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Engine\+::\+Core\+::\+Navigation\+Node\+::operator== (\begin{DoxyParamCaption}\item[{const Vector2f \&}]{Rhs }\end{DoxyParamCaption})}
+
+summary$>$ Calculates the euclidean distance to the player, for the heuristic. /summary$>$ param name = \char`\"{}\+P\char`\"{}$>$The Player.
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_a09e7506d996f8bd91b478f3e013fd48e}\label{struct_engine_1_1_core_1_1_navigation_node_a09e7506d996f8bd91b478f3e013fd48e}} 
+\index{Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}!Point@{Point}}
+\index{Point@{Point}!Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}}
+\subsubsection{\texorpdfstring{Point}{Point}}
+{\footnotesize\ttfamily Vector2f Engine\+::\+Core\+::\+Navigation\+Node\+::\+Point}
+
+summary$>$ The estimated distance to the destination. /summary$>$ \mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_a7a1470734947944ba351df516e2a7cc1}\label{struct_engine_1_1_core_1_1_navigation_node_a7a1470734947944ba351df516e2a7cc1}} 
+\index{Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}!Shape@{Shape}}
+\index{Shape@{Shape}!Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}}
+\subsubsection{\texorpdfstring{Shape}{Shape}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$Rectangle\+Shape$>$ Engine\+::\+Core\+::\+Navigation\+Node\+::\+Shape}
+
+summary$>$ The point data of the Node. /summary$>$ 
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Wave\+Game/Navigation\+Mesh.\+h\item 
+Wave\+Game/Navigation\+Mesh.\+cpp\end{DoxyCompactItemize}

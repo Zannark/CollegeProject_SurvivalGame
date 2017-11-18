@@ -1,0 +1,62 @@
+\hypertarget{class_engine_1_1_core_1_1_map}{}\section{Engine\+:\+:Core\+:\+:Map Class Reference}
+\label{class_engine_1_1_core_1_1_map}\index{Engine\+::\+Core\+::\+Map@{Engine\+::\+Core\+::\+Map}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_engine_1_1_core_1_1_map_a211f38a71b97179bbbd153442225a273}{$\sim$\+Map} ()
+\item 
+void \hyperlink{class_engine_1_1_core_1_1_map_aa81a28822b49c3c7750f0444a189ed8c}{Add\+Background} (string ID)
+\item 
+void \hyperlink{class_engine_1_1_core_1_1_map_aad4517115b5d8713aed2f67338cd7259}{Add\+Prop} (string ID, Vector2f Position)
+\item 
+vector$<$ shared\+\_\+ptr$<$ \hyperlink{class_engine_1_1_core_1_1_game_texture}{Game\+Texture} $>$ $>$ \hyperlink{class_engine_1_1_core_1_1_map_afafd62cdfe87b27796d0900e76aa09ea}{Get\+Props} (void)
+\item 
+void \hyperlink{class_engine_1_1_core_1_1_map_aeb4eabaf8cbde4e584836daa646c0521}{Draw\+Background} (shared\+\_\+ptr$<$ Render\+Window $>$ Window)
+\item 
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_map_a2e6a7e15ecd79f449fe6326768069953}\label{class_engine_1_1_core_1_1_map_a2e6a7e15ecd79f449fe6326768069953}} 
+void {\bfseries Draw\+Props} (shared\+\_\+ptr$<$ Render\+Window $>$ Window)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_map_a211f38a71b97179bbbd153442225a273}\label{class_engine_1_1_core_1_1_map_a211f38a71b97179bbbd153442225a273}} 
+\index{Engine\+::\+Core\+::\+Map@{Engine\+::\+Core\+::\+Map}!````~Map@{$\sim$\+Map}}
+\index{````~Map@{$\sim$\+Map}!Engine\+::\+Core\+::\+Map@{Engine\+::\+Core\+::\+Map}}
+\subsubsection{\texorpdfstring{$\sim$\+Map()}{~Map()}}
+{\footnotesize\ttfamily Engine\+::\+Core\+::\+Map\+::$\sim$\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+summary$>$ Sets what the background texture is for the map. /summary$>$ param name = \char`\"{}\+I\+D\char`\"{}$>$A string which is the ID of the texture for the background.
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_map_aa81a28822b49c3c7750f0444a189ed8c}\label{class_engine_1_1_core_1_1_map_aa81a28822b49c3c7750f0444a189ed8c}} 
+\index{Engine\+::\+Core\+::\+Map@{Engine\+::\+Core\+::\+Map}!Add\+Background@{Add\+Background}}
+\index{Add\+Background@{Add\+Background}!Engine\+::\+Core\+::\+Map@{Engine\+::\+Core\+::\+Map}}
+\subsubsection{\texorpdfstring{Add\+Background()}{AddBackground()}}
+{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Map\+::\+Add\+Background (\begin{DoxyParamCaption}\item[{string}]{ID }\end{DoxyParamCaption})}
+
+summary$>$ Adds a prop to the Props vector, so they can be drawn. /summary$>$ param name = \char`\"{}\+I\+D\char`\"{}$>$A string which is the ID for the texture.
+
+param name = \char`\"{}\+Position\char`\"{}$>$A Vector2f which contains the on screen position for the prop.\mbox{\Hypertarget{class_engine_1_1_core_1_1_map_aad4517115b5d8713aed2f67338cd7259}\label{class_engine_1_1_core_1_1_map_aad4517115b5d8713aed2f67338cd7259}} 
+\index{Engine\+::\+Core\+::\+Map@{Engine\+::\+Core\+::\+Map}!Add\+Prop@{Add\+Prop}}
+\index{Add\+Prop@{Add\+Prop}!Engine\+::\+Core\+::\+Map@{Engine\+::\+Core\+::\+Map}}
+\subsubsection{\texorpdfstring{Add\+Prop()}{AddProp()}}
+{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Map\+::\+Add\+Prop (\begin{DoxyParamCaption}\item[{string}]{ID,  }\item[{Vector2f}]{Position }\end{DoxyParamCaption})}
+
+summary$>$ Gets all props which are loaded into the map. /summary$>$ returns$>$The props which are loaded in the map.\mbox{\Hypertarget{class_engine_1_1_core_1_1_map_aeb4eabaf8cbde4e584836daa646c0521}\label{class_engine_1_1_core_1_1_map_aeb4eabaf8cbde4e584836daa646c0521}} 
+\index{Engine\+::\+Core\+::\+Map@{Engine\+::\+Core\+::\+Map}!Draw\+Background@{Draw\+Background}}
+\index{Draw\+Background@{Draw\+Background}!Engine\+::\+Core\+::\+Map@{Engine\+::\+Core\+::\+Map}}
+\subsubsection{\texorpdfstring{Draw\+Background()}{DrawBackground()}}
+{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Map\+::\+Draw\+Background (\begin{DoxyParamCaption}\item[{shared\+\_\+ptr$<$ Render\+Window $>$}]{Window }\end{DoxyParamCaption})}
+
+summary$>$ Draws the prop to the screen. /summary$>$ param name = \char`\"{}\+Window\char`\"{}$>$A pointer to the Render\+Window is being drawn to.\mbox{\Hypertarget{class_engine_1_1_core_1_1_map_afafd62cdfe87b27796d0900e76aa09ea}\label{class_engine_1_1_core_1_1_map_afafd62cdfe87b27796d0900e76aa09ea}} 
+\index{Engine\+::\+Core\+::\+Map@{Engine\+::\+Core\+::\+Map}!Get\+Props@{Get\+Props}}
+\index{Get\+Props@{Get\+Props}!Engine\+::\+Core\+::\+Map@{Engine\+::\+Core\+::\+Map}}
+\subsubsection{\texorpdfstring{Get\+Props()}{GetProps()}}
+{\footnotesize\ttfamily vector$<$ shared\+\_\+ptr$<$ \hyperlink{class_engine_1_1_core_1_1_game_texture}{Engine\+::\+Core\+::\+Game\+Texture} $>$ $>$ Engine\+::\+Core\+::\+Map\+::\+Get\+Props (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+summary$>$ Draws the background. The background is the first thing which should be drawn. This ensures that the props, player and enemies are on top of it. /summary$>$ param name = \char`\"{}\+Window\char`\"{}$>$A pointer to the Render\+Window is being drawn to.
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Wave\+Game/Map.\+h\item 
+Wave\+Game/Map.\+cpp\end{DoxyCompactItemize}

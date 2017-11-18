@@ -1,0 +1,45 @@
+\hypertarget{class_engine_1_1_core_1_1_cache}{}\section{Engine\+:\+:Core\+:\+:Cache$<$ T $>$ Class Template Reference}
+\label{class_engine_1_1_core_1_1_cache}\index{Engine\+::\+Core\+::\+Cache$<$ T $>$@{Engine\+::\+Core\+::\+Cache$<$ T $>$}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_engine_1_1_core_1_1_cache_a18673becad0012e4db441535744d8e0f}{Cache} ()
+\item 
+T \hyperlink{class_engine_1_1_core_1_1_cache_a1a4d83ac2cc8656acb5c99e4999e1551}{Access} (string ID)
+\item 
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_cache_aa9c31c77611ffd712133d233f374e3c5}\label{class_engine_1_1_core_1_1_cache_aa9c31c77611ffd712133d233f374e3c5}} 
+T {\bfseries Add} (string ID, T Item)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_cache_a18673becad0012e4db441535744d8e0f}\label{class_engine_1_1_core_1_1_cache_a18673becad0012e4db441535744d8e0f}} 
+\index{Engine\+::\+Core\+::\+Cache@{Engine\+::\+Core\+::\+Cache}!Cache@{Cache}}
+\index{Cache@{Cache}!Engine\+::\+Core\+::\+Cache@{Engine\+::\+Core\+::\+Cache}}
+\subsubsection{\texorpdfstring{Cache()}{Cache()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+\hyperlink{class_engine_1_1_core_1_1_cache}{Engine\+::\+Core\+::\+Cache}$<$ T $>$\+::\hyperlink{class_engine_1_1_core_1_1_cache}{Cache} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+summary$>$ Accesses the item if it is found in the storage. /summary$>$ param name = \char`\"{}\+I\+D\char`\"{}$>$A string which is the identifier for accessing the item.
+
+returns$>$The item required of type T.
+
+exception cref = \char`\"{}std\+::runtime\+\_\+error\char`\"{}$>$Throws when the object isn\textquotesingle{}t found.
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_cache_a1a4d83ac2cc8656acb5c99e4999e1551}\label{class_engine_1_1_core_1_1_cache_a1a4d83ac2cc8656acb5c99e4999e1551}} 
+\index{Engine\+::\+Core\+::\+Cache@{Engine\+::\+Core\+::\+Cache}!Access@{Access}}
+\index{Access@{Access}!Engine\+::\+Core\+::\+Cache@{Engine\+::\+Core\+::\+Cache}}
+\subsubsection{\texorpdfstring{Access()}{Access()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+T \hyperlink{class_engine_1_1_core_1_1_cache}{Engine\+::\+Core\+::\+Cache}$<$ T $>$\+::Access (\begin{DoxyParamCaption}\item[{string}]{ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+summary$>$ Adds Item into the storage, if it isn\textquotesingle{}t already in the storage. /summary$>$ param name = \char`\"{}\+I\+D\char`\"{}$>$The string ID of the item to be added.
+
+param name = \char`\"{}\+Item\char`\"{}$>$The item to be added.
+
+returns$>$The item which was added.
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Wave\+Game/Cache.\+h\end{DoxyCompactItemize}

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['map',['Map',['../class_map.html',1,'']]],
-  ['maploader',['MapLoader',['../class_map_loader.html',1,'']]]
+  ['enemy',['Enemy',['../class_engine_1_1_game_play_1_1_enemy.html',1,'Engine::GamePlay']]]
 ];

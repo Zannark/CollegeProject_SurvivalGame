@@ -1,0 +1,42 @@
+\hypertarget{class_engine_1_1_core_1_1_navigation_mesh}{}\section{Engine\+:\+:Core\+:\+:Navigation\+Mesh Class Reference}
+\label{class_engine_1_1_core_1_1_navigation_mesh}\index{Engine\+::\+Core\+::\+Navigation\+Mesh@{Engine\+::\+Core\+::\+Navigation\+Mesh}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_engine_1_1_core_1_1_navigation_mesh_a7c1d1dfb88aeb8d53a9d99bca5e67a66}{Navigation\+Mesh} (shared\+\_\+ptr$<$ Render\+Window $>$ Window, \hyperlink{class_engine_1_1_game_play_1_1_player}{Player} P, \hyperlink{class_engine_1_1_core_1_1_map}{Map} M)
+\begin{DoxyCompactList}\small\item\em Constructs the nodes and places them in 2D space. No Navigation\+Nodes are placed in on top of Props and are 15 pixels apart from each other (on both x and y axis). /summary$>$ \end{DoxyCompactList}\item 
+void \hyperlink{class_engine_1_1_core_1_1_navigation_mesh_a5f2b7d3b8c7e5ea747f9d8a7c5b432e5}{Update} (\hyperlink{class_engine_1_1_game_play_1_1_player}{Player} P, float dt)
+\item 
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_navigation_mesh_a86758b74b81e8e48ddbf14466e8e9325}\label{class_engine_1_1_core_1_1_navigation_mesh_a86758b74b81e8e48ddbf14466e8e9325}} 
+void {\bfseries Debug\+Draw} (shared\+\_\+ptr$<$ Render\+Window $>$ Window)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_navigation_mesh_a7c1d1dfb88aeb8d53a9d99bca5e67a66}\label{class_engine_1_1_core_1_1_navigation_mesh_a7c1d1dfb88aeb8d53a9d99bca5e67a66}} 
+\index{Engine\+::\+Core\+::\+Navigation\+Mesh@{Engine\+::\+Core\+::\+Navigation\+Mesh}!Navigation\+Mesh@{Navigation\+Mesh}}
+\index{Navigation\+Mesh@{Navigation\+Mesh}!Engine\+::\+Core\+::\+Navigation\+Mesh@{Engine\+::\+Core\+::\+Navigation\+Mesh}}
+\subsubsection{\texorpdfstring{Navigation\+Mesh()}{NavigationMesh()}}
+{\footnotesize\ttfamily Engine\+::\+Core\+::\+Navigation\+Mesh\+::\+Navigation\+Mesh (\begin{DoxyParamCaption}\item[{shared\+\_\+ptr$<$ Render\+Window $>$}]{Window,  }\item[{\hyperlink{class_engine_1_1_game_play_1_1_player}{Player}}]{P,  }\item[{\hyperlink{class_engine_1_1_core_1_1_map}{Map}}]{M }\end{DoxyParamCaption})}
+
+
+
+Constructs the nodes and places them in 2D space. No Navigation\+Nodes are placed in on top of Props and are 15 pixels apart from each other (on both x and y axis). /summary$>$ 
+
+Create a new thread so that it can run in the background and not cause the game to lock up. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_navigation_mesh_a5f2b7d3b8c7e5ea747f9d8a7c5b432e5}\label{class_engine_1_1_core_1_1_navigation_mesh_a5f2b7d3b8c7e5ea747f9d8a7c5b432e5}} 
+\index{Engine\+::\+Core\+::\+Navigation\+Mesh@{Engine\+::\+Core\+::\+Navigation\+Mesh}!Update@{Update}}
+\index{Update@{Update}!Engine\+::\+Core\+::\+Navigation\+Mesh@{Engine\+::\+Core\+::\+Navigation\+Mesh}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Navigation\+Mesh\+::\+Update (\begin{DoxyParamCaption}\item[{\hyperlink{class_engine_1_1_game_play_1_1_player}{Player}}]{P,  }\item[{float}]{dt }\end{DoxyParamCaption})}
+
+summary$>$ Used to draw vector of \hyperlink{struct_engine_1_1_core_1_1_navigation_node}{Navigation\+Node} objects for debugging purposes. Not to be used in game. /summary$>$ param name = \char`\"{}\+Window\char`\"{}$>$A pointer to the Render\+Window in use.Why is this a lambda? Only the gods know the reasoning.
+
+This feels a bit cheatyyyy...? 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Wave\+Game/Navigation\+Mesh.\+h\item 
+Wave\+Game/Navigation\+Mesh.\+cpp\end{DoxyCompactItemize}
