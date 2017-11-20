@@ -44,8 +44,8 @@ Engine::Core::NavigationMesh::NavigationMesh(shared_ptr<RenderWindow> Window, Pl
 void Engine::Core::NavigationMesh::CreateNavigationMesh(const std::shared_ptr<sf::RenderWindow> &Window, Player P, Map M)
 {
 	lock_guard<mutex> Guard(this->LoadingMuxtex);
-
 	auto Props = M.GetProps();
+	int Rows = 0;
 	
 	for (float x = 0; x < (float)Window->getSize().x; x += NODE_DISTANCE)
 	{
@@ -67,8 +67,12 @@ void Engine::Core::NavigationMesh::CreateNavigationMesh(const std::shared_ptr<sf
 
 			if (!DoesCollision)
 				this->NavNodes.push_back(NavigationNode(Vector2f(x, y), P));
-		}	
+		}
+
+		Rows += 1;
 	}
+
+	this->NodeInformation["Row"] = Rows;
 }
 
 Engine::Core::NavigationMesh::~NavigationMesh()
@@ -106,6 +110,7 @@ void Engine::Core::NavigationMesh::Update(Player P, float dt)
 	}
 }
 
+
 void Engine::Core::NavigationMesh::DebugDraw(shared_ptr<RenderWindow> Window)
 {
 	if (this->LoadingMuxtex.try_lock())
@@ -114,4 +119,9 @@ void Engine::Core::NavigationMesh::DebugDraw(shared_ptr<RenderWindow> Window)
 			this->NavNodes[i].DebugDraw(Window);
 		this->LoadingMuxtex.unlock();
 	}
+}
+
+NavigationNode Engine::Core::NavigationMesh::Get(int n)
+{
+	return this->NavNodes[n];
 }

@@ -10,6 +10,9 @@
 #include <thread>
 #include <mutex>
 #include <algorithm>
+#include <tuple>
+#include <cstdlib>
+#include <math.h>
 #include "Common.h"
 #include "Map.h"
 #include "Player.h"
@@ -30,6 +33,7 @@ namespace Engine::Core
 	struct NavigationNode
 	{
 		NavigationNode(Vector2f Location, Player P);
+		NavigationNode() = default;
 
 		///<summary>
 		///Compares itself with another NavigationNode object.
@@ -88,6 +92,11 @@ namespace Engine::Core
 		NavigationMesh(shared_ptr<RenderWindow> Window, Player P, Map M);
 		~NavigationMesh();
 		
+		///<summary>
+		///Called once per frame. At given intervals the heuristic gets updated.
+		///</summary>
+		///<param name = "P">The player to get their location.</param>
+		///<param name = "dt">Delta Time.</param>
 		void Update(Player P, float dt);
 
 		///<summary>
@@ -97,13 +106,20 @@ namespace Engine::Core
 		///<param name = "Window">A pointer to the RenderWindow in use.</param>
 		void DebugDraw(shared_ptr<RenderWindow> Window);
 
+		///<summary>
+		///Returns the nth node.
+		///</summary>
+		///<param name = "n">The position to get</param>
+		///<returns>Returns the node at n.</returns>
+		NavigationNode Get(int n);
+
 	private:
 		vector<NavigationNode> NavNodes;
+		map<string, int> NodeInformation; ///Contains information about rows and columns.
+
 		mutex LoadingMuxtex;
 		thread LoadingThread;
 
-		mutex NodeUpdateMutex;
-		thread NodeUpdateThread;
 		int CurrentNodePosition;
 		int IntervalCounter; //Incremented once per frame.
 		

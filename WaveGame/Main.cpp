@@ -18,8 +18,9 @@ int main(int argc, char** argv)
 	
 	Engine::GamePlay::Player P = Engine::GamePlay::Player();
 	Engine::Core::Map M = Engine::Core::MapLoader::Load("Test.xml");
-
 	shared_ptr<NavigationMesh> Mesh = make_shared<NavigationMesh>(Window, P, M);
+	
+	Mesh->GetNodeAtLocation(Vector2f(7, 3));
 
 	while (Window->isOpen())
 	{
@@ -34,13 +35,15 @@ int main(int argc, char** argv)
 		P.Update(Window, M, GameTime::DeltaTime());
 		Mesh->Update(P, GameTime::DeltaTime());
 
+		Mesh->GetNodesAroundPoint(P.GetPosition());
+
 		Window->clear(Color::Cyan);
 		
 		M.DrawBackground(Window);
 		P.Draw(Window);
 		M.DrawProps(Window);
 	
-		Mesh->DebugDraw(Window);
+		//Mesh->DebugDraw(Window);
 
 		Window->display();
 		GameTime::Update();

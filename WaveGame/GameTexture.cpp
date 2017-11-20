@@ -104,4 +104,6 @@ void Engine::Core::InitTextureCache()
 {
 	TextureCache::Cache.Add("Assets/Background.png", GameTexture("Assets/Background.png"));
 	TextureCache::Cache.Add("Assets/Player.png", GameTexture("Assets/Player.png"));
+	TextureCache::Cache.Add("Assets/TestBuilding.png", GameTexture("Assets/TestBuilding.png"));
+	TextureCache::Cache.Add("Assets/Enemy.png", GameTexture("Assets/Enemy.png"));
 }
