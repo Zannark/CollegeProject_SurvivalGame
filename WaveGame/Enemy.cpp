@@ -18,10 +18,10 @@ void Engine::GamePlay::Enemy::Update(shared_ptr<RenderWindow> Window, Map M, flo
 
 void Engine::GamePlay::Enemy::CalculateNextNode()
 {
-	this->CurrentNode = this->Mesh->Get(this->CurrentTotalMoves);
+	//this->CurrentNode = this->Mesh->Get(this->CurrentTotalMoves);
 	this->CurrentTotalMoves += 1;
 	
-	int MovementCost = this->CurrentTotalMoves + this->CurrentNode.Estimate;
+	int MovementCost = this->CurrentTotalMoves + (int)this->CurrentNode.Estimate;
 
 	///https://www.redblobgames.com/pathfinding/a-star/introduction.html
 }

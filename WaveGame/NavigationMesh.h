@@ -21,7 +21,7 @@ using namespace sf;
 using namespace std;
 using namespace Engine::GamePlay;
 
-#define NODE_DISTANCE 15.0f
+#define NODE_DISTANCE (size_t)15.0f
 #define INTERVAL_LIMIT 10
 #define UPDATE_LIMIT 100
 
@@ -107,21 +107,22 @@ namespace Engine::Core
 		void DebugDraw(shared_ptr<RenderWindow> Window);
 
 		///<summary>
-		///Returns the nth node.
+		///Returns the coords x and y.
 		///</summary>
-		///<param name = "n">The position to get</param>
-		///<returns>Returns the node at n.</returns>
-		NavigationNode Get(int n);
+		///<param name = "Position">The position to get</param>
+		///<returns>Returns the node at x and y.</returns>
+		NavigationNode Get(Vector2i Position);
 
 	private:
-		vector<NavigationNode> NavNodes;
+		vector<vector<NavigationNode>> NavNodes;
 		map<string, int> NodeInformation; ///Contains information about rows and columns.
 
 		mutex LoadingMuxtex;
 		thread LoadingThread;
 
-		int CurrentNodePosition;
-		int IntervalCounter; //Incremented once per frame.
+		size_t CurrentNodePosition;
+		size_t CurrentNodeRow;
+		size_t IntervalCounter; //Incremented once per frame.
 		
 		void CreateNavigationMesh(const std::shared_ptr<sf::RenderWindow> &Window, Player P, Map M);
 	};

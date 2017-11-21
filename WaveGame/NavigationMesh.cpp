@@ -38,21 +38,28 @@ Engine::Core::NavigationMesh::NavigationMesh(shared_ptr<RenderWindow> Window, Pl
 	this->LoadingThread.detach();
 
 	this->CurrentNodePosition = 0;
+	this->CurrentNodeRow = 0;
 	this->IntervalCounter = 0;
 }
 
+///I DECREE YOU FUNCTION OF WORKING.
+///IF ANY DARE PLACE THEIR HANDS UPON YOUR BAD CODE THEY SHALL FACE THE CHOPPING BLOCK <3
 void Engine::Core::NavigationMesh::CreateNavigationMesh(const std::shared_ptr<sf::RenderWindow> &Window, Player P, Map M)
 {
 	lock_guard<mutex> Guard(this->LoadingMuxtex);
 	auto Props = M.GetProps();
 	int Rows = 0;
+	size_t x = 0;
 	
-	for (float x = 0; x < (float)Window->getSize().x; x += NODE_DISTANCE)
+	for (float i = 0; x < (float)Window->getSize().x; i++)
 	{
-		for (float y = 0; y < (float)Window->getSize().y; y += NODE_DISTANCE)
+		this->NavNodes.push_back(vector<NavigationNode>());
+		size_t y = 0;
+
+		for (float j = 0; y < (float)Window->getSize().y; j++)
 		{
 			///Used to make sure theres no props in this location.
-			FloatRect Tester = FloatRect(x, y, 1.0f, 1.0f);
+			FloatRect Tester = FloatRect((float)x, (float)y, 1.0f, 1.0f);
 			///Used for finding if the node is placed in a location where a prop is.
 			bool DoesCollision = false;
 			
@@ -63,12 +70,15 @@ void Engine::Core::NavigationMesh::CreateNavigationMesh(const std::shared_ptr<sf
 					DoesCollision = true;
 					break;
 				}
-			}
+			} 
 
 			if (!DoesCollision)
-				this->NavNodes.push_back(NavigationNode(Vector2f(x, y), P));
+				this->NavNodes[(size_t)i].push_back(NavigationNode(Vector2f((float)x, (float)y), P));
+			
+			y += NODE_DISTANCE;
 		}
 
+		x += NODE_DISTANCE;
 		Rows += 1;
 	}
 
@@ -82,31 +92,44 @@ Engine::Core::NavigationMesh::~NavigationMesh()
 
 void Engine::Core::NavigationMesh::Update(Player P, float dt)
 {
-	///Why is this a lambda? Only the gods know the reasoning.
-	auto UpdateHandler = [this, P]() -> void
+	if (this->LoadingMuxtex.try_lock())
 	{
-		if (this->CurrentNodePosition >= this->NavNodes.size())
-			this->CurrentNodePosition = 0;
-
-		///This feels a bit cheatyyyy...?
-		for (int Counter = 0; this->CurrentNodePosition < this->NavNodes.size(); this->CurrentNodePosition++)
+		///Why is this a lambda? Only the gods know the reasoning.
+		auto UpdateHandler = [this, P]() -> void
 		{
-			if (Counter <= UPDATE_LIMIT)
+			if (this->CurrentNodeRow >= this->NavNodes.size())
+				this->CurrentNodeRow = 0;
+			
+			if (this->CurrentNodePosition >= this->NavNodes[this->CurrentNodeRow].size())
+				this->CurrentNodePosition = 0;
+
+			///This feels a bit cheatyyyy...?
+			for (int x = 0; this->CurrentNodePosition < this->NavNodes[this->CurrentNodeRow].size(); x++)
 			{
-				this->NavNodes[this->CurrentNodePosition].CalculateDistance(P);
-				Counter += 1;
+				for (int Counter = 0; this->CurrentNodePosition < this->NavNodes[this->CurrentNodeRow].size(); this->CurrentNodePosition++)
+				{
+					if (Counter <= UPDATE_LIMIT)
+					{
+						this->NavNodes[this->CurrentNodeRow][this->CurrentNodePosition].CalculateDistance(P);
+						Counter += 1;
+					}
+					else
+						break;
+				}
 			}
-			else
-				break;
+
+			this->CurrentNodeRow += 1;
+		};
+
+		this->IntervalCounter += 1;
+
+		if (this->IntervalCounter >= INTERVAL_LIMIT)
+		{
+			this->IntervalCounter = 0;
+			UpdateHandler();
 		}
-	};
 
-	this->IntervalCounter += 1;
-
-	if (this->IntervalCounter >= INTERVAL_LIMIT)
-	{
-		this->IntervalCounter = 0;
-		UpdateHandler();
+		this->LoadingMuxtex.unlock();
 	}
 }
 
@@ -115,13 +138,17 @@ void Engine::Core::NavigationMesh::DebugDraw(shared_ptr<RenderWindow> Window)
 {
 	if (this->LoadingMuxtex.try_lock())
 	{
-		for (size_t i = 0; i < this->NavNodes.size(); i++)
-			this->NavNodes[i].DebugDraw(Window);
+		for (size_t x = 0; x < this->NavNodes.size(); x++)
+		{
+			for (size_t y = 0; y < this->NavNodes.size(); y++)
+				this->NavNodes[x][y].DebugDraw(Window);
+		}
+		
 		this->LoadingMuxtex.unlock();
 	}
 }
 
-NavigationNode Engine::Core::NavigationMesh::Get(int n)
+NavigationNode Engine::Core::NavigationMesh::Get(Vector2i Position)
 {
-	return this->NavNodes[n];
+	return this->NavNodes[Position.x][Position.y];
 }
