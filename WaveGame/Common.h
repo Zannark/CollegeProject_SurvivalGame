@@ -39,5 +39,6 @@ namespace Engine::Misc
 	extern std::string ToLower(std::string Str);
 	extern double ToRadians(double Degrees);
 	extern double ToDegrees(double Radians);
+	extern double Difference(double a, double b);
 	extern float EuclideanDistance(sf::Vector2f P, sf::Vector2f Q);
 }

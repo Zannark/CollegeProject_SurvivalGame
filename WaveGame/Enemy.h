@@ -13,7 +13,7 @@ namespace Engine::GamePlay
 	class Enemy : public Character
 	{
 	public:
-		Enemy(shared_ptr<NavigationMesh> Mesh);
+		Enemy(shared_ptr<NavigationMesh> Mesh, Vector2f Position);
 		~Enemy();
 
 		void Update(shared_ptr<RenderWindow> Window, Map M, float dt);

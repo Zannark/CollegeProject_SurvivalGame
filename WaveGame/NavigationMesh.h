@@ -21,7 +21,9 @@ using namespace sf;
 using namespace std;
 using namespace Engine::GamePlay;
 
-#define NODE_DISTANCE (size_t)15.0f
+//This is going to be increased while working on A*, then I'll experiment with it.
+//#define NODE_DISTANCE (size_t)15.0f
+#define NODE_DISTANCE (size_t)32
 #define INTERVAL_LIMIT 10
 #define UPDATE_LIMIT 100
 
@@ -32,7 +34,7 @@ namespace Engine::Core
 	///</summary>
 	struct NavigationNode
 	{
-		NavigationNode(Vector2f Location, Player P);
+		NavigationNode(Vector2f Location, Player P, bool IsUseable);
 		NavigationNode() = default;
 
 		///<summary>
@@ -77,6 +79,12 @@ namespace Engine::Core
 		///The estimated distance to the destination.
 		///</summary>
 		float Estimate;
+
+		///<summary>
+		///For testing if a node is actually there or not.
+		///If true the cell can be used for pathfinding, if it is false pretend it doesn't exsist and iterate over it.
+		///</summary>
+		bool IsUseable;
 	};
 
 	///<summary>
@@ -112,6 +120,13 @@ namespace Engine::Core
 		///<param name = "Position">The position to get</param>
 		///<returns>Returns the node at x and y.</returns>
 		NavigationNode Get(Vector2i Position);
+
+		///<summary>
+		///TODO: Work out the english language.
+		///</summary>
+		Vector2i GetCellFromPosition(Vector2f Position);
+
+		Vector2f GetPositionFromCell(Vector2i Cell);
 
 	private:
 		vector<vector<NavigationNode>> NavNodes;

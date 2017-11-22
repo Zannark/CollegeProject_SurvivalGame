@@ -154,6 +154,15 @@ namespace Engine::Misc
 	}
 
 	///<summary>
+	///Calculates the difference between a and b.
+	///</summary>
+	double Difference(double a, double b)
+	{
+		return a - b;
+		//return a - b;
+	}
+
+	///<summary>
 	///Works out the euclidean distance between two points.
 	///</summary>
 	///<param name = "P">The start point.</param>

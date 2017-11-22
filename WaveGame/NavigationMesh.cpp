@@ -1,14 +1,26 @@
 #include "NavigationMesh.h"
 
-Engine::Core::NavigationNode::NavigationNode(Vector2f Location, Player P)
+Engine::Core::NavigationNode::NavigationNode(Vector2f Location, Player P, bool IsUseable)
 {
 	this->Point = Location;
+	this->IsUseable = IsUseable;
 
-	this->Shape = make_shared<RectangleShape>(Vector2f(1, 1));
-	this->Shape->setFillColor(Color(0, 75, 168));
-	this->Shape->setOutlineColor(Color::Black);
-	this->Shape->setOutlineThickness(1);
-	this->Shape->setPosition(Location);
+	if (IsUseable)
+	{
+		this->Shape = make_shared<RectangleShape>(Vector2f(1, 1));
+		this->Shape->setFillColor(Color(0, 75, 168));
+		this->Shape->setOutlineColor(Color::Black);
+		this->Shape->setOutlineThickness(1);
+		this->Shape->setPosition(Location);
+	}
+	else
+	{
+		this->Shape = make_shared<RectangleShape>(Vector2f(1, 1));
+		this->Shape->setFillColor(Color(Color::Green));
+		this->Shape->setOutlineColor(Color::Green);
+		this->Shape->setOutlineThickness(1);
+		this->Shape->setPosition(Location);
+	}
 }
 
 bool Engine::Core::NavigationNode::operator==(const NavigationNode & Rhs)
@@ -72,9 +84,8 @@ void Engine::Core::NavigationMesh::CreateNavigationMesh(const std::shared_ptr<sf
 				}
 			} 
 
-			if (!DoesCollision)
-				this->NavNodes[(size_t)i].push_back(NavigationNode(Vector2f((float)x, (float)y), P));
-			
+			this->NavNodes[(size_t)i].push_back(NavigationNode(Vector2f((float)x, (float)y), P, !DoesCollision));
+
 			y += NODE_DISTANCE;
 		}
 
@@ -127,8 +138,10 @@ void Engine::Core::NavigationMesh::Update(Player P, float dt)
 		{
 			this->IntervalCounter = 0;
 			UpdateHandler();
+		
+			
 		}
-
+		
 		this->LoadingMuxtex.unlock();
 	}
 }
@@ -140,8 +153,10 @@ void Engine::Core::NavigationMesh::DebugDraw(shared_ptr<RenderWindow> Window)
 	{
 		for (size_t x = 0; x < this->NavNodes.size(); x++)
 		{
-			for (size_t y = 0; y < this->NavNodes.size(); y++)
+			for (size_t y = 0; y < this->NavNodes[x].size(); y++)
+			{
 				this->NavNodes[x][y].DebugDraw(Window);
+			}
 		}
 		
 		this->LoadingMuxtex.unlock();
@@ -151,4 +166,14 @@ void Engine::Core::NavigationMesh::DebugDraw(shared_ptr<RenderWindow> Window)
 NavigationNode Engine::Core::NavigationMesh::Get(Vector2i Position)
 {
 	return this->NavNodes[Position.x][Position.y];
+}
+
+Vector2i Engine::Core::NavigationMesh::GetCellFromPosition(Vector2f Position)
+{
+	return Vector2i((int)Position.x / NODE_DISTANCE, (int)Position.y / NODE_DISTANCE);
+}
+
+Vector2f Engine::Core::NavigationMesh::GetPositionFromCell(Vector2i Cell)
+{
+	return Vector2f(Cell.x * NODE_DISTANCE, Cell.y * NODE_DISTANCE);
 }

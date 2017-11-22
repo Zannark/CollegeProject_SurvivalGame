@@ -2,10 +2,13 @@
 
 
 
-Engine::GamePlay::Enemy::Enemy(shared_ptr<NavigationMesh> Mesh)
+Engine::GamePlay::Enemy::Enemy(shared_ptr<NavigationMesh> Mesh, Vector2f Position)
 {
 	this->Mesh = Mesh;
 	this->CurrentTotalMoves = 0;
+
+	this->Texture = make_shared<GameTexture>(TextureCache::Cache.Access("Assets/Enemy.png"));
+	this->Texture->SetPosition(Position);
 }
 
 Engine::GamePlay::Enemy::~Enemy()
@@ -14,14 +17,15 @@ Engine::GamePlay::Enemy::~Enemy()
 
 void Engine::GamePlay::Enemy::Update(shared_ptr<RenderWindow> Window, Map M, float dt)
 {
+	this->CalculateNextNode();
 }
 
 void Engine::GamePlay::Enemy::CalculateNextNode()
 {
-	//this->CurrentNode = this->Mesh->Get(this->CurrentTotalMoves);
-	this->CurrentTotalMoves += 1;
+	this->CurrentNode = this->Mesh->Get(this->Mesh->GetCellFromPosition(this->GetPosition()));
 	
+	this->CurrentTotalMoves += 1;
 	int MovementCost = this->CurrentTotalMoves + (int)this->CurrentNode.Estimate;
 
-	///https://www.redblobgames.com/pathfinding/a-star/introduction.html
+	cout << "MovementCost = " << MovementCost << endl;
 }
