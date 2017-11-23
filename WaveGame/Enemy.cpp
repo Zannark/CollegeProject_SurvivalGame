@@ -1,7 +1,5 @@
 #include "Enemy.h"
 
-
-
 Engine::GamePlay::Enemy::Enemy(shared_ptr<NavigationMesh> Mesh, Vector2f Position)
 {
 	this->Mesh = Mesh;
@@ -59,30 +57,29 @@ void Engine::GamePlay::Enemy::CalculateNextNode()
 		Estimates.push_back(Vector2i(CurrentCell.x + 1, CurrentCell.y));
 	}
 	
-	auto EstimateWithHeuristic = Estimates;
+	vector<float> Heuristic = vector<float>(Estimates.size());
 
 	for (int i = 0; i < Estimates.size(); i++)
 	{
 		auto Node = this->Mesh->Get(Estimates[i]);
 
-		EstimateWithHeuristic[i].x += Node.Estimate;
-		EstimateWithHeuristic[i].y += Node.Estimate;
+		Heuristic[i] = Node.Estimate;
+		Heuristic[i] = Node.Estimate;
 	}
 
-	///Vector2i DirectionToGo = *min_element(Estimates.begin(), Estimates.end(), VectorLessThan);
+	int MinIndex = 0;
+	float Min = Heuristic[MinIndex];
 
-	int MaxIndex = 0;
-	auto Max = EstimateWithHeuristic[MaxIndex];
-
-	for (int i = 1; i < EstimateWithHeuristic.size(); i++)
+	for (int i = 1; i < Heuristic.size(); i++)
 	{
-		if (EstimateWithHeuristic[i].x > Max.x && EstimateWithHeuristic[i].y > Max.y)
+		if (Heuristic[i] < Min && Heuristic[i] < Min)
 		{
-			Max = EstimateWithHeuristic[i];
-			MaxIndex = i;
+			Min = Heuristic[i];
+			MinIndex = i;
 		}
 	}
 
-	cout << this->Mesh->Get(Estimates[MaxIndex]).Point.x << " " << this->Mesh->Get(Estimates[MaxIndex]).Point.y << endl;
-	this->Texture->SetPosition(Vector2f(this->Mesh->GetCellFromPosition(this->Mesh->Get(Estimates[MaxIndex]).Point)));
+	auto Position = Vector2f(Estimates[MinIndex].x, Estimates[MinIndex].y);
+	this->Mesh->Get(Estimates[MinIndex]).Shape->setScale(Vector2f(3, 3));
+	this->Texture->SetPosition(Vector2f(this->Mesh->GetCellFromPosition(Position)));
 }

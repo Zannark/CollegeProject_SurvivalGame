@@ -25,7 +25,7 @@ using namespace Engine::GamePlay;
 //#define NODE_DISTANCE (size_t)15.0f
 #define NODE_DISTANCE (size_t)32
 #define INTERVAL_LIMIT 10
-#define UPDATE_LIMIT 50
+#define UPDATE_LIMIT 1000
 
 namespace Engine::Core
 {

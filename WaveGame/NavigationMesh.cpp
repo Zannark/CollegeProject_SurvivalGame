@@ -4,6 +4,7 @@ Engine::Core::NavigationNode::NavigationNode(Vector2f Location, Player P, bool I
 {
 	this->Point = Location;
 	this->IsUseable = IsUseable;
+	this->Estimate = EuclideanDistance(this->Point, P.GetPosition());
 
 	if (IsUseable)
 	{
@@ -92,9 +93,7 @@ void Engine::Core::NavigationMesh::CreateNavigationMesh(const std::shared_ptr<sf
 		x += NODE_DISTANCE;
 		Rows += 1;
 	}
-
-	this->UpdateNavigationNodes(P, this->NavNodes.size());
-
+	
 	this->NodeInformation["Row"] = Rows;
 }
 
