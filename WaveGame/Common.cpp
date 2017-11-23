@@ -183,4 +183,9 @@ namespace Engine::Misc
 		CHECK(ApproximateEquals(EuclideanDistance(sf::Vector2f(17, 320), sf::Vector2f(82, 21)), 305.9837f, 0.1f));
 	}
 #endif
+
+	bool VectorLessThan(Vector2i Element1, Vector2i Element2)
+	{
+		return (Element1.x < Element2.x) && (Element1.y < Element2.y);
+	}
 }

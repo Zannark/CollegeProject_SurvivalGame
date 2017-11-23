@@ -41,4 +41,5 @@ namespace Engine::Misc
 	extern double ToDegrees(double Radians);
 	extern double Difference(double a, double b);
 	extern float EuclideanDistance(sf::Vector2f P, sf::Vector2f Q);
+	extern bool VectorLessThan(sf::Vector2i Element1, sf::Vector2i Element2);
 }

@@ -4,7 +4,9 @@
 #include "NavigationMesh.h"
 #include "GameTexture.h"
 #include "Character.h"
+#include "Common.h"
 
+using namespace Engine::Misc;
 using namespace Engine::Core;
 using namespace std;
 

@@ -42,6 +42,7 @@ int main(int argc, char** argv)
 		M.DrawBackground(Window);
 		P.Draw(Window);
 		M.DrawProps(Window);
+		En.Draw(Window);
 	
 		Mesh->DebugDraw(Window);
 

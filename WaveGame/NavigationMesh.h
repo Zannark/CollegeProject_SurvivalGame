@@ -25,7 +25,7 @@ using namespace Engine::GamePlay;
 //#define NODE_DISTANCE (size_t)15.0f
 #define NODE_DISTANCE (size_t)32
 #define INTERVAL_LIMIT 10
-#define UPDATE_LIMIT 100
+#define UPDATE_LIMIT 50
 
 namespace Engine::Core
 {
@@ -128,6 +128,8 @@ namespace Engine::Core
 
 		Vector2f GetPositionFromCell(Vector2i Cell);
 
+		size_t GetHeight(void);
+
 	private:
 		vector<vector<NavigationNode>> NavNodes;
 		map<string, int> NodeInformation; ///Contains information about rows and columns.
@@ -140,5 +142,6 @@ namespace Engine::Core
 		size_t IntervalCounter; //Incremented once per frame.
 		
 		void CreateNavigationMesh(const std::shared_ptr<sf::RenderWindow> &Window, Player P, Map M);
+		void UpdateNavigationNodes(Player P, size_t Batch);
 	};
 }

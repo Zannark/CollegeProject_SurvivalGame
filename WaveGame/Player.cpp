@@ -6,6 +6,7 @@ Engine::GamePlay::Player::Player()
 	this->MovementSpeed = 150.0f;
 
 	this->Texture->SetOrigin(Vector2f((float)(this->Texture->GetSFMLTexture().getSize().x / 2), (float)(this->Texture->GetSFMLTexture().getSize().y / 2)));
+	this->Texture->SetPosition(Vector2f(400, 400));
 
 	this->Directions["Up"] = Vector2f(0, -1);
 	this->Directions["Down"] = Vector2f(0, 1);

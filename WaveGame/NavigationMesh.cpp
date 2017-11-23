@@ -93,7 +93,35 @@ void Engine::Core::NavigationMesh::CreateNavigationMesh(const std::shared_ptr<sf
 		Rows += 1;
 	}
 
+	this->UpdateNavigationNodes(P, this->NavNodes.size());
+
 	this->NodeInformation["Row"] = Rows;
+}
+
+void Engine::Core::NavigationMesh::UpdateNavigationNodes(Player P, size_t BatchSize)
+{
+	if (this->CurrentNodeRow >= this->NavNodes.size())
+		this->CurrentNodeRow = 0;
+
+	if (this->CurrentNodePosition >= this->NavNodes[this->CurrentNodeRow].size())
+		this->CurrentNodePosition = 0;
+
+	///This feels a bit cheatyyyy...?
+	for (int x = 0; this->CurrentNodePosition < this->NavNodes[this->CurrentNodeRow].size(); x++)
+	{
+		for (int Counter = 0; this->CurrentNodePosition < this->NavNodes[this->CurrentNodeRow].size(); this->CurrentNodePosition++)
+		{
+			if (Counter <= BatchSize)
+			{
+				this->NavNodes[this->CurrentNodeRow][this->CurrentNodePosition].CalculateDistance(P);
+				Counter += 1;
+			}
+			else
+				break;
+		}
+	}
+
+	this->CurrentNodeRow += 1;
 }
 
 Engine::Core::NavigationMesh::~NavigationMesh()
@@ -105,41 +133,12 @@ void Engine::Core::NavigationMesh::Update(Player P, float dt)
 {
 	if (this->LoadingMuxtex.try_lock())
 	{
-		///Why is this a lambda? Only the gods know the reasoning.
-		auto UpdateHandler = [this, P]() -> void
-		{
-			if (this->CurrentNodeRow >= this->NavNodes.size())
-				this->CurrentNodeRow = 0;
-			
-			if (this->CurrentNodePosition >= this->NavNodes[this->CurrentNodeRow].size())
-				this->CurrentNodePosition = 0;
-
-			///This feels a bit cheatyyyy...?
-			for (int x = 0; this->CurrentNodePosition < this->NavNodes[this->CurrentNodeRow].size(); x++)
-			{
-				for (int Counter = 0; this->CurrentNodePosition < this->NavNodes[this->CurrentNodeRow].size(); this->CurrentNodePosition++)
-				{
-					if (Counter <= UPDATE_LIMIT)
-					{
-						this->NavNodes[this->CurrentNodeRow][this->CurrentNodePosition].CalculateDistance(P);
-						Counter += 1;
-					}
-					else
-						break;
-				}
-			}
-
-			this->CurrentNodeRow += 1;
-		};
-
 		this->IntervalCounter += 1;
 
 		if (this->IntervalCounter >= INTERVAL_LIMIT)
 		{
 			this->IntervalCounter = 0;
-			UpdateHandler();
-		
-			
+			UpdateNavigationNodes(P, UPDATE_LIMIT);
 		}
 		
 		this->LoadingMuxtex.unlock();
@@ -176,4 +175,9 @@ Vector2i Engine::Core::NavigationMesh::GetCellFromPosition(Vector2f Position)
 Vector2f Engine::Core::NavigationMesh::GetPositionFromCell(Vector2i Cell)
 {
 	return Vector2f(Cell.x * NODE_DISTANCE, Cell.y * NODE_DISTANCE);
+}
+
+size_t Engine::Core::NavigationMesh::GetHeight(void)
+{
+	return this->NavNodes.size();
 }
