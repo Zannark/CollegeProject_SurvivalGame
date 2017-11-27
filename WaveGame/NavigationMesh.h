@@ -57,6 +57,12 @@ namespace Engine::Core
 		///<param name = "P">The Player.</param>
 		void CalculateDistance(Player P);
 
+		bool operator<(const NavigationNode& RHS) const;
+
+		bool operator!() const;
+
+		explicit operator bool() const;
+
 		///<summary>
 		///Used to draw the NavigationNode object for debugging purposes.
 		///Not to be used in game.
