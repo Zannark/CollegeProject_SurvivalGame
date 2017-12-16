@@ -3,7 +3,6 @@
 #include "MapLoader.h"
 #include "Player.h"
 #include "GameTime.h"
-#include "NavigationMesh.h"
 #include "Enemy.h"
 #include <SFML\Graphics.hpp>
 
@@ -18,11 +17,9 @@ int main(int argc, char** argv)
 	Event E;
 	
 	Engine::GamePlay::Player P = Engine::GamePlay::Player();
-	Engine::Core::Map M = Engine::Core::MapLoader::Load("Test.xml");
-	shared_ptr<NavigationMesh> Mesh = make_shared<NavigationMesh>(Window, P, M);
+	Engine::Core::Map M = Engine::Core::MapLoader::Load("Test.xml", Window);
+	Engine::GamePlay::Enemy En = Engine::GamePlay::Enemy(Vector2f(200, 100));
 
-	Engine::GamePlay::Enemy En = Engine::GamePlay::Enemy(Mesh, Vector2f(200, 100));
-	
 	while (Window->isOpen())
 	{
 		while (Window->pollEvent(E))
@@ -34,7 +31,6 @@ int main(int argc, char** argv)
 		}
 
 		P.Update(Window, M, GameTime::DeltaTime());
-		Mesh->Update(P, GameTime::DeltaTime());
 		En.Update(Window, M, GameTime::DeltaTime());
 		
 		Window->clear(Color::Cyan);
@@ -43,8 +39,6 @@ int main(int argc, char** argv)
 		P.Draw(Window);
 		M.DrawProps(Window);
 		En.Draw(Window);
-	
-		Mesh->DebugDraw(Window);
 
 		Window->display();
 		GameTime::Update();
