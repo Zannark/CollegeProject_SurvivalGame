@@ -8,6 +8,7 @@ Engine::GamePlay::Enemy::Enemy(Vector2f Position, shared_ptr<RenderWindow> Windo
 	this->P = P;
 	this->State = EnemyState::Pathfinding;
 	this->SearchState = 0;
+	this->MovementPercentage = 0;
 	this->StartNode = NavigationNode(Position, Window, false);
 
 	int AlignedX = (int)(P->GetPosition().x / NAVIGATION_NODE_DISTANCE) * NAVIGATION_NODE_DISTANCE;
@@ -68,7 +69,12 @@ void Engine::GamePlay::Enemy::FindPath(void)
 		}
 		else
 		{
-			this->CurrentNode = this->Search.GetSolutionNext();
+			if (this->MovementPercentage > 1)
+			{
+				this->NodePosition = this->GetPosition();
+				this->CurrentNode = this->Search.GetSolutionNext();
+				this->MovementPercentage = 0;
+			}
 			
 			if (!this->CurrentNode)
 			{
@@ -83,7 +89,8 @@ void Engine::GamePlay::Enemy::FindPath(void)
 				return;
 			}
 	
-			this->SetPosition(this->CurrentNode->Position);
+			this->MovementPercentage += 3 * GameTime::DeltaTime();
+			this->SetPosition(Lerp(this->NodePosition, this->CurrentNode->Position, this->MovementPercentage));
 		}
 	}
 }

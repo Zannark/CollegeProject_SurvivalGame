@@ -8,6 +8,7 @@
 #include "NavigationNode.h"
 #include "Player.h"
 #include "Map.h"
+#include "GameTime.h"
 
 using namespace Engine::Misc;
 using namespace Engine::Core;
@@ -37,6 +38,8 @@ namespace Engine::GamePlay
 		bool HasStarted;
 		bool FinishedPath;
 		int SearchState;
+		float MovementPercentage;
+		Vector2f NodePosition;
 		EnemyState State;
 		NavigationNode StartNode;
 		NavigationNode EndNode;

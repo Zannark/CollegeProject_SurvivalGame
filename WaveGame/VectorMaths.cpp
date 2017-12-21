@@ -50,3 +50,8 @@ Vector2f Engine::Core::Perpendicular(Vector2f Vec)
 {
 	return Vector2f(-Vec.y, Vec.x);
 }
+
+Vector2f Engine::Core::Lerp(sf::Vector2f Start, sf::Vector2f End, float t)
+{
+	return Start + t * (End - Start);
+}

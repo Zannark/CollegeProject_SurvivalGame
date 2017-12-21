@@ -16,6 +16,7 @@ namespace Engine::Core
 		Character();
 		~Character();
 
+		void MoveToPosition(Vector2f Position, float Speed);
 		Vector2f GetPosition(void);
 		void Draw(shared_ptr<RenderWindow> Window);
 
@@ -30,7 +31,5 @@ namespace Engine::Core
 		shared_ptr<GameTexture> Texture;
 
 		void SetPosition(Vector2f Position);
-
-		void VectorToDirection(Vector2f& Vec);
 	};
 }

@@ -7,6 +7,7 @@
 #include <string>
 #include <exception>
 #include <SFML\Graphics.hpp>
+#include <math.h>
 
 #define PI 3.141592653
 namespace FS = std::experimental::filesystem;
