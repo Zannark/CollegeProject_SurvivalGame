@@ -16,9 +16,11 @@ int main(int argc, char** argv)
 	shared_ptr<RenderWindow> Window = make_shared<RenderWindow>(VideoMode(800, 600, 32), "Game");
 	Event E;
 	
-	Engine::GamePlay::Player P = Engine::GamePlay::Player();
+	shared_ptr<Engine::GamePlay::Player> P = make_shared<Engine::GamePlay::Player>();
 	Engine::Core::Map M = Engine::Core::MapLoader::Load("Test.xml", Window);
-	Engine::GamePlay::Enemy En = Engine::GamePlay::Enemy(Vector2f(200, 100));
+	Engine::GamePlay::Enemy En = Engine::GamePlay::Enemy(Vector2f(0, 0), Window, P);
+
+	Engine::Core::CreateNavigationMesh(Window, *P, M);
 
 	while (Window->isOpen())
 	{
@@ -30,13 +32,13 @@ int main(int argc, char** argv)
 			}
 		}
 
-		P.Update(Window, M, GameTime::DeltaTime());
+		P->Update(Window, M, GameTime::DeltaTime());
 		En.Update(Window, M, GameTime::DeltaTime());
 		
 		Window->clear(Color::Cyan);
 		
 		M.DrawBackground(Window);
-		P.Draw(Window);
+		P->Draw(Window);
 		M.DrawProps(Window);
 		En.Draw(Window);
 

@@ -24,10 +24,12 @@ namespace Engine::Core
 	protected:
 		float Angle;
 		Vector2f Direction;
-		
+
 		///Saves the last position where the character could move freely.
 		Vector2f LastGoodPosition;
 		shared_ptr<GameTexture> Texture;
+
+		void SetPosition(Vector2f Position);
 
 		void VectorToDirection(Vector2f& Vec);
 	};
