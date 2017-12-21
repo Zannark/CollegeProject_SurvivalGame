@@ -28,9 +28,8 @@ namespace Engine::GamePlay
 	
 	private:
 		float MovementSpeed;
-		map<string, Vector2f> Directions;
 		
-		void HandleMovement(Map M, float dt);
+		void HandleMovement(shared_ptr<RenderWindow> Window, Map M, float dt);
 		void HandleRotation(shared_ptr<RenderWindow> Window, float dt);
 		bool CheckCollision(Map M);
 	};
