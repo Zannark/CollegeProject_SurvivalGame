@@ -54,7 +54,7 @@ shared_ptr<NavigationNode> Engine::Core::GetNodeByPosition(Vector2f Position)
 	size_t x = (size_t)(Position.x / NAVIGATION_NODE_DISTANCE);
 	size_t y = (size_t)(Position.y / NAVIGATION_NODE_DISTANCE);
 	
-	if (x > WindowSize.x || y > WindowSize.y)
+	if (x >= NavigationMesh.size() || y >= NavigationMesh[0].size())
 		return nullptr;
 
 	return NavigationMesh[x][y];

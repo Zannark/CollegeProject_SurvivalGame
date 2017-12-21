@@ -23,7 +23,7 @@ namespace Engine::Core
 		GameTexture() = default;
 		~GameTexture();
 
-		Texture GetSFMLTexture(void) const;
+		shared_ptr<Texture> GetSFMLTexture(void) const;
 		shared_ptr<Sprite> GetSFMLSprite(void);
 		void SetPosition(const Vector2f& Position);
 		void SetRotation(float Angle);
@@ -32,7 +32,7 @@ namespace Engine::Core
 		void Draw(shared_ptr<RenderWindow> RenderWindow);
 
 	private:
-		Texture Tex;
+		shared_ptr<Texture> Tex;
 		shared_ptr<Sprite> GameSprite;
 	};
 

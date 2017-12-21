@@ -4,14 +4,16 @@ Engine::Core::Cache<Engine::Core::GameTexture> Engine::Core::TextureCache::Cache
 
 Engine::Core::GameTexture::GameTexture(const string& Path)
 {
-	if (!this->Tex.loadFromFile(Path))
+	this->Tex = make_shared<Texture>();
+
+	if (!this->Tex->loadFromFile(Path))
 	{
 		string ErrorMessage = string("Failed to load texture at location: ") + Path;
 		throw runtime_error(ErrorMessage);
 	}
 
 	this->GameSprite = make_shared<Sprite>();
-	this->GameSprite->setTexture(this->Tex);
+	this->GameSprite->setTexture(*this->Tex);
 }
 
 Engine::Core::GameTexture::GameTexture(const GameTexture& Tex)
@@ -19,14 +21,14 @@ Engine::Core::GameTexture::GameTexture(const GameTexture& Tex)
 	this->Tex = Tex.GetSFMLTexture();
 
 	this->GameSprite = make_shared<Sprite>();
-	this->GameSprite->setTexture(this->Tex);
+	this->GameSprite->setTexture(*this->Tex);
 }
 
 Engine::Core::GameTexture::GameTexture(Texture Tex)
 {
-	this->Tex = Tex;
+	this->Tex = make_shared<Texture>(Tex);
 	this->GameSprite = make_shared<Sprite>();
-	this->GameSprite->setTexture(this->Tex);
+	this->GameSprite->setTexture(*this->Tex);
 }
 
 Engine::Core::GameTexture::~GameTexture()
@@ -37,7 +39,7 @@ Engine::Core::GameTexture::~GameTexture()
 ///Gets the sf::Texture which is used by the object.
 ///</summary>
 ///<returns>The sf::Texture used.</returns>
-Texture Engine::Core::GameTexture::GetSFMLTexture(void) const
+shared_ptr<Texture> Engine::Core::GameTexture::GetSFMLTexture(void) const
 {
 	return this->Tex;
 }

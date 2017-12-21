@@ -1,0 +1,7 @@
+<Map Background="Assets/Background.png">
+<Prop X = "100" Y = "100">Assets/TestBuilding.png</Prop>
+<Prop X = "50" Y = "50">Assets/TestBuilding.png</Prop>
+<Prop X = "50" Y = "150">Assets/TestBuilding.png</Prop>
+<Prop X = "600" Y = "70">Assets/TestBuilding.png</Prop>
+<Prop X = "750" Y = "150">Assets/TestBuilding.png</Prop>
+</Map>
