@@ -25,6 +25,11 @@ vector<shared_ptr<Engine::Core::GameTexture>> Engine::Core::Map::GetProps(void)
 	return this->Props;
 }
 
+bool Engine::Core::Map::IsPropAtPosition(Vector2f Position)
+{
+	return true;
+}
+
 void Engine::Core::Map::DrawBackground(shared_ptr<RenderWindow> Window)
 {
 	this->Background.Draw(Window);

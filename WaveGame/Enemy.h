@@ -1,10 +1,13 @@
 #pragma once
 
 #include <memory>
-#include "NavigationMesh.h"
+#include "stlastar.h"
 #include "GameTexture.h"
 #include "Character.h"
 #include "Common.h"
+#include "NavigationNode.h"
+#include "Player.h"
+#include "Map.h"
 
 using namespace Engine::Misc;
 using namespace Engine::Core;
@@ -12,20 +15,34 @@ using namespace std;
 
 namespace Engine::GamePlay
 {
+	enum EnemyState
+	{
+		Pathfinding = 0,
+		CheckDistance,
+		Attacking
+	};
+
 	class Enemy : public Character
 	{
 	public:
-		Enemy(shared_ptr<NavigationMesh> Mesh, Vector2f Position);
+		Enemy(Vector2f Position, shared_ptr<RenderWindow> Window, shared_ptr<Player> P);
 		~Enemy();
 
 		void Update(shared_ptr<RenderWindow> Window, Map M, float dt);
 
 	private:
-		void CalculateNextNode();
+		void ManageState(void);
+		void FindPath(void);
 
-		///The total amount of places moved at any one given time. 
-		int CurrentTotalMoves;
-		shared_ptr<NavigationMesh> Mesh;
-		NavigationNode CurrentNode;
+		bool HasStarted;
+		bool FinishedPath;
+		int SearchState;
+		EnemyState State;
+		NavigationNode StartNode;
+		NavigationNode EndNode;
+		NavigationNode *CurrentNode;
+		shared_ptr<RenderWindow> Window;
+		shared_ptr<Player> P;
+		AStarSearch<NavigationNode> Search;
 	};
 }

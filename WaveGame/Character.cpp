@@ -19,6 +19,11 @@ void Engine::Core::Character::Draw(shared_ptr<RenderWindow> Window)
 	this->Texture->Draw(Window);
 }
 
+void Engine::Core::Character::SetPosition(Vector2f Position)
+{
+	this->Texture->SetPosition(Position);
+}
+
 void Engine::Core::Character::VectorToDirection(Vector2f& Vec)
 {
 	Vec = Normalise(Vec);

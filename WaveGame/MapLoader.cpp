@@ -1,6 +1,6 @@
 #include "MapLoader.h"
 
-Engine::Core::Map Engine::Core::MapLoader::Load(string Path)
+Engine::Core::Map Engine::Core::MapLoader::Load(string Path, shared_ptr<RenderWindow> Window)
 {	
 	auto CheckAttribute = [](string AttributeName, xml_attribute<char>* Attribute) -> void 
 	{
@@ -25,8 +25,9 @@ Engine::Core::Map Engine::Core::MapLoader::Load(string Path)
 
 	if (!File)
 	{
-		string ErrorMessage = string("Failed to open file: ") + Path;
-		throw runtime_error(ErrorMessage);
+		string ErrorMessage = "Failed to open map: " + Path;
+		MessageBoxA(Window->getSystemHandle(), ErrorMessage.c_str(), "Error - Map", MB_OK | MB_ICONEXCLAMATION);
+		exit(EXIT_FAILURE);
 	}
 
 	try

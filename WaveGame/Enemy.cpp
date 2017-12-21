@@ -1,12 +1,23 @@
 #include "Enemy.h"
 
-Engine::GamePlay::Enemy::Enemy(shared_ptr<NavigationMesh> Mesh, Vector2f Position)
+Engine::GamePlay::Enemy::Enemy(Vector2f Position, shared_ptr<RenderWindow> Window, shared_ptr<Player> P)
 {
-	this->Mesh = Mesh;
-	this->CurrentTotalMoves = 0;
-
 	this->Texture = make_shared<GameTexture>(TextureCache::Cache.Access("Assets/Enemy.png"));
 	this->Texture->SetPosition(Position);
+	this->Window = Window;
+	this->P = P;
+	this->State = EnemyState::Pathfinding;
+	this->SearchState = 0;
+	//this->Search = AStarSearch<NavigationNode>();
+	this->StartNode = NavigationNode(Position, Window, false);
+
+	int AlignedX = (int)(P->GetPosition().x / NAVIGATION_NODE_DISTANCE) * NAVIGATION_NODE_DISTANCE;
+	int AlignedY = (int)(P->GetPosition().y / NAVIGATION_NODE_DISTANCE) * NAVIGATION_NODE_DISTANCE;
+
+	this->EndNode = NavigationNode(Vector2f(AlignedX, AlignedY), Window, false);
+	this->Search.SetStartAndGoalStates(this->StartNode, this->EndNode);
+	this->HasStarted = false;
+	this->FinishedPath = false;
 }
 
 Engine::GamePlay::Enemy::~Enemy()
@@ -15,71 +26,52 @@ Engine::GamePlay::Enemy::~Enemy()
 
 void Engine::GamePlay::Enemy::Update(shared_ptr<RenderWindow> Window, Map M, float dt)
 {
-	this->CalculateNextNode();
+	this->ManageState();
 }
 
-void Engine::GamePlay::Enemy::CalculateNextNode()
+void Engine::GamePlay::Enemy::ManageState(void)
 {
-	Vector2i CurrentCell = this->Mesh->GetCellFromPosition(this->GetPosition());
-	this->CurrentNode = this->Mesh->Get(CurrentCell);
-	
-	this->CurrentTotalMoves += 1;
-	int MovementCost = this->CurrentTotalMoves + (int)this->CurrentNode.Estimate;
+	if (this->State == EnemyState::Pathfinding)
+		this->FindPath();
+}
 
-	///Four directions. Up, Down, Left, Right.
-	///Check which has the smallest estimate.
-	///The smallest estimate is the direction the enemy will go in.
-	
-	///This will get the estimates and store them for working out later on.
-	vector<Vector2i> Estimates;
-
-	///Up
-	if(CurrentCell.y - 1 >= 0)
+void Engine::GamePlay::Enemy::FindPath(void)
+{
+	do 
 	{
-		Estimates.push_back(Vector2i(CurrentCell.x, CurrentCell.y - 1));
+		this->SearchState = this->Search.SearchStep();
+	} while (this->SearchState == AStarSearch<NavigationNode>::SEARCH_STATE_SEARCHING);
+			
+	if (this->SearchState == AStarSearch<NavigationNode>::SEARCH_STATE_NOT_INITIALISED)
+	{
+		cout << "Not Initalised" << endl;
+		this->Search.SetStartAndGoalStates(this->StartNode, this->EndNode);
 	}
 
-	///Down
-	if (CurrentCell.y + 1 <= this->Mesh->GetHeight())
+	if (this->SearchState == AStarSearch<NavigationNode>::SEARCH_STATE_FAILED)
+		cout << "Failed" << endl;
+
+	if (this->SearchState == AStarSearch<NavigationNode>::SEARCH_STATE_SUCCEEDED)
 	{
-		Estimates.push_back(Vector2i(CurrentCell.x, CurrentCell.y + 1));
-	}
-
-	///Left
-	if (CurrentCell.x - 1 >= 0)
-	{
-		Estimates.push_back(Vector2i(CurrentCell.x - 1, CurrentCell.y));
-	}
-
-	///Right
-	if (CurrentCell.x + 1 <= this->Mesh->GetHeight())
-	{
-		Estimates.push_back(Vector2i(CurrentCell.x + 1, CurrentCell.y));
-	}
-	
-	vector<float> Heuristic = vector<float>(Estimates.size());
-
-	for (int i = 0; i < Estimates.size(); i++)
-	{
-		auto Node = this->Mesh->Get(Estimates[i]);
-
-		Heuristic[i] = Node.Estimate;
-		Heuristic[i] = Node.Estimate;
-	}
-
-	int MinIndex = 0;
-	float Min = Heuristic[MinIndex];
-
-	for (int i = 1; i < Heuristic.size(); i++)
-	{
-		if (Heuristic[i] < Min && Heuristic[i] < Min)
+		if (!HasStarted)
 		{
-			Min = Heuristic[i];
-			MinIndex = i;
+			this->CurrentNode = this->Search.GetSolutionStart();
+			this->HasStarted = true;
+			
+			this->SetPosition(this->CurrentNode->Position);		
+		}
+		else
+		{
+			this->CurrentNode = this->Search.GetSolutionNext();
+			
+			if (!this->CurrentNode)
+			{
+				//this->State = EnemyState::CheckDistance;
+				return;
+			}
+	
+			this->SetPosition(this->CurrentNode->Position);
 		}
 	}
-
-	auto Position = Vector2f(Estimates[MinIndex].x, Estimates[MinIndex].y);
-	this->Mesh->Get(Estimates[MinIndex]).Shape->setScale(Vector2f(3, 3));
-	this->Texture->SetPosition(Vector2f(this->Mesh->GetCellFromPosition(Position)));
 }
+

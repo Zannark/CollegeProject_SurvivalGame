@@ -39,6 +39,21 @@ void Engine::Core::NavigationNode::CalculateDistance(Player P)
 	this->Estimate = EuclideanDistance(P.GetPosition(), this->Point);
 }
 
+bool Engine::Core::NavigationNode::operator<(const NavigationNode & RHS) const
+{
+	return (this->Estimate < RHS.Estimate);
+}
+
+bool Engine::Core::NavigationNode::operator!() const
+{
+	return !this->Estimate;
+}
+
+Engine::Core::NavigationNode::operator bool() const
+{
+	return this->Estimate;
+}
+
 void Engine::Core::NavigationNode::DebugDraw(shared_ptr<RenderWindow> Window)
 {
 	Window->draw(*this->Shape);

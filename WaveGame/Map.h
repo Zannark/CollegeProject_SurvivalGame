@@ -35,6 +35,13 @@ namespace Engine::Core
 		vector<shared_ptr<GameTexture>> GetProps(void);
 
 		///<summary>
+		///Checks if there is an prop at the given position.
+		///</summary>
+		///<param name = "Position">The position to see if there is a prop there.</param>
+		///<returns>True if there is a prop, false otherwise.</returns>
+		bool IsPropAtPosition(Vector2f Position);
+
+		///<summary>
 		///Draws the background. The background is the first thing which should be drawn.
 		///This ensures that the props, player and enemies are on top of it.
 		///</summary>
