@@ -34,6 +34,7 @@ namespace Engine::GamePlay
 	private:
 		void ManageState(void);
 		void FindPath(void);
+		Vector2f AlignPlayer(void);
 
 		bool HasStarted;
 		bool FinishedPath;

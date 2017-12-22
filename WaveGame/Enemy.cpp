@@ -10,11 +10,7 @@ Engine::GamePlay::Enemy::Enemy(Vector2f Position, shared_ptr<RenderWindow> Windo
 	this->SearchState = 0;
 	this->MovementPercentage = 0;
 	this->StartNode = NavigationNode(Position, Window, false);
-
-	int AlignedX = (int)(P->GetPosition().x / NAVIGATION_NODE_DISTANCE) * NAVIGATION_NODE_DISTANCE;
-	int AlignedY = (int)(P->GetPosition().y / NAVIGATION_NODE_DISTANCE) * NAVIGATION_NODE_DISTANCE;
-
-	this->EndNode = NavigationNode(Vector2f(AlignedX, AlignedY), Window, false);
+	this->EndNode = NavigationNode(this->AlignPlayer(), Window, false);
 	this->Search.SetStartAndGoalStates(this->StartNode, this->EndNode);
 	this->HasStarted = false;
 	this->FinishedPath = false;
@@ -51,9 +47,7 @@ void Engine::GamePlay::Enemy::FindPath(void)
 	if (this->SearchState == AStarSearch<NavigationNode>::SEARCH_STATE_FAILED)
 	{
 		this->Search.FreeSolutionNodes();
-		int AlignedX = (int)(P->GetPosition().x / NAVIGATION_NODE_DISTANCE) * NAVIGATION_NODE_DISTANCE;
-		int AlignedY = (int)(P->GetPosition().y / NAVIGATION_NODE_DISTANCE) * NAVIGATION_NODE_DISTANCE;
-		this->EndNode = NavigationNode(Vector2f(AlignedX, AlignedY), Window, false);
+		this->EndNode = NavigationNode(this->AlignPlayer(), Window, false);
 		this->Search.SetStartAndGoalStates(this->StartNode, this->EndNode);
 		cout << "Failed" << endl;
 	}
@@ -65,12 +59,26 @@ void Engine::GamePlay::Enemy::FindPath(void)
 			this->CurrentNode = this->Search.GetSolutionStart();
 			this->HasStarted = true;
 			
-			this->SetPosition(this->CurrentNode->Position);		
+			//this->SetPosition(this->CurrentNode->Position);		
 		}
 		else
 		{
-			if (this->MovementPercentage > 1)
+			if (this->MovementPercentage >= 1)
 			{
+				if (this->EndNode.Position != this->AlignPlayer())
+				{
+					this->Search.FreeSolutionNodes();
+					this->EndNode = NavigationNode(this->AlignPlayer(), Window, false);
+					this->StartNode = NavigationNode(this->GetPosition(), Window, false);
+					//cout << this->GetPosition().x << " " << this->GetPosition().y << endl;
+
+					this->Search.SetStartAndGoalStates(this->StartNode, this->EndNode);
+					this->SearchState = AStarSearch<NavigationNode>::SEARCH_STATE_SEARCHING;
+					this->MovementPercentage = 0;
+					this->HasStarted = false;
+					return;
+				}
+
 				this->NodePosition = this->GetPosition();
 				this->CurrentNode = this->Search.GetSolutionNext();
 				this->MovementPercentage = 0;
@@ -79,19 +87,27 @@ void Engine::GamePlay::Enemy::FindPath(void)
 			if (!this->CurrentNode)
 			{
 				this->Search.FreeSolutionNodes();
-				int AlignedX = (int)(P->GetPosition().x / NAVIGATION_NODE_DISTANCE) * NAVIGATION_NODE_DISTANCE;
-				int AlignedY = (int)(P->GetPosition().y / NAVIGATION_NODE_DISTANCE) * NAVIGATION_NODE_DISTANCE;
-				this->EndNode = NavigationNode(Vector2f(AlignedX, AlignedY), Window, false);
-				this->Search.SetStartAndGoalStates(this->StartNode, this->EndNode);
-
 				//this->State = EnemyState::CheckDistance;
 				this->HasStarted = false;
 				return;
 			}
 	
-			this->MovementPercentage += 3 * GameTime::DeltaTime();
-			this->SetPosition(Lerp(this->NodePosition, this->CurrentNode->Position, this->MovementPercentage));
+			if (this->MovementPercentage < 1)
+			{
+				this->MovementPercentage += 2.5 * GameTime::DeltaTime();
+				
+				Vector2f Pos = Lerp(this->NodePosition, this->CurrentNode->Position, this->MovementPercentage);
+				this->SetPosition(Pos);
+			}
 		}
 	}
+}
+
+Vector2f Engine::GamePlay::Enemy::AlignPlayer(void)
+{
+	int AlignedX = (int)(P->GetPosition().x / NAVIGATION_NODE_DISTANCE) * NAVIGATION_NODE_DISTANCE;
+	int AlignedY = (int)(P->GetPosition().y / NAVIGATION_NODE_DISTANCE) * NAVIGATION_NODE_DISTANCE;
+
+	return Vector2f(AlignedX, AlignedY);
 }
 
