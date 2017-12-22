@@ -36,14 +36,10 @@ void Engine::Core::CreateNavigationMesh(shared_ptr<RenderWindow> Window, Player 
 
 			NavigationMesh[(size_t)i].push_back(make_shared<NavigationNode>(x, y, Window, DoesCollision));
 			y += NAVIGATION_NODE_DISTANCE;
-
-			Count += 1;
 		}
 
 		x += NAVIGATION_NODE_DISTANCE;
 	}
-
-	cout << Count << endl;
 }
 
 shared_ptr<NavigationNode> Engine::Core::GetNodeByPosition(Vector2f Position)

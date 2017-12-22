@@ -12,7 +12,7 @@ using namespace sf;
 using namespace Engine::Misc; 
 using namespace Engine::GamePlay;
 
-#define NAVIGATION_NODE_DISTANCE 64 ///The distance inbetween (in pixels) the navigation nodes. 
+#define NAVIGATION_NODE_DISTANCE 32 ///The distance inbetween (in pixels) the navigation nodes. 
 
 namespace Engine::Core
 {

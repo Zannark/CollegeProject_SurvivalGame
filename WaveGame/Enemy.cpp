@@ -58,8 +58,6 @@ void Engine::GamePlay::Enemy::FindPath(void)
 		{
 			this->CurrentNode = this->Search.GetSolutionStart();
 			this->HasStarted = true;
-			
-			//this->SetPosition(this->CurrentNode->Position);		
 		}
 		else
 		{
@@ -70,11 +68,9 @@ void Engine::GamePlay::Enemy::FindPath(void)
 					this->Search.FreeSolutionNodes();
 					this->EndNode = NavigationNode(this->AlignPlayer(), Window, false);
 					this->StartNode = NavigationNode(this->GetPosition(), Window, false);
-					//cout << this->GetPosition().x << " " << this->GetPosition().y << endl;
 
 					this->Search.SetStartAndGoalStates(this->StartNode, this->EndNode);
 					this->SearchState = AStarSearch<NavigationNode>::SEARCH_STATE_SEARCHING;
-					this->MovementPercentage = 0;
 					this->HasStarted = false;
 					return;
 				}
@@ -87,14 +83,14 @@ void Engine::GamePlay::Enemy::FindPath(void)
 			if (!this->CurrentNode)
 			{
 				this->Search.FreeSolutionNodes();
-				//this->State = EnemyState::CheckDistance;
+				this->State = EnemyState::CheckDistance;
 				this->HasStarted = false;
 				return;
 			}
 	
 			if (this->MovementPercentage < 1)
 			{
-				this->MovementPercentage += 2.5 * GameTime::DeltaTime();
+				this->MovementPercentage += 4 * GameTime::DeltaTime();
 				
 				Vector2f Pos = Lerp(this->NodePosition, this->CurrentNode->Position, this->MovementPercentage);
 				this->SetPosition(Pos);
