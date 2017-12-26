@@ -14,6 +14,9 @@ using namespace Engine::Misc;
 using namespace Engine::Core;
 using namespace std;
 
+#define ENEMY_ATTACK_RANGE 17.f
+#define ENEMY_ATTACK_INTERVAL 1.5f
+
 namespace Engine::GamePlay
 {
 	enum EnemyState
@@ -26,26 +29,30 @@ namespace Engine::GamePlay
 	class Enemy : public Character
 	{
 	public:
-		Enemy(Vector2f Position, shared_ptr<RenderWindow> Window, shared_ptr<Player> P);
+		Enemy(Vector2f Position, RenderWindow* Window, shared_ptr<Player> P);
 		~Enemy();
 
-		void Update(shared_ptr<RenderWindow> Window, Map M, float dt);
+		void Update(RenderWindow* Window, Map M, float dt);
 
 	private:
 		void ManageState(void);
 		void FindPath(void);
+		void CheckDistance(void);
+		void Attack(void);
 		Vector2f AlignPlayer(void);
 
 		bool HasStarted;
 		bool FinishedPath;
 		int SearchState;
 		float MovementPercentage;
+		int AttackDamage;
+		float AttackTimer;
 		Vector2f NodePosition;
 		EnemyState State;
 		NavigationNode StartNode;
 		NavigationNode EndNode;
 		NavigationNode *CurrentNode;
-		shared_ptr<RenderWindow> Window;
+		RenderWindow* Window;
 		shared_ptr<Player> P;
 		AStarSearch<NavigationNode> Search;
 	};

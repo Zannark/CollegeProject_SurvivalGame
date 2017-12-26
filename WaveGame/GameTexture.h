@@ -29,7 +29,7 @@ namespace Engine::Core
 		void SetRotation(float Angle);
 		void SetOrigin(const Vector2f& Position);
 		void Move(const Vector2f& Offset);
-		void Draw(shared_ptr<RenderWindow> RenderWindow);
+		void Draw(RenderWindow* RenderWindow);
 
 	private:
 		shared_ptr<Texture> Tex;

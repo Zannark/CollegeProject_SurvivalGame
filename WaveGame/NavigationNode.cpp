@@ -5,7 +5,7 @@ namespace
 	vector<vector<shared_ptr<Engine::Core::NavigationNode>>> NavigationMesh;
 }
 
-void Engine::Core::CreateNavigationMesh(shared_ptr<RenderWindow> Window, Player P, Map M)
+void Engine::Core::CreateNavigationMesh(RenderWindow* Window, Player P, Map M)
 {
 	///For ease
 	const float Width = Window->getSize().x;
@@ -56,14 +56,14 @@ shared_ptr<NavigationNode> Engine::Core::GetNodeByPosition(Vector2f Position)
 	return NavigationMesh[x][y];
 }
 
-Engine::Core::NavigationNode::NavigationNode(Vector2f Position, shared_ptr<RenderWindow> Window, bool DoesCollision)
+Engine::Core::NavigationNode::NavigationNode(Vector2f Position, RenderWindow* Window, bool DoesCollision)
 {
 	this->Position = Position;
 	this->Window = Window;
 	this->DoesCollision = DoesCollision;
 }
 
-Engine::Core::NavigationNode::NavigationNode(float x, float y, shared_ptr<RenderWindow> Window, bool DoesCollision)
+Engine::Core::NavigationNode::NavigationNode(float x, float y, RenderWindow* Window, bool DoesCollision)
 {
 	this->Position = Vector2f(x, y);
 	this->DoesCollision = DoesCollision;
@@ -88,12 +88,6 @@ bool Engine::Core::NavigationNode::GetSuccessors(AStarSearch<NavigationNode>* AS
 		if (Node != nullptr && (!ParentNode || !Node->IsSameState(*ParentNode)))
 			AStarSearch->AddSuccessor(*Node);
 	};
-
-	//Vector2f ParentPosition(-1, -1);
-	//NavigationNode NewNode;
-	
-	//if (ParentNode)
-		//ParentPosition = ParentNode->Position;
 
 	AddSuccessor(this->Position + Vector2f(-NAVIGATION_NODE_DISTANCE, 0)); ///Left
 	AddSuccessor(this->Position + Vector2f(0, -NAVIGATION_NODE_DISTANCE)); ///Up

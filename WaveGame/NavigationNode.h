@@ -20,24 +20,22 @@ namespace Engine::Core
 	{
 	public:
 		NavigationNode() = default;
-		NavigationNode(Vector2f Position, shared_ptr<RenderWindow> Window, bool DoesCollision);
-		NavigationNode(float x, float y, shared_ptr<RenderWindow> Window, bool DoesCollision);
+		NavigationNode(Vector2f Position, RenderWindow* Window, bool DoesCollision);
+		NavigationNode(float x, float y, RenderWindow* Window, bool DoesCollision);
 
 		float GoalDistanceEstimate(NavigationNode &nodeGoal);
 		bool IsGoal(NavigationNode &nodeGoal);
 		bool GetSuccessors(AStarSearch<NavigationNode> *astarsearch, NavigationNode *parent_node);
 		float GetCost(NavigationNode &successor);
 		bool IsSameState(NavigationNode &rhs);
-
-		//void PrintNodeInfo();
-
+		
 		Vector2f Position;
-		shared_ptr<RenderWindow> Window;
+		RenderWindow* Window;
 
 	private:
 		bool DoesCollision;
 	};
 
-	extern void CreateNavigationMesh(shared_ptr<RenderWindow> Window, Player P, Map M);
+	extern void CreateNavigationMesh(RenderWindow* Window, Player P, Map M);
 	extern shared_ptr<NavigationNode> GetNodeByPosition(Vector2f Position);
 }

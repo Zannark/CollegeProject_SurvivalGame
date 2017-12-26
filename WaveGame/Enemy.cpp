@@ -1,12 +1,12 @@
 #include "Enemy.h"
 
-Engine::GamePlay::Enemy::Enemy(Vector2f Position, shared_ptr<RenderWindow> Window, shared_ptr<Player> P)
+Engine::GamePlay::Enemy::Enemy(Vector2f Position, RenderWindow* Window, shared_ptr<Player> P)
 {
 	this->Texture = make_shared<GameTexture>(TextureCache::Cache.Access("Assets/Enemy.png"));
 	this->Texture->SetPosition(Position);
 	this->Window = Window;
 	this->P = P;
-	this->State = EnemyState::Pathfinding;
+	this->State = EnemyState::CheckDistance;
 	this->SearchState = 0;
 	this->MovementPercentage = 0;
 	this->StartNode = NavigationNode(Position, Window, false);
@@ -14,13 +14,16 @@ Engine::GamePlay::Enemy::Enemy(Vector2f Position, shared_ptr<RenderWindow> Windo
 	this->Search.SetStartAndGoalStates(this->StartNode, this->EndNode);
 	this->HasStarted = false;
 	this->FinishedPath = false;
+	this->Health = 15;
+	this->AttackDamage = 3;
+	this->AttackTimer = ENEMY_ATTACK_INTERVAL;
 }
 
 Engine::GamePlay::Enemy::~Enemy()
 {
 }
 
-void Engine::GamePlay::Enemy::Update(shared_ptr<RenderWindow> Window, Map M, float dt)
+void Engine::GamePlay::Enemy::Update(RenderWindow* Window, Map M, float dt)
 {
 	this->ManageState();
 }
@@ -29,6 +32,10 @@ void Engine::GamePlay::Enemy::ManageState(void)
 {
 	if (this->State == EnemyState::Pathfinding)
 		this->FindPath();
+	else if (this->State == EnemyState::CheckDistance)
+		this->CheckDistance();
+	else if (this->State == EnemyState::Attacking)
+		this->Attack();
 }
 
 void Engine::GamePlay::Enemy::FindPath(void)
@@ -46,9 +53,6 @@ void Engine::GamePlay::Enemy::FindPath(void)
 
 	if (this->SearchState == AStarSearch<NavigationNode>::SEARCH_STATE_FAILED)
 	{
-		this->Search.FreeSolutionNodes();
-		this->EndNode = NavigationNode(this->AlignPlayer(), Window, false);
-		this->Search.SetStartAndGoalStates(this->StartNode, this->EndNode);
 		cout << "Failed" << endl;
 	}
 
@@ -90,13 +94,38 @@ void Engine::GamePlay::Enemy::FindPath(void)
 	
 			if (this->MovementPercentage < 1)
 			{
+				this->CheckDistance();
+
+				if (this->State != Pathfinding)
+					this->Attack();
+
 				this->MovementPercentage += 4 * GameTime::DeltaTime();
-				
 				Vector2f Pos = Lerp(this->NodePosition, this->CurrentNode->Position, this->MovementPercentage);
 				this->SetPosition(Pos);
 			}
 		}
 	}
+}
+
+void Engine::GamePlay::Enemy::CheckDistance(void)
+{
+	if (Distance(this->GetPosition(), this->P->GetPosition()).x <= ENEMY_ATTACK_RANGE && Distance(this->GetPosition(), this->P->GetPosition()).y <= ENEMY_ATTACK_RANGE)
+		this->State = EnemyState::Attacking;
+	else
+		this->State = EnemyState::Pathfinding;
+}
+
+void Engine::GamePlay::Enemy::Attack(void)
+{
+	if (this->AttackTimer >= ENEMY_ATTACK_INTERVAL)
+	{
+		this->P->TakeDamage(rand() % this->AttackDamage);
+		this->AttackTimer = 0;
+	}
+	else
+		this->AttackTimer += GameTime::DeltaTime();
+
+	this->State = EnemyState::CheckDistance;
 }
 
 Vector2f Engine::GamePlay::Enemy::AlignPlayer(void)

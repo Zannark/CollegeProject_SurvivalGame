@@ -24,13 +24,14 @@ namespace Engine::GamePlay
 		Player();
 		~Player();
 
-		void Update(shared_ptr<RenderWindow> Window, Map M, float dt) override;
-	
+		void Update(RenderWindow* Window, Map M, float dt) override;
+		void TakeDamage(int Amount);
 	private:
 		float MovementSpeed;
 		
-		void HandleMovement(shared_ptr<RenderWindow> Window, Map M, float dt);
-		void HandleRotation(shared_ptr<RenderWindow> Window, float dt);
+		void HandleMovement(RenderWindow* Window, Map M, float dt);
+		void HandleRotation(RenderWindow* Window, float dt);
 		bool CheckCollision(Map M);
+		bool CheckHealth(void);
 	};
 }

@@ -18,13 +18,14 @@ namespace Engine::Core
 
 		void MoveToPosition(Vector2f Position, float Speed);
 		Vector2f GetPosition(void);
-		void Draw(shared_ptr<RenderWindow> Window);
+		void Draw(RenderWindow* Window);
 
-		virtual void Update(shared_ptr<RenderWindow> Window, Map M, float dt) = 0;
+		virtual void Update(RenderWindow* Window, Map M, float dt) = 0;
 
 	protected:
 		float Angle;
 		Vector2f Direction;
+		int Health;
 
 		///Saves the last position where the character could move freely.
 		Vector2f LastGoodPosition;

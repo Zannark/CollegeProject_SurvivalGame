@@ -46,13 +46,13 @@ namespace Engine::Core
 		///This ensures that the props, player and enemies are on top of it.
 		///</summary>
 		///<param name = "Window">A pointer to the RenderWindow is being drawn to.</param>
-		void DrawBackground(shared_ptr<RenderWindow> Window);
+		void DrawBackground(RenderWindow* Window);
 
 		///<summary>
 		///Draws the prop to the screen.
 		///</summary>
 		///<param name = "Window">A pointer to the RenderWindow is being drawn to.</param>
-		void DrawProps(shared_ptr<RenderWindow> Window);
+		void DrawProps(RenderWindow* Window);
 
 	private:
 		GameTexture Background;

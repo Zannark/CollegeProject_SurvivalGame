@@ -8,7 +8,7 @@
 /// <returns>The distance between the two vectors, as a vector</returns>
 Vector2f Engine::Core::Distance(Vector2f Vec1, Vector2f Vec2)
 {
-	return Vec1 - Vec2;
+	return Abs(Vec1 - Vec2);
 }
 
 /// <summary>
@@ -54,4 +54,9 @@ Vector2f Engine::Core::Perpendicular(Vector2f Vec)
 Vector2f Engine::Core::Lerp(sf::Vector2f Start, sf::Vector2f End, float t)
 {
 	return Start + t * (End - Start);
+}
+
+Vector2f Engine::Core::Abs(Vector2f Vec)
+{
+	return Vector2f(fabs(Vec.x), fabs(Vec.y));
 }

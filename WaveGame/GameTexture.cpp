@@ -94,7 +94,7 @@ void Engine::Core::GameTexture::Move(const Vector2f& Offset)
 ///</summary>
 ///<param name = "RenderWindow">The window to draw to.</param>
 ///<exception cref = "std::runtime_error">Throws if RenderWindow is a nullptr.</exception>
-void Engine::Core::GameTexture::Draw(shared_ptr<RenderWindow> RenderWindow)
+void Engine::Core::GameTexture::Draw(RenderWindow* RenderWindow)
 {
 	if (!RenderWindow)
 		throw runtime_error("The RenderWindow cannot be null (at Engine::Core::GameTexture).");

@@ -24,6 +24,6 @@ namespace Engine::Core
 	class MapLoader
 	{
 	public:
-		static Map Load(string Path, shared_ptr<RenderWindow> Window);
+		static Map Load(string Path, RenderWindow* Window);
 	};
 }

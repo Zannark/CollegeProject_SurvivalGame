@@ -30,12 +30,12 @@ bool Engine::Core::Map::IsPropAtPosition(Vector2f Position)
 	return true;
 }
 
-void Engine::Core::Map::DrawBackground(shared_ptr<RenderWindow> Window)
+void Engine::Core::Map::DrawBackground(RenderWindow* Window)
 {
 	this->Background.Draw(Window);
 }
 
-void Engine::Core::Map::DrawProps(shared_ptr<RenderWindow> Window)
+void Engine::Core::Map::DrawProps(RenderWindow* Window)
 {
 	for (auto Prop : this->Props)
 		Prop->Draw(Window);

@@ -1,6 +1,6 @@
 #include "MapLoader.h"
 
-Engine::Core::Map Engine::Core::MapLoader::Load(string Path, shared_ptr<RenderWindow> Window)
+Engine::Core::Map Engine::Core::MapLoader::Load(string Path, RenderWindow* Window)
 {	
 	auto CheckAttribute = [](string AttributeName, xml_attribute<char>* Attribute) -> void 
 	{
