@@ -103,7 +103,11 @@ void Engine::GamePlay::Enemy::FindPath(void)
 				this->MovementPercentage += this->MovementSpeed * GameTime::DeltaTime();
 				Vector2f Pos = Lerp(this->NodePosition, this->CurrentNode->Position, this->MovementPercentage);
 				
-				
+				if (Pos.x < this->GetPosition().x)
+					Pos.x += Div(Abs(Pos - this->GetPosition()), 2).x;
+
+				if (Pos.y < this->GetPosition().y)
+					Pos.y += Div(Abs(Pos - this->GetPosition()), 2).y;
 
 				this->SetPosition(Pos);
 			}

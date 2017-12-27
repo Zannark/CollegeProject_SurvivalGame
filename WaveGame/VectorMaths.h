@@ -16,4 +16,5 @@ namespace Engine::Core
 	extern Vector2f Perpendicular(Vector2f Vec);
 	extern Vector2f Lerp(sf::Vector2f Start, sf::Vector2f End, float t);
 	extern Vector2f Abs(Vector2f Vec);
+	extern Vector2f Div(Vector2f Vec, float Factor);
 }

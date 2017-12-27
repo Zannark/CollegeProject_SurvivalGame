@@ -60,3 +60,8 @@ Vector2f Engine::Core::Abs(Vector2f Vec)
 {
 	return Vector2f(fabs(Vec.x), fabs(Vec.y));
 }
+
+Vector2f Engine::Core::Div(Vector2f Vec, float Factor)
+{
+	return Vector2f(Vec.x / Factor, Vec.y / Factor);
+}
