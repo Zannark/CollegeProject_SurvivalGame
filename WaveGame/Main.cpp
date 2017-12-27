@@ -45,6 +45,7 @@ int main(int argc, char** argv)
 		M.DrawProps(Window);
 
 		Enemies.Draw(Window);
+		Engine::Core::DrawNavigationMesh(Window);
 
 		Window->display();
 		GameTime::Update();

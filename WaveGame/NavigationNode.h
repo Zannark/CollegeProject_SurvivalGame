@@ -38,4 +38,5 @@ namespace Engine::Core
 
 	extern void CreateNavigationMesh(RenderWindow* Window, Player P, Map M);
 	extern shared_ptr<NavigationNode> GetNodeByPosition(Vector2f Position);
+	extern void DrawNavigationMesh(RenderWindow* Window);
 }

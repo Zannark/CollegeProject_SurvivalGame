@@ -2,6 +2,10 @@
 
 namespace
 {
+#if _DEBUG
+	bool SetupShape = true;
+	RectangleShape DebugShape;
+#endif
 	vector<vector<shared_ptr<Engine::Core::NavigationNode>>> NavigationMesh;
 }
 
@@ -110,4 +114,27 @@ float Engine::Core::NavigationNode::GetCost(NavigationNode& Successor)
 bool Engine::Core::NavigationNode::IsSameState(NavigationNode& OtherNode)
 {
 	return (((int)floorf(this->Position.x) == (int)floorf(OtherNode.Position.x)) && ((int)floorf(this->Position.y) == (int)floorf(OtherNode.Position.y)));
+}
+
+void Engine::Core::DrawNavigationMesh(RenderWindow* Window)
+{
+#if _DEBUG
+	if (SetupShape)
+	{
+		SetupShape = false;
+		DebugShape.setFillColor(Color(128, 128, 128, 255));
+		DebugShape.setOutlineThickness(1);
+		DebugShape.setOutlineColor(Color(0, 0, 0, 255));
+		DebugShape.setSize(Vector2f(3, 3));
+	}
+
+	for (int k = 0; k < NavigationMesh.size(); k++)
+	{
+		for (int j = 0; j < NavigationMesh[k].size(); j++)
+		{
+			DebugShape.setPosition(NavigationMesh[k][j]->Position);
+			Window->draw(DebugShape);
+		}
+	}
+#endif
 }
