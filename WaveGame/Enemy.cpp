@@ -17,6 +17,7 @@ Engine::GamePlay::Enemy::Enemy(Vector2f Position, RenderWindow* Window, shared_p
 	this->Health = 15;
 	this->AttackDamage = 3;
 	this->AttackTimer = ENEMY_ATTACK_INTERVAL;
+	this->MovementSpeed = ((float)rand() / (float)RAND_MAX) * ENEMY_MAX_MOVEMENT_SPEED;
 }
 
 Engine::GamePlay::Enemy::~Enemy()
@@ -99,8 +100,11 @@ void Engine::GamePlay::Enemy::FindPath(void)
 				if (this->State != Pathfinding)
 					this->Attack();
 
-				this->MovementPercentage += 4 * GameTime::DeltaTime();
+				this->MovementPercentage += this->MovementSpeed * GameTime::DeltaTime();
 				Vector2f Pos = Lerp(this->NodePosition, this->CurrentNode->Position, this->MovementPercentage);
+				
+				
+
 				this->SetPosition(Pos);
 			}
 		}

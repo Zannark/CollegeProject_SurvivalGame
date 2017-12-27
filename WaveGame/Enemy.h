@@ -16,6 +16,7 @@ using namespace std;
 
 #define ENEMY_ATTACK_RANGE 17.f
 #define ENEMY_ATTACK_INTERVAL 1.5f
+#define ENEMY_MAX_MOVEMENT_SPEED 5.f
 
 namespace Engine::GamePlay
 {
@@ -47,6 +48,7 @@ namespace Engine::GamePlay
 		float MovementPercentage;
 		int AttackDamage;
 		float AttackTimer;
+		float MovementSpeed;
 		Vector2f NodePosition;
 		EnemyState State;
 		NavigationNode StartNode;
