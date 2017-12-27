@@ -18,6 +18,7 @@ namespace Engine::Core
 
 		void MoveToPosition(Vector2f Position, float Speed);
 		Vector2f GetPosition(void);
+		Vector2f GetSize(void);
 		void Draw(RenderWindow* Window);
 
 		virtual void Update(RenderWindow* Window, Map M, float dt) = 0;

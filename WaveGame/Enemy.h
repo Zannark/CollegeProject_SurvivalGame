@@ -37,6 +37,7 @@ namespace Engine::GamePlay
 		~Enemy();
 
 		void Update(RenderWindow* Window, Map M, float dt);
+		bool GetIsAlive(void);
 
 	private:
 		void ManageState(void);
@@ -46,6 +47,7 @@ namespace Engine::GamePlay
 		Vector2f AlignPlayer(void);
 
 		bool HasStarted;
+		bool IsAlive;
 		bool FinishedPath;
 		int SearchState;
 		float MovementPercentage;

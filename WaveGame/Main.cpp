@@ -22,7 +22,7 @@ int main(int argc, char** argv)
 	shared_ptr<Engine::GamePlay::Player> P = make_shared<Engine::GamePlay::Player>();
 	Engine::Core::Map M = Engine::Core::MapLoader::Load("Test.xml", Window);
 	Engine::Core::CreateNavigationMesh(Window, *P, M);
-	Engine::GamePlay::EnemyManager Enemies = Engine::GamePlay::EnemyManager(Window, P);
+	Engine::GamePlay::EnemyManager* Enemies = new Engine::GamePlay::EnemyManager(Window, P);
 
 	while (Window->isOpen())
 	{
@@ -36,7 +36,7 @@ int main(int argc, char** argv)
 
 		P->Update(Window, M, GameTime::DeltaTime());
 
-		Enemies.Update(Window, M, GameTime::DeltaTime());
+		Enemies->Update(Window, M, GameTime::DeltaTime());
 		
 		Window->clear(Color(0, 0, 0, 255));
 
@@ -44,7 +44,7 @@ int main(int argc, char** argv)
 		P->Draw(Window);
 		M.DrawProps(Window);
 
-		Enemies.Draw(Window);
+		Enemies->Draw(Window);
 		Engine::Core::DrawNavigationMesh(Window);
 
 		Window->display();
@@ -52,6 +52,7 @@ int main(int argc, char** argv)
 	}
 
 	delete Window;
+	delete Enemies;
 
 	return 0;
 }

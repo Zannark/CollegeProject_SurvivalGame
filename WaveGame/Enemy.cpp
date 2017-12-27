@@ -19,7 +19,7 @@ Engine::GamePlay::Enemy::Enemy(Vector2f Position, RenderWindow* Window, shared_p
 	this->AttackTimer = ENEMY_ATTACK_INTERVAL;
 	this->MovementSpeed = ((float)rand() / (float)RAND_MAX) * ENEMY_MAX_MOVEMENT_SPEED + ENEMY_MIN_MOVEMENT_SPEED;
 
-	cout << this->MovementSpeed << endl;
+	this->IsAlive = false;
 }
 
 Engine::GamePlay::Enemy::~Enemy()
@@ -29,6 +29,11 @@ Engine::GamePlay::Enemy::~Enemy()
 void Engine::GamePlay::Enemy::Update(RenderWindow* Window, Map M, float dt)
 {
 	this->ManageState();
+}
+
+bool Engine::GamePlay::Enemy::GetIsAlive(void)
+{
+	return this->IsAlive;
 }
 
 void Engine::GamePlay::Enemy::ManageState(void)

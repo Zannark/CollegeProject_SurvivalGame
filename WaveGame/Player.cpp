@@ -8,6 +8,11 @@ Engine::GamePlay::Player::Player()
 
 	this->Texture->SetOrigin(Vector2f((float)(this->Texture->GetSFMLTexture()->getSize().x / 2), (float)(this->Texture->GetSFMLTexture()->getSize().y / 2)));
 	this->Texture->SetPosition(Vector2f(400, 400));
+
+	this->PlayerWeapon = RectangleShape(Vector2f(8, 15));
+	this->PlayerWeapon.setFillColor(Color::Green);
+	this->PlayerWeapon.setOutlineColor(Color::Black);
+	this->PlayerWeapon.setOutlineThickness(1);
 }
 
 Engine::GamePlay::Player::~Player()
@@ -20,7 +25,20 @@ void Engine::GamePlay::Player::Update(RenderWindow* Window, Map M, float dt)
 	{
 		this->HandleMovement(Window, M, dt);
 		this->HandleRotation(Window, dt);
+	
+		if (Mouse::isButtonPressed(Mouse::Button::Left))
+		{
+			//this->Attack();
+		}
 	}
+}
+
+void Engine::GamePlay::Player::Attack(void)
+{
+	FloatRect WeaponBox = FloatRect(this->PlayerWeapon.getPosition().x, this->PlayerWeapon.getPosition().y, this->PlayerWeapon.getSize().x, this->PlayerWeapon.getSize().y);
+	auto Enemies = this->Manager->GetEnemiesInRange(WeaponBox);
+
+	cout << Enemies.size() << endl;
 }
 
 void Engine::GamePlay::Player::HandleMovement(RenderWindow* Window, Map M, float dt)
@@ -70,6 +88,11 @@ void Engine::GamePlay::Player::TakeDamage(int Amount)
 	{
 		this->Health -= Amount;
 	}
+}
+
+void Engine::GamePlay::Player::SetEnemyManager(EnemyManager * Manager)
+{
+	this->Manager = Manager;
 }
 
 bool Engine::GamePlay::Player::CheckHealth(void)

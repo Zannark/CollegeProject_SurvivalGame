@@ -19,6 +19,11 @@ Vector2f Engine::Core::Character::GetPosition(void)
 	return this->Texture->GetSFMLSprite()->getPosition();
 }
 
+Vector2f Engine::Core::Character::GetSize(void)
+{
+	return Vector2f(this->Texture->GetSFMLTexture()->getSize().x, this->Texture->GetSFMLTexture()->getSize().y );
+}
+
 void Engine::Core::Character::Draw(RenderWindow* Window)
 {
 	this->Texture->Draw(Window);
