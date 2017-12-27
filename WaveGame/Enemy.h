@@ -1,6 +1,8 @@
 #pragma once
 
 #include <memory>
+#include <random>
+#include <functional>
 #include "stlastar.h"
 #include "GameTexture.h"
 #include "Character.h"
@@ -14,9 +16,10 @@ using namespace Engine::Misc;
 using namespace Engine::Core;
 using namespace std;
 
-#define ENEMY_ATTACK_RANGE 17.f
+#define ENEMY_ATTACK_RANGE 32.f
 #define ENEMY_ATTACK_INTERVAL 1.5f
 #define ENEMY_MAX_MOVEMENT_SPEED 5.f
+#define ENEMY_MIN_MOVEMENT_SPEED 0.5f
 
 namespace Engine::GamePlay
 {
