@@ -21,32 +21,6 @@ using namespace Engine::Misc;
 
 namespace Engine::GamePlay
 {
-	enum MatchState
-	{
-		InMatch = 0,
-		Interval,
-		NewMatch
-	};
-
-	class EnemyManager
-	{
-	public:
-		EnemyManager(RenderWindow* Window, shared_ptr<Player> P);
-		~EnemyManager();
-
-		void Update(RenderWindow* Window, Map M, float dt);
-		void Draw(RenderWindow* Window);
-
-		//vector<Enemy*> GetEnemiesInRange(FloatRect BoundingBox);
-
-	private:
-		shared_ptr<Player> P;
-		vector<Enemy*> Enemies;
-		int CurrentWave;
-		int IntervalTimer;
-		MatchState State;
-	};
-
 	class Player : public Character
 	{
 	public:
@@ -55,7 +29,7 @@ namespace Engine::GamePlay
 
 		void Update(RenderWindow* Window, Map M, float dt) override;
 		void TakeDamage(int Amount);
-		void SetEnemyManager(EnemyManager* Manager);
+		void SetEnemyManager(void* Manager);
 		
 	private:
 		void Attack(void);
@@ -66,6 +40,6 @@ namespace Engine::GamePlay
 
 		float MovementSpeed;
 		RectangleShape PlayerWeapon;
-		EnemyManager* Manager;
+		void* Manager;
 	};
 }

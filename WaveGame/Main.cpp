@@ -24,6 +24,8 @@ int main(int argc, char** argv)
 	Engine::Core::CreateNavigationMesh(Window, *P, M);
 	Engine::GamePlay::EnemyManager* Enemies = new Engine::GamePlay::EnemyManager(Window, P);
 
+	P->SetEnemyManager((void*)Enemies);
+
 	while (Window->isOpen())
 	{
 		while (Window->pollEvent(E))

@@ -21,5 +21,30 @@ using namespace sf;
 
 namespace Engine::GamePlay
 {
+	enum MatchState
+	{
+		InMatch = 0,
+		Interval,
+		NewMatch
+	};
+
+	class EnemyManager
+	{
+	public:
+		EnemyManager(RenderWindow* Window, shared_ptr<Player> P);
+		~EnemyManager();
+
+		void Update(RenderWindow* Window, Map M, float dt);
+		void Draw(RenderWindow* Window);
+
+		vector<Enemy*> GetEnemiesInRange(FloatRect BoundingBox);
+
+	private:
+		shared_ptr<Player> P;
+		vector<Enemy*> Enemies;
+		int CurrentWave;
+		int IntervalTimer;
+		MatchState State;
+	};
 }
 

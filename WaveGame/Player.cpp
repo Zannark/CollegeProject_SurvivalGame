@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "EnemyManager.h"
 
 Engine::GamePlay::Player::Player()
 {
@@ -36,7 +37,7 @@ void Engine::GamePlay::Player::Update(RenderWindow* Window, Map M, float dt)
 void Engine::GamePlay::Player::Attack(void)
 {
 	FloatRect WeaponBox = FloatRect(this->PlayerWeapon.getPosition().x, this->PlayerWeapon.getPosition().y, this->PlayerWeapon.getSize().x, this->PlayerWeapon.getSize().y);
-	auto Enemies = this->Manager->GetEnemiesInRange(WeaponBox);
+	auto Enemies = ((EnemyManager*)this->Manager)->GetEnemiesInRange(WeaponBox);
 
 	cout << Enemies.size() << endl;
 }
@@ -90,7 +91,7 @@ void Engine::GamePlay::Player::TakeDamage(int Amount)
 	}
 }
 
-void Engine::GamePlay::Player::SetEnemyManager(EnemyManager * Manager)
+void Engine::GamePlay::Player::SetEnemyManager(void* Manager)
 {
 	this->Manager = Manager;
 }

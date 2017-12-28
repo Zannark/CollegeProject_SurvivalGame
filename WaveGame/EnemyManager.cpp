@@ -55,11 +55,13 @@ void Engine::GamePlay::EnemyManager::Update(RenderWindow* Window, Map M, float d
 
 void Engine::GamePlay::EnemyManager::Draw(RenderWindow* Window)
 {
-	for (auto En : this->Enemies)
-		En->Draw(Window);
+	for (int i = 0; i < this->Enemies.size(); i++)
+	{
+		this->Enemies[i]->Draw(Window);
+	}
 }
 
-/*vector<Enemy*> Engine::GamePlay::EnemyManager::GetEnemiesInRange(FloatRect BoundingBox)
+vector<Enemy*> Engine::GamePlay::EnemyManager::GetEnemiesInRange(FloatRect BoundingBox)
 {
 	vector<Enemy*> ReturnValue;
 
@@ -72,4 +74,4 @@ void Engine::GamePlay::EnemyManager::Draw(RenderWindow* Window)
 	}
 
 	return ReturnValue;
-}*/
+}
