@@ -47,7 +47,6 @@ namespace Engine::GamePlay
 		Vector2f AlignPlayer(void);
 
 		bool HasStarted;
-		bool IsAlive;
 		bool FinishedPath;
 		int SearchState;
 		float MovementPercentage;

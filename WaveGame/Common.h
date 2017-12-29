@@ -43,4 +43,5 @@ namespace Engine::Misc
 	extern double Difference(double a, double b);
 	extern float EuclideanDistance(sf::Vector2f P, sf::Vector2f Q);
 	extern bool VectorLessThan(sf::Vector2i Element1, sf::Vector2i Element2);
+	extern float NormaliseToRange(float Min, float Max, float Data);
 }

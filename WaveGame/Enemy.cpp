@@ -19,7 +19,7 @@ Engine::GamePlay::Enemy::Enemy(Vector2f Position, RenderWindow* Window, shared_p
 	this->AttackTimer = ENEMY_ATTACK_INTERVAL;
 	this->MovementSpeed = ((float)rand() / (float)RAND_MAX) * ENEMY_MAX_MOVEMENT_SPEED + ENEMY_MIN_MOVEMENT_SPEED;
 
-	this->IsAlive = false;
+	this->IsAlive = true;
 }
 
 Engine::GamePlay::Enemy::~Enemy()
@@ -147,6 +147,6 @@ Vector2f Engine::GamePlay::Enemy::AlignPlayer(void)
 	int AlignedX = (int)(P->GetPosition().x / NAVIGATION_NODE_DISTANCE) * NAVIGATION_NODE_DISTANCE;
 	int AlignedY = (int)(P->GetPosition().y / NAVIGATION_NODE_DISTANCE) * NAVIGATION_NODE_DISTANCE;
 
-	return Vector2f(AlignedX, AlignedY);
+	return Vector2f((float)AlignedX, (float)AlignedY);
 }
 

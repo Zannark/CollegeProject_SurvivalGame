@@ -188,4 +188,9 @@ namespace Engine::Misc
 	{
 		return (Element1.x < Element2.x) && (Element1.y < Element2.y);
 	}
+
+	float NormaliseToRange(float Min, float Max, float Data)
+	{
+		return (Data - Min) / (Max - Min);
+	}
 }

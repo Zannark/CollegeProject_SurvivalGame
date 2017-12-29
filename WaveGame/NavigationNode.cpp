@@ -12,8 +12,8 @@ namespace
 void Engine::Core::CreateNavigationMesh(RenderWindow* Window, Player P, Map M)
 {
 	///For ease
-	const float Width = Window->getSize().x;
-	const float Height = Window->getSize().y;
+	const float Width = (float)Window->getSize().x;
+	const float Height = (float)Window->getSize().y;
 	auto Props = M.GetProps();
 	float x = 0;
 	float y = 0;
@@ -128,10 +128,10 @@ void Engine::Core::DrawNavigationMesh(RenderWindow* Window)
 		DebugShape.setSize(Vector2f(3, 3));
 	}
 
-	for (int k = 0; k < NavigationMesh.size(); k++)
+	for (unsigned int k = 0; k < NavigationMesh.size(); k++)
 	{
-		for (int j = 0; j < NavigationMesh[k].size(); j++)
-		{
+		for (unsigned int j = 0; j < NavigationMesh[k].size(); j++)
+		{	
 			DebugShape.setPosition(NavigationMesh[k][j]->Position);
 			Window->draw(DebugShape);
 		}

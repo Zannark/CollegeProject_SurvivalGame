@@ -43,8 +43,8 @@ void Engine::GamePlay::EnemyManager::Update(RenderWindow* Window, Map M, float d
 	{
 		for (int i = 0; i < (DEFAULT_ENEMY_COUNT + CurrentWave); i++)
 		{
-			float x = rand() % Window->getSize().x;
-			float y = rand() % Window->getSize().y;
+			float x = (float)(rand() % Window->getSize().x);
+			float y = (float)(rand() % Window->getSize().y);
 
 			this->Enemies.push_back(new Enemy(Vector2f(x, y), Window, this->P));
 		}
@@ -57,7 +57,8 @@ void Engine::GamePlay::EnemyManager::Draw(RenderWindow* Window)
 {
 	for (int i = 0; i < this->Enemies.size(); i++)
 	{
-		this->Enemies[i]->Draw(Window);
+		if(this->Enemies[i])
+			this->Enemies[i]->Draw(Window);
 	}
 }
 

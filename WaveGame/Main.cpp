@@ -14,7 +14,7 @@ using namespace sf;
 
 int main(int argc, char** argv)
 {
-	srand(time(NULL));
+	srand((int)time(NULL));
 	Engine::Core::InitTextureCache();
 	RenderWindow* Window = new RenderWindow(VideoMode(800, 600, 32), "Game");
 	Event E;
@@ -43,11 +43,14 @@ int main(int argc, char** argv)
 		Window->clear(Color(0, 0, 0, 255));
 
 		M.DrawBackground(Window);
+		P->DrawWeapon(Window);
 		P->Draw(Window);
 		M.DrawProps(Window);
 
 		Enemies->Draw(Window);
-		Engine::Core::DrawNavigationMesh(Window);
+		P->DrawUI(Window);
+		
+		//Engine::Core::DrawNavigationMesh(Window);
 
 		Window->display();
 		GameTime::Update();
