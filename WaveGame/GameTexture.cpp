@@ -102,6 +102,9 @@ void Engine::Core::GameTexture::Draw(RenderWindow* RenderWindow)
 	RenderWindow->draw(*this->GameSprite);
 }
 
+///<summary>
+///Initalise the TextureCache, loads in all of the GameTextures off of the storeage drive.
+///</summary>
 void Engine::Core::InitTextureCache()
 {
 	TextureCache::Cache.Add("Assets/Background.png", GameTexture("Assets/Background.png"));

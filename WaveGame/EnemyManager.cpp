@@ -19,7 +19,7 @@ void Engine::GamePlay::EnemyManager::Update(RenderWindow* Window, Map M, float d
 		{
 			if (En)
 			{
-				if(En->GetIsAlive())
+				if(En->CheckHealth())
 					En->Update(Window, M, dt);
 				else
 					delete En;

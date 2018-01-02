@@ -37,7 +37,6 @@ namespace Engine::GamePlay
 		~Enemy();
 
 		void Update(RenderWindow* Window, Map M, float dt);
-		bool GetIsAlive(void);
 
 	private:
 		void ManageState(void);

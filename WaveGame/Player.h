@@ -18,7 +18,7 @@ using namespace Engine::Misc;
 
 #define PLAYER_ATTACK_INTERVAL 0.25f
 #define PLAYER_MAX_ATTACK_DAMAGE 5
-#define PLAYER_MAX_HEALTH 20
+#define PLAYER_MAX_HEALTH 200
 
 namespace Engine::GamePlay
 {
@@ -34,7 +34,7 @@ namespace Engine::GamePlay
 		void DrawUI(RenderWindow* Window);
 		void DrawWeapon(RenderWindow* Window);
 	protected:
-		virtual void UpdateUI(void) override;
+		void UpdateUI(void);
 
 	private:
 		void Attack(void);
@@ -42,10 +42,11 @@ namespace Engine::GamePlay
 		void HandleRotation(RenderWindow* Window, float dt);
 		bool CheckCollision(Map M);
 
+		int OldHealth;
 		float MovementSpeed;
-		RectangleShape PlayerWeapon;
 		void* Manager;
 
+		RectangleShape PlayerWeapon;
 		RectangleShape HealthBar;
 		RectangleShape HealthBarOutLine;
 	};

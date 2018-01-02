@@ -18,7 +18,6 @@ Engine::GamePlay::Enemy::Enemy(Vector2f Position, RenderWindow* Window, shared_p
 	this->AttackDamage = 3;
 	this->AttackTimer = ENEMY_ATTACK_INTERVAL;
 	this->MovementSpeed = ((float)rand() / (float)RAND_MAX) * ENEMY_MAX_MOVEMENT_SPEED + ENEMY_MIN_MOVEMENT_SPEED;
-
 	this->IsAlive = true;
 }
 
@@ -26,16 +25,20 @@ Engine::GamePlay::Enemy::~Enemy()
 {
 }
 
+///<summary>
+///Called once per frame, updates the enemy.
+///</summary>
+///<param name = "Window">A pointer to the RenderWindow which is being used.</param>
+///<param name = "M">A copy of the Map for the player for movement.</param>
+///<param name = "dt">Delta time, the time the last frame took.</param>
 void Engine::GamePlay::Enemy::Update(RenderWindow* Window, Map M, float dt)
 {
 	this->ManageState();
 }
 
-bool Engine::GamePlay::Enemy::GetIsAlive(void)
-{
-	return this->IsAlive;
-}
-
+///<summary>
+///Carries out different functions, depending on the current state.
+///</summary>
 void Engine::GamePlay::Enemy::ManageState(void)
 {
 	if (this->State == EnemyState::Pathfinding)
@@ -46,6 +49,9 @@ void Engine::GamePlay::Enemy::ManageState(void)
 		this->Attack();
 }
 
+///<summary>
+///Carries out A* pathfinding, moving towards the player.
+///</summary>
 void Engine::GamePlay::Enemy::FindPath(void)
 {
 	do 
@@ -121,6 +127,9 @@ void Engine::GamePlay::Enemy::FindPath(void)
 	}
 }
 
+///<summary>
+///Checks how far away the player is from the ememy.
+///</summary>
 void Engine::GamePlay::Enemy::CheckDistance(void)
 {
 	if (Distance(this->GetPosition(), this->P->GetPosition()).x <= ENEMY_ATTACK_RANGE && Distance(this->GetPosition(), this->P->GetPosition()).y <= ENEMY_ATTACK_RANGE)
@@ -129,6 +138,9 @@ void Engine::GamePlay::Enemy::CheckDistance(void)
 		this->State = EnemyState::Pathfinding;
 }
 
+///<summary>
+///Attacks the player, random amount between 0 and ENEMY_ATTACK_INTERVAL.
+///</summary>
 void Engine::GamePlay::Enemy::Attack(void)
 {
 	if (this->AttackTimer >= ENEMY_ATTACK_INTERVAL)
@@ -142,6 +154,9 @@ void Engine::GamePlay::Enemy::Attack(void)
 	this->State = EnemyState::CheckDistance;
 }
 
+///<summary>
+///Aligned the player within Nodes.
+///</summary>
 Vector2f Engine::GamePlay::Enemy::AlignPlayer(void)
 {
 	int AlignedX = (int)(P->GetPosition().x / NAVIGATION_NODE_DISTANCE) * NAVIGATION_NODE_DISTANCE;
