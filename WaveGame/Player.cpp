@@ -17,7 +17,7 @@ Engine::GamePlay::Player::Player()
 	this->PlayerWeapon.setOutlineThickness(1);
 
 	this->HealthBar = RectangleShape(Vector2f(200, 30));
-	this->HealthBar.setFillColor(Color(188, 28, 28));
+	this->HealthBar.setFillColor(Color(188, 28, 28, 220));
 	this->HealthBar.setOutlineColor(Color::Transparent);
 	this->HealthBar.setOutlineThickness(1);
 	this->HealthBar.setPosition(Vector2f(10, 10));
@@ -25,7 +25,7 @@ Engine::GamePlay::Player::Player()
 	this->HealthBarOutLine = RectangleShape(Vector2f(200, 30));
 	this->HealthBarOutLine.setFillColor(Color::Transparent);
 	this->HealthBarOutLine.setOutlineColor(Color::Black);
-	this->HealthBarOutLine.setOutlineThickness(5);
+	this->HealthBarOutLine.setOutlineThickness(4);
 	this->HealthBarOutLine.setPosition(Vector2f(10, 10));
 
 	this->IsAlive = true;
@@ -140,6 +140,12 @@ bool Engine::GamePlay::Player::CheckCollision(Map M)
 void Engine::GamePlay::Player::SetEnemyManager(void* Manager)
 {
 	this->Manager = Manager;
+}
+
+void Engine::GamePlay::Player::SetFullHealth(void)
+{
+	this->Health = PLAYER_MAX_HEALTH;
+	this->UpdateUI();
 }
 
 ///<summary>

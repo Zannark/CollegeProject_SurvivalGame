@@ -17,7 +17,7 @@ Engine::GamePlay::Enemy::Enemy(Vector2f Position, RenderWindow* Window, shared_p
 	this->Health = 15;
 	this->AttackDamage = 3;
 	this->AttackTimer = ENEMY_ATTACK_INTERVAL;
-	this->MovementSpeed = ((float)rand() / (float)RAND_MAX) * ENEMY_MAX_MOVEMENT_SPEED + ENEMY_MIN_MOVEMENT_SPEED;
+	this->MovementSpeed = ((float)rand() / (float)RAND_MAX) * ENEMY_MAX_MOVEMENT_SPEED;
 	this->IsAlive = true;
 }
 

@@ -44,11 +44,11 @@ void Engine::GamePlay::EnemyManager::Update(RenderWindow* Window, Map M, float d
 		}
 
 		this->IntervalTimer += dt;
-		cout << IntervalTimer << endl;
 	}
 	else if (this->State == MatchState::NewMatch)
 	{
 		this->Enemies = vector<Enemy*>();
+		P->SetFullHealth();
 
 		for (int i = 0; i < (DEFAULT_ENEMY_COUNT + CurrentWave); i++)
 		{
