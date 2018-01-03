@@ -29,6 +29,7 @@ Engine::GamePlay::Player::Player()
 	this->HealthBarOutLine.setPosition(Vector2f(10, 10));
 
 	this->IsAlive = true;
+	this->AttackTimer = PLAYER_ATTACK_INTERVAL;
 }
 
 Engine::GamePlay::Player::~Player()
@@ -50,12 +51,11 @@ void Engine::GamePlay::Player::Update(RenderWindow* Window, Map M, float dt)
 
 		this->PlayerWeapon.setPosition(this->GetPosition() + Div(Vector2f(this->GetSize()), 2));
 
-		if (Mouse::isButtonPressed(Mouse::Button::Left))
-		{
+		if (Mouse::isButtonPressed(Mouse::Button::Left) && this->AttackTimer >= PLAYER_ATTACK_INTERVAL)
 			this->Attack();
-		}
 
 		this->UpdateUI();
+		this->AttackTimer += dt;
 	}
 }
 
@@ -73,6 +73,8 @@ void Engine::GamePlay::Player::Attack(void)
 
 		En->TakeDamage(AttackDamage);
 	}
+
+	this->AttackTimer = 0;
 }
 
 ///<summary>

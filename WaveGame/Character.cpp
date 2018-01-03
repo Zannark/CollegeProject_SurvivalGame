@@ -32,7 +32,8 @@ Vector2f Engine::Core::Character::GetSize(void)
 ///<param name = "Window">A pointer to the RenderWindow, which is the target.</param>
 void Engine::Core::Character::Draw(RenderWindow* Window)
 {
-	this->Texture->Draw(Window);
+	if(this->CheckHealth())
+		this->Texture->Draw(Window);
 }
 
 ///<summary>

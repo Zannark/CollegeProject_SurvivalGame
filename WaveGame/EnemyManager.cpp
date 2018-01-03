@@ -17,13 +17,8 @@ void Engine::GamePlay::EnemyManager::Update(RenderWindow* Window, Map M, float d
 	{
 		for (auto& En : this->Enemies)
 		{
-			if (En)
-			{
-				if(En->CheckHealth())
-					En->Update(Window, M, dt);
-				else
-					delete En;
-			}
+			if(En->CheckHealth())
+				En->Update(Window, M, dt);
 		}
 
 		if (this->Enemies.size() == 0)
@@ -41,6 +36,8 @@ void Engine::GamePlay::EnemyManager::Update(RenderWindow* Window, Map M, float d
 	}
 	else if (this->State == MatchState::NewMatch)
 	{
+		this->Enemies = vector<Enemy*>();
+
 		for (int i = 0; i < (DEFAULT_ENEMY_COUNT + CurrentWave); i++)
 		{
 			float x = (float)(rand() % Window->getSize().x);

@@ -44,6 +44,7 @@ namespace Engine::GamePlay
 
 		int OldHealth;
 		float MovementSpeed;
+		float AttackTimer;
 		void* Manager;
 
 		RectangleShape PlayerWeapon;
