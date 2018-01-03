@@ -5,6 +5,7 @@ Engine::GamePlay::EnemyManager::EnemyManager(RenderWindow * Window, shared_ptr<P
 	this->CurrentWave = 0;
 	this->State = MatchState::NewMatch;
 	this->P = P;
+	this->IntervalTimer = 0.f;
 }
 
 Engine::GamePlay::EnemyManager::~EnemyManager()
@@ -15,24 +16,35 @@ void Engine::GamePlay::EnemyManager::Update(RenderWindow* Window, Map M, float d
 {
 	if (this->State == MatchState::InMatch)
 	{
+		bool NewMatch = true;
+
 		for (auto& En : this->Enemies)
 		{
-			if(En->CheckHealth())
+			if (En->CheckHealth())
+			{
 				En->Update(Window, M, dt);
+				NewMatch = false;
+			}
 		}
 
-		if (this->Enemies.size() == 0)
+		if (NewMatch)
 			this->State = MatchState::Interval;
 	}
 	else if (this->State == MatchState::Interval)
 	{
 		if (this->IntervalTimer >= INTERVAL_TIME)
 		{
+			for (int i = 0; i < Enemies.size(); i++)
+				delete Enemies[i];
+
+			this->CurrentWave += 1;
+			this->IntervalTimer = 0;
 			this->State = MatchState::NewMatch;
 			return;
 		}
 
 		this->IntervalTimer += dt;
+		cout << IntervalTimer << endl;
 	}
 	else if (this->State == MatchState::NewMatch)
 	{

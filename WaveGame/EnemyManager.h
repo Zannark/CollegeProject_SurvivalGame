@@ -43,7 +43,7 @@ namespace Engine::GamePlay
 		shared_ptr<Player> P;
 		vector<Enemy*> Enemies;
 		int CurrentWave;
-		int IntervalTimer;
+		float IntervalTimer;
 		MatchState State;
 	};
 }
