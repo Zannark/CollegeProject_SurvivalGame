@@ -15,7 +15,6 @@ Engine::GamePlay::Enemy::Enemy(Vector2f Position, RenderWindow* Window, shared_p
 	this->HasStarted = false;
 	this->FinishedPath = false;
 	this->Health = 15;
-	this->AttackDamage = 3;
 	this->AttackTimer = ENEMY_ATTACK_INTERVAL;
 	this->MovementSpeed = ((float)rand() / (float)RAND_MAX) * ENEMY_MAX_MOVEMENT_SPEED;
 	this->IsAlive = true;
@@ -145,7 +144,7 @@ void Engine::GamePlay::Enemy::Attack(void)
 {
 	if (this->AttackTimer >= ENEMY_ATTACK_INTERVAL)
 	{
-		this->P->TakeDamage(rand() % this->AttackDamage);
+		this->P->TakeDamage(ENEMY_MIN_ATTACK + rand() % (ENEMY_MAX_ATTACK - ENEMY_MIN_ATTACK));
 		this->AttackTimer = 0;
 	}
 	else

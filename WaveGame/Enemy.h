@@ -18,6 +18,8 @@ using namespace std;
 
 #define ENEMY_ATTACK_RANGE 32.f
 #define ENEMY_ATTACK_INTERVAL 0.75f
+#define ENEMY_MAX_ATTACK 10
+#define ENEMY_MIN_ATTACK 1
 #define ENEMY_MAX_MOVEMENT_SPEED 4.5f
 #define ENEMY_MIN_MOVEMENT_SPEED 0.45f
 
@@ -49,7 +51,6 @@ namespace Engine::GamePlay
 		bool FinishedPath;
 		int SearchState;
 		float MovementPercentage;
-		int AttackDamage;
 		float AttackTimer;
 		float MovementSpeed;
 		Vector2f NodePosition;

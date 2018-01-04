@@ -16,13 +16,13 @@ Engine::GamePlay::Player::Player()
 	this->PlayerWeapon.setOutlineColor(Color::Black);
 	this->PlayerWeapon.setOutlineThickness(1);
 
-	this->HealthBar = RectangleShape(Vector2f(200, 30));
-	this->HealthBar.setFillColor(Color(188, 28, 28, 220));
+	this->HealthBar = RectangleShape(Vector2f(200, 15));
+	this->HealthBar.setFillColor(Color(188, 28, 28));
 	this->HealthBar.setOutlineColor(Color::Transparent);
 	this->HealthBar.setOutlineThickness(1);
 	this->HealthBar.setPosition(Vector2f(10, 10));
 
-	this->HealthBarOutLine = RectangleShape(Vector2f(200, 30));
+	this->HealthBarOutLine = RectangleShape(Vector2f(200, 15));
 	this->HealthBarOutLine.setFillColor(Color::Transparent);
 	this->HealthBarOutLine.setOutlineColor(Color::Black);
 	this->HealthBarOutLine.setOutlineThickness(4);
@@ -142,9 +142,21 @@ void Engine::GamePlay::Player::SetEnemyManager(void* Manager)
 	this->Manager = Manager;
 }
 
+///<summary>
+///Resets the health of the player to full.
+///</summary>
 void Engine::GamePlay::Player::SetFullHealth(void)
 {
 	this->Health = PLAYER_MAX_HEALTH;
+	this->UpdateUI();
+}
+
+///<summary>
+///Sets the health of the player to half of the difference between the current amount of health and PLAYER_MAX_HEALTH.
+///</summary>
+void Engine::GamePlay::Player::RegenHalfMissingHealth(void)
+{
+	this->Health += (abs(this->Health - PLAYER_MAX_HEALTH) / 2);
 	this->UpdateUI();
 }
 

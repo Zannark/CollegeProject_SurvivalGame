@@ -31,6 +31,7 @@ namespace Engine::GamePlay
 		void Update(RenderWindow* Window, Map M, float dt) override;
 		void SetEnemyManager(void* Manager);
 		void SetFullHealth(void);
+		void RegenHalfMissingHealth(void);
 		void DrawUI(RenderWindow* Window);
 		void DrawWeapon(RenderWindow* Window);
 

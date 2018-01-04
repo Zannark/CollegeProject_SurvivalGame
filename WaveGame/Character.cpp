@@ -42,6 +42,7 @@ void Engine::Core::Character::Draw(RenderWindow* Window)
 ///<param name = "Amount">The amount of damage which is given to their health (as an integer).</param>
 void Engine::Core::Character::TakeDamage(int Amount)
 {
+	cout << "Amount Lost: " << Amount << endl;
 	this->Health -= Amount;
 }
 
