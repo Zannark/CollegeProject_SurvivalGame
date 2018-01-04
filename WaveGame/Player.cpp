@@ -43,7 +43,7 @@ Engine::GamePlay::Player::~Player()
 ///<param name = "M">A copy of the Map for the player for movement.</param>
 ///<param name = "dt">Delta time, the time the last frame took.</param>
 void Engine::GamePlay::Player::Update(RenderWindow* Window, Map M, float dt)
-{	
+{
 	if (this->CheckHealth())
 	{
 		this->HandleMovement(Window, M, dt);

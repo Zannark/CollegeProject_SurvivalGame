@@ -3,6 +3,7 @@
 #include <memory>
 #include <vector>
 #include <iostream>
+#include <string>
 #include "stlastar.h"
 #include "GameTexture.h"
 #include "Character.h"
@@ -45,6 +46,10 @@ namespace Engine::GamePlay
 		int CurrentWave;
 		float IntervalTimer;
 		MatchState State;
+		int RoundNumber;
+		string RoundMessage;
+		Font RoundFont;
+		Text RoundText;
 	};
 }
 

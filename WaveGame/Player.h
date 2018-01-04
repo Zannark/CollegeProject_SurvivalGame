@@ -17,7 +17,7 @@ using namespace Engine::Core;
 using namespace Engine::Misc;
 
 #define PLAYER_ATTACK_INTERVAL 0.25f
-#define PLAYER_MAX_ATTACK_DAMAGE 5
+#define PLAYER_MAX_ATTACK_DAMAGE 7
 #define PLAYER_MAX_HEALTH 200
 
 namespace Engine::GamePlay

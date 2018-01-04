@@ -6,6 +6,13 @@ Engine::GamePlay::EnemyManager::EnemyManager(RenderWindow * Window, shared_ptr<P
 	this->State = MatchState::NewMatch;
 	this->P = P;
 	this->IntervalTimer = 0.f;
+	this->RoundNumber = 1;
+	this->RoundMessage = to_string(this->RoundNumber);
+	this->RoundFont.loadFromFile("Assets/OldGameFatty.ttf");
+	this->RoundText.setFont(this->RoundFont);
+	this->RoundText.setColor(Color::Black);
+	this->RoundText.setString("Round: " + this->RoundMessage);
+	this->RoundText.setPosition(Vector2f(625, 10));
 }
 
 Engine::GamePlay::EnemyManager::~EnemyManager()
@@ -38,11 +45,18 @@ void Engine::GamePlay::EnemyManager::Update(RenderWindow* Window, Map M, float d
 				delete Enemies[i];
 
 			this->CurrentWave += 1;
+			this->RoundNumber += 1;
+			this->RoundMessage = to_string(this->RoundNumber);
+			this->RoundText.setPosition(Vector2f(625, 10));
+			this->RoundText.setString("Round: " + this->RoundMessage);
+
 			this->IntervalTimer = 0;
 			this->State = MatchState::NewMatch;
 			return;
 		}
 
+		this->RoundText.setPosition(Vector2f(575, 10));
+		this->RoundText.setString("Round Interval");
 		this->IntervalTimer += dt;
 	}
 	else if (this->State == MatchState::NewMatch)
@@ -64,6 +78,8 @@ void Engine::GamePlay::EnemyManager::Update(RenderWindow* Window, Map M, float d
 
 void Engine::GamePlay::EnemyManager::Draw(RenderWindow* Window)
 {
+	Window->draw(this->RoundText);
+
 	for (int i = 0; i < this->Enemies.size(); i++)
 	{
 		if(this->Enemies[i])
