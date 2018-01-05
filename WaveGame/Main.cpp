@@ -23,8 +23,16 @@ int main(int argc, char** argv)
 	Engine::Core::Map M = Engine::Core::MapLoader::Load("Test.xml", Window);
 	Engine::Core::CreateNavigationMesh(Window, *P, M);
 	Engine::GamePlay::EnemyManager* Enemies = new Engine::GamePlay::EnemyManager(Window, P);
-
 	P->SetEnemyManager((void*)Enemies);
+
+	Font EndGameFont;
+	Text EndGameText;
+	string EndGameMessage = "Game Over";
+	
+	EndGameFont.loadFromFile("Assets\\OldGameFatty.ttf");
+	EndGameText.setFont(EndGameFont);
+	EndGameText.setPosition(Vector2f((Window->getSize().x / 2) - EndGameText.getCharacterSize() * 2.5, (Window->getSize().y / 2) - EndGameText.getCharacterSize() * 2));
+	EndGameText.setString(EndGameMessage);
 
 	while (Window->isOpen())
 	{
@@ -36,21 +44,25 @@ int main(int argc, char** argv)
 			}
 		}
 
-		P->Update(Window, M, GameTime::DeltaTime());
+		if (P->CheckHealth())
+		{
+			P->Update(Window, M, GameTime::DeltaTime());
+			Enemies->Update(Window, M, GameTime::DeltaTime());
+			Window->clear(Color(0, 0, 0, 255));
 
-		Enemies->Update(Window, M, GameTime::DeltaTime());
-		
-		Window->clear(Color(0, 0, 0, 255));
+			M.DrawBackground(Window);
+			P->DrawWeapon(Window);
+			P->Draw(Window);
+			M.DrawProps(Window);
 
-		M.DrawBackground(Window);
-		P->DrawWeapon(Window);
-		P->Draw(Window);
-		M.DrawProps(Window);
-
-		Enemies->Draw(Window);
-		P->DrawUI(Window);
-		
-		//Engine::Core::DrawNavigationMesh(Window);
+			Enemies->Draw(Window);
+			P->DrawUI(Window);
+		}
+		else
+		{
+			Window->clear(Color::Black);
+			Window->draw(EndGameText);
+		}
 
 		Window->display();
 		GameTime::Update();
