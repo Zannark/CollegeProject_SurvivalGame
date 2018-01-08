@@ -29,7 +29,7 @@ int main(int argc, char** argv)
 	Text EndGameText;
 	string EndGameMessage = "Game Over";
 	
-	EndGameFont.loadFromFile("Assets\\OldGameFatty.ttf");
+	EndGameFont.loadFromFile("Assets\\Heavy_Data.ttf");
 	EndGameText.setFont(EndGameFont);
 	EndGameText.setPosition(Vector2f((Window->getSize().x / 2) - EndGameText.getCharacterSize() * 2.5, (Window->getSize().y / 2) - EndGameText.getCharacterSize() * 2));
 	EndGameText.setString(EndGameMessage);

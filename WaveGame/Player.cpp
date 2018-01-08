@@ -49,7 +49,12 @@ void Engine::GamePlay::Player::Update(RenderWindow* Window, Map M, float dt)
 		this->HandleMovement(Window, M, dt);
 		this->HandleRotation(Window, dt);
 
-		this->PlayerWeapon.setPosition(this->GetPosition() + Div(Vector2f(this->GetSize()), 2));
+		Vector2f WeaponPosition = this->GetPosition();
+		WeaponPosition.x -= Div(this->PlayerWeapon.getSize(), 2).x;
+		WeaponPosition.y -= this->PlayerWeapon.getSize().y;
+		this->PlayerWeapon.setOrigin(Vector2f(this->PlayerWeapon.getSize().x / 2, this->PlayerWeapon.getSize().y - 4));
+		this->PlayerWeapon.setPosition(WeaponPosition);
+		this->PlayerWeapon.setRotation(this->Angle + 90);
 
 		if (Mouse::isButtonPressed(Mouse::Button::Left) && this->AttackTimer >= PLAYER_ATTACK_INTERVAL)
 			this->Attack();

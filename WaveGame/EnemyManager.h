@@ -13,6 +13,7 @@
 #include "Map.h"
 #include "GameTime.h"
 #include "Enemy.h"
+#include "SFML_Collision.h"
 
 using namespace std;
 using namespace sf;
