@@ -16,7 +16,7 @@ int main(int argc, char** argv)
 {
 	srand((int)time(NULL));
 	Engine::Core::InitTextureCache();
-	RenderWindow* Window = new RenderWindow(VideoMode(800, 600, 32), "Game");
+	RenderWindow* Window = new RenderWindow(VideoMode(800, 600, 32), "Game", Style::Close | Style::Titlebar);
 	Event E;
 	
 	shared_ptr<Engine::GamePlay::Player> P = make_shared<Engine::GamePlay::Player>();
