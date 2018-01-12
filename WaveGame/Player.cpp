@@ -4,17 +4,13 @@
 Engine::GamePlay::Player::Player()
 {
 	this->Texture = make_shared<GameTexture>(TextureCache::Cache.Access("Assets/Player.png"));
+	this->PlayerWeapon = make_shared<GameTexture>(TextureCache::Cache.Access("Assets/PlayerWeapon.png"));
 	this->MovementSpeed = 150.0f;
 	this->Health = PLAYER_MAX_HEALTH;
 	this->OldHealth = PLAYER_MAX_HEALTH;
 
 	this->Texture->SetOrigin(Vector2f((float)(this->Texture->GetSFMLTexture()->getSize().x / 2), (float)(this->Texture->GetSFMLTexture()->getSize().y / 2)));
 	this->Texture->SetPosition(Vector2f(400, 400));
-
-	this->PlayerWeapon = RectangleShape(Vector2f(15, 55));
-	this->PlayerWeapon.setFillColor(Color::Green);
-	this->PlayerWeapon.setOutlineColor(Color::Black);
-	this->PlayerWeapon.setOutlineThickness(1);
 
 	this->HealthBar = RectangleShape(Vector2f(200, 15));
 	this->HealthBar.setFillColor(Color(188, 28, 28));
@@ -50,11 +46,11 @@ void Engine::GamePlay::Player::Update(RenderWindow* Window, Map M, float dt)
 		this->HandleRotation(Window, dt);
 
 		Vector2f WeaponPosition = this->GetPosition();
-		WeaponPosition.x -= Div(this->PlayerWeapon.getSize(), 2).x;
-		WeaponPosition.y -= this->PlayerWeapon.getSize().y;
-		this->PlayerWeapon.setOrigin(Vector2f(this->PlayerWeapon.getSize().x / 2, this->PlayerWeapon.getSize().y - 4));
-		this->PlayerWeapon.setPosition(WeaponPosition);
-		this->PlayerWeapon.setRotation(this->Angle + 90);
+		WeaponPosition.x -= Div(this->PlayerWeapon->GetSize(), 2).x;
+		WeaponPosition.y -= this->PlayerWeapon->GetSize().y;
+		this->PlayerWeapon->SetOrigin(Vector2f(this->PlayerWeapon->GetSize().x / 2, this->PlayerWeapon->GetSize().y - 4));
+		this->PlayerWeapon->SetPosition(WeaponPosition);
+		this->PlayerWeapon->SetRotation(this->Angle + 90);
 
 		if (Mouse::isButtonPressed(Mouse::Button::Left) && this->AttackTimer >= PLAYER_ATTACK_INTERVAL)
 			this->Attack();
@@ -69,7 +65,7 @@ void Engine::GamePlay::Player::Update(RenderWindow* Window, Map M, float dt)
 ///</summary>
 void Engine::GamePlay::Player::Attack(void)
 {
-	FloatRect WeaponBox = FloatRect(this->PlayerWeapon.getPosition().x, this->PlayerWeapon.getPosition().y, this->PlayerWeapon.getSize().x, this->PlayerWeapon.getSize().y);
+	FloatRect WeaponBox = FloatRect(this->PlayerWeapon->GetPosition().x, this->PlayerWeapon->GetPosition().y, this->PlayerWeapon->GetSize().x, this->PlayerWeapon->GetSize().y);
 	auto Enemies = ((EnemyManager*)this->Manager)->GetEnemiesInRange(WeaponBox);
 
 	for(auto En : Enemies)
@@ -181,7 +177,12 @@ void Engine::GamePlay::Player::DrawUI(RenderWindow * Window)
 ///<param name = "Window">A pointer to the RenderWindow to draw to.</param>
 void Engine::GamePlay::Player::DrawWeapon(RenderWindow * Window)
 {
-	Window->draw(this->PlayerWeapon);
+	this->PlayerWeapon->Draw(Window);
+}
+
+shared_ptr<GameTexture> Engine::GamePlay::Player::GetPlayerWeapon(void) const
+{
+	return this->PlayerWeapon;
 }
 
 ///<summary>

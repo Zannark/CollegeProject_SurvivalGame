@@ -95,7 +95,7 @@ vector<Enemy*> Engine::GamePlay::EnemyManager::GetEnemiesInRange(FloatRect Bound
 	{
 		FloatRect Tester = FloatRect(En->GetPosition().x, En->GetPosition().y, En->GetSize().x, En->GetSize().y);
 
-		if (Tester.intersects(BoundingBox))
+		if (Collision::BoundingBoxTest(*P->GetPlayerWeapon()->GetSFMLSprite(), *En->GetGameTexure()->GetSFMLSprite()))
 			ReturnValue.push_back(En);
 	}
 

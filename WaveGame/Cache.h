@@ -45,6 +45,11 @@ namespace Engine::Core
 			return Item;
 		}
 
+		T operator()(string ID)
+		{
+			return this->Access(ID);
+		}
+
 	private:
 		map<string, T> Storage;
 	};

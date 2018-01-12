@@ -102,6 +102,16 @@ void Engine::Core::GameTexture::Draw(RenderWindow* RenderWindow)
 	RenderWindow->draw(*this->GameSprite);
 }
 
+Vector2f Engine::Core::GameTexture::GetPosition(void) const
+{
+	return this->GameSprite->getPosition();
+}
+
+Vector2f Engine::Core::GameTexture::GetSize(void) const
+{
+	return Vector2f(this->Tex->getSize());
+}
+
 ///<summary>
 ///Initalise the TextureCache, loads in all of the GameTextures off of the storeage drive.
 ///</summary>
@@ -111,4 +121,5 @@ void Engine::Core::InitTextureCache()
 	TextureCache::Cache.Add("Assets/Player.png", GameTexture("Assets/Player.png"));
 	TextureCache::Cache.Add("Assets/TestBuilding.png", GameTexture("Assets/TestBuilding.png"));
 	TextureCache::Cache.Add("Assets/Enemy.png", GameTexture("Assets/Enemy.png"));
+	TextureCache::Cache.Add("Assets/PlayerWeapon.png", GameTexture("Assets/PlayerWeapon.png"));
 }

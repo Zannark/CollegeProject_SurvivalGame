@@ -25,6 +25,8 @@ namespace Engine::Core
 
 		shared_ptr<Texture> GetSFMLTexture(void) const;
 		shared_ptr<Sprite> GetSFMLSprite(void);
+		Vector2f GetPosition(void) const;
+		Vector2f GetSize(void) const;
 		void SetPosition(const Vector2f& Position);
 		void SetRotation(float Angle);
 		void SetOrigin(const Vector2f& Position);

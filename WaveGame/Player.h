@@ -35,6 +35,8 @@ namespace Engine::GamePlay
 		void DrawUI(RenderWindow* Window);
 		void DrawWeapon(RenderWindow* Window);
 
+		shared_ptr<GameTexture> GetPlayerWeapon(void) const;
+
 	protected:
 		void UpdateUI(void);
 
@@ -49,7 +51,7 @@ namespace Engine::GamePlay
 		float AttackTimer;
 		void* Manager;
 
-		RectangleShape PlayerWeapon;
+		shared_ptr<GameTexture> PlayerWeapon;
 		RectangleShape HealthBar;
 		RectangleShape HealthBarOutLine;
 	};

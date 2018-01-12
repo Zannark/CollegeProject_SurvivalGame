@@ -21,6 +21,7 @@ namespace Engine::Core
 		void Draw(RenderWindow* Window);
 		void TakeDamage(int Amount);
 		bool CheckHealth(void);
+		shared_ptr<GameTexture> GetGameTexure(void) const;
 
 		virtual void Update(RenderWindow* Window, Map M, float dt) = 0;
 	protected:
