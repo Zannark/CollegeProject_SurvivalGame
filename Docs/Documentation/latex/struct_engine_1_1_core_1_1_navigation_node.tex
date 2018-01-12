@@ -1,4 +1,4 @@
-\hypertarget{struct_engine_1_1_core_1_1_navigation_node}{}\section{Engine\+:\+:Core\+:\+:Navigation\+Node Struct Reference}
+\hypertarget{struct_engine_1_1_core_1_1_navigation_node}{}\section{Engine\+:\+:Core\+:\+:Navigation\+Node Class Reference}
 \label{struct_engine_1_1_core_1_1_navigation_node}\index{Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}}
 
 
@@ -12,15 +12,47 @@ An object which represents point in 2D space for the Navigation mesh. /summary$>
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{struct_engine_1_1_core_1_1_navigation_node_ae3912b3f6efd3ba94b71bdab5d70a049}{Navigation\+Node} (Vector2f Location, \hyperlink{class_engine_1_1_game_play_1_1_player}{Player} P)
+\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_a4070cf10d7b0ba6c5e5275d3e380dff6}\label{struct_engine_1_1_core_1_1_navigation_node_a4070cf10d7b0ba6c5e5275d3e380dff6}} 
+{\bfseries Navigation\+Node} (Vector2f Location, \hyperlink{class_engine_1_1_game_play_1_1_player}{Player} P, bool Is\+Useable)
+\item 
+\hyperlink{struct_engine_1_1_core_1_1_navigation_node_a30f4beef1fa861c8f363fd4a87f6ba98}{Navigation\+Node} ()=default
 \item 
 bool \hyperlink{struct_engine_1_1_core_1_1_navigation_node_a12cffe89f89aac9623ae2530dd556dc7}{operator==} (const \hyperlink{struct_engine_1_1_core_1_1_navigation_node}{Navigation\+Node} \&Rhs)
 \item 
 bool \hyperlink{struct_engine_1_1_core_1_1_navigation_node_a4093291628771c2de79b2b1a8ea2ec82}{operator==} (const Vector2f \&Rhs)
 \item 
-void \hyperlink{struct_engine_1_1_core_1_1_navigation_node_ac61bc4291a133693de436a3e875c8c39}{Calculate\+Distance} (\hyperlink{class_engine_1_1_game_play_1_1_player}{Player} P)
+\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_ac61bc4291a133693de436a3e875c8c39}\label{struct_engine_1_1_core_1_1_navigation_node_ac61bc4291a133693de436a3e875c8c39}} 
+void {\bfseries Calculate\+Distance} (\hyperlink{class_engine_1_1_game_play_1_1_player}{Player} P)
+\item 
+\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_a23ce6291fb2ee4c9c4fb254e2ad61dcd}\label{struct_engine_1_1_core_1_1_navigation_node_a23ce6291fb2ee4c9c4fb254e2ad61dcd}} 
+bool {\bfseries operator$<$} (const \hyperlink{struct_engine_1_1_core_1_1_navigation_node}{Navigation\+Node} \&R\+HS) const
+\item 
+\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_abd4ea3e64c92a2d40d16e6c7e259c394}\label{struct_engine_1_1_core_1_1_navigation_node_abd4ea3e64c92a2d40d16e6c7e259c394}} 
+bool {\bfseries operator!} () const
+\item 
+\hyperlink{struct_engine_1_1_core_1_1_navigation_node_a6435f925c6b28774a025f5650bd76b56}{operator bool} () const
 \item 
 void \hyperlink{struct_engine_1_1_core_1_1_navigation_node_a453d05d915929841a1f3d8f228996d37}{Debug\+Draw} (shared\+\_\+ptr$<$ Render\+Window $>$ Window)
+\item 
+\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_a060f7bb5425bb51c63853c843676f29b}\label{struct_engine_1_1_core_1_1_navigation_node_a060f7bb5425bb51c63853c843676f29b}} 
+{\bfseries Navigation\+Node} (Vector2f Position, Render\+Window $\ast$Window, bool Does\+Collision)
+\item 
+\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_a67ff011cd89aced43978f3f6265f6c63}\label{struct_engine_1_1_core_1_1_navigation_node_a67ff011cd89aced43978f3f6265f6c63}} 
+{\bfseries Navigation\+Node} (float x, float y, Render\+Window $\ast$Window, bool Does\+Collision)
+\item 
+\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_acd420576ac7c916755d9c7a9908a6aad}\label{struct_engine_1_1_core_1_1_navigation_node_acd420576ac7c916755d9c7a9908a6aad}} 
+float {\bfseries Goal\+Distance\+Estimate} (\hyperlink{struct_engine_1_1_core_1_1_navigation_node}{Navigation\+Node} \&node\+Goal)
+\item 
+\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_aa838e27a48677c1359fc1bab0b8a8591}\label{struct_engine_1_1_core_1_1_navigation_node_aa838e27a48677c1359fc1bab0b8a8591}} 
+bool {\bfseries Is\+Goal} (\hyperlink{struct_engine_1_1_core_1_1_navigation_node}{Navigation\+Node} \&node\+Goal)
+\item 
+bool \hyperlink{struct_engine_1_1_core_1_1_navigation_node_a4e049fbcda1bb269303da91692d05033}{Get\+Successors} (\hyperlink{class_a_star_search}{A\+Star\+Search}$<$ \hyperlink{struct_engine_1_1_core_1_1_navigation_node}{Navigation\+Node} $>$ $\ast$astarsearch, \hyperlink{struct_engine_1_1_core_1_1_navigation_node}{Navigation\+Node} $\ast$parent\+\_\+node)
+\item 
+\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_a2d2f49adb68c3b880b750875ad15a50b}\label{struct_engine_1_1_core_1_1_navigation_node_a2d2f49adb68c3b880b750875ad15a50b}} 
+float {\bfseries Get\+Cost} (\hyperlink{struct_engine_1_1_core_1_1_navigation_node}{Navigation\+Node} \&successor)
+\item 
+\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_ab265c716b1b82675c800f7027e0666d8}\label{struct_engine_1_1_core_1_1_navigation_node_ab265c716b1b82675c800f7027e0666d8}} 
+bool {\bfseries Is\+Same\+State} (\hyperlink{struct_engine_1_1_core_1_1_navigation_node}{Navigation\+Node} \&rhs)
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -29,8 +61,16 @@ shared\+\_\+ptr$<$ Rectangle\+Shape $>$ \hyperlink{struct_engine_1_1_core_1_1_na
 \item 
 Vector2f \hyperlink{struct_engine_1_1_core_1_1_navigation_node_a09e7506d996f8bd91b478f3e013fd48e}{Point}
 \item 
-\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_a707b571c58bffbf140fd4f6ebe6a4f37}\label{struct_engine_1_1_core_1_1_navigation_node_a707b571c58bffbf140fd4f6ebe6a4f37}} 
-float {\bfseries Estimate}
+float \hyperlink{struct_engine_1_1_core_1_1_navigation_node_a707b571c58bffbf140fd4f6ebe6a4f37}{Estimate}
+\item 
+\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_a4b830ca01eb9e2fdc6fdde3131ce2d84}\label{struct_engine_1_1_core_1_1_navigation_node_a4b830ca01eb9e2fdc6fdde3131ce2d84}} 
+bool {\bfseries Is\+Useable}
+\item 
+\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_a48c7e59bd117799ff8006e02ea5fc7f9}\label{struct_engine_1_1_core_1_1_navigation_node_a48c7e59bd117799ff8006e02ea5fc7f9}} 
+Vector2f {\bfseries Position}
+\item 
+\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_aa5daad8fa8ef6fe2c19f4ff4fec312f9}\label{struct_engine_1_1_core_1_1_navigation_node_aa5daad8fa8ef6fe2c19f4ff4fec312f9}} 
+Render\+Window $\ast$ {\bfseries Window}
 \end{DoxyCompactItemize}
 
 
@@ -40,30 +80,50 @@ An object which represents point in 2D space for the Navigation mesh. /summary$>
 summary$>$ A mesh of all the Navigation\+Nodes, used for A$\ast$ pathfinding. /summary$>$ 
 
 \subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_ae3912b3f6efd3ba94b71bdab5d70a049}\label{struct_engine_1_1_core_1_1_navigation_node_ae3912b3f6efd3ba94b71bdab5d70a049}} 
+\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_a30f4beef1fa861c8f363fd4a87f6ba98}\label{struct_engine_1_1_core_1_1_navigation_node_a30f4beef1fa861c8f363fd4a87f6ba98}} 
 \index{Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}!Navigation\+Node@{Navigation\+Node}}
 \index{Navigation\+Node@{Navigation\+Node}!Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}}
 \subsubsection{\texorpdfstring{Navigation\+Node()}{NavigationNode()}}
-{\footnotesize\ttfamily Engine\+::\+Core\+::\+Navigation\+Node\+::\+Navigation\+Node (\begin{DoxyParamCaption}\item[{Vector2f}]{Location,  }\item[{\hyperlink{class_engine_1_1_game_play_1_1_player}{Player}}]{P }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Engine\+::\+Core\+::\+Navigation\+Node\+::\+Navigation\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
 
 summary$>$ Compares itself with another \hyperlink{struct_engine_1_1_core_1_1_navigation_node}{Navigation\+Node} object. /summary$>$ param name = \char`\"{}\+Rhs\char`\"{}$>$The \hyperlink{struct_engine_1_1_core_1_1_navigation_node}{Navigation\+Node} on the right hand side.
 
 returns$>$True if they match, otherwise false.
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_ac61bc4291a133693de436a3e875c8c39}\label{struct_engine_1_1_core_1_1_navigation_node_ac61bc4291a133693de436a3e875c8c39}} 
-\index{Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}!Calculate\+Distance@{Calculate\+Distance}}
-\index{Calculate\+Distance@{Calculate\+Distance}!Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}}
-\subsubsection{\texorpdfstring{Calculate\+Distance()}{CalculateDistance()}}
-{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Navigation\+Node\+::\+Calculate\+Distance (\begin{DoxyParamCaption}\item[{\hyperlink{class_engine_1_1_game_play_1_1_player}{Player}}]{P }\end{DoxyParamCaption})}
-
-summary$>$ Used to draw the \hyperlink{struct_engine_1_1_core_1_1_navigation_node}{Navigation\+Node} object for debugging purposes. Not to be used in game. /summary$>$ param name = \char`\"{}\+Window\char`\"{}$>$A pointer to the Render\+Window in use.\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_a453d05d915929841a1f3d8f228996d37}\label{struct_engine_1_1_core_1_1_navigation_node_a453d05d915929841a1f3d8f228996d37}} 
+\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_a453d05d915929841a1f3d8f228996d37}\label{struct_engine_1_1_core_1_1_navigation_node_a453d05d915929841a1f3d8f228996d37}} 
 \index{Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}!Debug\+Draw@{Debug\+Draw}}
 \index{Debug\+Draw@{Debug\+Draw}!Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}}
 \subsubsection{\texorpdfstring{Debug\+Draw()}{DebugDraw()}}
 {\footnotesize\ttfamily void Engine\+::\+Core\+::\+Navigation\+Node\+::\+Debug\+Draw (\begin{DoxyParamCaption}\item[{shared\+\_\+ptr$<$ Render\+Window $>$}]{Window }\end{DoxyParamCaption})}
 
-summary$>$ A visual representation of the \hyperlink{struct_engine_1_1_core_1_1_navigation_node}{Navigation\+Node}. Used for debugging, not for in game use. /summary$>$ \mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_a12cffe89f89aac9623ae2530dd556dc7}\label{struct_engine_1_1_core_1_1_navigation_node_a12cffe89f89aac9623ae2530dd556dc7}} 
+summary$>$ A visual representation of the \hyperlink{struct_engine_1_1_core_1_1_navigation_node}{Navigation\+Node}. Used for debugging, not for in game use. /summary$>$ \mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_a4e049fbcda1bb269303da91692d05033}\label{struct_engine_1_1_core_1_1_navigation_node_a4e049fbcda1bb269303da91692d05033}} 
+\index{Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}!Get\+Successors@{Get\+Successors}}
+\index{Get\+Successors@{Get\+Successors}!Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}}
+\subsubsection{\texorpdfstring{Get\+Successors()}{GetSuccessors()}}
+{\footnotesize\ttfamily bool Engine\+::\+Core\+::\+Navigation\+Node\+::\+Get\+Successors (\begin{DoxyParamCaption}\item[{\hyperlink{class_a_star_search}{A\+Star\+Search}$<$ \hyperlink{struct_engine_1_1_core_1_1_navigation_node}{Navigation\+Node} $>$ $\ast$}]{astarsearch,  }\item[{\hyperlink{struct_engine_1_1_core_1_1_navigation_node}{Navigation\+Node} $\ast$}]{parent\+\_\+node }\end{DoxyParamCaption})}
+
+Left
+
+Up
+
+Right
+
+Down
+
+Up Left
+
+Down Left
+
+Up Right
+
+Down Right \mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_a6435f925c6b28774a025f5650bd76b56}\label{struct_engine_1_1_core_1_1_navigation_node_a6435f925c6b28774a025f5650bd76b56}} 
+\index{Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}!operator bool@{operator bool}}
+\index{operator bool@{operator bool}!Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}}
+\subsubsection{\texorpdfstring{operator bool()}{operator bool()}}
+{\footnotesize\ttfamily Engine\+::\+Core\+::\+Navigation\+Node\+::operator bool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [explicit]}}
+
+summary$>$ Used to draw the \hyperlink{struct_engine_1_1_core_1_1_navigation_node}{Navigation\+Node} object for debugging purposes. Not to be used in game. /summary$>$ param name = \char`\"{}\+Window\char`\"{}$>$A pointer to the Render\+Window in use.\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_a12cffe89f89aac9623ae2530dd556dc7}\label{struct_engine_1_1_core_1_1_navigation_node_a12cffe89f89aac9623ae2530dd556dc7}} 
 \index{Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}!operator==@{operator==}}
 \index{operator==@{operator==}!Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}}
 \subsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
@@ -80,7 +140,13 @@ returns$>$True if they match, otherwise false.\mbox{\Hypertarget{struct_engine_1
 summary$>$ Calculates the euclidean distance to the player, for the heuristic. /summary$>$ param name = \char`\"{}\+P\char`\"{}$>$The Player.
 
 \subsection{Member Data Documentation}
-\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_a09e7506d996f8bd91b478f3e013fd48e}\label{struct_engine_1_1_core_1_1_navigation_node_a09e7506d996f8bd91b478f3e013fd48e}} 
+\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_a707b571c58bffbf140fd4f6ebe6a4f37}\label{struct_engine_1_1_core_1_1_navigation_node_a707b571c58bffbf140fd4f6ebe6a4f37}} 
+\index{Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}!Estimate@{Estimate}}
+\index{Estimate@{Estimate}!Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}}
+\subsubsection{\texorpdfstring{Estimate}{Estimate}}
+{\footnotesize\ttfamily float Engine\+::\+Core\+::\+Navigation\+Node\+::\+Estimate}
+
+summary$>$ For testing if a node is actually there or not. If true the cell can be used for pathfinding, if it is false pretend it doesn\textquotesingle{}t exsist and iterate over it. /summary$>$ \mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_a09e7506d996f8bd91b478f3e013fd48e}\label{struct_engine_1_1_core_1_1_navigation_node_a09e7506d996f8bd91b478f3e013fd48e}} 
 \index{Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}!Point@{Point}}
 \index{Point@{Point}!Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}}
 \subsubsection{\texorpdfstring{Point}{Point}}
@@ -94,7 +160,9 @@ summary$>$ The estimated distance to the destination. /summary$>$ \mbox{\Hyperta
 
 summary$>$ The point data of the Node. /summary$>$ 
 
-The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
 Wave\+Game/Navigation\+Mesh.\+h\item 
-Wave\+Game/Navigation\+Mesh.\+cpp\end{DoxyCompactItemize}
+Wave\+Game/Navigation\+Node.\+h\item 
+Wave\+Game/Navigation\+Mesh.\+cpp\item 
+Wave\+Game/Navigation\+Node.\+cpp\end{DoxyCompactItemize}

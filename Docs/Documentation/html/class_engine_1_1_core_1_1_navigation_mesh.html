@@ -75,11 +75,23 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7c1d1dfb88aeb8d53a9d99bca5e67a66"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_core_1_1_navigation_mesh.html#a7c1d1dfb88aeb8d53a9d99bca5e67a66">NavigationMesh</a> (shared_ptr&lt; RenderWindow &gt; Window, <a class="el" href="class_engine_1_1_game_play_1_1_player.html">Player</a> P, <a class="el" href="class_engine_1_1_core_1_1_map.html">Map</a> M)</td></tr>
 <tr class="memdesc:a7c1d1dfb88aeb8d53a9d99bca5e67a66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the nodes and places them in 2D space. No NavigationNodes are placed in on top of Props and are 15 pixels apart from each other (on both x and y axis). /summary&gt;  <a href="#a7c1d1dfb88aeb8d53a9d99bca5e67a66">More...</a><br /></td></tr>
 <tr class="separator:a7c1d1dfb88aeb8d53a9d99bca5e67a66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af050cbb93dae59dd8262d5aa5615407c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_core_1_1_navigation_mesh.html#af050cbb93dae59dd8262d5aa5615407c">~NavigationMesh</a> ()</td></tr>
+<tr class="separator:af050cbb93dae59dd8262d5aa5615407c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f2b7d3b8c7e5ea747f9d8a7c5b432e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_core_1_1_navigation_mesh.html#a5f2b7d3b8c7e5ea747f9d8a7c5b432e5">Update</a> (<a class="el" href="class_engine_1_1_game_play_1_1_player.html">Player</a> P, float dt)</td></tr>
 <tr class="separator:a5f2b7d3b8c7e5ea747f9d8a7c5b432e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86758b74b81e8e48ddbf14466e8e9325"><td class="memItemLeft" align="right" valign="top"><a id="a86758b74b81e8e48ddbf14466e8e9325"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>DebugDraw</b> (shared_ptr&lt; RenderWindow &gt; Window)</td></tr>
+<tr class="memitem:a86758b74b81e8e48ddbf14466e8e9325"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_core_1_1_navigation_mesh.html#a86758b74b81e8e48ddbf14466e8e9325">DebugDraw</a> (shared_ptr&lt; RenderWindow &gt; Window)</td></tr>
 <tr class="separator:a86758b74b81e8e48ddbf14466e8e9325"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48becc9e01e0a8411c095ff1cc31a372"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_engine_1_1_core_1_1_navigation_node.html">NavigationNode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_core_1_1_navigation_mesh.html#a48becc9e01e0a8411c095ff1cc31a372">Get</a> (Vector2i Position)</td></tr>
+<tr class="separator:a48becc9e01e0a8411c095ff1cc31a372"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b8b8efb92039c8b9dbda95796b79d4a"><td class="memItemLeft" align="right" valign="top"><a id="a4b8b8efb92039c8b9dbda95796b79d4a"></a>
+Vector2i&#160;</td><td class="memItemRight" valign="bottom"><b>GetCellFromPosition</b> (Vector2f Position)</td></tr>
+<tr class="separator:a4b8b8efb92039c8b9dbda95796b79d4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab066006c43b8eff112625e293d81a823"><td class="memItemLeft" align="right" valign="top"><a id="ab066006c43b8eff112625e293d81a823"></a>
+Vector2f&#160;</td><td class="memItemRight" valign="bottom"><b>GetPositionFromCell</b> (Vector2i Cell)</td></tr>
+<tr class="separator:ab066006c43b8eff112625e293d81a823"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83a641e4c4dc36d067cff04188f95a78"><td class="memItemLeft" align="right" valign="top"><a id="a83a641e4c4dc36d067cff04188f95a78"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>GetHeight</b> (void)</td></tr>
+<tr class="separator:a83a641e4c4dc36d067cff04188f95a78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7c1d1dfb88aeb8d53a9d99bca5e67a66"></a>
@@ -119,7 +131,65 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>DebugDraw</b> (shared
 
 </div>
 </div>
+<a id="af050cbb93dae59dd8262d5aa5615407c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af050cbb93dae59dd8262d5aa5615407c">&#9670;&nbsp;</a></span>~NavigationMesh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Engine::Core::NavigationMesh::~NavigationMesh </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>summary&gt; Called once per frame. At given intervals the heuristic gets updated. /summary&gt; param name = "P"&gt;The player to get their location.</p>
+<p>param name = "dt"&gt;Delta Time.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a86758b74b81e8e48ddbf14466e8e9325"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86758b74b81e8e48ddbf14466e8e9325">&#9670;&nbsp;</a></span>DebugDraw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Engine::Core::NavigationMesh::DebugDraw </td>
+          <td>(</td>
+          <td class="paramtype">shared_ptr&lt; RenderWindow &gt;&#160;</td>
+          <td class="paramname"><em>Window</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>summary&gt; Returns the coords x and y. /summary&gt; param name = "Position"&gt;The position to get</p>
+<p>returns&gt;Returns the node at x and y.</p>
+
+</div>
+</div>
+<a id="a48becc9e01e0a8411c095ff1cc31a372"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48becc9e01e0a8411c095ff1cc31a372">&#9670;&nbsp;</a></span>Get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_engine_1_1_core_1_1_navigation_node.html">NavigationNode</a> Engine::Core::NavigationMesh::Get </td>
+          <td>(</td>
+          <td class="paramtype">Vector2i&#160;</td>
+          <td class="paramname"><em>Position</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>summary&gt; TODO: Work out the english language. /summary&gt; </p>
+
+</div>
+</div>
 <a id="a5f2b7d3b8c7e5ea747f9d8a7c5b432e5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5f2b7d3b8c7e5ea747f9d8a7c5b432e5">&#9670;&nbsp;</a></span>Update()</h2>
 
@@ -146,8 +216,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>DebugDraw</b> (shared
       </table>
 </div><div class="memdoc">
 <p>summary&gt; Used to draw vector of <a class="el" href="struct_engine_1_1_core_1_1_navigation_node.html" title="An object which represents point in 2D space for the Navigation mesh. /summary&gt; ">NavigationNode</a> objects for debugging purposes. Not to be used in game. /summary&gt; param name = "Window"&gt;A pointer to the RenderWindow in use.</p>
-<p>Why is this a lambda? Only the gods know the reasoning.</p>
-<p>This feels a bit cheatyyyy...? </p>
 
 </div>
 </div>
@@ -158,7 +226,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>DebugDraw</b> (shared
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 17 2017 16:59:43 for CollegeProject_SurvivalGame by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jan 12 2018 15:32:21 for CollegeProject_SurvivalGame by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

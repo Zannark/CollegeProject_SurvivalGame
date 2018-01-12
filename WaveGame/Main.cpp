@@ -7,6 +7,7 @@
 #include "EnemyManager.h"
 #include <SFML\Graphics.hpp>
 #include <array>
+#include <random>
 
 using namespace sf;
 
@@ -15,6 +16,9 @@ using namespace sf;
 int main(int argc, char** argv)
 {
 	srand((int)time(NULL));
+
+	mt19937* Generator = new mt19937();
+
 	Engine::Core::InitTextureCache();
 	RenderWindow* Window = new RenderWindow(VideoMode(800, 600, 32), "Game", Style::Close | Style::Titlebar);
 	Event E;
@@ -22,7 +26,7 @@ int main(int argc, char** argv)
 	shared_ptr<Engine::GamePlay::Player> P = make_shared<Engine::GamePlay::Player>();
 	Engine::Core::Map M = Engine::Core::MapLoader::Load("Test.xml", Window);
 	Engine::Core::CreateNavigationMesh(Window, *P, M);
-	Engine::GamePlay::EnemyManager* Enemies = new Engine::GamePlay::EnemyManager(Window, P);
+	Engine::GamePlay::EnemyManager* Enemies = new Engine::GamePlay::EnemyManager(Window, P, Generator);
 	P->SetEnemyManager((void*)Enemies);
 
 	Font EndGameFont;
@@ -70,6 +74,7 @@ int main(int argc, char** argv)
 
 	delete Window;
 	delete Enemies;
+	delete Generator;
 
 	return 0;
 }

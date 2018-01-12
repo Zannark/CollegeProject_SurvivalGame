@@ -11,10 +11,12 @@ void \hyperlink{class_engine_1_1_core_1_1_map_aad4517115b5d8713aed2f67338cd7259}
 \item 
 vector$<$ shared\+\_\+ptr$<$ \hyperlink{class_engine_1_1_core_1_1_game_texture}{Game\+Texture} $>$ $>$ \hyperlink{class_engine_1_1_core_1_1_map_afafd62cdfe87b27796d0900e76aa09ea}{Get\+Props} (void)
 \item 
-void \hyperlink{class_engine_1_1_core_1_1_map_aeb4eabaf8cbde4e584836daa646c0521}{Draw\+Background} (shared\+\_\+ptr$<$ Render\+Window $>$ Window)
+bool \hyperlink{class_engine_1_1_core_1_1_map_a5d17ba161757b4b971dba919e7e0b1c1}{Is\+Prop\+At\+Position} (Vector2f Position)
 \item 
-\mbox{\Hypertarget{class_engine_1_1_core_1_1_map_a2e6a7e15ecd79f449fe6326768069953}\label{class_engine_1_1_core_1_1_map_a2e6a7e15ecd79f449fe6326768069953}} 
-void {\bfseries Draw\+Props} (shared\+\_\+ptr$<$ Render\+Window $>$ Window)
+void \hyperlink{class_engine_1_1_core_1_1_map_aea4443f092aabf355e2427fa27605d4d}{Draw\+Background} (Render\+Window $\ast$Window)
+\item 
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_map_a1d24a07606dca61d86decc02eb9691d8}\label{class_engine_1_1_core_1_1_map_a1d24a07606dca61d86decc02eb9691d8}} 
+void {\bfseries Draw\+Props} (Render\+Window $\ast$Window)
 \end{DoxyCompactItemize}
 
 
@@ -42,17 +44,25 @@ param name = \char`\"{}\+Position\char`\"{}$>$A Vector2f which contains the on s
 \subsubsection{\texorpdfstring{Add\+Prop()}{AddProp()}}
 {\footnotesize\ttfamily void Engine\+::\+Core\+::\+Map\+::\+Add\+Prop (\begin{DoxyParamCaption}\item[{string}]{ID,  }\item[{Vector2f}]{Position }\end{DoxyParamCaption})}
 
-summary$>$ Gets all props which are loaded into the map. /summary$>$ returns$>$The props which are loaded in the map.\mbox{\Hypertarget{class_engine_1_1_core_1_1_map_aeb4eabaf8cbde4e584836daa646c0521}\label{class_engine_1_1_core_1_1_map_aeb4eabaf8cbde4e584836daa646c0521}} 
+summary$>$ Gets all props which are loaded into the map. /summary$>$ returns$>$The props which are loaded in the map.\mbox{\Hypertarget{class_engine_1_1_core_1_1_map_aea4443f092aabf355e2427fa27605d4d}\label{class_engine_1_1_core_1_1_map_aea4443f092aabf355e2427fa27605d4d}} 
 \index{Engine\+::\+Core\+::\+Map@{Engine\+::\+Core\+::\+Map}!Draw\+Background@{Draw\+Background}}
 \index{Draw\+Background@{Draw\+Background}!Engine\+::\+Core\+::\+Map@{Engine\+::\+Core\+::\+Map}}
 \subsubsection{\texorpdfstring{Draw\+Background()}{DrawBackground()}}
-{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Map\+::\+Draw\+Background (\begin{DoxyParamCaption}\item[{shared\+\_\+ptr$<$ Render\+Window $>$}]{Window }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Map\+::\+Draw\+Background (\begin{DoxyParamCaption}\item[{Render\+Window $\ast$}]{Window }\end{DoxyParamCaption})}
 
 summary$>$ Draws the prop to the screen. /summary$>$ param name = \char`\"{}\+Window\char`\"{}$>$A pointer to the Render\+Window is being drawn to.\mbox{\Hypertarget{class_engine_1_1_core_1_1_map_afafd62cdfe87b27796d0900e76aa09ea}\label{class_engine_1_1_core_1_1_map_afafd62cdfe87b27796d0900e76aa09ea}} 
 \index{Engine\+::\+Core\+::\+Map@{Engine\+::\+Core\+::\+Map}!Get\+Props@{Get\+Props}}
 \index{Get\+Props@{Get\+Props}!Engine\+::\+Core\+::\+Map@{Engine\+::\+Core\+::\+Map}}
 \subsubsection{\texorpdfstring{Get\+Props()}{GetProps()}}
 {\footnotesize\ttfamily vector$<$ shared\+\_\+ptr$<$ \hyperlink{class_engine_1_1_core_1_1_game_texture}{Engine\+::\+Core\+::\+Game\+Texture} $>$ $>$ Engine\+::\+Core\+::\+Map\+::\+Get\+Props (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+summary$>$ Checks if there is an prop at the given position. /summary$>$ param name = \char`\"{}\+Position\char`\"{}$>$The position to see if there is a prop there.
+
+returns$>$True if there is a prop, false otherwise.\mbox{\Hypertarget{class_engine_1_1_core_1_1_map_a5d17ba161757b4b971dba919e7e0b1c1}\label{class_engine_1_1_core_1_1_map_a5d17ba161757b4b971dba919e7e0b1c1}} 
+\index{Engine\+::\+Core\+::\+Map@{Engine\+::\+Core\+::\+Map}!Is\+Prop\+At\+Position@{Is\+Prop\+At\+Position}}
+\index{Is\+Prop\+At\+Position@{Is\+Prop\+At\+Position}!Engine\+::\+Core\+::\+Map@{Engine\+::\+Core\+::\+Map}}
+\subsubsection{\texorpdfstring{Is\+Prop\+At\+Position()}{IsPropAtPosition()}}
+{\footnotesize\ttfamily bool Engine\+::\+Core\+::\+Map\+::\+Is\+Prop\+At\+Position (\begin{DoxyParamCaption}\item[{Vector2f}]{Position }\end{DoxyParamCaption})}
 
 summary$>$ Draws the background. The background is the first thing which should be drawn. This ensures that the props, player and enemies are on top of it. /summary$>$ param name = \char`\"{}\+Window\char`\"{}$>$A pointer to the Render\+Window is being drawn to.
 

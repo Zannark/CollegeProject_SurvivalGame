@@ -1,5 +1,9 @@
 var searchData=
 [
-  ['_7egametexture',['~GameTexture',['../class_engine_1_1_core_1_1_game_texture.html#a37c2ee2ebfdfc3301b6070d2df10d59a',1,'Engine::Core::GameTexture']]],
-  ['_7emap',['~Map',['../class_engine_1_1_core_1_1_map.html#a211f38a71b97179bbbd153442225a273',1,'Engine::Core::Map']]]
+  ['setenemymanager',['SetEnemyManager',['../class_engine_1_1_game_play_1_1_player.html#adedc5552f70e5495ca1391b6f6143bec',1,'Engine::GamePlay::Player']]],
+  ['setfullhealth',['SetFullHealth',['../class_engine_1_1_game_play_1_1_player.html#a426ebc69b0607902e73563655ad66693',1,'Engine::GamePlay::Player']]],
+  ['setorigin',['SetOrigin',['../class_engine_1_1_core_1_1_game_texture.html#aa01df5d689abf48b1d442da329485eeb',1,'Engine::Core::GameTexture']]],
+  ['setposition',['SetPosition',['../class_engine_1_1_core_1_1_game_texture.html#ae1f94e0f1b86e99ed4508ccdda4872d6',1,'Engine::Core::GameTexture']]],
+  ['setrotation',['SetRotation',['../class_engine_1_1_core_1_1_game_texture.html#a5ed78714df6128f09c35c25e2271dc05',1,'Engine::Core::GameTexture']]],
+  ['shape',['Shape',['../struct_engine_1_1_core_1_1_navigation_node.html#a7a1470734947944ba351df516e2a7cc1',1,'Engine::Core::NavigationNode']]]
 ];

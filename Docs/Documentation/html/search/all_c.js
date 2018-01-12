@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['setorigin',['SetOrigin',['../class_engine_1_1_core_1_1_game_texture.html#aa01df5d689abf48b1d442da329485eeb',1,'Engine::Core::GameTexture']]],
-  ['setposition',['SetPosition',['../class_engine_1_1_core_1_1_game_texture.html#ae1f94e0f1b86e99ed4508ccdda4872d6',1,'Engine::Core::GameTexture']]],
-  ['setrotation',['SetRotation',['../class_engine_1_1_core_1_1_game_texture.html#a5ed78714df6128f09c35c25e2271dc05',1,'Engine::Core::GameTexture']]],
-  ['shape',['Shape',['../struct_engine_1_1_core_1_1_navigation_node.html#a7a1470734947944ba351df516e2a7cc1',1,'Engine::Core::NavigationNode']]]
+  ['operator_20bool',['operator bool',['../struct_engine_1_1_core_1_1_navigation_node.html#a6435f925c6b28774a025f5650bd76b56',1,'Engine::Core::NavigationNode']]],
+  ['operator_3d_3d',['operator==',['../struct_engine_1_1_core_1_1_navigation_node.html#a12cffe89f89aac9623ae2530dd556dc7',1,'Engine::Core::NavigationNode::operator==(const NavigationNode &amp;Rhs)'],['../struct_engine_1_1_core_1_1_navigation_node.html#a4093291628771c2de79b2b1a8ea2ec82',1,'Engine::Core::NavigationNode::operator==(const Vector2f &amp;Rhs)']]],
+  ['orientedboundingbox',['OrientedBoundingBox',['../class_collision_1_1_oriented_bounding_box.html',1,'Collision']]]
 ];

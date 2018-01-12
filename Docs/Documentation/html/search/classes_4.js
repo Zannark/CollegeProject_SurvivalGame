@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['map',['Map',['../class_engine_1_1_core_1_1_map.html',1,'Engine::Core']]],
-  ['maploader',['MapLoader',['../class_engine_1_1_core_1_1_map_loader.html',1,'Engine::Core']]]
+  ['fixedsizeallocator',['FixedSizeAllocator',['../class_fixed_size_allocator.html',1,'']]],
+  ['fsa_5felement',['FSA_ELEMENT',['../struct_fixed_size_allocator_1_1_f_s_a___e_l_e_m_e_n_t.html',1,'FixedSizeAllocator']]]
 ];

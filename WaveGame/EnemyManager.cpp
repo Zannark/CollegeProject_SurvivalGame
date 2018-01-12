@@ -1,12 +1,14 @@
 #include "EnemyManager.h"
 
-Engine::GamePlay::EnemyManager::EnemyManager(RenderWindow * Window, shared_ptr<Player> P)
+Engine::GamePlay::EnemyManager::EnemyManager(RenderWindow * Window, shared_ptr<Player> P, mt19937* Generator)
 {
 	this->CurrentWave = 0;
 	this->State = MatchState::NewMatch;
 	this->P = P;
 	this->IntervalTimer = 0.f;
 	this->RoundNumber = 1;
+	this->RandomNumber = uniform_real_distribution<float>(ENEMY_MIN_MOVEMENT_SPEED, ENEMY_MAX_MOVEMENT_SPEED);
+	this->Generator = Generator;
 	this->RoundMessage = to_string(this->RoundNumber);
 	this->RoundFont.loadFromFile("Assets/Heavy_Data.ttf");
 	this->RoundText.setFont(this->RoundFont);
@@ -69,7 +71,7 @@ void Engine::GamePlay::EnemyManager::Update(RenderWindow* Window, Map M, float d
 			float x = (float)(rand() % Window->getSize().x);
 			float y = (float)(rand() % Window->getSize().y);
 
-			this->Enemies.push_back(new Enemy(Vector2f(x, y), Window, this->P));
+			this->Enemies.push_back(new Enemy(Vector2f(x, y), Window, this->P, this->RandomNumber(*this->Generator)));
 		}
 
 		this->State = MatchState::InMatch;
@@ -93,8 +95,6 @@ vector<Enemy*> Engine::GamePlay::EnemyManager::GetEnemiesInRange(FloatRect Bound
 
 	for (auto En : this->Enemies)
 	{
-		FloatRect Tester = FloatRect(En->GetPosition().x, En->GetPosition().y, En->GetSize().x, En->GetSize().y);
-
 		if (Collision::BoundingBoxTest(*P->GetPlayerWeapon()->GetSFMLSprite(), *En->GetGameTexure()->GetSFMLSprite()))
 			ReturnValue.push_back(En);
 	}

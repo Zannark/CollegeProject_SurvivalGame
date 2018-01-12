@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['gametexture',['GameTexture',['../class_engine_1_1_core_1_1_game_texture.html',1,'Engine::Core']]],
-  ['gametime',['GameTime',['../class_game_time.html',1,'']]]
+  ['enemy',['Enemy',['../class_engine_1_1_game_play_1_1_enemy.html',1,'Engine::GamePlay']]],
+  ['enemymanager',['EnemyManager',['../class_engine_1_1_game_play_1_1_enemy_manager.html',1,'Engine::GamePlay']]]
 ];

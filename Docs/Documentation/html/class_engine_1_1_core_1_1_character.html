@@ -84,21 +84,30 @@ Inheritance diagram for Engine::Core::Character:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aea290308ddc56ab784c87f85e6b7f254"><td class="memItemLeft" align="right" valign="top"><a id="aea290308ddc56ab784c87f85e6b7f254"></a>
-Vector2f&#160;</td><td class="memItemRight" valign="bottom"><b>GetPosition</b> (void)</td></tr>
+<tr class="memitem:a0377de26714b79374d0591ca44c77fd1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_core_1_1_character.html#a0377de26714b79374d0591ca44c77fd1">~Character</a> ()</td></tr>
+<tr class="separator:a0377de26714b79374d0591ca44c77fd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea290308ddc56ab784c87f85e6b7f254"><td class="memItemLeft" align="right" valign="top">Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_core_1_1_character.html#aea290308ddc56ab784c87f85e6b7f254">GetPosition</a> (void)</td></tr>
 <tr class="separator:aea290308ddc56ab784c87f85e6b7f254"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae009c4273cb264195b09c9213be091bf"><td class="memItemLeft" align="right" valign="top"><a id="ae009c4273cb264195b09c9213be091bf"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Draw</b> (shared_ptr&lt; RenderWindow &gt; Window)</td></tr>
-<tr class="separator:ae009c4273cb264195b09c9213be091bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3942a81285869375d899ae2d703e7f0b"><td class="memItemLeft" align="right" valign="top"><a id="a3942a81285869375d899ae2d703e7f0b"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> (shared_ptr&lt; RenderWindow &gt; Window, <a class="el" href="class_engine_1_1_core_1_1_map.html">Map</a> M, float dt)=0</td></tr>
-<tr class="separator:a3942a81285869375d899ae2d703e7f0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3465481aed27d24909b8e40577f09b10"><td class="memItemLeft" align="right" valign="top">Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_core_1_1_character.html#a3465481aed27d24909b8e40577f09b10">GetSize</a> (void)</td></tr>
+<tr class="separator:a3465481aed27d24909b8e40577f09b10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae25a76e7497eeb6dbd1ad3b72c1ff721"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_core_1_1_character.html#ae25a76e7497eeb6dbd1ad3b72c1ff721">Draw</a> (RenderWindow *Window)</td></tr>
+<tr class="separator:ae25a76e7497eeb6dbd1ad3b72c1ff721"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2156c371584ca6a8d2961154f1b49c09"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_core_1_1_character.html#a2156c371584ca6a8d2961154f1b49c09">TakeDamage</a> (int Amount)</td></tr>
+<tr class="separator:a2156c371584ca6a8d2961154f1b49c09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad32924505f5bc7761590ecbfd06e6f09"><td class="memItemLeft" align="right" valign="top"><a id="ad32924505f5bc7761590ecbfd06e6f09"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>CheckHealth</b> (void)</td></tr>
+<tr class="separator:ad32924505f5bc7761590ecbfd06e6f09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afff37c4ff688837f42509f721853bab8"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_engine_1_1_core_1_1_game_texture.html">GameTexture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_core_1_1_character.html#afff37c4ff688837f42509f721853bab8">GetGameTexure</a> (void) const</td></tr>
+<tr class="separator:afff37c4ff688837f42509f721853bab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45c8ef2c736469a3264ee8733305675c"><td class="memItemLeft" align="right" valign="top"><a id="a45c8ef2c736469a3264ee8733305675c"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> (RenderWindow *Window, <a class="el" href="class_engine_1_1_core_1_1_map.html">Map</a> M, float dt)=0</td></tr>
+<tr class="separator:a45c8ef2c736469a3264ee8733305675c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a16677d58863fb7ca126b8fd87c4201ba"><td class="memItemLeft" align="right" valign="top"><a id="a16677d58863fb7ca126b8fd87c4201ba"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>VectorToDirection</b> (Vector2f &amp;Vec)</td></tr>
-<tr class="separator:a16677d58863fb7ca126b8fd87c4201ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6e83da3df6620fedbe859022f68727f"><td class="memItemLeft" align="right" valign="top"><a id="ad6e83da3df6620fedbe859022f68727f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetPosition</b> (Vector2f Position)</td></tr>
+<tr class="separator:ad6e83da3df6620fedbe859022f68727f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -108,6 +117,12 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>Angle</b></td></tr>
 <tr class="memitem:aacac55c620345c41b3eb09f4abbd4318"><td class="memItemLeft" align="right" valign="top"><a id="aacac55c620345c41b3eb09f4abbd4318"></a>
 Vector2f&#160;</td><td class="memItemRight" valign="bottom"><b>Direction</b></td></tr>
 <tr class="separator:aacac55c620345c41b3eb09f4abbd4318"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f898cc76d7384b27f3105babb9ea27a"><td class="memItemLeft" align="right" valign="top"><a id="a5f898cc76d7384b27f3105babb9ea27a"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>Health</b></td></tr>
+<tr class="separator:a5f898cc76d7384b27f3105babb9ea27a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b0c92ea505c26b00f1a4873bdf747b2"><td class="memItemLeft" align="right" valign="top"><a id="a4b0c92ea505c26b00f1a4873bdf747b2"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsAlive</b></td></tr>
+<tr class="separator:a4b0c92ea505c26b00f1a4873bdf747b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab749582f4376b908cdf23d6cc4ac2fe2"><td class="memItemLeft" align="right" valign="top"><a id="ab749582f4376b908cdf23d6cc4ac2fe2"></a>
 Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_core_1_1_character.html#ab749582f4376b908cdf23d6cc4ac2fe2">LastGoodPosition</a></td></tr>
 <tr class="memdesc:ab749582f4376b908cdf23d6cc4ac2fe2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the last position where the character could move freely. <br /></td></tr>
@@ -116,6 +131,121 @@ Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 shared_ptr&lt; <a class="el" href="class_engine_1_1_core_1_1_game_texture.html">GameTexture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Texture</b></td></tr>
 <tr class="separator:a289559b0eea38088ed1135ef8cf994dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a0377de26714b79374d0591ca44c77fd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0377de26714b79374d0591ca44c77fd1">&#9670;&nbsp;</a></span>~Character()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Engine::Core::Character::~Character </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>summary&gt; Gets the position in a sf::Vector2f. /summary&gt; returns&gt;The position as a sf::Vector2f.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae25a76e7497eeb6dbd1ad3b72c1ff721"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae25a76e7497eeb6dbd1ad3b72c1ff721">&#9670;&nbsp;</a></span>Draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Engine::Core::Character::Draw </td>
+          <td>(</td>
+          <td class="paramtype">RenderWindow *&#160;</td>
+          <td class="paramname"><em>Window</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>summary&gt; Lowers the amount of health the <a class="el" href="class_engine_1_1_core_1_1_character.html">Character</a>. /summary&gt; param name = "Amount"&gt;The amount of damage which is given to their health (as an integer).</p>
+
+</div>
+</div>
+<a id="afff37c4ff688837f42509f721853bab8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afff37c4ff688837f42509f721853bab8">&#9670;&nbsp;</a></span>GetGameTexure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">shared_ptr&lt; <a class="el" href="class_engine_1_1_core_1_1_game_texture.html">Engine::Core::GameTexture</a> &gt; Engine::Core::Character::GetGameTexure </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>summary&gt; Sets the position of the player, within 2D space. /summary&gt; param name = "Position"&gt;The position to set the Texture in.</p>
+
+</div>
+</div>
+<a id="aea290308ddc56ab784c87f85e6b7f254"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea290308ddc56ab784c87f85e6b7f254">&#9670;&nbsp;</a></span>GetPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector2f Engine::Core::Character::GetPosition </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>summary&gt; Gets the size of the SFML Texture, as a Vector2f. /summary&gt; returns&gt;The size of the Texture.</p>
+
+</div>
+</div>
+<a id="a3465481aed27d24909b8e40577f09b10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3465481aed27d24909b8e40577f09b10">&#9670;&nbsp;</a></span>GetSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector2f Engine::Core::Character::GetSize </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>summary&gt; Renders the <a class="el" href="class_engine_1_1_core_1_1_game_texture.html" title="Wraps around the SFML texture and puts both sf::Texture and sf::Sprite into one object. /summary&gt; ">GameTexture</a> to the given RenderWindow. /summary&gt; param name = "Window"&gt;A pointer to the RenderWindow, which is the target.</p>
+
+</div>
+</div>
+<a id="a2156c371584ca6a8d2961154f1b49c09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2156c371584ca6a8d2961154f1b49c09">&#9670;&nbsp;</a></span>TakeDamage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Engine::Core::Character::TakeDamage </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>Amount</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>summary&gt; Checks if the health of the current health is above 0. /summary&gt; returns&gt;True if the health is above 0, false otherwise.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>WaveGame/<a class="el" href="_character_8h_source.html">Character.h</a></li>
 <li>WaveGame/Character.cpp</li>
@@ -123,7 +253,7 @@ shared_ptr&lt; <a class="el" href="class_engine_1_1_core_1_1_game_texture.html">
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 17 2017 16:59:43 for CollegeProject_SurvivalGame by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jan 12 2018 15:32:21 for CollegeProject_SurvivalGame by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

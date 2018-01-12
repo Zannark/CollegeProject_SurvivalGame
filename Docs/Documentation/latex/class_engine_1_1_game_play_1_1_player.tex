@@ -9,10 +9,86 @@ Inheritance diagram for Engine\+:\+:Game\+Play\+:\+:Player\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_player_a86f6dba52b8f855d5bcedf061a04017d}\label{class_engine_1_1_game_play_1_1_player_a86f6dba52b8f855d5bcedf061a04017d}} 
-void {\bfseries Update} (shared\+\_\+ptr$<$ Render\+Window $>$ Window, \hyperlink{class_engine_1_1_core_1_1_map}{Map} M, float dt) override
+\hyperlink{class_engine_1_1_game_play_1_1_player_a39c82fa94afe71949a7fff50fed2a4d0}{$\sim$\+Player} ()
+\item 
+void \hyperlink{class_engine_1_1_game_play_1_1_player_a06c682bf13c20fb2390807ec681b0121}{Update} (Render\+Window $\ast$Window, \hyperlink{class_engine_1_1_core_1_1_map}{Map} M, float dt) override
+\item 
+void \hyperlink{class_engine_1_1_game_play_1_1_player_adedc5552f70e5495ca1391b6f6143bec}{Set\+Enemy\+Manager} (void $\ast$Manager)
+\item 
+void \hyperlink{class_engine_1_1_game_play_1_1_player_a426ebc69b0607902e73563655ad66693}{Set\+Full\+Health} (void)
+\item 
+void \hyperlink{class_engine_1_1_game_play_1_1_player_aad2c7f9e75ef259e202be0d00924ec1d}{Regen\+Half\+Missing\+Health} (void)
+\item 
+void \hyperlink{class_engine_1_1_game_play_1_1_player_a4b3e08479cfc81c66eadf1e9da4a47fe}{Draw\+UI} (Render\+Window $\ast$Window)
+\item 
+\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_player_a3705c78e4c21631432c4c21a0a4e4084}\label{class_engine_1_1_game_play_1_1_player_a3705c78e4c21631432c4c21a0a4e4084}} 
+void {\bfseries Draw\+Weapon} (Render\+Window $\ast$Window)
+\item 
+shared\+\_\+ptr$<$ \hyperlink{class_engine_1_1_core_1_1_game_texture}{Game\+Texture} $>$ \hyperlink{class_engine_1_1_game_play_1_1_player_a22261e9c06350f20de748418085dd26a}{Get\+Player\+Weapon} (void) const
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_player_a1ed8e67b1e585015f13614277470a188}\label{class_engine_1_1_game_play_1_1_player_a1ed8e67b1e585015f13614277470a188}} 
+void {\bfseries Update\+UI} (void)
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_player_a39c82fa94afe71949a7fff50fed2a4d0}\label{class_engine_1_1_game_play_1_1_player_a39c82fa94afe71949a7fff50fed2a4d0}} 
+\index{Engine\+::\+Game\+Play\+::\+Player@{Engine\+::\+Game\+Play\+::\+Player}!````~Player@{$\sim$\+Player}}
+\index{````~Player@{$\sim$\+Player}!Engine\+::\+Game\+Play\+::\+Player@{Engine\+::\+Game\+Play\+::\+Player}}
+\subsubsection{\texorpdfstring{$\sim$\+Player()}{~Player()}}
+{\footnotesize\ttfamily Engine\+::\+Game\+Play\+::\+Player\+::$\sim$\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+summary$>$ Updates the player and its status once per frame. /summary$>$ param name = \char`\"{}\+Window\char`\"{}$>$A pointer to the Render\+Window which is being used.
+
+param name = \char`\"{}\+M\char`\"{}$>$A copy of the Map for the player for movement.
+
+param name = \char`\"{}dt\char`\"{}$>$Delta time, the time the last frame took.
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_player_a4b3e08479cfc81c66eadf1e9da4a47fe}\label{class_engine_1_1_game_play_1_1_player_a4b3e08479cfc81c66eadf1e9da4a47fe}} 
+\index{Engine\+::\+Game\+Play\+::\+Player@{Engine\+::\+Game\+Play\+::\+Player}!Draw\+UI@{Draw\+UI}}
+\index{Draw\+UI@{Draw\+UI}!Engine\+::\+Game\+Play\+::\+Player@{Engine\+::\+Game\+Play\+::\+Player}}
+\subsubsection{\texorpdfstring{Draw\+U\+I()}{DrawUI()}}
+{\footnotesize\ttfamily void Engine\+::\+Game\+Play\+::\+Player\+::\+Draw\+UI (\begin{DoxyParamCaption}\item[{Render\+Window $\ast$}]{Window }\end{DoxyParamCaption})}
+
+summary$>$ Renders the weapon to the screen. /summary$>$ param name = \char`\"{}\+Window\char`\"{}$>$A pointer to the Render\+Window to draw to.\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_player_a22261e9c06350f20de748418085dd26a}\label{class_engine_1_1_game_play_1_1_player_a22261e9c06350f20de748418085dd26a}} 
+\index{Engine\+::\+Game\+Play\+::\+Player@{Engine\+::\+Game\+Play\+::\+Player}!Get\+Player\+Weapon@{Get\+Player\+Weapon}}
+\index{Get\+Player\+Weapon@{Get\+Player\+Weapon}!Engine\+::\+Game\+Play\+::\+Player@{Engine\+::\+Game\+Play\+::\+Player}}
+\subsubsection{\texorpdfstring{Get\+Player\+Weapon()}{GetPlayerWeapon()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \hyperlink{class_engine_1_1_core_1_1_game_texture}{Game\+Texture} $>$ Engine\+::\+Game\+Play\+::\+Player\+::\+Get\+Player\+Weapon (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+summary$>$ Update the on screen UI. /summary$>$ \mbox{\Hypertarget{class_engine_1_1_game_play_1_1_player_aad2c7f9e75ef259e202be0d00924ec1d}\label{class_engine_1_1_game_play_1_1_player_aad2c7f9e75ef259e202be0d00924ec1d}} 
+\index{Engine\+::\+Game\+Play\+::\+Player@{Engine\+::\+Game\+Play\+::\+Player}!Regen\+Half\+Missing\+Health@{Regen\+Half\+Missing\+Health}}
+\index{Regen\+Half\+Missing\+Health@{Regen\+Half\+Missing\+Health}!Engine\+::\+Game\+Play\+::\+Player@{Engine\+::\+Game\+Play\+::\+Player}}
+\subsubsection{\texorpdfstring{Regen\+Half\+Missing\+Health()}{RegenHalfMissingHealth()}}
+{\footnotesize\ttfamily void Engine\+::\+Game\+Play\+::\+Player\+::\+Regen\+Half\+Missing\+Health (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+summary$>$ Renders the UI to the screen. /summary$>$ param name = \char`\"{}\+Window\char`\"{}$>$A pointer to the Render\+Window to draw to.\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_player_adedc5552f70e5495ca1391b6f6143bec}\label{class_engine_1_1_game_play_1_1_player_adedc5552f70e5495ca1391b6f6143bec}} 
+\index{Engine\+::\+Game\+Play\+::\+Player@{Engine\+::\+Game\+Play\+::\+Player}!Set\+Enemy\+Manager@{Set\+Enemy\+Manager}}
+\index{Set\+Enemy\+Manager@{Set\+Enemy\+Manager}!Engine\+::\+Game\+Play\+::\+Player@{Engine\+::\+Game\+Play\+::\+Player}}
+\subsubsection{\texorpdfstring{Set\+Enemy\+Manager()}{SetEnemyManager()}}
+{\footnotesize\ttfamily void Engine\+::\+Game\+Play\+::\+Player\+::\+Set\+Enemy\+Manager (\begin{DoxyParamCaption}\item[{void $\ast$}]{Manager }\end{DoxyParamCaption})}
+
+summary$>$ Resets the health of the player to full. /summary$>$ \mbox{\Hypertarget{class_engine_1_1_game_play_1_1_player_a426ebc69b0607902e73563655ad66693}\label{class_engine_1_1_game_play_1_1_player_a426ebc69b0607902e73563655ad66693}} 
+\index{Engine\+::\+Game\+Play\+::\+Player@{Engine\+::\+Game\+Play\+::\+Player}!Set\+Full\+Health@{Set\+Full\+Health}}
+\index{Set\+Full\+Health@{Set\+Full\+Health}!Engine\+::\+Game\+Play\+::\+Player@{Engine\+::\+Game\+Play\+::\+Player}}
+\subsubsection{\texorpdfstring{Set\+Full\+Health()}{SetFullHealth()}}
+{\footnotesize\ttfamily void Engine\+::\+Game\+Play\+::\+Player\+::\+Set\+Full\+Health (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+summary$>$ Sets the health of the player to half of the difference between the current amount of health and P\+L\+A\+Y\+E\+R\+\_\+\+M\+A\+X\+\_\+\+H\+E\+A\+L\+TH. /summary$>$ \mbox{\Hypertarget{class_engine_1_1_game_play_1_1_player_a06c682bf13c20fb2390807ec681b0121}\label{class_engine_1_1_game_play_1_1_player_a06c682bf13c20fb2390807ec681b0121}} 
+\index{Engine\+::\+Game\+Play\+::\+Player@{Engine\+::\+Game\+Play\+::\+Player}!Update@{Update}}
+\index{Update@{Update}!Engine\+::\+Game\+Play\+::\+Player@{Engine\+::\+Game\+Play\+::\+Player}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Engine\+::\+Game\+Play\+::\+Player\+::\+Update (\begin{DoxyParamCaption}\item[{Render\+Window $\ast$}]{Window,  }\item[{\hyperlink{class_engine_1_1_core_1_1_map}{Map}}]{M,  }\item[{float}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+summary$>$ Gets the enemies which in range of the player and then deals a random amount of damage, between 0 and P\+L\+A\+Y\+E\+R\+\_\+\+M\+A\+X\+\_\+\+A\+T\+T\+A\+C\+K\+\_\+\+D\+A\+M\+A\+GE. /summary$>$ 
+
+Implements \hyperlink{class_engine_1_1_core_1_1_character}{Engine\+::\+Core\+::\+Character}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

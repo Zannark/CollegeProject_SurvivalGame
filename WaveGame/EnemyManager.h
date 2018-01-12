@@ -33,7 +33,7 @@ namespace Engine::GamePlay
 	class EnemyManager
 	{
 	public:
-		EnemyManager(RenderWindow* Window, shared_ptr<Player> P);
+		EnemyManager(RenderWindow* Window, shared_ptr<Player> P, mt19937* Generator);
 		~EnemyManager();
 
 		void Update(RenderWindow* Window, Map M, float dt);
@@ -51,6 +51,8 @@ namespace Engine::GamePlay
 		string RoundMessage;
 		Font RoundFont;
 		Text RoundText;
+		uniform_real_distribution<float> RandomNumber;
+		mt19937* Generator;
 	};
 }
 

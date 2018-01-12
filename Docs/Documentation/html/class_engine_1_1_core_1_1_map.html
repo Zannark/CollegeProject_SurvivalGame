@@ -80,11 +80,13 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aad4517115b5d8713aed2f67338cd7259"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afafd62cdfe87b27796d0900e76aa09ea"><td class="memItemLeft" align="right" valign="top">vector&lt; shared_ptr&lt; <a class="el" href="class_engine_1_1_core_1_1_game_texture.html">GameTexture</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_core_1_1_map.html#afafd62cdfe87b27796d0900e76aa09ea">GetProps</a> (void)</td></tr>
 <tr class="separator:afafd62cdfe87b27796d0900e76aa09ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb4eabaf8cbde4e584836daa646c0521"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_core_1_1_map.html#aeb4eabaf8cbde4e584836daa646c0521">DrawBackground</a> (shared_ptr&lt; RenderWindow &gt; Window)</td></tr>
-<tr class="separator:aeb4eabaf8cbde4e584836daa646c0521"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e6a7e15ecd79f449fe6326768069953"><td class="memItemLeft" align="right" valign="top"><a id="a2e6a7e15ecd79f449fe6326768069953"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawProps</b> (shared_ptr&lt; RenderWindow &gt; Window)</td></tr>
-<tr class="separator:a2e6a7e15ecd79f449fe6326768069953"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d17ba161757b4b971dba919e7e0b1c1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_core_1_1_map.html#a5d17ba161757b4b971dba919e7e0b1c1">IsPropAtPosition</a> (Vector2f Position)</td></tr>
+<tr class="separator:a5d17ba161757b4b971dba919e7e0b1c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea4443f092aabf355e2427fa27605d4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_core_1_1_map.html#aea4443f092aabf355e2427fa27605d4d">DrawBackground</a> (RenderWindow *Window)</td></tr>
+<tr class="separator:aea4443f092aabf355e2427fa27605d4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d24a07606dca61d86decc02eb9691d8"><td class="memItemLeft" align="right" valign="top"><a id="a1d24a07606dca61d86decc02eb9691d8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawProps</b> (RenderWindow *Window)</td></tr>
+<tr class="separator:a1d24a07606dca61d86decc02eb9691d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a211f38a71b97179bbbd153442225a273"></a>
@@ -155,8 +157,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawProps</b> (shared
 
 </div>
 </div>
-<a id="aeb4eabaf8cbde4e584836daa646c0521"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeb4eabaf8cbde4e584836daa646c0521">&#9670;&nbsp;</a></span>DrawBackground()</h2>
+<a id="aea4443f092aabf355e2427fa27605d4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea4443f092aabf355e2427fa27605d4d">&#9670;&nbsp;</a></span>DrawBackground()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -164,7 +166,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawProps</b> (shared
         <tr>
           <td class="memname">void Engine::Core::Map::DrawBackground </td>
           <td>(</td>
-          <td class="paramtype">shared_ptr&lt; RenderWindow &gt;&#160;</td>
+          <td class="paramtype">RenderWindow *&#160;</td>
           <td class="paramname"><em>Window</em></td><td>)</td>
           <td></td>
         </tr>
@@ -189,6 +191,26 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawProps</b> (shared
         </tr>
       </table>
 </div><div class="memdoc">
+<p>summary&gt; Checks if there is an prop at the given position. /summary&gt; param name = "Position"&gt;The position to see if there is a prop there.</p>
+<p>returns&gt;True if there is a prop, false otherwise.</p>
+
+</div>
+</div>
+<a id="a5d17ba161757b4b971dba919e7e0b1c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d17ba161757b4b971dba919e7e0b1c1">&#9670;&nbsp;</a></span>IsPropAtPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Engine::Core::Map::IsPropAtPosition </td>
+          <td>(</td>
+          <td class="paramtype">Vector2f&#160;</td>
+          <td class="paramname"><em>Position</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 <p>summary&gt; Draws the background. The background is the first thing which should be drawn. This ensures that the props, player and enemies are on top of it. /summary&gt; param name = "Window"&gt;A pointer to the RenderWindow is being drawn to.</p>
 
 </div>
@@ -200,7 +222,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawProps</b> (shared
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 17 2017 16:59:43 for CollegeProject_SurvivalGame by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jan 12 2018 15:32:21 for CollegeProject_SurvivalGame by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

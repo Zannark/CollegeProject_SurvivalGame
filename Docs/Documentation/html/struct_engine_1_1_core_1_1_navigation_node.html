@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CollegeProject_SurvivalGame: Engine::Core::NavigationNode Struct Reference</title>
+<title>CollegeProject_SurvivalGame: Engine::Core::NavigationNode Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -67,7 +67,7 @@ $(function() {
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="struct_engine_1_1_core_1_1_navigation_node-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Engine::Core::NavigationNode Struct Reference</div>  </div>
+<div class="title">Engine::Core::NavigationNode Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -78,16 +78,48 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae3912b3f6efd3ba94b71bdab5d70a049"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_engine_1_1_core_1_1_navigation_node.html#ae3912b3f6efd3ba94b71bdab5d70a049">NavigationNode</a> (Vector2f Location, <a class="el" href="class_engine_1_1_game_play_1_1_player.html">Player</a> P)</td></tr>
-<tr class="separator:ae3912b3f6efd3ba94b71bdab5d70a049"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4070cf10d7b0ba6c5e5275d3e380dff6"><td class="memItemLeft" align="right" valign="top"><a id="a4070cf10d7b0ba6c5e5275d3e380dff6"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>NavigationNode</b> (Vector2f Location, <a class="el" href="class_engine_1_1_game_play_1_1_player.html">Player</a> P, bool IsUseable)</td></tr>
+<tr class="separator:a4070cf10d7b0ba6c5e5275d3e380dff6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30f4beef1fa861c8f363fd4a87f6ba98"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_engine_1_1_core_1_1_navigation_node.html#a30f4beef1fa861c8f363fd4a87f6ba98">NavigationNode</a> ()=default</td></tr>
+<tr class="separator:a30f4beef1fa861c8f363fd4a87f6ba98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12cffe89f89aac9623ae2530dd556dc7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_engine_1_1_core_1_1_navigation_node.html#a12cffe89f89aac9623ae2530dd556dc7">operator==</a> (const <a class="el" href="struct_engine_1_1_core_1_1_navigation_node.html">NavigationNode</a> &amp;Rhs)</td></tr>
 <tr class="separator:a12cffe89f89aac9623ae2530dd556dc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4093291628771c2de79b2b1a8ea2ec82"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_engine_1_1_core_1_1_navigation_node.html#a4093291628771c2de79b2b1a8ea2ec82">operator==</a> (const Vector2f &amp;Rhs)</td></tr>
 <tr class="separator:a4093291628771c2de79b2b1a8ea2ec82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac61bc4291a133693de436a3e875c8c39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_engine_1_1_core_1_1_navigation_node.html#ac61bc4291a133693de436a3e875c8c39">CalculateDistance</a> (<a class="el" href="class_engine_1_1_game_play_1_1_player.html">Player</a> P)</td></tr>
+<tr class="memitem:ac61bc4291a133693de436a3e875c8c39"><td class="memItemLeft" align="right" valign="top"><a id="ac61bc4291a133693de436a3e875c8c39"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>CalculateDistance</b> (<a class="el" href="class_engine_1_1_game_play_1_1_player.html">Player</a> P)</td></tr>
 <tr class="separator:ac61bc4291a133693de436a3e875c8c39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23ce6291fb2ee4c9c4fb254e2ad61dcd"><td class="memItemLeft" align="right" valign="top"><a id="a23ce6291fb2ee4c9c4fb254e2ad61dcd"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="struct_engine_1_1_core_1_1_navigation_node.html">NavigationNode</a> &amp;RHS) const</td></tr>
+<tr class="separator:a23ce6291fb2ee4c9c4fb254e2ad61dcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd4ea3e64c92a2d40d16e6c7e259c394"><td class="memItemLeft" align="right" valign="top"><a id="abd4ea3e64c92a2d40d16e6c7e259c394"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!</b> () const</td></tr>
+<tr class="separator:abd4ea3e64c92a2d40d16e6c7e259c394"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6435f925c6b28774a025f5650bd76b56"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_engine_1_1_core_1_1_navigation_node.html#a6435f925c6b28774a025f5650bd76b56">operator bool</a> () const</td></tr>
+<tr class="separator:a6435f925c6b28774a025f5650bd76b56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a453d05d915929841a1f3d8f228996d37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_engine_1_1_core_1_1_navigation_node.html#a453d05d915929841a1f3d8f228996d37">DebugDraw</a> (shared_ptr&lt; RenderWindow &gt; Window)</td></tr>
 <tr class="separator:a453d05d915929841a1f3d8f228996d37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a060f7bb5425bb51c63853c843676f29b"><td class="memItemLeft" align="right" valign="top"><a id="a060f7bb5425bb51c63853c843676f29b"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>NavigationNode</b> (Vector2f Position, RenderWindow *Window, bool DoesCollision)</td></tr>
+<tr class="separator:a060f7bb5425bb51c63853c843676f29b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67ff011cd89aced43978f3f6265f6c63"><td class="memItemLeft" align="right" valign="top"><a id="a67ff011cd89aced43978f3f6265f6c63"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>NavigationNode</b> (float x, float y, RenderWindow *Window, bool DoesCollision)</td></tr>
+<tr class="separator:a67ff011cd89aced43978f3f6265f6c63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd420576ac7c916755d9c7a9908a6aad"><td class="memItemLeft" align="right" valign="top"><a id="acd420576ac7c916755d9c7a9908a6aad"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>GoalDistanceEstimate</b> (<a class="el" href="struct_engine_1_1_core_1_1_navigation_node.html">NavigationNode</a> &amp;nodeGoal)</td></tr>
+<tr class="separator:acd420576ac7c916755d9c7a9908a6aad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa838e27a48677c1359fc1bab0b8a8591"><td class="memItemLeft" align="right" valign="top"><a id="aa838e27a48677c1359fc1bab0b8a8591"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsGoal</b> (<a class="el" href="struct_engine_1_1_core_1_1_navigation_node.html">NavigationNode</a> &amp;nodeGoal)</td></tr>
+<tr class="separator:aa838e27a48677c1359fc1bab0b8a8591"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e049fbcda1bb269303da91692d05033"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_engine_1_1_core_1_1_navigation_node.html#a4e049fbcda1bb269303da91692d05033">GetSuccessors</a> (<a class="el" href="class_a_star_search.html">AStarSearch</a>&lt; <a class="el" href="struct_engine_1_1_core_1_1_navigation_node.html">NavigationNode</a> &gt; *astarsearch, <a class="el" href="struct_engine_1_1_core_1_1_navigation_node.html">NavigationNode</a> *parent_node)</td></tr>
+<tr class="separator:a4e049fbcda1bb269303da91692d05033"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d2f49adb68c3b880b750875ad15a50b"><td class="memItemLeft" align="right" valign="top"><a id="a2d2f49adb68c3b880b750875ad15a50b"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>GetCost</b> (<a class="el" href="struct_engine_1_1_core_1_1_navigation_node.html">NavigationNode</a> &amp;successor)</td></tr>
+<tr class="separator:a2d2f49adb68c3b880b750875ad15a50b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab265c716b1b82675c800f7027e0666d8"><td class="memItemLeft" align="right" valign="top"><a id="ab265c716b1b82675c800f7027e0666d8"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsSameState</b> (<a class="el" href="struct_engine_1_1_core_1_1_navigation_node.html">NavigationNode</a> &amp;rhs)</td></tr>
+<tr class="separator:ab265c716b1b82675c800f7027e0666d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -95,38 +127,43 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a7a1470734947944ba351df516e2a7cc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09e7506d996f8bd91b478f3e013fd48e"><td class="memItemLeft" align="right" valign="top">Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_engine_1_1_core_1_1_navigation_node.html#a09e7506d996f8bd91b478f3e013fd48e">Point</a></td></tr>
 <tr class="separator:a09e7506d996f8bd91b478f3e013fd48e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a707b571c58bffbf140fd4f6ebe6a4f37"><td class="memItemLeft" align="right" valign="top"><a id="a707b571c58bffbf140fd4f6ebe6a4f37"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>Estimate</b></td></tr>
+<tr class="memitem:a707b571c58bffbf140fd4f6ebe6a4f37"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_engine_1_1_core_1_1_navigation_node.html#a707b571c58bffbf140fd4f6ebe6a4f37">Estimate</a></td></tr>
 <tr class="separator:a707b571c58bffbf140fd4f6ebe6a4f37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b830ca01eb9e2fdc6fdde3131ce2d84"><td class="memItemLeft" align="right" valign="top"><a id="a4b830ca01eb9e2fdc6fdde3131ce2d84"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsUseable</b></td></tr>
+<tr class="separator:a4b830ca01eb9e2fdc6fdde3131ce2d84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48c7e59bd117799ff8006e02ea5fc7f9"><td class="memItemLeft" align="right" valign="top"><a id="a48c7e59bd117799ff8006e02ea5fc7f9"></a>
+Vector2f&#160;</td><td class="memItemRight" valign="bottom"><b>Position</b></td></tr>
+<tr class="separator:a48c7e59bd117799ff8006e02ea5fc7f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5daad8fa8ef6fe2c19f4ff4fec312f9"><td class="memItemLeft" align="right" valign="top"><a id="aa5daad8fa8ef6fe2c19f4ff4fec312f9"></a>
+RenderWindow *&#160;</td><td class="memItemRight" valign="bottom"><b>Window</b></td></tr>
+<tr class="separator:aa5daad8fa8ef6fe2c19f4ff4fec312f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An object which represents point in 2D space for the Navigation mesh. /summary&gt; </p>
 <p>summary&gt; A mesh of all the NavigationNodes, used for A* pathfinding. /summary&gt; </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ae3912b3f6efd3ba94b71bdab5d70a049"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3912b3f6efd3ba94b71bdab5d70a049">&#9670;&nbsp;</a></span>NavigationNode()</h2>
+<a id="a30f4beef1fa861c8f363fd4a87f6ba98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30f4beef1fa861c8f363fd4a87f6ba98">&#9670;&nbsp;</a></span>NavigationNode()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">Engine::Core::NavigationNode::NavigationNode </td>
           <td>(</td>
-          <td class="paramtype">Vector2f&#160;</td>
-          <td class="paramname"><em>Location</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_engine_1_1_game_play_1_1_player.html">Player</a>&#160;</td>
-          <td class="paramname"><em>P</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>summary&gt; Compares itself with another <a class="el" href="struct_engine_1_1_core_1_1_navigation_node.html" title="An object which represents point in 2D space for the Navigation mesh. /summary&gt; ">NavigationNode</a> object. /summary&gt; param name = "Rhs"&gt;The <a class="el" href="struct_engine_1_1_core_1_1_navigation_node.html" title="An object which represents point in 2D space for the Navigation mesh. /summary&gt; ">NavigationNode</a> on the right hand side.</p>
 <p>returns&gt;True if they match, otherwise false.</p>
@@ -134,25 +171,6 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>Estimate</b></td></t
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ac61bc4291a133693de436a3e875c8c39"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac61bc4291a133693de436a3e875c8c39">&#9670;&nbsp;</a></span>CalculateDistance()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Engine::Core::NavigationNode::CalculateDistance </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_engine_1_1_game_play_1_1_player.html">Player</a>&#160;</td>
-          <td class="paramname"><em>P</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>summary&gt; Used to draw the <a class="el" href="struct_engine_1_1_core_1_1_navigation_node.html" title="An object which represents point in 2D space for the Navigation mesh. /summary&gt; ">NavigationNode</a> object for debugging purposes. Not to be used in game. /summary&gt; param name = "Window"&gt;A pointer to the RenderWindow in use.</p>
-
-</div>
-</div>
 <a id="a453d05d915929841a1f3d8f228996d37"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a453d05d915929841a1f3d8f228996d37">&#9670;&nbsp;</a></span>DebugDraw()</h2>
 
@@ -169,6 +187,68 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>Estimate</b></td></t
       </table>
 </div><div class="memdoc">
 <p>summary&gt; A visual representation of the <a class="el" href="struct_engine_1_1_core_1_1_navigation_node.html" title="An object which represents point in 2D space for the Navigation mesh. /summary&gt; ">NavigationNode</a>. Used for debugging, not for in game use. /summary&gt; </p>
+
+</div>
+</div>
+<a id="a4e049fbcda1bb269303da91692d05033"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e049fbcda1bb269303da91692d05033">&#9670;&nbsp;</a></span>GetSuccessors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Engine::Core::NavigationNode::GetSuccessors </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_a_star_search.html">AStarSearch</a>&lt; <a class="el" href="struct_engine_1_1_core_1_1_navigation_node.html">NavigationNode</a> &gt; *&#160;</td>
+          <td class="paramname"><em>astarsearch</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_engine_1_1_core_1_1_navigation_node.html">NavigationNode</a> *&#160;</td>
+          <td class="paramname"><em>parent_node</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Left</p>
+<p>Up</p>
+<p>Right</p>
+<p>Down</p>
+<p>Up Left</p>
+<p>Down Left</p>
+<p>Up Right</p>
+<p>Down Right </p>
+
+</div>
+</div>
+<a id="a6435f925c6b28774a025f5650bd76b56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6435f925c6b28774a025f5650bd76b56">&#9670;&nbsp;</a></span>operator bool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Engine::Core::NavigationNode::operator bool </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>summary&gt; Used to draw the <a class="el" href="struct_engine_1_1_core_1_1_navigation_node.html" title="An object which represents point in 2D space for the Navigation mesh. /summary&gt; ">NavigationNode</a> object for debugging purposes. Not to be used in game. /summary&gt; param name = "Window"&gt;A pointer to the RenderWindow in use.</p>
 
 </div>
 </div>
@@ -212,6 +292,21 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>Estimate</b></td></t
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a707b571c58bffbf140fd4f6ebe6a4f37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a707b571c58bffbf140fd4f6ebe6a4f37">&#9670;&nbsp;</a></span>Estimate</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Engine::Core::NavigationNode::Estimate</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>summary&gt; For testing if a node is actually there or not. If true the cell can be used for pathfinding, if it is false pretend it doesn't exsist and iterate over it. /summary&gt; </p>
+
+</div>
+</div>
 <a id="a09e7506d996f8bd91b478f3e013fd48e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a09e7506d996f8bd91b478f3e013fd48e">&#9670;&nbsp;</a></span>Point</h2>
 
@@ -242,14 +337,16 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>Estimate</b></td></t
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following files:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>WaveGame/<a class="el" href="_navigation_mesh_8h_source.html">NavigationMesh.h</a></li>
+<li>WaveGame/<a class="el" href="_navigation_node_8h_source.html">NavigationNode.h</a></li>
 <li>WaveGame/NavigationMesh.cpp</li>
+<li>WaveGame/NavigationNode.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 17 2017 16:59:43 for CollegeProject_SurvivalGame by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jan 12 2018 15:32:21 for CollegeProject_SurvivalGame by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

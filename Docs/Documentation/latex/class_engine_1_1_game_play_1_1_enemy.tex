@@ -9,13 +9,40 @@ Inheritance diagram for Engine\+:\+:Game\+Play\+:\+:Enemy\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_enemy_a3bc6af2bf8271749ac156b6f8893e1b6}\label{class_engine_1_1_game_play_1_1_enemy_a3bc6af2bf8271749ac156b6f8893e1b6}} 
-{\bfseries Enemy} (shared\+\_\+ptr$<$ \hyperlink{class_engine_1_1_core_1_1_navigation_mesh}{Navigation\+Mesh} $>$ Mesh)
+\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_enemy_aaae645c4e486d9595a0aef7964c252a3}\label{class_engine_1_1_game_play_1_1_enemy_aaae645c4e486d9595a0aef7964c252a3}} 
+{\bfseries Enemy} (Vector2f Position, Render\+Window $\ast$Window, shared\+\_\+ptr$<$ \hyperlink{class_engine_1_1_game_play_1_1_player}{Player} $>$ P)
 \item 
-\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_enemy_a19fde24e4ac05f3299232827552c46f1}\label{class_engine_1_1_game_play_1_1_enemy_a19fde24e4ac05f3299232827552c46f1}} 
-void {\bfseries Update} (shared\+\_\+ptr$<$ Render\+Window $>$ Window, \hyperlink{class_engine_1_1_core_1_1_map}{Map} M, float dt)
+\hyperlink{class_engine_1_1_game_play_1_1_enemy_a4fc3aafb331e8cf852ea31bcc63940ff}{$\sim$\+Enemy} ()
+\item 
+void \hyperlink{class_engine_1_1_game_play_1_1_enemy_abc8825ecfc278a6308e8e8bd523cb03f}{Update} (Render\+Window $\ast$Window, \hyperlink{class_engine_1_1_core_1_1_map}{Map} M, float dt)
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_enemy_a4fc3aafb331e8cf852ea31bcc63940ff}\label{class_engine_1_1_game_play_1_1_enemy_a4fc3aafb331e8cf852ea31bcc63940ff}} 
+\index{Engine\+::\+Game\+Play\+::\+Enemy@{Engine\+::\+Game\+Play\+::\+Enemy}!````~Enemy@{$\sim$\+Enemy}}
+\index{````~Enemy@{$\sim$\+Enemy}!Engine\+::\+Game\+Play\+::\+Enemy@{Engine\+::\+Game\+Play\+::\+Enemy}}
+\subsubsection{\texorpdfstring{$\sim$\+Enemy()}{~Enemy()}}
+{\footnotesize\ttfamily Engine\+::\+Game\+Play\+::\+Enemy\+::$\sim$\+Enemy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+summary$>$ Called once per frame, updates the enemy. /summary$>$ param name = \char`\"{}\+Window\char`\"{}$>$A pointer to the Render\+Window which is being used.
+
+param name = \char`\"{}\+M\char`\"{}$>$A copy of the Map for the player for movement.
+
+param name = \char`\"{}dt\char`\"{}$>$Delta time, the time the last frame took.
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_enemy_abc8825ecfc278a6308e8e8bd523cb03f}\label{class_engine_1_1_game_play_1_1_enemy_abc8825ecfc278a6308e8e8bd523cb03f}} 
+\index{Engine\+::\+Game\+Play\+::\+Enemy@{Engine\+::\+Game\+Play\+::\+Enemy}!Update@{Update}}
+\index{Update@{Update}!Engine\+::\+Game\+Play\+::\+Enemy@{Engine\+::\+Game\+Play\+::\+Enemy}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Engine\+::\+Game\+Play\+::\+Enemy\+::\+Update (\begin{DoxyParamCaption}\item[{Render\+Window $\ast$}]{Window,  }\item[{\hyperlink{class_engine_1_1_core_1_1_map}{Map}}]{M,  }\item[{float}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+summary$>$ Carries out different functions, depending on the current state. /summary$>$ 
+
+Implements \hyperlink{class_engine_1_1_core_1_1_character}{Engine\+::\+Core\+::\+Character}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

@@ -1,6 +1,6 @@
 #include "Enemy.h"
 
-Engine::GamePlay::Enemy::Enemy(Vector2f Position, RenderWindow* Window, shared_ptr<Player> P)
+Engine::GamePlay::Enemy::Enemy(Vector2f Position, RenderWindow* Window, shared_ptr<Player> P, float Speed)
 {
 	this->Texture = make_shared<GameTexture>(TextureCache::Cache.Access("Assets/Enemy.png"));
 	this->Texture->SetPosition(Position);
@@ -16,8 +16,8 @@ Engine::GamePlay::Enemy::Enemy(Vector2f Position, RenderWindow* Window, shared_p
 	this->FinishedPath = false;
 	this->Health = 15;
 	this->AttackTimer = ENEMY_ATTACK_INTERVAL;
-	this->MovementSpeed = ((float)rand() / (float)RAND_MAX) * ENEMY_MAX_MOVEMENT_SPEED;
 	this->IsAlive = true;
+	this->MovementSpeed = Speed;
 }
 
 Engine::GamePlay::Enemy::~Enemy()

@@ -9,20 +9,29 @@ Inheritance diagram for Engine\+:\+:Core\+:\+:Character\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_engine_1_1_core_1_1_character_aea290308ddc56ab784c87f85e6b7f254}\label{class_engine_1_1_core_1_1_character_aea290308ddc56ab784c87f85e6b7f254}} 
-Vector2f {\bfseries Get\+Position} (void)
+\hyperlink{class_engine_1_1_core_1_1_character_a0377de26714b79374d0591ca44c77fd1}{$\sim$\+Character} ()
 \item 
-\mbox{\Hypertarget{class_engine_1_1_core_1_1_character_ae009c4273cb264195b09c9213be091bf}\label{class_engine_1_1_core_1_1_character_ae009c4273cb264195b09c9213be091bf}} 
-void {\bfseries Draw} (shared\+\_\+ptr$<$ Render\+Window $>$ Window)
+Vector2f \hyperlink{class_engine_1_1_core_1_1_character_aea290308ddc56ab784c87f85e6b7f254}{Get\+Position} (void)
 \item 
-\mbox{\Hypertarget{class_engine_1_1_core_1_1_character_a3942a81285869375d899ae2d703e7f0b}\label{class_engine_1_1_core_1_1_character_a3942a81285869375d899ae2d703e7f0b}} 
-virtual void {\bfseries Update} (shared\+\_\+ptr$<$ Render\+Window $>$ Window, \hyperlink{class_engine_1_1_core_1_1_map}{Map} M, float dt)=0
+Vector2f \hyperlink{class_engine_1_1_core_1_1_character_a3465481aed27d24909b8e40577f09b10}{Get\+Size} (void)
+\item 
+void \hyperlink{class_engine_1_1_core_1_1_character_ae25a76e7497eeb6dbd1ad3b72c1ff721}{Draw} (Render\+Window $\ast$Window)
+\item 
+void \hyperlink{class_engine_1_1_core_1_1_character_a2156c371584ca6a8d2961154f1b49c09}{Take\+Damage} (int Amount)
+\item 
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_character_ad32924505f5bc7761590ecbfd06e6f09}\label{class_engine_1_1_core_1_1_character_ad32924505f5bc7761590ecbfd06e6f09}} 
+bool {\bfseries Check\+Health} (void)
+\item 
+shared\+\_\+ptr$<$ \hyperlink{class_engine_1_1_core_1_1_game_texture}{Game\+Texture} $>$ \hyperlink{class_engine_1_1_core_1_1_character_afff37c4ff688837f42509f721853bab8}{Get\+Game\+Texure} (void) const
+\item 
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_character_a45c8ef2c736469a3264ee8733305675c}\label{class_engine_1_1_core_1_1_character_a45c8ef2c736469a3264ee8733305675c}} 
+virtual void {\bfseries Update} (Render\+Window $\ast$Window, \hyperlink{class_engine_1_1_core_1_1_map}{Map} M, float dt)=0
 \end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_engine_1_1_core_1_1_character_a16677d58863fb7ca126b8fd87c4201ba}\label{class_engine_1_1_core_1_1_character_a16677d58863fb7ca126b8fd87c4201ba}} 
-void {\bfseries Vector\+To\+Direction} (Vector2f \&Vec)
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_character_ad6e83da3df6620fedbe859022f68727f}\label{class_engine_1_1_core_1_1_character_ad6e83da3df6620fedbe859022f68727f}} 
+void {\bfseries Set\+Position} (Vector2f Position)
 \end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
@@ -33,6 +42,12 @@ float {\bfseries Angle}
 \mbox{\Hypertarget{class_engine_1_1_core_1_1_character_aacac55c620345c41b3eb09f4abbd4318}\label{class_engine_1_1_core_1_1_character_aacac55c620345c41b3eb09f4abbd4318}} 
 Vector2f {\bfseries Direction}
 \item 
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_character_a5f898cc76d7384b27f3105babb9ea27a}\label{class_engine_1_1_core_1_1_character_a5f898cc76d7384b27f3105babb9ea27a}} 
+int {\bfseries Health}
+\item 
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_character_a4b0c92ea505c26b00f1a4873bdf747b2}\label{class_engine_1_1_core_1_1_character_a4b0c92ea505c26b00f1a4873bdf747b2}} 
+bool {\bfseries Is\+Alive}
+\item 
 \mbox{\Hypertarget{class_engine_1_1_core_1_1_character_ab749582f4376b908cdf23d6cc4ac2fe2}\label{class_engine_1_1_core_1_1_character_ab749582f4376b908cdf23d6cc4ac2fe2}} 
 Vector2f \hyperlink{class_engine_1_1_core_1_1_character_ab749582f4376b908cdf23d6cc4ac2fe2}{Last\+Good\+Position}
 \begin{DoxyCompactList}\small\item\em Saves the last position where the character could move freely. \end{DoxyCompactList}\item 
@@ -40,6 +55,48 @@ Vector2f \hyperlink{class_engine_1_1_core_1_1_character_ab749582f4376b908cdf23d6
 shared\+\_\+ptr$<$ \hyperlink{class_engine_1_1_core_1_1_game_texture}{Game\+Texture} $>$ {\bfseries Texture}
 \end{DoxyCompactItemize}
 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_character_a0377de26714b79374d0591ca44c77fd1}\label{class_engine_1_1_core_1_1_character_a0377de26714b79374d0591ca44c77fd1}} 
+\index{Engine\+::\+Core\+::\+Character@{Engine\+::\+Core\+::\+Character}!````~Character@{$\sim$\+Character}}
+\index{````~Character@{$\sim$\+Character}!Engine\+::\+Core\+::\+Character@{Engine\+::\+Core\+::\+Character}}
+\subsubsection{\texorpdfstring{$\sim$\+Character()}{~Character()}}
+{\footnotesize\ttfamily Engine\+::\+Core\+::\+Character\+::$\sim$\+Character (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+summary$>$ Gets the position in a sf\+::\+Vector2f. /summary$>$ returns$>$The position as a sf\+::\+Vector2f.
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_character_ae25a76e7497eeb6dbd1ad3b72c1ff721}\label{class_engine_1_1_core_1_1_character_ae25a76e7497eeb6dbd1ad3b72c1ff721}} 
+\index{Engine\+::\+Core\+::\+Character@{Engine\+::\+Core\+::\+Character}!Draw@{Draw}}
+\index{Draw@{Draw}!Engine\+::\+Core\+::\+Character@{Engine\+::\+Core\+::\+Character}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Character\+::\+Draw (\begin{DoxyParamCaption}\item[{Render\+Window $\ast$}]{Window }\end{DoxyParamCaption})}
+
+summary$>$ Lowers the amount of health the \hyperlink{class_engine_1_1_core_1_1_character}{Character}. /summary$>$ param name = \char`\"{}\+Amount\char`\"{}$>$The amount of damage which is given to their health (as an integer).\mbox{\Hypertarget{class_engine_1_1_core_1_1_character_afff37c4ff688837f42509f721853bab8}\label{class_engine_1_1_core_1_1_character_afff37c4ff688837f42509f721853bab8}} 
+\index{Engine\+::\+Core\+::\+Character@{Engine\+::\+Core\+::\+Character}!Get\+Game\+Texure@{Get\+Game\+Texure}}
+\index{Get\+Game\+Texure@{Get\+Game\+Texure}!Engine\+::\+Core\+::\+Character@{Engine\+::\+Core\+::\+Character}}
+\subsubsection{\texorpdfstring{Get\+Game\+Texure()}{GetGameTexure()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \hyperlink{class_engine_1_1_core_1_1_game_texture}{Engine\+::\+Core\+::\+Game\+Texture} $>$ Engine\+::\+Core\+::\+Character\+::\+Get\+Game\+Texure (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+summary$>$ Sets the position of the player, within 2D space. /summary$>$ param name = \char`\"{}\+Position\char`\"{}$>$The position to set the Texture in.\mbox{\Hypertarget{class_engine_1_1_core_1_1_character_aea290308ddc56ab784c87f85e6b7f254}\label{class_engine_1_1_core_1_1_character_aea290308ddc56ab784c87f85e6b7f254}} 
+\index{Engine\+::\+Core\+::\+Character@{Engine\+::\+Core\+::\+Character}!Get\+Position@{Get\+Position}}
+\index{Get\+Position@{Get\+Position}!Engine\+::\+Core\+::\+Character@{Engine\+::\+Core\+::\+Character}}
+\subsubsection{\texorpdfstring{Get\+Position()}{GetPosition()}}
+{\footnotesize\ttfamily Vector2f Engine\+::\+Core\+::\+Character\+::\+Get\+Position (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+summary$>$ Gets the size of the S\+F\+ML Texture, as a Vector2f. /summary$>$ returns$>$The size of the Texture.\mbox{\Hypertarget{class_engine_1_1_core_1_1_character_a3465481aed27d24909b8e40577f09b10}\label{class_engine_1_1_core_1_1_character_a3465481aed27d24909b8e40577f09b10}} 
+\index{Engine\+::\+Core\+::\+Character@{Engine\+::\+Core\+::\+Character}!Get\+Size@{Get\+Size}}
+\index{Get\+Size@{Get\+Size}!Engine\+::\+Core\+::\+Character@{Engine\+::\+Core\+::\+Character}}
+\subsubsection{\texorpdfstring{Get\+Size()}{GetSize()}}
+{\footnotesize\ttfamily Vector2f Engine\+::\+Core\+::\+Character\+::\+Get\+Size (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+summary$>$ Renders the \hyperlink{class_engine_1_1_core_1_1_game_texture}{Game\+Texture} to the given Render\+Window. /summary$>$ param name = \char`\"{}\+Window\char`\"{}$>$A pointer to the Render\+Window, which is the target.\mbox{\Hypertarget{class_engine_1_1_core_1_1_character_a2156c371584ca6a8d2961154f1b49c09}\label{class_engine_1_1_core_1_1_character_a2156c371584ca6a8d2961154f1b49c09}} 
+\index{Engine\+::\+Core\+::\+Character@{Engine\+::\+Core\+::\+Character}!Take\+Damage@{Take\+Damage}}
+\index{Take\+Damage@{Take\+Damage}!Engine\+::\+Core\+::\+Character@{Engine\+::\+Core\+::\+Character}}
+\subsubsection{\texorpdfstring{Take\+Damage()}{TakeDamage()}}
+{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Character\+::\+Take\+Damage (\begin{DoxyParamCaption}\item[{int}]{Amount }\end{DoxyParamCaption})}
+
+summary$>$ Checks if the health of the current health is above 0. /summary$>$ returns$>$True if the health is above 0, false otherwise.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

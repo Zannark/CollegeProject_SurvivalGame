@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['gametexture',['GameTexture',['../class_engine_1_1_core_1_1_game_texture.html',1,'Engine::Core']]],
-  ['gametime',['GameTime',['../class_game_time.html',1,'']]],
-  ['getprops',['GetProps',['../class_engine_1_1_core_1_1_map.html#afafd62cdfe87b27796d0900e76aa09ea',1,'Engine::Core::Map']]],
-  ['getsfmlsprite',['GetSFMLSprite',['../class_engine_1_1_core_1_1_game_texture.html#aec2df0beae7b8693160e20c1fd3588ac',1,'Engine::Core::GameTexture']]],
-  ['getsfmltexture',['GetSFMLTexture',['../class_engine_1_1_core_1_1_game_texture.html#a07e51ed155d0c9b24197444b473cbf19',1,'Engine::Core::GameTexture']]]
+  ['fixedsizeallocator',['FixedSizeAllocator',['../class_fixed_size_allocator.html',1,'']]],
+  ['fsa_5felement',['FSA_ELEMENT',['../struct_fixed_size_allocator_1_1_f_s_a___e_l_e_m_e_n_t.html',1,'FixedSizeAllocator']]]
 ];

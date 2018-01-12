@@ -35,7 +35,7 @@ namespace Engine::GamePlay
 	class Enemy : public Character
 	{
 	public:
-		Enemy(Vector2f Position, RenderWindow* Window, shared_ptr<Player> P);
+		Enemy(Vector2f Position, RenderWindow* Window, shared_ptr<Player> P, float Speed);
 		~Enemy();
 
 		void Update(RenderWindow* Window, Map M, float dt);

@@ -12,6 +12,8 @@ Engine::GamePlay::Player::Player()
 	this->Texture->SetOrigin(Vector2f((float)(this->Texture->GetSFMLTexture()->getSize().x / 2), (float)(this->Texture->GetSFMLTexture()->getSize().y / 2)));
 	this->Texture->SetPosition(Vector2f(400, 400));
 
+	this->PlayerWeapon->SetOrigin(Vector2f(this->PlayerWeapon->GetSize().x / 2, this->PlayerWeapon->GetSize().y - 4));
+
 	this->HealthBar = RectangleShape(Vector2f(200, 15));
 	this->HealthBar.setFillColor(Color(188, 28, 28));
 	this->HealthBar.setOutlineColor(Color::Transparent);
@@ -46,10 +48,12 @@ void Engine::GamePlay::Player::Update(RenderWindow* Window, Map M, float dt)
 		this->HandleRotation(Window, dt);
 
 		Vector2f WeaponPosition = this->GetPosition();
-		WeaponPosition.x -= Div(this->PlayerWeapon->GetSize(), 2).x;
-		WeaponPosition.y -= this->PlayerWeapon->GetSize().y;
-		this->PlayerWeapon->SetOrigin(Vector2f(this->PlayerWeapon->GetSize().x / 2, this->PlayerWeapon->GetSize().y - 4));
+		//WeaponPosition.x -= Div(this->PlayerWeapon->GetSize(), 2).x;
+		//WeaponPosition.y -= this->PlayerWeapon->GetSize().y;
+
 		this->PlayerWeapon->SetPosition(WeaponPosition);
+
+
 		this->PlayerWeapon->SetRotation(this->Angle + 90);
 
 		if (Mouse::isButtonPressed(Mouse::Button::Left) && this->AttackTimer >= PLAYER_ATTACK_INTERVAL)

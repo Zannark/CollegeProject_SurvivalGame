@@ -1,0 +1,94 @@
+\hypertarget{class_a_star_search}{}\section{A\+Star\+Search$<$ User\+State $>$ Class Template Reference}
+\label{class_a_star_search}\index{A\+Star\+Search$<$ User\+State $>$@{A\+Star\+Search$<$ User\+State $>$}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_a_star_search_1_1_heap_compare__f}{Heap\+Compare\+\_\+f}
+\item 
+class \hyperlink{class_a_star_search_1_1_node}{Node}
+\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_a_star_search_ab18b4b77ea5a384872d24f70eb0bb37e}\label{class_a_star_search_ab18b4b77ea5a384872d24f70eb0bb37e}} 
+enum \{ \newline
+{\bfseries S\+E\+A\+R\+C\+H\+\_\+\+S\+T\+A\+T\+E\+\_\+\+N\+O\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+S\+ED}, 
+{\bfseries S\+E\+A\+R\+C\+H\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+E\+A\+R\+C\+H\+I\+NG}, 
+{\bfseries S\+E\+A\+R\+C\+H\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+U\+C\+C\+E\+E\+D\+ED}, 
+{\bfseries S\+E\+A\+R\+C\+H\+\_\+\+S\+T\+A\+T\+E\+\_\+\+F\+A\+I\+L\+ED}, 
+\newline
+{\bfseries S\+E\+A\+R\+C\+H\+\_\+\+S\+T\+A\+T\+E\+\_\+\+O\+U\+T\+\_\+\+O\+F\+\_\+\+M\+E\+M\+O\+RY}, 
+{\bfseries S\+E\+A\+R\+C\+H\+\_\+\+S\+T\+A\+T\+E\+\_\+\+I\+N\+V\+A\+L\+ID}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_a_star_search_a52e3473ae173add7bee3d760d542c32e}\label{class_a_star_search_a52e3473ae173add7bee3d760d542c32e}} 
+{\bfseries A\+Star\+Search} (int Max\+Nodes)
+\item 
+\mbox{\Hypertarget{class_a_star_search_a8b19d7f5e7909fb507bcda61fb34aedb}\label{class_a_star_search_a8b19d7f5e7909fb507bcda61fb34aedb}} 
+void {\bfseries Cancel\+Search} ()
+\item 
+\mbox{\Hypertarget{class_a_star_search_ab2347a455a7d9dc6a81331a99ce740b5}\label{class_a_star_search_ab2347a455a7d9dc6a81331a99ce740b5}} 
+void {\bfseries Set\+Start\+And\+Goal\+States} (User\+State \&Start, User\+State \&Goal)
+\item 
+\mbox{\Hypertarget{class_a_star_search_af123b85f3d35bd92018c0f088e7fd9e5}\label{class_a_star_search_af123b85f3d35bd92018c0f088e7fd9e5}} 
+unsigned int {\bfseries Search\+Step} ()
+\item 
+\mbox{\Hypertarget{class_a_star_search_a146c243d29ee57d71efb28d7a386e2f4}\label{class_a_star_search_a146c243d29ee57d71efb28d7a386e2f4}} 
+bool {\bfseries Add\+Successor} (User\+State \&State)
+\item 
+\mbox{\Hypertarget{class_a_star_search_a7249cb4f68ad553c462a3aa4541e9c70}\label{class_a_star_search_a7249cb4f68ad553c462a3aa4541e9c70}} 
+void {\bfseries Free\+Solution\+Nodes} ()
+\item 
+\mbox{\Hypertarget{class_a_star_search_a3d0da489caa33f68f960c23d4666bac9}\label{class_a_star_search_a3d0da489caa33f68f960c23d4666bac9}} 
+User\+State $\ast$ {\bfseries Get\+Solution\+Start} ()
+\item 
+\mbox{\Hypertarget{class_a_star_search_a6af41045ed9f7a2c38d9bd25fb018a62}\label{class_a_star_search_a6af41045ed9f7a2c38d9bd25fb018a62}} 
+User\+State $\ast$ {\bfseries Get\+Solution\+Next} ()
+\item 
+\mbox{\Hypertarget{class_a_star_search_a57e9abda4fb879a6a62ec97e67283af0}\label{class_a_star_search_a57e9abda4fb879a6a62ec97e67283af0}} 
+User\+State $\ast$ {\bfseries Get\+Solution\+End} ()
+\item 
+\mbox{\Hypertarget{class_a_star_search_af156866aa02dc21d8605bc18ae6b2899}\label{class_a_star_search_af156866aa02dc21d8605bc18ae6b2899}} 
+User\+State $\ast$ {\bfseries Get\+Solution\+Prev} ()
+\item 
+\mbox{\Hypertarget{class_a_star_search_a932ded5bf8ffffb8d9fb46e07badc3e0}\label{class_a_star_search_a932ded5bf8ffffb8d9fb46e07badc3e0}} 
+float {\bfseries Get\+Solution\+Cost} ()
+\item 
+\mbox{\Hypertarget{class_a_star_search_ad9233df06b277efb6151c6ec807434ee}\label{class_a_star_search_ad9233df06b277efb6151c6ec807434ee}} 
+User\+State $\ast$ {\bfseries Get\+Open\+List\+Start} ()
+\item 
+\mbox{\Hypertarget{class_a_star_search_a5041617259f25e45f47cfb4457461fb7}\label{class_a_star_search_a5041617259f25e45f47cfb4457461fb7}} 
+User\+State $\ast$ {\bfseries Get\+Open\+List\+Start} (float \&f, float \&g, float \&h)
+\item 
+\mbox{\Hypertarget{class_a_star_search_aee89a6b3b8e605d3a942e27846ee46e4}\label{class_a_star_search_aee89a6b3b8e605d3a942e27846ee46e4}} 
+User\+State $\ast$ {\bfseries Get\+Open\+List\+Next} ()
+\item 
+\mbox{\Hypertarget{class_a_star_search_a3ff7cc6d725c862f00e2adecd98d9662}\label{class_a_star_search_a3ff7cc6d725c862f00e2adecd98d9662}} 
+User\+State $\ast$ {\bfseries Get\+Open\+List\+Next} (float \&f, float \&g, float \&h)
+\item 
+\mbox{\Hypertarget{class_a_star_search_ac587c436e7f4458a02b5a214d5ac005e}\label{class_a_star_search_ac587c436e7f4458a02b5a214d5ac005e}} 
+User\+State $\ast$ {\bfseries Get\+Closed\+List\+Start} ()
+\item 
+\mbox{\Hypertarget{class_a_star_search_acf248c4f1beb0320f85850ec95c4782a}\label{class_a_star_search_acf248c4f1beb0320f85850ec95c4782a}} 
+User\+State $\ast$ {\bfseries Get\+Closed\+List\+Start} (float \&f, float \&g, float \&h)
+\item 
+\mbox{\Hypertarget{class_a_star_search_a4fa7ad2245e527b6999fdf99710889ae}\label{class_a_star_search_a4fa7ad2245e527b6999fdf99710889ae}} 
+User\+State $\ast$ {\bfseries Get\+Closed\+List\+Next} ()
+\item 
+\mbox{\Hypertarget{class_a_star_search_a9076c0338c6e65c7dd917c0e320e09a6}\label{class_a_star_search_a9076c0338c6e65c7dd917c0e320e09a6}} 
+User\+State $\ast$ {\bfseries Get\+Closed\+List\+Next} (float \&f, float \&g, float \&h)
+\item 
+\mbox{\Hypertarget{class_a_star_search_a4b23e8ba7ffe537c3ff61d875eec669f}\label{class_a_star_search_a4b23e8ba7ffe537c3ff61d875eec669f}} 
+int {\bfseries Get\+Step\+Count} ()
+\item 
+\mbox{\Hypertarget{class_a_star_search_aad02aa16beecec7f509d4f5e4d6b59fa}\label{class_a_star_search_aad02aa16beecec7f509d4f5e4d6b59fa}} 
+void {\bfseries Ensure\+Memory\+Freed} ()
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Wave\+Game/stlastar.\+h\end{DoxyCompactItemize}

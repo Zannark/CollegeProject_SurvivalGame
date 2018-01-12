@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['map',['Map',['../class_engine_1_1_core_1_1_map.html',1,'Engine::Core']]],
-  ['maploader',['MapLoader',['../class_engine_1_1_core_1_1_map_loader.html',1,'Engine::Core']]],
-  ['move',['Move',['../class_engine_1_1_core_1_1_game_texture.html#af0169ac026c5b15cb3195d1199b13d33',1,'Engine::Core::GameTexture']]]
+  ['init',['Init',['../class_game_time.html#a1f310e807ddb53d1a1278c4a0a2785ed',1,'GameTime']]],
+  ['ispropatposition',['IsPropAtPosition',['../class_engine_1_1_core_1_1_map.html#a5d17ba161757b4b971dba919e7e0b1c1',1,'Engine::Core::Map']]]
 ];
