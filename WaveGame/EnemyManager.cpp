@@ -1,6 +1,6 @@
 #include "EnemyManager.h"
 
-Engine::GamePlay::EnemyManager::EnemyManager(RenderWindow * Window, shared_ptr<Player> P, mt19937* Generator)
+Engine::GamePlay::EnemyManager::EnemyManager(RenderWindow * Window, Player* P, mt19937* Generator)
 {
 	this->CurrentWave = 0;
 	this->State = MatchState::NewMatch;
@@ -68,8 +68,14 @@ void Engine::GamePlay::EnemyManager::Update(RenderWindow* Window, Map M, float d
 
 		for (int i = 0; i < (DEFAULT_ENEMY_COUNT + CurrentWave); i++)
 		{
-			float x = (float)(rand() % Window->getSize().x);
-			float y = (float)(rand() % Window->getSize().y);
+			float x;
+			float y;
+
+			do 
+			{
+				x = (float)(rand() % Window->getSize().x);
+				y = (float)(rand() % Window->getSize().y);
+			} while (Vector2f(x, y) == P->GetPosition() || Vector2f(x, y) == AlignPlayer((void*)P));
 
 			this->Enemies.push_back(new Enemy(Vector2f(x, y), Window, this->P, this->RandomNumber(*this->Generator)));
 		}

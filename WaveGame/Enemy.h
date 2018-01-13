@@ -35,7 +35,7 @@ namespace Engine::GamePlay
 	class Enemy : public Character
 	{
 	public:
-		Enemy(Vector2f Position, RenderWindow* Window, shared_ptr<Player> P, float Speed);
+		Enemy(Vector2f Position, RenderWindow* Window, Player* P, float Speed);
 		~Enemy();
 
 		void Update(RenderWindow* Window, Map M, float dt);
@@ -45,7 +45,7 @@ namespace Engine::GamePlay
 		void FindPath(void);
 		void CheckDistance(void);
 		void Attack(void);
-		Vector2f AlignPlayer(void);
+		//Vector2f AlignPlayer(void);
 
 		bool HasStarted;
 		bool FinishedPath;
@@ -59,7 +59,7 @@ namespace Engine::GamePlay
 		NavigationNode EndNode;
 		NavigationNode *CurrentNode;
 		RenderWindow* Window;
-		shared_ptr<Player> P;
+		Player* P;
 		AStarSearch<NavigationNode> Search;
 	};
 }

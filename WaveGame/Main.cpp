@@ -23,7 +23,7 @@ int main(int argc, char** argv)
 	RenderWindow* Window = new RenderWindow(VideoMode(800, 600, 32), "Game", Style::Close | Style::Titlebar);
 	Event E;
 	
-	shared_ptr<Engine::GamePlay::Player> P = make_shared<Engine::GamePlay::Player>();
+	Player* P = new Engine::GamePlay::Player();
 	Engine::Core::Map M = Engine::Core::MapLoader::Load("Test.xml", Window);
 	Engine::Core::CreateNavigationMesh(Window, *P, M);
 	Engine::GamePlay::EnemyManager* Enemies = new Engine::GamePlay::EnemyManager(Window, P, Generator);

@@ -1,5 +1,8 @@
 #include "Common.h"
 
+#include "Enemy.h"
+#include "Player.h"
+
 #ifdef UNITTEST
 #include <doctest\doctest.h>
 #endif
@@ -192,5 +195,15 @@ namespace Engine::Misc
 	float NormaliseToRange(float Min, float Max, float Data)
 	{
 		return (Data - Min) / (Max - Min);
+	}
+	///<summary>
+	///Aligned the player within Nodes.
+	///</summary>
+	sf::Vector2f AlignPlayer(void* P)
+	{
+		int AlignedX = (int)(((Player*)P)->GetPosition().x / NAVIGATION_NODE_DISTANCE) * NAVIGATION_NODE_DISTANCE;
+		int AlignedY = (int)(((Player*)P)->GetPosition().y / NAVIGATION_NODE_DISTANCE) * NAVIGATION_NODE_DISTANCE;
+
+		return Vector2f((float)AlignedX, (float)AlignedY);
 	}
 }

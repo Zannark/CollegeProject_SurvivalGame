@@ -1,6 +1,6 @@
 #include "Enemy.h"
 
-Engine::GamePlay::Enemy::Enemy(Vector2f Position, RenderWindow* Window, shared_ptr<Player> P, float Speed)
+Engine::GamePlay::Enemy::Enemy(Vector2f Position, RenderWindow* Window, Player* P, float Speed)
 {
 	this->Texture = make_shared<GameTexture>(TextureCache::Cache.Access("Assets/Enemy.png"));
 	this->Texture->SetPosition(Position);
@@ -10,7 +10,7 @@ Engine::GamePlay::Enemy::Enemy(Vector2f Position, RenderWindow* Window, shared_p
 	this->SearchState = 0;
 	this->MovementPercentage = 0;
 	this->StartNode = NavigationNode(Position, Window, false);
-	this->EndNode = NavigationNode(this->AlignPlayer(), Window, false);
+	this->EndNode = NavigationNode(AlignPlayer((void*)P), Window, false);
 	this->Search.SetStartAndGoalStates(this->StartNode, this->EndNode);
 	this->HasStarted = false;
 	this->FinishedPath = false;
@@ -66,7 +66,7 @@ void Engine::GamePlay::Enemy::FindPath(void)
 
 	if (this->SearchState == AStarSearch<NavigationNode>::SEARCH_STATE_FAILED)
 	{
-		cout << "Failed" << endl;
+		this->Health = 0;
 	}
 
 	if (this->SearchState == AStarSearch<NavigationNode>::SEARCH_STATE_SUCCEEDED)
@@ -80,10 +80,10 @@ void Engine::GamePlay::Enemy::FindPath(void)
 		{
 			if (this->MovementPercentage >= 1)
 			{
-				if (this->EndNode.Position != this->AlignPlayer())
+				if (this->EndNode.Position != AlignPlayer((void*)P))
 				{
 					this->Search.FreeSolutionNodes();
-					this->EndNode = NavigationNode(this->AlignPlayer(), Window, false);
+					this->EndNode = NavigationNode(AlignPlayer((void*)P), Window, false);
 					this->StartNode = NavigationNode(this->GetPosition(), Window, false);
 
 					this->Search.SetStartAndGoalStates(this->StartNode, this->EndNode);
@@ -151,16 +151,5 @@ void Engine::GamePlay::Enemy::Attack(void)
 		this->AttackTimer += GameTime::DeltaTime();
 
 	this->State = EnemyState::CheckDistance;
-}
-
-///<summary>
-///Aligned the player within Nodes.
-///</summary>
-Vector2f Engine::GamePlay::Enemy::AlignPlayer(void)
-{
-	int AlignedX = (int)(P->GetPosition().x / NAVIGATION_NODE_DISTANCE) * NAVIGATION_NODE_DISTANCE;
-	int AlignedY = (int)(P->GetPosition().y / NAVIGATION_NODE_DISTANCE) * NAVIGATION_NODE_DISTANCE;
-
-	return Vector2f((float)AlignedX, (float)AlignedY);
 }
 

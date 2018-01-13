@@ -33,7 +33,7 @@ namespace Engine::GamePlay
 	class EnemyManager
 	{
 	public:
-		EnemyManager(RenderWindow* Window, shared_ptr<Player> P, mt19937* Generator);
+		EnemyManager(RenderWindow* Window, Player* P, mt19937* Generator);
 		~EnemyManager();
 
 		void Update(RenderWindow* Window, Map M, float dt);
@@ -42,7 +42,7 @@ namespace Engine::GamePlay
 		vector<Enemy*> GetEnemiesInRange(FloatRect BoundingBox);
 
 	private:
-		shared_ptr<Player> P;
+		Player* P;
 		vector<Enemy*> Enemies;
 		int CurrentWave;
 		float IntervalTimer;
