@@ -5,6 +5,7 @@
 #include "GameTime.h"
 #include "Enemy.h"
 #include "EnemyManager.h"
+#include "SpeedPowerUp.h"
 #include <SFML\Graphics.hpp>
 #include <array>
 #include <random>
@@ -38,6 +39,8 @@ int main(int argc, char** argv)
 	EndGameText.setPosition(Vector2f((Window->getSize().x / 2) - EndGameText.getCharacterSize() * 2.5, (Window->getSize().y / 2) - EndGameText.getCharacterSize() * 2));
 	EndGameText.setString(EndGameMessage);
 
+	SpeedPowerUp* Power = new SpeedPowerUp(Vector2f(400, 500));
+	Power->InitBasicPowerUp();
 	while (Window->isOpen())
 	{
 		while (Window->pollEvent(E))
@@ -50,6 +53,9 @@ int main(int argc, char** argv)
 
 		if (P->CheckHealth())
 		{
+			if (Power)
+				Power->Update(P, GameTime::DeltaTime());
+
 			P->Update(Window, M, GameTime::DeltaTime());
 			Enemies->Update(Window, M, GameTime::DeltaTime());
 			Window->clear(Color(0, 0, 0, 255));
@@ -58,6 +64,9 @@ int main(int argc, char** argv)
 			P->DrawWeapon(Window);
 			P->Draw(Window);
 			M.DrawProps(Window);
+
+			if(Power)
+				Power->Draw(Window);
 
 			Enemies->Draw(Window);
 			P->DrawUI(Window);
@@ -75,6 +84,7 @@ int main(int argc, char** argv)
 	delete Window;
 	delete Enemies;
 	delete Generator;
+	delete Power;
 
 	return 0;
 }

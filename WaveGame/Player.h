@@ -34,6 +34,8 @@ namespace Engine::GamePlay
 		void RegenHalfMissingHealth(void);
 		void DrawUI(RenderWindow* Window);
 		void DrawWeapon(RenderWindow* Window);
+		void SetSpeedModifier(float Modifier);
+		void SetPowerUp(void* PowerUp);
 
 		shared_ptr<GameTexture> GetPlayerWeapon(void) const;
 
@@ -48,11 +50,15 @@ namespace Engine::GamePlay
 
 		int OldHealth;
 		float MovementSpeed;
+		float MovementSpeedModifer;
 		float AttackTimer;
 		void* Manager;
 
 		shared_ptr<GameTexture> PlayerWeapon;
 		RectangleShape HealthBar;
 		RectangleShape HealthBarOutLine;
+
+		//HACK: This is dirty.
+		void* PowerUp;
 	};
 }

@@ -1,11 +1,14 @@
 #include "Player.h"
 #include "EnemyManager.h"
+#include "PowerUpBase.h"
+#include "SpeedPowerUp.h"
 
 Engine::GamePlay::Player::Player()
 {
 	this->Texture = make_shared<GameTexture>(TextureCache::Cache.Access("Assets/Player.png"));
 	this->PlayerWeapon = make_shared<GameTexture>(TextureCache::Cache.Access("Assets/PlayerWeapon.png"));
 	this->MovementSpeed = 150.0f;
+	this->MovementSpeedModifer = 0.f;
 	this->Health = PLAYER_MAX_HEALTH;
 	this->OldHealth = PLAYER_MAX_HEALTH;
 
@@ -13,7 +16,6 @@ Engine::GamePlay::Player::Player()
 	this->Texture->SetPosition(Vector2f(400, 400));
 
 	this->PlayerWeapon->SetOrigin(Vector2f(this->PlayerWeapon->GetSize().x / 2, this->PlayerWeapon->GetSize().y - 4));
-	//this->PlayerWeapon->GetSFMLTexture()->setSmooth(true);
 
 	this->HealthBar = RectangleShape(Vector2f(200, 15));
 	this->HealthBar.setFillColor(Color(188, 28, 28));
@@ -29,6 +31,8 @@ Engine::GamePlay::Player::Player()
 
 	this->IsAlive = true;
 	this->AttackTimer = PLAYER_ATTACK_INTERVAL;
+
+	this->PowerUp = nullptr;
 }
 
 Engine::GamePlay::Player::~Player()
@@ -48,6 +52,19 @@ void Engine::GamePlay::Player::Update(RenderWindow* Window, Map M, float dt)
 		this->HandleMovement(Window, M, dt);
 		this->HandleRotation(Window, dt);
 
+		if (this->PowerUp)
+		{
+			if (Keyboard::isKeyPressed(Keyboard::Key::E))
+				((PowerUpBase*)this->PowerUp)->OnUse(this);
+
+			if (((PowerUpBase*)this->PowerUp)->GetNeedsToBeDestroyed())
+			{
+				((PowerUpBase*)this->PowerUp)->OnUseEnd(this);
+				delete this->PowerUp;
+				this->PowerUp = nullptr;
+			}
+		}
+		
 		Vector2f WeaponPosition = this->GetPosition();
 		this->PlayerWeapon->SetPosition(WeaponPosition);
 		this->PlayerWeapon->SetRotation(this->Angle + 90);
@@ -89,16 +106,16 @@ void Engine::GamePlay::Player::HandleMovement(RenderWindow* Window, Map M, float
 	Vector2f Offset = Vector2f(0, 0);
 
 	if (Keyboard::isKeyPressed(Keyboard::Key::W) && this->GetPosition().y - (this->Texture->GetSFMLTexture()->getSize().y / 2) > 0)
-		Offset.y -= this->MovementSpeed * dt;
+		Offset.y -= (this->MovementSpeed + this->MovementSpeedModifer) * dt;
 
 	if (Keyboard::isKeyPressed(Keyboard::Key::S) && this->GetPosition().y + (this->Texture->GetSFMLTexture()->getSize().y / 2) < Window->getSize().y)
-		Offset.y += this->MovementSpeed * dt;
+		Offset.y += (this->MovementSpeed + this->MovementSpeedModifer) * dt;
 
 	if (Keyboard::isKeyPressed(Keyboard::Key::A) && this->GetPosition().x - (this->Texture->GetSFMLTexture()->getSize().y / 2) > 0)
-		Offset.x -= this->MovementSpeed * dt;
+		Offset.x -= (this->MovementSpeed + this->MovementSpeedModifer) * dt;
 
 	if (Keyboard::isKeyPressed(Keyboard::Key::D) && this->GetPosition().x + (this->Texture->GetSFMLTexture()->getSize().y / 2) < Window->getSize().x)
-		Offset.x += this->MovementSpeed * dt;
+		Offset.x += (this->MovementSpeed + this->MovementSpeedModifer) * dt;
 
 	this->Texture->Move(Offset);
 }
@@ -178,6 +195,16 @@ void Engine::GamePlay::Player::DrawUI(RenderWindow * Window)
 void Engine::GamePlay::Player::DrawWeapon(RenderWindow * Window)
 {
 	this->PlayerWeapon->Draw(Window);
+}
+
+void Engine::GamePlay::Player::SetSpeedModifier(float Modifier)
+{
+	this->MovementSpeedModifer = Modifier;
+}
+
+void Engine::GamePlay::Player::SetPowerUp(void* PowerUp)
+{
+	this->PowerUp = PowerUp;
 }
 
 shared_ptr<GameTexture> Engine::GamePlay::Player::GetPlayerWeapon(void) const
