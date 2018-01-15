@@ -54,11 +54,14 @@ void Engine::GamePlay::Player::Update(RenderWindow* Window, Map M, float dt)
 
 		if (this->PowerUp)
 		{
-			if (Keyboard::isKeyPressed(Keyboard::Key::E) && ((PowerUpBase*)this->PowerUp)->GetNeedsToBeDestroyed())
+			if (Keyboard::isKeyPressed(Keyboard::Key::E) && !((PowerUpBase*)this->PowerUp)->GetNeedsToBeDestroyed())
 				((PowerUpBase*)this->PowerUp)->OnUse(this);
 
 			if (((PowerUpBase*)this->PowerUp)->GetNeedsToBeDestroyed())
+			{
 				((PowerUpBase*)this->PowerUp)->OnUseEnd(this);
+				this->PowerUp = nullptr;
+			}
 		}
 		
 		Vector2f WeaponPosition = this->GetPosition();

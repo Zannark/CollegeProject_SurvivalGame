@@ -6,7 +6,7 @@ Engine::GamePlay::SpeedPowerUp::SpeedPowerUp(Vector2f Position)
 {
 	this->Texture = make_shared<GameTexture>(TextureCache::Cache("Assets/SpeedPowerUp.png"));
 	this->Texture->SetPosition(Position);
-	this->ActiveTime = 1.5f;
+	this->ActiveTime = 2.f;
 }
 
 void Engine::GamePlay::SpeedPowerUp::OnUse(Player* P)
@@ -27,6 +27,3 @@ void Engine::GamePlay::SpeedPowerUp::OnUseEnd(Player* P)
 {
 	PowerUpBase::Update(P, dt);
 }*/
-
-
-

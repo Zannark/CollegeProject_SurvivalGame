@@ -6,7 +6,7 @@
 
 using namespace Engine::Core;
 
-#define SPEED_BOOST_MULTIPLIER 10.f
+#define SPEED_BOOST_MULTIPLIER 1.5f
 
 namespace Engine::GamePlay 
 {
