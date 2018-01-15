@@ -5,7 +5,7 @@
 #include "GameTime.h"
 #include "Enemy.h"
 #include "EnemyManager.h"
-#include "SpeedPowerUp.h"
+#include "PowerUpManager.h"
 #include <SFML\Graphics.hpp>
 #include <array>
 #include <random>
@@ -21,7 +21,7 @@ int main(int argc, char** argv)
 	mt19937* Generator = new mt19937();
 
 	Engine::Core::InitTextureCache();
-	RenderWindow* Window = new RenderWindow(VideoMode(800, 600, 32), "Game", Style::Close | Style::Titlebar);
+	RenderWindow* Window = new RenderWindow(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT, 32), "Super Mega Awesome Game Extreme", Style::Close | Style::Titlebar);
 	Event E;
 	
 	Player* P = new Engine::GamePlay::Player();
@@ -39,8 +39,8 @@ int main(int argc, char** argv)
 	EndGameText.setPosition(Vector2f((Window->getSize().x / 2) - EndGameText.getCharacterSize() * 2.5, (Window->getSize().y / 2) - EndGameText.getCharacterSize() * 2));
 	EndGameText.setString(EndGameMessage);
 
-	SpeedPowerUp* Power = new SpeedPowerUp(Vector2f(400, 500));
-	Power->InitBasicPowerUp();
+	PowerUpManager PowerUps;
+
 	while (Window->isOpen())
 	{
 		while (Window->pollEvent(E))
@@ -53,21 +53,16 @@ int main(int argc, char** argv)
 
 		if (P->CheckHealth())
 		{
-			if (Power)
-				Power->Update(P, GameTime::DeltaTime());
-
 			P->Update(Window, M, GameTime::DeltaTime());
 			Enemies->Update(Window, M, GameTime::DeltaTime());
+			PowerUps.Update(P, GameTime::DeltaTime());
 			Window->clear(Color(0, 0, 0, 255));
 
 			M.DrawBackground(Window);
 			P->DrawWeapon(Window);
 			P->Draw(Window);
 			M.DrawProps(Window);
-
-			if(Power)
-				Power->Draw(Window);
-
+			PowerUps.Draw(Window);
 			Enemies->Draw(Window);
 			P->DrawUI(Window);
 		}
@@ -84,7 +79,6 @@ int main(int argc, char** argv)
 	delete Window;
 	delete Enemies;
 	delete Generator;
-	delete Power;
 
 	return 0;
 }

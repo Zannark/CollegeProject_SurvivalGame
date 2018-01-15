@@ -15,13 +15,14 @@ namespace Engine::Core
 		PowerUpBase() = default;
 		~PowerUpBase() = default;
 
-		virtual void OnUse(Player* P) = 0;
-		virtual void OnUseEnd(Player* P) = 0;
+		virtual void OnUse(Player* P);
+		virtual void OnUseEnd(Player* P);
 		virtual void Update(Player* P, float dt);
 		void Draw(RenderWindow* Wnd);
 		void InitBasicPowerUp(void);
 
 		bool GetNeedsToBeDestroyed(void);
+		bool GetCollected(void);
 
 	protected:
 		shared_ptr<GameTexture> Texture;

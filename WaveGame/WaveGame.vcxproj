@@ -233,6 +233,7 @@
     <ClCompile Include="NavigationNode.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PowerUpBase.cpp" />
+    <ClCompile Include="PowerUpManager.cpp" />
     <ClCompile Include="SFML_Collision.cpp" />
     <ClCompile Include="SpeedPowerUp.cpp" />
     <ClCompile Include="VectorMaths.cpp" />
@@ -249,6 +250,7 @@
     <ClInclude Include="NavigationNode.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PowerUpBase.h" />
+    <ClInclude Include="PowerUpManager.h" />
     <ClInclude Include="SFML_Collision.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="GameTime.h" />

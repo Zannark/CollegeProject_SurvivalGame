@@ -8,7 +8,7 @@ Engine::GamePlay::Player::Player()
 	this->Texture = make_shared<GameTexture>(TextureCache::Cache.Access("Assets/Player.png"));
 	this->PlayerWeapon = make_shared<GameTexture>(TextureCache::Cache.Access("Assets/PlayerWeapon.png"));
 	this->MovementSpeed = 150.0f;
-	this->MovementSpeedModifer = 0.f;
+	this->MovementSpeedModifer = 1.f;
 	this->Health = PLAYER_MAX_HEALTH;
 	this->OldHealth = PLAYER_MAX_HEALTH;
 
@@ -54,15 +54,11 @@ void Engine::GamePlay::Player::Update(RenderWindow* Window, Map M, float dt)
 
 		if (this->PowerUp)
 		{
-			if (Keyboard::isKeyPressed(Keyboard::Key::E))
+			if (Keyboard::isKeyPressed(Keyboard::Key::E) && ((PowerUpBase*)this->PowerUp)->GetNeedsToBeDestroyed())
 				((PowerUpBase*)this->PowerUp)->OnUse(this);
 
 			if (((PowerUpBase*)this->PowerUp)->GetNeedsToBeDestroyed())
-			{
 				((PowerUpBase*)this->PowerUp)->OnUseEnd(this);
-				delete this->PowerUp;
-				this->PowerUp = nullptr;
-			}
 		}
 		
 		Vector2f WeaponPosition = this->GetPosition();
@@ -106,16 +102,16 @@ void Engine::GamePlay::Player::HandleMovement(RenderWindow* Window, Map M, float
 	Vector2f Offset = Vector2f(0, 0);
 
 	if (Keyboard::isKeyPressed(Keyboard::Key::W) && this->GetPosition().y - (this->Texture->GetSFMLTexture()->getSize().y / 2) > 0)
-		Offset.y -= (this->MovementSpeed + this->MovementSpeedModifer) * dt;
+		Offset.y -= (this->MovementSpeed * this->MovementSpeedModifer) * dt;
 
 	if (Keyboard::isKeyPressed(Keyboard::Key::S) && this->GetPosition().y + (this->Texture->GetSFMLTexture()->getSize().y / 2) < Window->getSize().y)
-		Offset.y += (this->MovementSpeed + this->MovementSpeedModifer) * dt;
+		Offset.y += (this->MovementSpeed * this->MovementSpeedModifer) * dt;
 
 	if (Keyboard::isKeyPressed(Keyboard::Key::A) && this->GetPosition().x - (this->Texture->GetSFMLTexture()->getSize().y / 2) > 0)
-		Offset.x -= (this->MovementSpeed + this->MovementSpeedModifer) * dt;
+		Offset.x -= (this->MovementSpeed * this->MovementSpeedModifer) * dt;
 
 	if (Keyboard::isKeyPressed(Keyboard::Key::D) && this->GetPosition().x + (this->Texture->GetSFMLTexture()->getSize().y / 2) < Window->getSize().x)
-		Offset.x += (this->MovementSpeed + this->MovementSpeedModifer) * dt;
+		Offset.x += (this->MovementSpeed * this->MovementSpeedModifer) * dt;
 
 	this->Texture->Move(Offset);
 }

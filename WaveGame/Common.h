@@ -10,6 +10,8 @@
 #include <math.h>
 
 #define PI 3.141592653
+#define WINDOW_WIDTH 800
+#define WINDOW_HEIGHT 600
 namespace FS = std::experimental::filesystem;
 
 ///<summary>
