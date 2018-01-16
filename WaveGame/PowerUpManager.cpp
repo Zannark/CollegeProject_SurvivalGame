@@ -9,6 +9,7 @@ void SetUpRarities(void)
 	IsRaritySetUp = true;
 
 	PowerUpRarities["Speed Boost"] = 10;
+	PowerUpRarities["Damage Boost"] = 15;
 }
 
 Engine::GamePlay::PowerUpManager::PowerUpManager()
@@ -30,6 +31,8 @@ void Engine::GamePlay::PowerUpManager::SpawnPowerUps(Player* P)
 			int SpawnValue = rand() % It->second;
 			Vector2f Position = Vector2f((float)(rand() % (WINDOW_WIDTH - POWER_UP_TEXTURE_SIZE)), (float)(rand() % (WINDOW_HEIGHT - POWER_UP_TEXTURE_SIZE)));
 
+			cout << "Needed : " << PreviousRarity % 1 << " | Got : " << SpawnValue << endl;
+
 			///SpeedPowerUp
 			if (SpawnValue >= (PreviousRarity + 1))
 			{
@@ -37,6 +40,15 @@ void Engine::GamePlay::PowerUpManager::SpawnPowerUps(Player* P)
 				Power->InitBasicPowerUp();
 				this->SpawnedPowerUps.push_back(Power);
 				this->Timer = 0;
+				break;
+			}
+			else if (SpawnValue >= (PreviousRarity + 1))
+			{
+				auto Power = new DamagePowerUp(Position);
+				Power->InitBasicPowerUp();
+				this->SpawnedPowerUps.push_back(Power);
+				this->Timer = 0;
+				break;
 			}
 		}
 	}

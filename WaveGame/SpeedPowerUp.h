@@ -6,7 +6,7 @@
 
 using namespace Engine::Core;
 
-#define SPEED_BOOST_MULTIPLIER 2.f
+#define SPEED_BOOST_MULTIPLIER 2.5f
 
 namespace Engine::GamePlay 
 {
@@ -18,7 +18,6 @@ namespace Engine::GamePlay
 
 		virtual void OnUse(Player* P) override;
 		virtual void OnUseEnd(Player* P) override;
-		//virtual void Update(Player* P, float dt) override;
 	};
 }
 

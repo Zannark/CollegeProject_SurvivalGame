@@ -7,12 +7,13 @@
 #include "Player.h"
 #include "PowerUpBase.h"
 #include "SpeedPowerUp.h"
+#include "DamagePowerUp.h"
 
 using namespace std;
 using namespace sf;
 using namespace Engine::Core;
 
-#define POWER_UP_MANAGER_MINIMUM_SPAWN_LIMIT 10.0f //Seconds
+#define POWER_UP_MANAGER_MINIMUM_SPAWN_LIMIT 18.0f //Seconds
 #define POWER_UP_MANAGER_MAXIMUM_POWER_UP 4
 #define POWER_UP_TEXTURE_SIZE 32
 

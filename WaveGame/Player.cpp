@@ -9,6 +9,7 @@ Engine::GamePlay::Player::Player()
 	this->PlayerWeapon = make_shared<GameTexture>(TextureCache::Cache.Access("Assets/PlayerWeapon.png"));
 	this->MovementSpeed = 150.0f;
 	this->MovementSpeedModifer = 1.f;
+	this->AttackDamageModifier = 1;
 	this->Health = PLAYER_MAX_HEALTH;
 	this->OldHealth = PLAYER_MAX_HEALTH;
 
@@ -92,9 +93,10 @@ void Engine::GamePlay::Player::Attack(void)
 
 	for(auto En : Enemies)
 	{
-		int AttackDamage = rand() % PLAYER_MAX_ATTACK_DAMAGE;
-
+		int AttackDamage = rand() % (PLAYER_MAX_ATTACK_DAMAGE * this->AttackDamageModifier);
 		En->TakeDamage(AttackDamage);
+
+		cout << AttackDamage << endl;
 	}
 
 	this->AttackTimer = 0;
@@ -203,11 +205,25 @@ void Engine::GamePlay::Player::DrawWeapon(RenderWindow * Window)
 	this->PlayerWeapon->Draw(Window);
 }
 
+///<summary>
+///Sets the Movement Speec modifier.
+///</summary>
+///<param name = "Modifier">The modifier to apply to the movement speed.</param>
 void Engine::GamePlay::Player::SetSpeedModifier(float Modifier)
 {
 	this->MovementSpeedModifer = Modifier;
 }
 
+void Engine::GamePlay::Player::SetDamageModifier(int Modifier)
+{
+	this->AttackDamageModifier = Modifier;
+}
+
+///<summary>
+///If the current power up is a nullptr, then it'll be assigned.
+///Otherwise the passed power up will be flaged for destruction.
+///</summary>
+///<param name = "Power">The new power up which was walked over.</param>
 void Engine::GamePlay::Player::SetPowerUp(void* Power)
 {
 	if (!this->PowerUp)
@@ -216,14 +232,23 @@ void Engine::GamePlay::Player::SetPowerUp(void* Power)
 		((PowerUpBase*)Power)->SetNeedsToBeDestroyed(true);
 }
 
+///<summary>
+///Sets the power up text.
+///</summary>
+///<param name = "PowerUpMark">The power up name, to be displayed on the UI.</param>
 void Engine::GamePlay::Player::SetPowerUpText(string PowerUpName)
 {
-	if(this->PowerUp){
+	if(this->PowerUp)
+	{
 		this->PowerUpName = PowerUpName;
 		this->PowerUpText.setString(this->PowerUpName);
 	}
 }
 
+///<summary>
+///Gets a pointer to the player weapon.
+///</summary>
+///<returns>The pointer to the player weapon.</returns>
 shared_ptr<GameTexture> Engine::GamePlay::Player::GetPlayerWeapon(void) const
 {
 	return this->PlayerWeapon;

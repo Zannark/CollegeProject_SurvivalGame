@@ -35,6 +35,7 @@ namespace Engine::GamePlay
 		void DrawUI(RenderWindow* Window);
 		void DrawWeapon(RenderWindow* Window);
 		void SetSpeedModifier(float Modifier);
+		void SetDamageModifier(int Modifier);
 		void SetPowerUp(void* Power);
 		void SetPowerUpText(string PowerUpName);
 
@@ -53,6 +54,7 @@ namespace Engine::GamePlay
 		float MovementSpeed;
 		float MovementSpeedModifer;
 		float AttackTimer;
+		int AttackDamageModifier;
 		void* Manager;
 
 		shared_ptr<GameTexture> PlayerWeapon;

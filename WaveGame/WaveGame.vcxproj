@@ -223,6 +223,7 @@
   <ItemGroup>
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="Common.cpp" />
+    <ClCompile Include="DamagePowerUp.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyManager.cpp" />
     <ClCompile Include="GameTexture.cpp" />
@@ -241,6 +242,7 @@
   <ItemGroup>
     <ClInclude Include="Cache.h" />
     <ClInclude Include="Character.h" />
+    <ClInclude Include="DamagePowerUp.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyManager.h" />
     <ClInclude Include="fsa.h" />

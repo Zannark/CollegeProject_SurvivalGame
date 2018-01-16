@@ -123,4 +123,5 @@ void Engine::Core::InitTextureCache()
 	TextureCache::Cache.Add("Assets/Enemy.png", GameTexture("Assets/Enemy.png"));
 	TextureCache::Cache.Add("Assets/PlayerWeapon.png", GameTexture("Assets/PlayerWeapon.png"));
 	TextureCache::Cache.Add("Assets/SpeedPowerUp.png", GameTexture("Assets/SpeedPowerUp.png"));
+	TextureCache::Cache.Add("Assets/DamagePowerUp.png", GameTexture("Assets/DamagePowerUp.png"));
 }
