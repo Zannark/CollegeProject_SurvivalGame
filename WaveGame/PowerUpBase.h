@@ -20,7 +20,7 @@ namespace Engine::Core
 		virtual void Update(Player* P, float dt);
 		void Draw(RenderWindow* Wnd);
 		void InitBasicPowerUp(void);
-
+		void SetNeedsToBeDestroyed(bool Delete);
 		bool GetNeedsToBeDestroyed(void);
 		bool GetCollected(void);
 

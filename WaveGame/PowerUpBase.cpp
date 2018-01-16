@@ -14,6 +14,11 @@ void Engine::Core::PowerUpBase::InitBasicPowerUp(void)
 	this->HasBeenUsed = false;
 }
 
+void Engine::Core::PowerUpBase::SetNeedsToBeDestroyed(bool Delete)
+{
+	this->NeedsToBeDestroyed = true;
+}
+
 bool Engine::Core::PowerUpBase::GetNeedsToBeDestroyed(void)
 {
 	return this->NeedsToBeDestroyed;

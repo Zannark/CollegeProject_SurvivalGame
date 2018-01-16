@@ -22,8 +22,3 @@ void Engine::GamePlay::SpeedPowerUp::OnUseEnd(Player* P)
 {
 	P->SetSpeedModifier(1);
 }
-
-/*void Engine::GamePlay::SpeedPowerUp::Update(Player* P, float dt)
-{
-	PowerUpBase::Update(P, dt);
-}*/

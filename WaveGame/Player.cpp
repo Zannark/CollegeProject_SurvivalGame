@@ -203,7 +203,10 @@ void Engine::GamePlay::Player::SetSpeedModifier(float Modifier)
 
 void Engine::GamePlay::Player::SetPowerUp(void* PowerUp)
 {
-	this->PowerUp = PowerUp;
+	if (!this->PowerUp)
+		this->PowerUp = PowerUp;
+	else
+		((PowerUpBase*)this->PowerUp)->SetNeedsToBeDestroyed(true);
 }
 
 shared_ptr<GameTexture> Engine::GamePlay::Player::GetPlayerWeapon(void) const
