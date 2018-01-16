@@ -8,7 +8,7 @@ void SetUpRarities(void)
 {
 	IsRaritySetUp = true;
 
-	PowerUpRarities["SpeedBoost"] = 10;
+	PowerUpRarities["Speed Boost"] = 10;
 }
 
 Engine::GamePlay::PowerUpManager::PowerUpManager()
@@ -16,19 +16,19 @@ Engine::GamePlay::PowerUpManager::PowerUpManager()
 	this->Timer = 0;
 }
 
-void Engine::GamePlay::PowerUpManager::SpawnPowerUps(void)
+void Engine::GamePlay::PowerUpManager::SpawnPowerUps(Player* P)
 {
 	if (!IsRaritySetUp)
 		SetUpRarities();
 
-	if (this->SpawnedPowerUps.size() <= POWER_UP_MANAGER_MAXIMUM_POWER_UP && this->Timer >= POWER_UP_MANAGER_MINIMUM_SPAWN_LIMIT)
+	if (this->SpawnedPowerUps.size() < POWER_UP_MANAGER_MAXIMUM_POWER_UP && this->Timer >= POWER_UP_MANAGER_MINIMUM_SPAWN_LIMIT)
 	{
 		int PreviousRarity = -1;
 
 		for (map<string, int>::iterator It = PowerUpRarities.begin(); It != PowerUpRarities.end(); ++It)
 		{
 			int SpawnValue = rand() % It->second;
-			Vector2f Position = Vector2f((float)(rand() % WINDOW_WIDTH), (float)(rand() % WINDOW_HEIGHT));
+			Vector2f Position = Vector2f((float)(rand() % (WINDOW_WIDTH - POWER_UP_TEXTURE_SIZE)), (float)(rand() % (WINDOW_HEIGHT - POWER_UP_TEXTURE_SIZE)));
 
 			///SpeedPowerUp
 			if (SpawnValue >= (PreviousRarity + 1))
@@ -45,7 +45,7 @@ void Engine::GamePlay::PowerUpManager::SpawnPowerUps(void)
 void Engine::GamePlay::PowerUpManager::Update(Player * P, float dt)
 {
 	this->Timer += dt;
-	this->SpawnPowerUps();
+	this->SpawnPowerUps(P);
 
 	for (int i = 0; i < this->SpawnedPowerUps.size(); i++)
 	{

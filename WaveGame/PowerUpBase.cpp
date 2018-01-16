@@ -45,6 +45,7 @@ void Engine::Core::PowerUpBase::Update(Player* P, float dt)
 		{
 			this->HasBeenCollected = true;
 			P->SetPowerUp((void*)this);
+			P->SetPowerUpText(this->PowerUpName);
 		}
 	}
 	else if(this->HasBeenCollected && !this->NeedsToBeDestroyed && this->HasBeenUsed)

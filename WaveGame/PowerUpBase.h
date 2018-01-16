@@ -31,5 +31,6 @@ namespace Engine::Core
 		bool HasBeenUsed;
 		float ActiveTime; //How long the power up is active for after being picked up (int seconds).
 		float Timer;
+		string PowerUpName;
 	};
 }

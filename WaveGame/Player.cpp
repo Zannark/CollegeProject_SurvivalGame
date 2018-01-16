@@ -21,18 +21,23 @@ Engine::GamePlay::Player::Player()
 	this->HealthBar.setFillColor(Color(188, 28, 28));
 	this->HealthBar.setOutlineColor(Color::Transparent);
 	this->HealthBar.setOutlineThickness(1);
-	this->HealthBar.setPosition(Vector2f(10, 10));
+	this->HealthBar.setPosition(Vector2f(10, 13));
 
 	this->HealthBarOutLine = RectangleShape(Vector2f(200, 15));
 	this->HealthBarOutLine.setFillColor(Color::Transparent);
 	this->HealthBarOutLine.setOutlineColor(Color::Black);
 	this->HealthBarOutLine.setOutlineThickness(4);
-	this->HealthBarOutLine.setPosition(Vector2f(10, 10));
+	this->HealthBarOutLine.setPosition(Vector2f(10, 13));
 
 	this->IsAlive = true;
 	this->AttackTimer = PLAYER_ATTACK_INTERVAL;
 
 	this->PowerUp = nullptr;
+
+	this->PowerUpFont.loadFromFile("Assets/Heavy_Data.ttf");
+	this->PowerUpText.setFont(this->PowerUpFont);
+	this->PowerUpText.setColor(Color::Black);
+	this->PowerUpText.setPosition(Vector2f(225, 0));
 }
 
 Engine::GamePlay::Player::~Player()
@@ -61,6 +66,7 @@ void Engine::GamePlay::Player::Update(RenderWindow* Window, Map M, float dt)
 			{
 				((PowerUpBase*)this->PowerUp)->OnUseEnd(this);
 				this->PowerUp = nullptr;
+				this->PowerUpText.setString("");
 			}
 		}
 		
@@ -185,6 +191,7 @@ void Engine::GamePlay::Player::DrawUI(RenderWindow * Window)
 {
 	Window->draw(this->HealthBarOutLine);
 	Window->draw(this->HealthBar);
+	Window->draw(this->PowerUpText);
 }
 
 ///<summary>
@@ -201,12 +208,20 @@ void Engine::GamePlay::Player::SetSpeedModifier(float Modifier)
 	this->MovementSpeedModifer = Modifier;
 }
 
-void Engine::GamePlay::Player::SetPowerUp(void* PowerUp)
+void Engine::GamePlay::Player::SetPowerUp(void* Power)
 {
 	if (!this->PowerUp)
-		this->PowerUp = PowerUp;
+		this->PowerUp = Power;
 	else
-		((PowerUpBase*)this->PowerUp)->SetNeedsToBeDestroyed(true);
+		((PowerUpBase*)Power)->SetNeedsToBeDestroyed(true);
+}
+
+void Engine::GamePlay::Player::SetPowerUpText(string PowerUpName)
+{
+	if(this->PowerUp){
+		this->PowerUpName = PowerUpName;
+		this->PowerUpText.setString(this->PowerUpName);
+	}
 }
 
 shared_ptr<GameTexture> Engine::GamePlay::Player::GetPlayerWeapon(void) const

@@ -35,7 +35,8 @@ namespace Engine::GamePlay
 		void DrawUI(RenderWindow* Window);
 		void DrawWeapon(RenderWindow* Window);
 		void SetSpeedModifier(float Modifier);
-		void SetPowerUp(void* PowerUp);
+		void SetPowerUp(void* Power);
+		void SetPowerUpText(string PowerUpName);
 
 		shared_ptr<GameTexture> GetPlayerWeapon(void) const;
 
@@ -58,7 +59,9 @@ namespace Engine::GamePlay
 		RectangleShape HealthBar;
 		RectangleShape HealthBarOutLine;
 
-		//HACK: This is dirty.
 		void* PowerUp;
+		string PowerUpName;
+		Font PowerUpFont;
+		Text PowerUpText;
 	};
 }

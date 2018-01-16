@@ -14,6 +14,7 @@ using namespace Engine::Core;
 
 #define POWER_UP_MANAGER_MINIMUM_SPAWN_LIMIT 10.0f //Seconds
 #define POWER_UP_MANAGER_MAXIMUM_POWER_UP 4
+#define POWER_UP_TEXTURE_SIZE 32
 
 namespace Engine::GamePlay
 {
@@ -23,7 +24,7 @@ namespace Engine::GamePlay
 		PowerUpManager();
 		~PowerUpManager() = default;
 
-		void SpawnPowerUps(void);
+		void SpawnPowerUps(Player* P);
 		void Update(Player* P, float dt);
 		void Draw(RenderWindow* Window);
 
