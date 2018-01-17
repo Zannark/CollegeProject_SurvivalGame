@@ -227,7 +227,7 @@ void Engine::GamePlay::Player::SetPowerUp(void* Power)
 	if (!this->PowerUp)
 		this->PowerUp = Power;
 	else
-		((PowerUpBase*)Power)->SetNeedsToBeDestroyed(true);
+		((PowerUpBase*)Power)->SetNeedsToBeDestroyed();
 }
 
 ///<summary>

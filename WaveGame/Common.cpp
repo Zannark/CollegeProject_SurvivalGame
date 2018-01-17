@@ -187,15 +187,29 @@ namespace Engine::Misc
 	}
 #endif
 
+	///<summary>
+	///Tests if one vector is smaller than the other.
+	///</summary>
+	///<param name = "Element1">The first part of the test.</param>
+	///<param name = "Element2">The vector to test against element1.</param>
+	///<returns>True if element1 is smaller than element2.</returns>
 	bool VectorLessThan(Vector2i Element1, Vector2i Element2)
 	{
 		return (Element1.x < Element2.x) && (Element1.y < Element2.y);
 	}
 
+	///<summary>
+	///Scales a value down to fit between two values.
+	///</summary>
+	///<param name = "Min">The lowest value which the data can be.</param>
+	///<param name = "Max">The highest value the data can be.</param>
+	///<param name = "Data">The data to normalise.</param>
+	///<returns>The normalised data.</returns>
 	float NormaliseToRange(float Min, float Max, float Data)
 	{
 		return (Data - Min) / (Max - Min);
 	}
+
 	///<summary>
 	///Aligned the player within Nodes.
 	///</summary>

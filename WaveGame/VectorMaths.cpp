@@ -51,16 +51,34 @@ Vector2f Engine::Core::Perpendicular(Vector2f Vec)
 	return Vector2f(-Vec.y, Vec.x);
 }
 
+///<summary>
+///Lerps between two points
+///</summary>
+///<param name = "Start">The point where the lerp starts.</param>
+///<param name = "End">The point where the lerp ends.</param>
+///<param name = "t">The current progress in the lerp.</param>
+///<returns>The current result of lerping.</returns>
 Vector2f Engine::Core::Lerp(sf::Vector2f Start, sf::Vector2f End, float t)
 {
 	return Start + t * (End - Start);
 }
 
+///<summary>
+///Gets the absolute value of a vector.
+///</summary>
+///<param name = "Vec">The vector to get the value of.</param>
+///<returns>The absolute value.</returns>
 Vector2f Engine::Core::Abs(Vector2f Vec)
 {
 	return Vector2f(fabs(Vec.x), fabs(Vec.y));
 }
 
+///<summary>
+///Divides the vector by a value.
+///</summary>
+///<param name = "Vec">The vector to divide.</param>
+///<param name = "Factor">The value to divide by.</param>
+///<returns>The value of the divided vector.</returns>
 Vector2f Engine::Core::Div(Vector2f Vec, float Factor)
 {
 	return Vector2f(Vec.x / Factor, Vec.y / Factor);

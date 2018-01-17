@@ -4,6 +4,9 @@
 map<string, int> PowerUpRarities;
 bool IsRaritySetUp = false;
 
+///<summary>
+///Sets the level of rarity for the different power ups.
+///</summary>
 void SetUpRarities(void)
 {
 	IsRaritySetUp = true;
@@ -17,6 +20,11 @@ Engine::GamePlay::PowerUpManager::PowerUpManager()
 	this->Timer = 0;
 }
 
+///<summary>
+///This is called once per frame.
+///It randomly selects a new power up, every POWER_UP_MANAGER_MINIMUM_SPAWN_LIMIT seconds.
+///</summary>
+///<param name = "P">A pointer to the player.</param>
 void Engine::GamePlay::PowerUpManager::SpawnPowerUps(Player* P)
 {
 	if (!IsRaritySetUp)
@@ -40,6 +48,7 @@ void Engine::GamePlay::PowerUpManager::SpawnPowerUps(Player* P)
 				this->Timer = 0;
 				break;
 			}
+			///DamagePowerUp
 			else if (SpawnValue >= (PreviousRarity + 1))
 			{
 				auto Power = new DamagePowerUp(Position);
@@ -52,6 +61,13 @@ void Engine::GamePlay::PowerUpManager::SpawnPowerUps(Player* P)
 	}
 }
 
+///<summary>
+///Called once per frame.
+///Handles the spawning and the updating of indiviual power ups.
+///Deletes them when no longer needed.
+///</summary>
+///<param name = "P">A pointer to the player.</param>
+///<param name = "dt">Delta time.</param>
 void Engine::GamePlay::PowerUpManager::Update(Player * P, float dt)
 {
 	this->Timer += dt;
@@ -69,6 +85,10 @@ void Engine::GamePlay::PowerUpManager::Update(Player * P, float dt)
 	}
 }
 
+///<summary>
+///Renders the power ups to the screen.
+///</summary>
+///<param name = "Window">A pointer to the RenderWindow to draw to.</param>
 void Engine::GamePlay::PowerUpManager::Draw(RenderWindow * Window)
 {
 	for (auto PowerUp : this->SpawnedPowerUps)

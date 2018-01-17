@@ -57,11 +57,14 @@ bool Engine::Core::Character::CheckHealth(void)
 	return this->IsAlive;
 }
 
+///<summary>
+///Gets the GameTexture.
+///</summary>
+///<returns>A pointer to the GameTexture.</returns>
 shared_ptr<Engine::Core::GameTexture> Engine::Core::Character::GetGameTexure(void) const
 {
 	return this->Texture;
 }
-
 
 ///<summary>
 ///Sets the position of the player, within 2D space.

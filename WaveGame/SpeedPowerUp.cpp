@@ -8,6 +8,11 @@ Engine::GamePlay::SpeedPowerUp::SpeedPowerUp(Vector2f Position)
 	this->PowerUpName = "Speed Boost";
 }
 
+///<summary>
+///Called when the player presses the PowerUp use key.
+///Changes the players speed modifier.
+///</summary>
+///<param name = "P">A pointer to the player.</param>
 void Engine::GamePlay::SpeedPowerUp::OnUse(Player* P)
 {
 	if (!this->HasBeenUsed)
@@ -17,6 +22,11 @@ void Engine::GamePlay::SpeedPowerUp::OnUse(Player* P)
 	}
 }
 
+///<summary>
+///Called when the power up is out of time.
+///Changes the players speed modifier.
+///</summary>
+///<param name = "P">A pointer to the player.</param>
 void Engine::GamePlay::SpeedPowerUp::OnUseEnd(Player* P)
 {
 	P->SetSpeedModifier(1);
