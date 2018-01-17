@@ -31,10 +31,8 @@ void Engine::GamePlay::PowerUpManager::SpawnPowerUps(Player* P)
 			int SpawnValue = rand() % It->second;
 			Vector2f Position = Vector2f((float)(rand() % (WINDOW_WIDTH - POWER_UP_TEXTURE_SIZE)), (float)(rand() % (WINDOW_HEIGHT - POWER_UP_TEXTURE_SIZE)));
 
-			cout << "Needed : " << PreviousRarity % 1 << " | Got : " << SpawnValue << endl;
-
 			///SpeedPowerUp
-			if (SpawnValue >= (PreviousRarity + 1))
+			if (SpawnValue >= (PreviousRarity + 1) && SpawnValue < (++It)->second)
 			{
 				auto Power = new SpeedPowerUp(Position);
 				Power->InitBasicPowerUp();

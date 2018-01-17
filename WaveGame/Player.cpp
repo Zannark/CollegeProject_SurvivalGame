@@ -95,8 +95,6 @@ void Engine::GamePlay::Player::Attack(void)
 	{
 		int AttackDamage = rand() % (PLAYER_MAX_ATTACK_DAMAGE * this->AttackDamageModifier);
 		En->TakeDamage(AttackDamage);
-
-		cout << AttackDamage << endl;
 	}
 
 	this->AttackTimer = 0;
