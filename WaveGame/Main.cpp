@@ -36,8 +36,9 @@ int main(int argc, char** argv)
 	
 	EndGameFont.loadFromFile("Assets\\Heavy_Data.ttf");
 	EndGameText.setFont(EndGameFont);
-	EndGameText.setPosition(Vector2f((Window->getSize().x / 2) - EndGameText.getCharacterSize() * 2.5, (Window->getSize().y / 2) - EndGameText.getCharacterSize() * 2));
+	EndGameText.setPosition(Vector2f((Window->getSize().x / 2) - (float)EndGameText.getCharacterSize() * 2.5f, (Window->getSize().y / 2) - (float)EndGameText.getCharacterSize() * 2));
 	EndGameText.setString(EndGameMessage);
+	EndGameText.setFillColor(Color::White);
 
 	PowerUpManager PowerUps;
 

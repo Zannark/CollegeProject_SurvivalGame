@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['fixedsizeallocator',['FixedSizeAllocator',['../class_fixed_size_allocator.html',1,'']]],
-  ['fsa_5felement',['FSA_ELEMENT',['../struct_fixed_size_allocator_1_1_f_s_a___e_l_e_m_e_n_t.html',1,'FixedSizeAllocator']]]
+  ['enemy',['Enemy',['../class_engine_1_1_game_play_1_1_enemy.html',1,'Engine::GamePlay']]],
+  ['enemymanager',['EnemyManager',['../class_engine_1_1_game_play_1_1_enemy_manager.html',1,'Engine::GamePlay']]]
 ];

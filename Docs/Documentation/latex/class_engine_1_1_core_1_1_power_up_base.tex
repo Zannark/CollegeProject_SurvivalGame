@@ -1,0 +1,117 @@
+\hypertarget{class_engine_1_1_core_1_1_power_up_base}{}\section{Engine\+:\+:Core\+:\+:Power\+Up\+Base Class Reference}
+\label{class_engine_1_1_core_1_1_power_up_base}\index{Engine\+::\+Core\+::\+Power\+Up\+Base@{Engine\+::\+Core\+::\+Power\+Up\+Base}}
+Inheritance diagram for Engine\+:\+:Core\+:\+:Power\+Up\+Base\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_engine_1_1_core_1_1_power_up_base}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_engine_1_1_core_1_1_power_up_base_a1c93516694b752a8ebc42eb181cb2b78}{On\+Use} (\hyperlink{class_engine_1_1_game_play_1_1_player}{Player} $\ast$P)
+\item 
+virtual void \hyperlink{class_engine_1_1_core_1_1_power_up_base_a195aecea60afdb99add60661a1c95697}{On\+Use\+End} (\hyperlink{class_engine_1_1_game_play_1_1_player}{Player} $\ast$P)
+\item 
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_power_up_base_a77f94a6dcfbc04d7f3156ef23153872d}\label{class_engine_1_1_core_1_1_power_up_base_a77f94a6dcfbc04d7f3156ef23153872d}} 
+virtual void {\bfseries Update} (\hyperlink{class_engine_1_1_game_play_1_1_player}{Player} $\ast$P, float dt)
+\item 
+void \hyperlink{class_engine_1_1_core_1_1_power_up_base_a5d145e5909ed25fb656416fe10ba7052}{Draw} (Render\+Window $\ast$Wnd)
+\begin{DoxyCompactList}\small\item\em Renders the power up if it hasn\textquotesingle{}t been destroyed or picked up. /summary$>$ param name = \char`\"{}\+Window\char`\"{}$>$A pointer to the Render\+Window to draw to.\end{DoxyCompactList}\item 
+void \hyperlink{class_engine_1_1_core_1_1_power_up_base_aa60b222fd4cd9be0b8fcca5e06ba4c62}{Init\+Basic\+Power\+Up} (void)
+\item 
+void \hyperlink{class_engine_1_1_core_1_1_power_up_base_a8f6f5112493d25a67ec0c05e65691728}{Set\+Needs\+To\+Be\+Destroyed} (void)
+\item 
+bool \hyperlink{class_engine_1_1_core_1_1_power_up_base_a2b54cfc2afda10849a05f3095539c682}{Get\+Needs\+To\+Be\+Destroyed} (void)
+\item 
+bool \hyperlink{class_engine_1_1_core_1_1_power_up_base_a3a2b9ec8b5c8151afd2790bd54ce323e}{Get\+Collected} (void)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_power_up_base_aa54bef6e0787bb0b1cc9c11511d53698}\label{class_engine_1_1_core_1_1_power_up_base_aa54bef6e0787bb0b1cc9c11511d53698}} 
+shared\+\_\+ptr$<$ \hyperlink{class_engine_1_1_core_1_1_game_texture}{Game\+Texture} $>$ {\bfseries Texture}
+\item 
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_power_up_base_af8eee8047d8b8cc862cd2f2a7b478d7b}\label{class_engine_1_1_core_1_1_power_up_base_af8eee8047d8b8cc862cd2f2a7b478d7b}} 
+bool {\bfseries Has\+Been\+Collected}
+\item 
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_power_up_base_a2bedbc9b886812f6817857b3de149c31}\label{class_engine_1_1_core_1_1_power_up_base_a2bedbc9b886812f6817857b3de149c31}} 
+bool {\bfseries Needs\+To\+Be\+Destroyed}
+\item 
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_power_up_base_a965113b66852a062cfc3c9c8c0311d76}\label{class_engine_1_1_core_1_1_power_up_base_a965113b66852a062cfc3c9c8c0311d76}} 
+bool {\bfseries Has\+Been\+Used}
+\item 
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_power_up_base_ac31bcfc632da55934fb4a30ba6e45233}\label{class_engine_1_1_core_1_1_power_up_base_ac31bcfc632da55934fb4a30ba6e45233}} 
+float {\bfseries Active\+Time}
+\item 
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_power_up_base_a8584876cda80e9062ab45f8b0b8e8b31}\label{class_engine_1_1_core_1_1_power_up_base_a8584876cda80e9062ab45f8b0b8e8b31}} 
+float {\bfseries Timer}
+\item 
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_power_up_base_a7639465b4ce58ded85e2853b31497424}\label{class_engine_1_1_core_1_1_power_up_base_a7639465b4ce58ded85e2853b31497424}} 
+string {\bfseries Power\+Up\+Name}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_power_up_base_a5d145e5909ed25fb656416fe10ba7052}\label{class_engine_1_1_core_1_1_power_up_base_a5d145e5909ed25fb656416fe10ba7052}} 
+\index{Engine\+::\+Core\+::\+Power\+Up\+Base@{Engine\+::\+Core\+::\+Power\+Up\+Base}!Draw@{Draw}}
+\index{Draw@{Draw}!Engine\+::\+Core\+::\+Power\+Up\+Base@{Engine\+::\+Core\+::\+Power\+Up\+Base}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Power\+Up\+Base\+::\+Draw (\begin{DoxyParamCaption}\item[{Render\+Window $\ast$}]{Wnd }\end{DoxyParamCaption})}
+
+
+
+Renders the power up if it hasn\textquotesingle{}t been destroyed or picked up. /summary$>$ param name = \char`\"{}\+Window\char`\"{}$>$A pointer to the Render\+Window to draw to.
+
+summary$>$ Basically constructs the object. It\textquotesingle{}s safer to have this here and called from derived classes, rather than have each class make their own. This is because C++ doesn\textquotesingle{}t have a generic super, it\textquotesingle{}s compiler specific and I\textquotesingle{}m only aware of M\+S\+VC having it. /summary$>$ \mbox{\Hypertarget{class_engine_1_1_core_1_1_power_up_base_a3a2b9ec8b5c8151afd2790bd54ce323e}\label{class_engine_1_1_core_1_1_power_up_base_a3a2b9ec8b5c8151afd2790bd54ce323e}} 
+\index{Engine\+::\+Core\+::\+Power\+Up\+Base@{Engine\+::\+Core\+::\+Power\+Up\+Base}!Get\+Collected@{Get\+Collected}}
+\index{Get\+Collected@{Get\+Collected}!Engine\+::\+Core\+::\+Power\+Up\+Base@{Engine\+::\+Core\+::\+Power\+Up\+Base}}
+\subsubsection{\texorpdfstring{Get\+Collected()}{GetCollected()}}
+{\footnotesize\ttfamily bool Engine\+::\+Core\+::\+Power\+Up\+Base\+::\+Get\+Collected (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+summary$>$ For overriding, would be purely virtual but ran in to errors. See derived classes. /summary$>$ param name = \char`\"{}\+P\char`\"{}$>$A pointer to the player.\mbox{\Hypertarget{class_engine_1_1_core_1_1_power_up_base_a2b54cfc2afda10849a05f3095539c682}\label{class_engine_1_1_core_1_1_power_up_base_a2b54cfc2afda10849a05f3095539c682}} 
+\index{Engine\+::\+Core\+::\+Power\+Up\+Base@{Engine\+::\+Core\+::\+Power\+Up\+Base}!Get\+Needs\+To\+Be\+Destroyed@{Get\+Needs\+To\+Be\+Destroyed}}
+\index{Get\+Needs\+To\+Be\+Destroyed@{Get\+Needs\+To\+Be\+Destroyed}!Engine\+::\+Core\+::\+Power\+Up\+Base@{Engine\+::\+Core\+::\+Power\+Up\+Base}}
+\subsubsection{\texorpdfstring{Get\+Needs\+To\+Be\+Destroyed()}{GetNeedsToBeDestroyed()}}
+{\footnotesize\ttfamily bool Engine\+::\+Core\+::\+Power\+Up\+Base\+::\+Get\+Needs\+To\+Be\+Destroyed (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+summary$>$ Gets the collection status of the power up. /summary$>$ returns$>$True if picked up, false otherwise.\mbox{\Hypertarget{class_engine_1_1_core_1_1_power_up_base_aa60b222fd4cd9be0b8fcca5e06ba4c62}\label{class_engine_1_1_core_1_1_power_up_base_aa60b222fd4cd9be0b8fcca5e06ba4c62}} 
+\index{Engine\+::\+Core\+::\+Power\+Up\+Base@{Engine\+::\+Core\+::\+Power\+Up\+Base}!Init\+Basic\+Power\+Up@{Init\+Basic\+Power\+Up}}
+\index{Init\+Basic\+Power\+Up@{Init\+Basic\+Power\+Up}!Engine\+::\+Core\+::\+Power\+Up\+Base@{Engine\+::\+Core\+::\+Power\+Up\+Base}}
+\subsubsection{\texorpdfstring{Init\+Basic\+Power\+Up()}{InitBasicPowerUp()}}
+{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Power\+Up\+Base\+::\+Init\+Basic\+Power\+Up (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+summary$>$ This is set once the time has ran out, or the player goes over another one while already carrying one. /summary$>$ \mbox{\Hypertarget{class_engine_1_1_core_1_1_power_up_base_a1c93516694b752a8ebc42eb181cb2b78}\label{class_engine_1_1_core_1_1_power_up_base_a1c93516694b752a8ebc42eb181cb2b78}} 
+\index{Engine\+::\+Core\+::\+Power\+Up\+Base@{Engine\+::\+Core\+::\+Power\+Up\+Base}!On\+Use@{On\+Use}}
+\index{On\+Use@{On\+Use}!Engine\+::\+Core\+::\+Power\+Up\+Base@{Engine\+::\+Core\+::\+Power\+Up\+Base}}
+\subsubsection{\texorpdfstring{On\+Use()}{OnUse()}}
+{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Power\+Up\+Base\+::\+On\+Use (\begin{DoxyParamCaption}\item[{\hyperlink{class_engine_1_1_game_play_1_1_player}{Player} $\ast$}]{P }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+summary$>$ For overriding, would be purely virtual but ran in to errors. See derived classes. /summary$>$ param name = \char`\"{}\+P\char`\"{}$>$A pointer to the player.
+
+Reimplemented in \hyperlink{class_engine_1_1_game_play_1_1_speed_power_up_a0901961fb01656a2b81ccf846e370e31}{Engine\+::\+Game\+Play\+::\+Speed\+Power\+Up}, and \hyperlink{class_engine_1_1_game_play_1_1_damage_power_up_abadfb61b67dd580bc98d7e120c2809cd}{Engine\+::\+Game\+Play\+::\+Damage\+Power\+Up}.
+
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_power_up_base_a195aecea60afdb99add60661a1c95697}\label{class_engine_1_1_core_1_1_power_up_base_a195aecea60afdb99add60661a1c95697}} 
+\index{Engine\+::\+Core\+::\+Power\+Up\+Base@{Engine\+::\+Core\+::\+Power\+Up\+Base}!On\+Use\+End@{On\+Use\+End}}
+\index{On\+Use\+End@{On\+Use\+End}!Engine\+::\+Core\+::\+Power\+Up\+Base@{Engine\+::\+Core\+::\+Power\+Up\+Base}}
+\subsubsection{\texorpdfstring{On\+Use\+End()}{OnUseEnd()}}
+{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Power\+Up\+Base\+::\+On\+Use\+End (\begin{DoxyParamCaption}\item[{\hyperlink{class_engine_1_1_game_play_1_1_player}{Player} $\ast$}]{P }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+summary$>$ Called once per frame. Checks if the player has collided with the powerup and handles that appriatly. Also handles the use timer and destruction flag. /summary$>$ param name = \char`\"{}\+P\char`\"{}$>$A pointer to the player.
+
+param name = \char`\"{}dt\char`\"{}$>$Delta time.
+
+Reimplemented in \hyperlink{class_engine_1_1_game_play_1_1_speed_power_up_ad305e70493c2b51a87e58d58cea73521}{Engine\+::\+Game\+Play\+::\+Speed\+Power\+Up}, and \hyperlink{class_engine_1_1_game_play_1_1_damage_power_up_a97bdd448602470ff4305b39eee866fd2}{Engine\+::\+Game\+Play\+::\+Damage\+Power\+Up}.
+
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_power_up_base_a8f6f5112493d25a67ec0c05e65691728}\label{class_engine_1_1_core_1_1_power_up_base_a8f6f5112493d25a67ec0c05e65691728}} 
+\index{Engine\+::\+Core\+::\+Power\+Up\+Base@{Engine\+::\+Core\+::\+Power\+Up\+Base}!Set\+Needs\+To\+Be\+Destroyed@{Set\+Needs\+To\+Be\+Destroyed}}
+\index{Set\+Needs\+To\+Be\+Destroyed@{Set\+Needs\+To\+Be\+Destroyed}!Engine\+::\+Core\+::\+Power\+Up\+Base@{Engine\+::\+Core\+::\+Power\+Up\+Base}}
+\subsubsection{\texorpdfstring{Set\+Needs\+To\+Be\+Destroyed()}{SetNeedsToBeDestroyed()}}
+{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Power\+Up\+Base\+::\+Set\+Needs\+To\+Be\+Destroyed (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+summary$>$ Gets the life status of the power up. /summary$>$ returns$>$True if needs to be destroyed, false otherwise.
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Wave\+Game/Power\+Up\+Base.\+h\item 
+Wave\+Game/Power\+Up\+Base.\+cpp\end{DoxyCompactItemize}

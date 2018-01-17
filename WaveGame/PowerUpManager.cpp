@@ -73,7 +73,7 @@ void Engine::GamePlay::PowerUpManager::Update(Player * P, float dt)
 	this->Timer += dt;
 	this->SpawnPowerUps(P);
 
-	for (int i = 0; i < this->SpawnedPowerUps.size(); i++)
+	for (size_t i = 0; i < this->SpawnedPowerUps.size(); i++)
 	{
 		if(!this->SpawnedPowerUps[i]->GetNeedsToBeDestroyed())
 			this->SpawnedPowerUps[i]->Update(P, dt);

@@ -1,0 +1,58 @@
+\hypertarget{class_engine_1_1_game_play_1_1_damage_power_up}{}\section{Engine\+:\+:Game\+Play\+:\+:Damage\+Power\+Up Class Reference}
+\label{class_engine_1_1_game_play_1_1_damage_power_up}\index{Engine\+::\+Game\+Play\+::\+Damage\+Power\+Up@{Engine\+::\+Game\+Play\+::\+Damage\+Power\+Up}}
+Inheritance diagram for Engine\+:\+:Game\+Play\+:\+:Damage\+Power\+Up\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_engine_1_1_game_play_1_1_damage_power_up}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_engine_1_1_game_play_1_1_damage_power_up_a25af42480a9ce9eedbb82e1be666891c}{Damage\+Power\+Up} (Vector2f Position)
+\item 
+virtual void \hyperlink{class_engine_1_1_game_play_1_1_damage_power_up_abadfb61b67dd580bc98d7e120c2809cd}{On\+Use} (\hyperlink{class_engine_1_1_game_play_1_1_player}{Player} $\ast$P) override
+\item 
+virtual void \hyperlink{class_engine_1_1_game_play_1_1_damage_power_up_a97bdd448602470ff4305b39eee866fd2}{On\+Use\+End} (\hyperlink{class_engine_1_1_game_play_1_1_player}{Player} $\ast$P) override
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_damage_power_up_a25af42480a9ce9eedbb82e1be666891c}\label{class_engine_1_1_game_play_1_1_damage_power_up_a25af42480a9ce9eedbb82e1be666891c}} 
+\index{Engine\+::\+Game\+Play\+::\+Damage\+Power\+Up@{Engine\+::\+Game\+Play\+::\+Damage\+Power\+Up}!Damage\+Power\+Up@{Damage\+Power\+Up}}
+\index{Damage\+Power\+Up@{Damage\+Power\+Up}!Engine\+::\+Game\+Play\+::\+Damage\+Power\+Up@{Engine\+::\+Game\+Play\+::\+Damage\+Power\+Up}}
+\subsubsection{\texorpdfstring{Damage\+Power\+Up()}{DamagePowerUp()}}
+{\footnotesize\ttfamily Damage\+Power\+Up\+::\+Damage\+Power\+Up (\begin{DoxyParamCaption}\item[{Vector2f}]{Position }\end{DoxyParamCaption})}
+
+summary$>$ Called when the player presses the Power\+Up use key. Changes the players damage modifier. /summary$>$ param name = \char`\"{}\+P\char`\"{}$>$A pointer to the player.
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_damage_power_up_abadfb61b67dd580bc98d7e120c2809cd}\label{class_engine_1_1_game_play_1_1_damage_power_up_abadfb61b67dd580bc98d7e120c2809cd}} 
+\index{Engine\+::\+Game\+Play\+::\+Damage\+Power\+Up@{Engine\+::\+Game\+Play\+::\+Damage\+Power\+Up}!On\+Use@{On\+Use}}
+\index{On\+Use@{On\+Use}!Engine\+::\+Game\+Play\+::\+Damage\+Power\+Up@{Engine\+::\+Game\+Play\+::\+Damage\+Power\+Up}}
+\subsubsection{\texorpdfstring{On\+Use()}{OnUse()}}
+{\footnotesize\ttfamily void Engine\+::\+Game\+Play\+::\+Damage\+Power\+Up\+::\+On\+Use (\begin{DoxyParamCaption}\item[{\hyperlink{class_engine_1_1_game_play_1_1_player}{Player} $\ast$}]{P }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+summary$>$ Called when the power up is out of time. Changes the players damage modifier. /summary$>$ param name = \char`\"{}\+P\char`\"{}$>$A pointer to the player.
+
+Reimplemented from \hyperlink{class_engine_1_1_core_1_1_power_up_base_a1c93516694b752a8ebc42eb181cb2b78}{Engine\+::\+Core\+::\+Power\+Up\+Base}.
+
+\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_damage_power_up_a97bdd448602470ff4305b39eee866fd2}\label{class_engine_1_1_game_play_1_1_damage_power_up_a97bdd448602470ff4305b39eee866fd2}} 
+\index{Engine\+::\+Game\+Play\+::\+Damage\+Power\+Up@{Engine\+::\+Game\+Play\+::\+Damage\+Power\+Up}!On\+Use\+End@{On\+Use\+End}}
+\index{On\+Use\+End@{On\+Use\+End}!Engine\+::\+Game\+Play\+::\+Damage\+Power\+Up@{Engine\+::\+Game\+Play\+::\+Damage\+Power\+Up}}
+\subsubsection{\texorpdfstring{On\+Use\+End()}{OnUseEnd()}}
+{\footnotesize\ttfamily void Engine\+::\+Game\+Play\+::\+Damage\+Power\+Up\+::\+On\+Use\+End (\begin{DoxyParamCaption}\item[{\hyperlink{class_engine_1_1_game_play_1_1_player}{Player} $\ast$}]{P }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+summary$>$ Called once per frame. Checks if the player has collided with the powerup and handles that appriatly. Also handles the use timer and destruction flag. /summary$>$ param name = \char`\"{}\+P\char`\"{}$>$A pointer to the player.
+
+param name = \char`\"{}dt\char`\"{}$>$Delta time.
+
+Reimplemented from \hyperlink{class_engine_1_1_core_1_1_power_up_base_a195aecea60afdb99add60661a1c95697}{Engine\+::\+Core\+::\+Power\+Up\+Base}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Wave\+Game/Damage\+Power\+Up.\+h\item 
+Wave\+Game/Damage\+Power\+Up.\+cpp\end{DoxyCompactItemize}

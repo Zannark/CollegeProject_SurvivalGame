@@ -72,19 +72,96 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ade8713180e51d8aa930677d23cf4c2a8"><td class="memItemLeft" align="right" valign="top"><a id="ade8713180e51d8aa930677d23cf4c2a8"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>EnemyManager</b> (RenderWindow *Window, shared_ptr&lt; <a class="el" href="class_engine_1_1_game_play_1_1_player.html">Player</a> &gt; P)</td></tr>
-<tr class="separator:ade8713180e51d8aa930677d23cf4c2a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a545df3d86d86905d5db1e4bb8f327137"><td class="memItemLeft" align="right" valign="top"><a id="a545df3d86d86905d5db1e4bb8f327137"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> (RenderWindow *Window, <a class="el" href="class_engine_1_1_core_1_1_map.html">Map</a> M, float dt)</td></tr>
+<tr class="memitem:af20b8cb960acd6a5aabfe6ee5bb9e9e2"><td class="memItemLeft" align="right" valign="top"><a id="af20b8cb960acd6a5aabfe6ee5bb9e9e2"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>EnemyManager</b> (RenderWindow *Window, <a class="el" href="class_engine_1_1_game_play_1_1_player.html">Player</a> *P, mt19937 *Generator)</td></tr>
+<tr class="separator:af20b8cb960acd6a5aabfe6ee5bb9e9e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a503eadcd690205ae495d3761bdfdfcb6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_game_play_1_1_enemy_manager.html#a503eadcd690205ae495d3761bdfdfcb6">~EnemyManager</a> ()</td></tr>
+<tr class="separator:a503eadcd690205ae495d3761bdfdfcb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a545df3d86d86905d5db1e4bb8f327137"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_game_play_1_1_enemy_manager.html#a545df3d86d86905d5db1e4bb8f327137">Update</a> (RenderWindow *Window, <a class="el" href="class_engine_1_1_core_1_1_map.html">Map</a> M, float dt)</td></tr>
 <tr class="separator:a545df3d86d86905d5db1e4bb8f327137"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8feb401224cac44bec8b2d2c00b0910c"><td class="memItemLeft" align="right" valign="top"><a id="a8feb401224cac44bec8b2d2c00b0910c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Draw</b> (RenderWindow *Window)</td></tr>
+<tr class="memitem:a8feb401224cac44bec8b2d2c00b0910c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_game_play_1_1_enemy_manager.html#a8feb401224cac44bec8b2d2c00b0910c">Draw</a> (RenderWindow *Window)</td></tr>
 <tr class="separator:a8feb401224cac44bec8b2d2c00b0910c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc7a1062c7cf55177a8dd99f8547ec47"><td class="memItemLeft" align="right" valign="top"><a id="afc7a1062c7cf55177a8dd99f8547ec47"></a>
 vector&lt; <a class="el" href="class_engine_1_1_game_play_1_1_enemy.html">Enemy</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GetEnemiesInRange</b> (FloatRect BoundingBox)</td></tr>
 <tr class="separator:afc7a1062c7cf55177a8dd99f8547ec47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a503eadcd690205ae495d3761bdfdfcb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a503eadcd690205ae495d3761bdfdfcb6">&#9670;&nbsp;</a></span>~EnemyManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Engine::GamePlay::EnemyManager::~EnemyManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>summary&gt; Called once per frame. Handles the states of the match. Updates each enemy, when they're all dead the state is changed to Interval. Then the game deletes the pointers to the dead enemies, then a timer is ran. Once the timer is up, the state is switched to NewMatch. This spawns in the new enemies, the amount is DEFAULT_ENEMY_COUNT + CurrentWave. Once they're all spawned the state is switched to InMatch. /summary&gt; param name = "Window"&gt;The window used to draw to.</p>
+<p>param name = "M"&gt;The map which is being played.</p>
+<p>param name = "dt"&gt;Deltatime.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8feb401224cac44bec8b2d2c00b0910c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8feb401224cac44bec8b2d2c00b0910c">&#9670;&nbsp;</a></span>Draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Engine::GamePlay::EnemyManager::Draw </td>
+          <td>(</td>
+          <td class="paramtype">RenderWindow *&#160;</td>
+          <td class="paramname"><em>Window</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>summary&gt; Gets enemies within a bounding box. /summary&gt; param name = "BoundingBox"&gt;The bounding box to test if the enemies within.</p>
+<p>returns&gt;A vector of pointers to enemies.</p>
+
+</div>
+</div>
+<a id="a545df3d86d86905d5db1e4bb8f327137"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a545df3d86d86905d5db1e4bb8f327137">&#9670;&nbsp;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Engine::GamePlay::EnemyManager::Update </td>
+          <td>(</td>
+          <td class="paramtype">RenderWindow *&#160;</td>
+          <td class="paramname"><em>Window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_engine_1_1_core_1_1_map.html">Map</a>&#160;</td>
+          <td class="paramname"><em>M</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>dt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>summary&gt; Draws the text displaying the round information, then the enemies. /summary&gt; param name = "Window"&gt;The RenderWindow to draw to.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>WaveGame/<a class="el" href="_enemy_manager_8h_source.html">EnemyManager.h</a></li>
 <li>WaveGame/EnemyManager.cpp</li>
@@ -92,7 +169,7 @@ vector&lt; <a class="el" href="class_engine_1_1_game_play_1_1_enemy.html">Enemy<
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jan 12 2018 15:32:21 for CollegeProject_SurvivalGame by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jan 17 2018 23:18:52 for CollegeProject_SurvivalGame by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

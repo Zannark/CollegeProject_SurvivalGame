@@ -12,7 +12,8 @@ Engine::GamePlay::EnemyManager::EnemyManager(RenderWindow * Window, Player* P, m
 	this->RoundMessage = to_string(this->RoundNumber);
 	this->RoundFont.loadFromFile("Assets/Heavy_Data.ttf");
 	this->RoundText.setFont(this->RoundFont);
-	this->RoundText.setColor(Color::Black);
+	//this->RoundText.setOutlineColor(Color::Black);
+	this->RoundText.setFillColor(Color::Black);
 	this->RoundText.setString("Round: " + this->RoundMessage);
 	this->RoundText.setPosition(Vector2f(645, 0));
 }
@@ -55,7 +56,7 @@ void Engine::GamePlay::EnemyManager::Update(RenderWindow* Window, Map M, float d
 	{
 		if (this->IntervalTimer >= INTERVAL_TIME)
 		{
-			for (int i = 0; i < Enemies.size(); i++)
+			for (size_t i = 0; i < Enemies.size(); i++)
 				delete Enemies[i];
 
 			this->CurrentWave += 1;
@@ -104,7 +105,7 @@ void Engine::GamePlay::EnemyManager::Draw(RenderWindow* Window)
 {
 	Window->draw(this->RoundText);
 
-	for (int i = 0; i < this->Enemies.size(); i++)
+	for (size_t i = 0; i < this->Enemies.size(); i++)
 	{
 		if(this->Enemies[i])
 			this->Enemies[i]->Draw(Window);

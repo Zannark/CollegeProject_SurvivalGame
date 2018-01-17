@@ -1,0 +1,48 @@
+\hypertarget{class_engine_1_1_game_play_1_1_power_up_manager}{}\section{Engine\+:\+:Game\+Play\+:\+:Power\+Up\+Manager Class Reference}
+\label{class_engine_1_1_game_play_1_1_power_up_manager}\index{Engine\+::\+Game\+Play\+::\+Power\+Up\+Manager@{Engine\+::\+Game\+Play\+::\+Power\+Up\+Manager}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_engine_1_1_game_play_1_1_power_up_manager_a459ae4b757b4f4c5e3dff626460639cd}{Power\+Up\+Manager} ()
+\item 
+void \hyperlink{class_engine_1_1_game_play_1_1_power_up_manager_ae4b516c8145507da7d326ff7fa5fb2d5}{Spawn\+Power\+Ups} (\hyperlink{class_engine_1_1_game_play_1_1_player}{Player} $\ast$P)
+\item 
+void \hyperlink{class_engine_1_1_game_play_1_1_power_up_manager_a1a14fd48c2687e5e3fe3df6c7415dad8}{Update} (\hyperlink{class_engine_1_1_game_play_1_1_player}{Player} $\ast$P, float dt)
+\item 
+\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_power_up_manager_a8b8a5889b0787f1ae303cb24b3d84481}\label{class_engine_1_1_game_play_1_1_power_up_manager_a8b8a5889b0787f1ae303cb24b3d84481}} 
+void {\bfseries Draw} (Render\+Window $\ast$Window)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_power_up_manager_a459ae4b757b4f4c5e3dff626460639cd}\label{class_engine_1_1_game_play_1_1_power_up_manager_a459ae4b757b4f4c5e3dff626460639cd}} 
+\index{Engine\+::\+Game\+Play\+::\+Power\+Up\+Manager@{Engine\+::\+Game\+Play\+::\+Power\+Up\+Manager}!Power\+Up\+Manager@{Power\+Up\+Manager}}
+\index{Power\+Up\+Manager@{Power\+Up\+Manager}!Engine\+::\+Game\+Play\+::\+Power\+Up\+Manager@{Engine\+::\+Game\+Play\+::\+Power\+Up\+Manager}}
+\subsubsection{\texorpdfstring{Power\+Up\+Manager()}{PowerUpManager()}}
+{\footnotesize\ttfamily Engine\+::\+Game\+Play\+::\+Power\+Up\+Manager\+::\+Power\+Up\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+summary$>$ This is called once per frame. It randomly selects a new power up, every P\+O\+W\+E\+R\+\_\+\+U\+P\+\_\+\+M\+A\+N\+A\+G\+E\+R\+\_\+\+M\+I\+N\+I\+M\+U\+M\+\_\+\+S\+P\+A\+W\+N\+\_\+\+L\+I\+M\+IT seconds. /summary$>$ param name = \char`\"{}\+P\char`\"{}$>$A pointer to the player.
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_power_up_manager_ae4b516c8145507da7d326ff7fa5fb2d5}\label{class_engine_1_1_game_play_1_1_power_up_manager_ae4b516c8145507da7d326ff7fa5fb2d5}} 
+\index{Engine\+::\+Game\+Play\+::\+Power\+Up\+Manager@{Engine\+::\+Game\+Play\+::\+Power\+Up\+Manager}!Spawn\+Power\+Ups@{Spawn\+Power\+Ups}}
+\index{Spawn\+Power\+Ups@{Spawn\+Power\+Ups}!Engine\+::\+Game\+Play\+::\+Power\+Up\+Manager@{Engine\+::\+Game\+Play\+::\+Power\+Up\+Manager}}
+\subsubsection{\texorpdfstring{Spawn\+Power\+Ups()}{SpawnPowerUps()}}
+{\footnotesize\ttfamily void Engine\+::\+Game\+Play\+::\+Power\+Up\+Manager\+::\+Spawn\+Power\+Ups (\begin{DoxyParamCaption}\item[{\hyperlink{class_engine_1_1_game_play_1_1_player}{Player} $\ast$}]{P }\end{DoxyParamCaption})}
+
+summary$>$ Called once per frame. Handles the spawning and the updating of indiviual power ups. Deletes them when no longer needed. /summary$>$ param name = \char`\"{}\+P\char`\"{}$>$A pointer to the player.
+
+param name = \char`\"{}dt\char`\"{}$>$Delta time.\hyperlink{class_engine_1_1_game_play_1_1_speed_power_up}{Speed\+Power\+Up}
+
+\hyperlink{class_engine_1_1_game_play_1_1_damage_power_up}{Damage\+Power\+Up} \mbox{\Hypertarget{class_engine_1_1_game_play_1_1_power_up_manager_a1a14fd48c2687e5e3fe3df6c7415dad8}\label{class_engine_1_1_game_play_1_1_power_up_manager_a1a14fd48c2687e5e3fe3df6c7415dad8}} 
+\index{Engine\+::\+Game\+Play\+::\+Power\+Up\+Manager@{Engine\+::\+Game\+Play\+::\+Power\+Up\+Manager}!Update@{Update}}
+\index{Update@{Update}!Engine\+::\+Game\+Play\+::\+Power\+Up\+Manager@{Engine\+::\+Game\+Play\+::\+Power\+Up\+Manager}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Engine\+::\+Game\+Play\+::\+Power\+Up\+Manager\+::\+Update (\begin{DoxyParamCaption}\item[{\hyperlink{class_engine_1_1_game_play_1_1_player}{Player} $\ast$}]{P,  }\item[{float}]{dt }\end{DoxyParamCaption})}
+
+summary$>$ Renders the power ups to the screen. /summary$>$ param name = \char`\"{}\+Window\char`\"{}$>$A pointer to the Render\+Window to draw to.
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Wave\+Game/Power\+Up\+Manager.\+h\item 
+Wave\+Game/Power\+Up\+Manager.\+cpp\end{DoxyCompactItemize}

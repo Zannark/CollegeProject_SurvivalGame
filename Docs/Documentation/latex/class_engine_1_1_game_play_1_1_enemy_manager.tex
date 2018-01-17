@@ -3,19 +3,49 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_enemy_manager_ade8713180e51d8aa930677d23cf4c2a8}\label{class_engine_1_1_game_play_1_1_enemy_manager_ade8713180e51d8aa930677d23cf4c2a8}} 
-{\bfseries Enemy\+Manager} (Render\+Window $\ast$Window, shared\+\_\+ptr$<$ \hyperlink{class_engine_1_1_game_play_1_1_player}{Player} $>$ P)
+\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_enemy_manager_af20b8cb960acd6a5aabfe6ee5bb9e9e2}\label{class_engine_1_1_game_play_1_1_enemy_manager_af20b8cb960acd6a5aabfe6ee5bb9e9e2}} 
+{\bfseries Enemy\+Manager} (Render\+Window $\ast$Window, \hyperlink{class_engine_1_1_game_play_1_1_player}{Player} $\ast$P, mt19937 $\ast$Generator)
 \item 
-\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_enemy_manager_a545df3d86d86905d5db1e4bb8f327137}\label{class_engine_1_1_game_play_1_1_enemy_manager_a545df3d86d86905d5db1e4bb8f327137}} 
-void {\bfseries Update} (Render\+Window $\ast$Window, \hyperlink{class_engine_1_1_core_1_1_map}{Map} M, float dt)
+\hyperlink{class_engine_1_1_game_play_1_1_enemy_manager_a503eadcd690205ae495d3761bdfdfcb6}{$\sim$\+Enemy\+Manager} ()
 \item 
-\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_enemy_manager_a8feb401224cac44bec8b2d2c00b0910c}\label{class_engine_1_1_game_play_1_1_enemy_manager_a8feb401224cac44bec8b2d2c00b0910c}} 
-void {\bfseries Draw} (Render\+Window $\ast$Window)
+void \hyperlink{class_engine_1_1_game_play_1_1_enemy_manager_a545df3d86d86905d5db1e4bb8f327137}{Update} (Render\+Window $\ast$Window, \hyperlink{class_engine_1_1_core_1_1_map}{Map} M, float dt)
+\item 
+void \hyperlink{class_engine_1_1_game_play_1_1_enemy_manager_a8feb401224cac44bec8b2d2c00b0910c}{Draw} (Render\+Window $\ast$Window)
 \item 
 \mbox{\Hypertarget{class_engine_1_1_game_play_1_1_enemy_manager_afc7a1062c7cf55177a8dd99f8547ec47}\label{class_engine_1_1_game_play_1_1_enemy_manager_afc7a1062c7cf55177a8dd99f8547ec47}} 
 vector$<$ \hyperlink{class_engine_1_1_game_play_1_1_enemy}{Enemy} $\ast$ $>$ {\bfseries Get\+Enemies\+In\+Range} (Float\+Rect Bounding\+Box)
 \end{DoxyCompactItemize}
 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_enemy_manager_a503eadcd690205ae495d3761bdfdfcb6}\label{class_engine_1_1_game_play_1_1_enemy_manager_a503eadcd690205ae495d3761bdfdfcb6}} 
+\index{Engine\+::\+Game\+Play\+::\+Enemy\+Manager@{Engine\+::\+Game\+Play\+::\+Enemy\+Manager}!````~Enemy\+Manager@{$\sim$\+Enemy\+Manager}}
+\index{````~Enemy\+Manager@{$\sim$\+Enemy\+Manager}!Engine\+::\+Game\+Play\+::\+Enemy\+Manager@{Engine\+::\+Game\+Play\+::\+Enemy\+Manager}}
+\subsubsection{\texorpdfstring{$\sim$\+Enemy\+Manager()}{~EnemyManager()}}
+{\footnotesize\ttfamily Engine\+::\+Game\+Play\+::\+Enemy\+Manager\+::$\sim$\+Enemy\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+summary$>$ Called once per frame. Handles the states of the match. Updates each enemy, when they\textquotesingle{}re all dead the state is changed to Interval. Then the game deletes the pointers to the dead enemies, then a timer is ran. Once the timer is up, the state is switched to New\+Match. This spawns in the new enemies, the amount is D\+E\+F\+A\+U\+L\+T\+\_\+\+E\+N\+E\+M\+Y\+\_\+\+C\+O\+U\+NT + Current\+Wave. Once they\textquotesingle{}re all spawned the state is switched to In\+Match. /summary$>$ param name = \char`\"{}\+Window\char`\"{}$>$The window used to draw to.
+
+param name = \char`\"{}\+M\char`\"{}$>$The map which is being played.
+
+param name = \char`\"{}dt\char`\"{}$>$Deltatime.
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_enemy_manager_a8feb401224cac44bec8b2d2c00b0910c}\label{class_engine_1_1_game_play_1_1_enemy_manager_a8feb401224cac44bec8b2d2c00b0910c}} 
+\index{Engine\+::\+Game\+Play\+::\+Enemy\+Manager@{Engine\+::\+Game\+Play\+::\+Enemy\+Manager}!Draw@{Draw}}
+\index{Draw@{Draw}!Engine\+::\+Game\+Play\+::\+Enemy\+Manager@{Engine\+::\+Game\+Play\+::\+Enemy\+Manager}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Engine\+::\+Game\+Play\+::\+Enemy\+Manager\+::\+Draw (\begin{DoxyParamCaption}\item[{Render\+Window $\ast$}]{Window }\end{DoxyParamCaption})}
+
+summary$>$ Gets enemies within a bounding box. /summary$>$ param name = \char`\"{}\+Bounding\+Box\char`\"{}$>$The bounding box to test if the enemies within.
+
+returns$>$A vector of pointers to enemies.\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_enemy_manager_a545df3d86d86905d5db1e4bb8f327137}\label{class_engine_1_1_game_play_1_1_enemy_manager_a545df3d86d86905d5db1e4bb8f327137}} 
+\index{Engine\+::\+Game\+Play\+::\+Enemy\+Manager@{Engine\+::\+Game\+Play\+::\+Enemy\+Manager}!Update@{Update}}
+\index{Update@{Update}!Engine\+::\+Game\+Play\+::\+Enemy\+Manager@{Engine\+::\+Game\+Play\+::\+Enemy\+Manager}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Engine\+::\+Game\+Play\+::\+Enemy\+Manager\+::\+Update (\begin{DoxyParamCaption}\item[{Render\+Window $\ast$}]{Window,  }\item[{\hyperlink{class_engine_1_1_core_1_1_map}{Map}}]{M,  }\item[{float}]{dt }\end{DoxyParamCaption})}
+
+summary$>$ Draws the text displaying the round information, then the enemies. /summary$>$ param name = \char`\"{}\+Window\char`\"{}$>$The Render\+Window to draw to.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

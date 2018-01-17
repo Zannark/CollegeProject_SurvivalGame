@@ -37,7 +37,7 @@ Engine::GamePlay::Player::Player()
 
 	this->PowerUpFont.loadFromFile("Assets/Heavy_Data.ttf");
 	this->PowerUpText.setFont(this->PowerUpFont);
-	this->PowerUpText.setColor(Color::Black);
+	this->PowerUpText.setFillColor(Color::Black);
 	this->PowerUpText.setPosition(Vector2f(225, 0));
 }
 
