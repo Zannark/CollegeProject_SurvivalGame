@@ -212,6 +212,10 @@ void Engine::GamePlay::Player::SetSpeedModifier(float Modifier)
 	this->MovementSpeedModifer = Modifier;
 }
 
+///<summary>
+///Sets the amount that the damage multiplier is.
+///</summary>
+///<param name = "Modifier">The multiplier amount.</param>
 void Engine::GamePlay::Player::SetDamageModifier(int Modifier)
 {
 	this->AttackDamageModifier = Modifier;

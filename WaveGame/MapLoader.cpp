@@ -1,5 +1,11 @@
 #include "MapLoader.h"
 
+///<summary>
+///Handles the loading and creation of a Map object, from an XML file.
+///</summary>
+///<param name = "Path">The path to the map file.</param>
+///<param name = "Window">The RenderWindow to draw to.</param>
+///<returns>A newly constructed Map object.</returns>
 Engine::Core::Map Engine::Core::MapLoader::Load(string Path, RenderWindow* Window)
 {	
 	auto CheckAttribute = [](string AttributeName, xml_attribute<char>* Attribute) -> void 

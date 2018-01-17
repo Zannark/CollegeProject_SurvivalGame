@@ -102,11 +102,19 @@ void Engine::Core::GameTexture::Draw(RenderWindow* RenderWindow)
 	RenderWindow->draw(*this->GameSprite);
 }
 
+///<summary>
+///Gets the position of the GameTexture.
+///</summary>
+///<returns>The position of the GameTexture on the window.</returns>
 Vector2f Engine::Core::GameTexture::GetPosition(void) const
 {
 	return this->GameSprite->getPosition();
 }
 
+///<summary>
+///Gets the size of the GameTexture.
+///</summary>
+///<returns>The size of the GameTexture.</returns>
 Vector2f Engine::Core::GameTexture::GetSize(void) const
 {
 	return Vector2f(this->Tex->getSize());

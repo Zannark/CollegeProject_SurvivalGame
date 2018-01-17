@@ -9,6 +9,13 @@ namespace
 	vector<vector<shared_ptr<Engine::Core::NavigationNode>>> NavigationMesh;
 }
 
+///<summary>
+///Generates a mesh of navigation nodes across the map.
+///They're evenly distrubuted at a distance of NAVIGATION_NODE_DISTANCE from each other.
+///</summary>
+///<param name = "Window">A pointer to the RenderWindow used.</param>
+///<param name = "P">A copy of the currently used Player object.</param>
+///<param name = "M">A copy of the map which is currently being used.</param>
 void Engine::Core::CreateNavigationMesh(RenderWindow* Window, Player P, Map M)
 {
 	///For ease
@@ -46,6 +53,11 @@ void Engine::Core::CreateNavigationMesh(RenderWindow* Window, Player P, Map M)
 	}
 }
 
+///<summary>
+///Gets a node at a certain position. 
+///</summary>
+///<param name = "Position">The position to get the node at.</param>
+///<returns>A pointer to the NavigationNode at the given position.</returns>
 shared_ptr<NavigationNode> Engine::Core::GetNodeByPosition(Vector2f Position)
 {
 	shared_ptr<NavigationNode> ReturnValue;
@@ -74,16 +86,32 @@ Engine::Core::NavigationNode::NavigationNode(float x, float y, RenderWindow* Win
 	this->Window = Window;
 }
 
+///<summary>
+///Gets the estimated distance between the nodes position and the goal node.
+///</summary>
+///<param name = "GoalNode">The goal node.</param>
+///<returns>The estimated distance between nodes.</returns>
 float Engine::Core::NavigationNode::GoalDistanceEstimate(NavigationNode& GoalNode)
 {
 	return EuclideanDistance(GoalNode.Position, this->Position);
 }
 
+///<summary>
+///Checks if the current node is the goal node.
+///</summary>
+///<param name = "GoalNode">The goal node.</param>
+///<returns>True if it is the goal, false otherwise.</returns>
 bool Engine::Core::NavigationNode::IsGoal(NavigationNode& GoalNode)
 {
 	return (this->Position == GoalNode.Position);
 }
 
+///<summary>
+///Gets the nodes next to this one. In all directions.
+///</summary>
+///<param name = "AStarSearch">A pointer to the A* search algorithm.</param>
+///<param name = "ParentNode">The parent node, after this one.</param>
+///<returns>True, requirement of library to have a boolean return value. Not used in this case.</returns>
 bool Engine::Core::NavigationNode::GetSuccessors(AStarSearch<NavigationNode>* AStarSearch, NavigationNode* ParentNode)
 {
 	auto AddSuccessor = [this, AStarSearch, ParentNode](Vector2f Position)
@@ -106,11 +134,21 @@ bool Engine::Core::NavigationNode::GetSuccessors(AStarSearch<NavigationNode>* AS
 	return true;
 }
 
+///<summary>
+///Calulates the cose of traveling from this node to a neighboring node.
+///</summary>
+///<param name = "Successor">The neighboring node.</param>
+///<returns>The cost of the traveling.</returns>
 float Engine::Core::NavigationNode::GetCost(NavigationNode& Successor)
 {
 	return fabsf(EuclideanDistance(this->Position, Successor.Position));
 }
 
+///<summary>
+///Checks if two nodes are the same state.
+///</summary>
+///<param name = "OtherNode">The node to test against.</param>
+///<returns>True if they're the same state, false otherwise.</returns>
 bool Engine::Core::NavigationNode::IsSameState(NavigationNode& OtherNode)
 {
 	return (((int)floorf(this->Position.x) == (int)floorf(OtherNode.Position.x)) && ((int)floorf(this->Position.y) == (int)floorf(OtherNode.Position.y)));

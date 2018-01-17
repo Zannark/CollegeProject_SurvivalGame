@@ -21,6 +21,18 @@ Engine::GamePlay::EnemyManager::~EnemyManager()
 {
 }
 
+///<summary>
+///Called once per frame.
+///Handles the states of the match.
+///Updates each enemy, when they're all dead the state is changed to Interval.
+///Then the game deletes the pointers to the dead enemies, then a timer is ran.
+///Once the timer is up, the state is switched to NewMatch.
+///This spawns in the new enemies, the amount is DEFAULT_ENEMY_COUNT + CurrentWave.
+///Once they're all spawned the state is switched to InMatch.
+///</summary>
+///<param name = "Window">The window used to draw to.</param>
+///<param name = "M">The map which is being played.</param>
+///<param name = "dt">Deltatime.</param>
 void Engine::GamePlay::EnemyManager::Update(RenderWindow* Window, Map M, float dt)
 {
 	if (this->State == MatchState::InMatch)
@@ -84,6 +96,10 @@ void Engine::GamePlay::EnemyManager::Update(RenderWindow* Window, Map M, float d
 	}		
 }
 
+///<summary>
+///Draws the text displaying the round information, then the enemies.
+///</summary>
+///<param name = "Window">The RenderWindow to draw to.</param>
 void Engine::GamePlay::EnemyManager::Draw(RenderWindow* Window)
 {
 	Window->draw(this->RoundText);
@@ -95,6 +111,11 @@ void Engine::GamePlay::EnemyManager::Draw(RenderWindow* Window)
 	}
 }
 
+///<summary>
+///Gets enemies within a bounding box.
+///</summary>
+///<param name = "BoundingBox">The bounding box to test if the enemies within.</param>
+///<returns>A vector of pointers to enemies.</returns>
 vector<Enemy*> Engine::GamePlay::EnemyManager::GetEnemiesInRange(FloatRect BoundingBox)
 {
 	vector<Enemy*> ReturnValue;
