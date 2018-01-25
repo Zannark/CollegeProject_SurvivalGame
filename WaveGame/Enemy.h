@@ -22,6 +22,7 @@ using namespace std;
 #define ENEMY_MIN_ATTACK 1
 #define ENEMY_MAX_MOVEMENT_SPEED 4.5f
 #define ENEMY_MIN_MOVEMENT_SPEED 0.45f
+#define ENEMY_MAX_HEALTH 15
 
 namespace Engine::GamePlay
 {
@@ -63,3 +64,4 @@ namespace Engine::GamePlay
 		AStarSearch<NavigationNode> Search;
 	};
 }
+

@@ -1,0 +1,4 @@
+To move the player the buttons are: W S A D
+The player always points towards the mouse cursor.
+To attck press the left mouse button.
+To use a powerup press the E key.

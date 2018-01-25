@@ -14,7 +14,7 @@ Engine::GamePlay::Enemy::Enemy(Vector2f Position, RenderWindow* Window, Player* 
 	this->Search.SetStartAndGoalStates(this->StartNode, this->EndNode);
 	this->HasStarted = false;
 	this->FinishedPath = false;
-	this->Health = 15;
+	this->Health = ENEMY_MAX_HEALTH;
 	this->AttackTimer = ENEMY_ATTACK_INTERVAL;
 	this->IsAlive = true;
 	this->MovementSpeed = Speed;

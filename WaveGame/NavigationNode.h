@@ -40,3 +40,4 @@ namespace Engine::Core
 	extern shared_ptr<NavigationNode> GetNodeByPosition(Vector2f Position);
 	extern void DrawNavigationMesh(RenderWindow* Window);
 }
+
