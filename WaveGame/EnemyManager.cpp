@@ -12,7 +12,6 @@ Engine::GamePlay::EnemyManager::EnemyManager(RenderWindow * Window, Player* P, m
 	this->RoundMessage = to_string(this->RoundNumber);
 	this->RoundFont.loadFromFile("Assets/Heavy_Data.ttf");
 	this->RoundText.setFont(this->RoundFont);
-	//this->RoundText.setOutlineColor(Color::Black);
 	this->RoundText.setFillColor(Color::Black);
 	this->RoundText.setString("Round: " + this->RoundMessage);
 	this->RoundText.setPosition(Vector2f(645, 0));
@@ -117,7 +116,7 @@ void Engine::GamePlay::EnemyManager::Draw(RenderWindow* Window)
 ///</summary>
 ///<param name = "BoundingBox">The bounding box to test if the enemies within.</param>
 ///<returns>A vector of pointers to enemies.</returns>
-vector<Enemy*> Engine::GamePlay::EnemyManager::GetEnemiesInRange(FloatRect BoundingBox)
+vector<Enemy*> Engine::GamePlay::EnemyManager::GetEnemiesInRange()
 {
 	vector<Enemy*> ReturnValue;
 

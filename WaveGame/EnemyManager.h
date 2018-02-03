@@ -39,7 +39,7 @@ namespace Engine::GamePlay
 		void Update(RenderWindow* Window, Map M, float dt);
 		void Draw(RenderWindow* Window);
 
-		vector<Enemy*> GetEnemiesInRange(FloatRect BoundingBox);
+		vector<Enemy*> GetEnemiesInRange();
 
 	private:
 		Player* P;

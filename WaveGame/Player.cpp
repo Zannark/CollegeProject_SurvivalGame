@@ -88,8 +88,7 @@ void Engine::GamePlay::Player::Update(RenderWindow* Window, Map M, float dt)
 ///</summary>
 void Engine::GamePlay::Player::Attack(void)
 {
-	FloatRect WeaponBox = FloatRect(this->PlayerWeapon->GetPosition().x, this->PlayerWeapon->GetPosition().y, this->PlayerWeapon->GetSize().x, this->PlayerWeapon->GetSize().y);
-	auto Enemies = ((EnemyManager*)this->Manager)->GetEnemiesInRange(WeaponBox);
+	auto Enemies = ((EnemyManager*)this->Manager)->GetEnemiesInRange();
 
 	for(auto En : Enemies)
 	{
