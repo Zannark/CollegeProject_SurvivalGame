@@ -17,7 +17,7 @@ void Engine::GamePlay::DamagePowerUp::OnUse(Player * P)
 {
 	if (!this->HasBeenUsed)
 	{
-		P->SetDamageModifier(2);
+		P->SetDamageModifier(DAMAGE_BOOST_MULTIPLIER);
 		this->HasBeenUsed = true;
 	}
 }

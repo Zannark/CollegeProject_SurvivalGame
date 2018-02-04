@@ -4,6 +4,8 @@
 
 using namespace Engine::Core;
 
+#define DAMAGE_BOOST_MULTIPLIER 2
+
 namespace Engine::GamePlay
 {
 	class DamagePowerUp : public PowerUpBase

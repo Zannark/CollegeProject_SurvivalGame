@@ -34,3 +34,4 @@ namespace Engine::Core
 		string PowerUpName;
 	};
 }
+
