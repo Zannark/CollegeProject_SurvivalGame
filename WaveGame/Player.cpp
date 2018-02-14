@@ -14,7 +14,7 @@ Engine::GamePlay::Player::Player()
 	this->OldHealth = PLAYER_MAX_HEALTH;
 
 	this->Texture->SetOrigin(Vector2f((float)(this->Texture->GetSFMLTexture()->getSize().x / 2), (float)(this->Texture->GetSFMLTexture()->getSize().y / 2)));
-	this->Texture->SetPosition(Vector2f(400, 400));
+	this->Texture->SetPosition(Vector2f(20, 20));
 
 	this->PlayerWeapon->SetOrigin(Vector2f(this->PlayerWeapon->GetSize().x / 2, this->PlayerWeapon->GetSize().y - 4));
 

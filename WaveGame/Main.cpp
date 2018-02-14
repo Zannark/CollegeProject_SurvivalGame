@@ -21,7 +21,7 @@ int main(int argc, char** argv)
 	mt19937* Generator = new mt19937();
 
 	Engine::Core::InitTextureCache();
-	RenderWindow* Window = new RenderWindow(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT, 32), "Super Mega Awesome Game Extreme", Style::Close | Style::Titlebar);
+	RenderWindow* Window = new RenderWindow(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT, 32), "Wave Game", Style::Close | Style::Titlebar);
 	Event E;
 	
 	Player* P = new Engine::GamePlay::Player();

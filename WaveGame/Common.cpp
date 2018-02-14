@@ -145,6 +145,14 @@ namespace Engine::Misc
 	{
 		return Degrees * PI / 180;
 	}
+#ifdef UNITTEST
+	TEST_CASE("Degrees to Radians")
+	{
+		CHECK(ApproximateEquals(ToRadians(5), 0.087f, 0.2f));
+		CHECK(ApproximateEquals(ToRadians(200), 3.4, 0.2f));
+		CHECK(ApproximateEquals(ToRadians(360), 6.2, 0.2f));
+	}
+#endif //UNITTEST
 
 	///<summary>
 	/// Converts radians into degrees.
@@ -155,6 +163,14 @@ namespace Engine::Misc
 	{
 		return Radians * 180 / PI;
 	}
+#ifdef UNITTEST
+	TEST_CASE("Radians to Degrees")
+	{
+		CHECK(ApproximateEquals(ToDegrees(1), 57.2f, 0.2f));
+		CHECK(ApproximateEquals(ToDegrees(6), 343.7f, 0.2f));
+		CHECK(ApproximateEquals(ToDegrees(0.5f), 28.6f, 0.2f));
+	}
+#endif //UNITTEST
 
 	///<summary>
 	///Calculates the difference between a and b.
@@ -162,8 +178,15 @@ namespace Engine::Misc
 	double Difference(double a, double b)
 	{
 		return a - b;
-		//return a - b;
 	}
+#ifdef UNITTEST
+	TEST_CASE("Difference")
+	{
+		CHECK(Difference(10, 5) == 5);
+		CHECK(Difference(10, 2) == 8);
+		CHECK(Difference(43, 340) == -297);
+	}
+#endif //UNITTEST
 
 	///<summary>
 	///Works out the euclidean distance between two points.
@@ -197,6 +220,15 @@ namespace Engine::Misc
 	{
 		return (Element1.x < Element2.x) && (Element1.y < Element2.y);
 	}
+#ifdef UNITTEST
+	TEST_CASE("Vector Less Than")
+	{
+		CHECK(VectorLessThan(sf::Vector2i(0, 1), sf::Vector2i(450, 1080)));
+		CHECK(VectorLessThan(sf::Vector2i(1, -1), sf::Vector2i(23, 0)));
+		CHECK(VectorLessThan(sf::Vector2i(10, 10), sf::Vector2i(58, 65)));
+		CHECK_FALSE(VectorLessThan(sf::Vector2i(10, 10), sf::Vector2i(5, 5)));
+	}
+#endif //UNITTEST
 
 	///<summary>
 	///Scales a value down to fit between two values.
