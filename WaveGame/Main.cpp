@@ -32,7 +32,7 @@ int main(int argc, char** argv)
 
 	Font EndGameFont;
 	Text EndGameText;
-	string EndGameMessage = "Game Over";
+	const string EndGameMessage = "Game Over";
 	
 	EndGameFont.loadFromFile("Assets\\Heavy_Data.ttf");
 	EndGameText.setFont(EndGameFont);
