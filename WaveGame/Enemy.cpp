@@ -1,5 +1,7 @@
 #include "Enemy.h"
 
+///BUG: TODO: FPS drop - investigate could just be FFXIV running in the background but shouldn't cause that bad stuttering...
+
 Engine::GamePlay::Enemy::Enemy(Vector2f Position, RenderWindow* Window, Player* P, float Speed)
 {
 	this->Texture = make_shared<GameTexture>(TextureCache::Cache.Access("Assets/Enemy.png"));
@@ -33,6 +35,7 @@ Engine::GamePlay::Enemy::~Enemy()
 void Engine::GamePlay::Enemy::Update(RenderWindow* Window, Map M, float dt)
 {
 	this->ManageState();
+	this->AttackTimer += GameTime::DeltaTime();
 }
 
 ///<summary>
@@ -147,8 +150,6 @@ void Engine::GamePlay::Enemy::Attack(void)
 		this->P->TakeDamage(ENEMY_MIN_ATTACK + rand() % (ENEMY_MAX_ATTACK - ENEMY_MIN_ATTACK));
 		this->AttackTimer = 0;
 	}
-	else
-		this->AttackTimer += GameTime::DeltaTime();
 
 	this->State = EnemyState::CheckDistance;
 }
