@@ -38,7 +38,6 @@ namespace Engine::GamePlay
 		void SetDamageModifier(int Modifier);
 		void SetPowerUp(void* Power);
 
-		bool HasPowerUp(void) const;
 		shared_ptr<GameTexture> GetPlayerWeapon(void) const;
 
 	protected:
@@ -51,11 +50,11 @@ namespace Engine::GamePlay
 		void SetPowerUpText(string PowerUpName);
 		bool CheckCollision(Map M);
 
+		int AttackDamageModifier;
 		int OldHealth;
 		float MovementSpeed;
 		float MovementSpeedModifer;
 		float AttackTimer;
-		int AttackDamageModifier;
 		void* Manager;
 
 		shared_ptr<GameTexture> PlayerWeapon;

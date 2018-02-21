@@ -248,11 +248,6 @@ void Engine::GamePlay::Player::SetPowerUpText(string PowerUpName)
 	}
 }
 
-bool Engine::GamePlay::Player::HasPowerUp(void) const
-{
-	return (this->PowerUp != nullptr);
-}
-
 ///<summary>
 ///Gets a pointer to the player weapon.
 ///</summary>
