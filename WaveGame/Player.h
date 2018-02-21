@@ -37,8 +37,8 @@ namespace Engine::GamePlay
 		void SetSpeedModifier(float Modifier);
 		void SetDamageModifier(int Modifier);
 		void SetPowerUp(void* Power);
-		void SetPowerUpText(string PowerUpName);
 
+		bool HasPowerUp(void) const;
 		shared_ptr<GameTexture> GetPlayerWeapon(void) const;
 
 	protected:
@@ -49,6 +49,7 @@ namespace Engine::GamePlay
 		void HandleMovement(RenderWindow* Window, Map M, float dt);
 		void HandleRotation(RenderWindow* Window, float dt);
 		bool CheckCollision(Map M);
+		void SetPowerUpText(string PowerUpName);
 
 		int OldHealth;
 		float MovementSpeed;

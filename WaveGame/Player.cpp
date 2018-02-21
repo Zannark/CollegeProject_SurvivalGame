@@ -71,8 +71,7 @@ void Engine::GamePlay::Player::Update(RenderWindow* Window, Map M, float dt)
 			}
 		}
 		
-		Vector2f WeaponPosition = this->GetPosition();
-		this->PlayerWeapon->SetPosition(WeaponPosition);
+		this->PlayerWeapon->SetPosition(this->GetPosition());
 		this->PlayerWeapon->SetRotation(this->Angle + 90);
 
 		if (Mouse::isButtonPressed(Mouse::Button::Left) && this->AttackTimer >= PLAYER_ATTACK_INTERVAL)
@@ -228,7 +227,10 @@ void Engine::GamePlay::Player::SetDamageModifier(int Modifier)
 void Engine::GamePlay::Player::SetPowerUp(void* Power)
 {
 	if (!this->PowerUp)
+	{
 		this->PowerUp = Power;
+		this->SetPowerUpText(((PowerUpBase*)Power)->GetPowerUpName());
+	}
 	else
 		((PowerUpBase*)Power)->SetNeedsToBeDestroyed();
 }
@@ -244,6 +246,11 @@ void Engine::GamePlay::Player::SetPowerUpText(string PowerUpName)
 		this->PowerUpName = PowerUpName;
 		this->PowerUpText.setString(this->PowerUpName);
 	}
+}
+
+bool Engine::GamePlay::Player::HasPowerUp(void) const
+{
+	return (this->PowerUp != nullptr);
 }
 
 ///<summary>

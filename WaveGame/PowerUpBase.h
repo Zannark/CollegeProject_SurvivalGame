@@ -23,6 +23,7 @@ namespace Engine::Core
 		void SetNeedsToBeDestroyed(void);
 		bool GetNeedsToBeDestroyed(void);
 		bool GetCollected(void);
+		string GetPowerUpName(void) const;
 
 	protected:
 		shared_ptr<GameTexture> Texture;

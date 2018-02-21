@@ -49,6 +49,11 @@ bool Engine::Core::PowerUpBase::GetCollected(void)
 	return this->HasBeenCollected;
 }
 
+string Engine::Core::PowerUpBase::GetPowerUpName(void) const
+{
+	return this->PowerUpName;
+}
+
 ///<summary>
 ///For overriding, would be purely virtual but ran in to errors.
 ///See derived classes.
@@ -82,7 +87,6 @@ void Engine::Core::PowerUpBase::Update(Player* P, float dt)
 		{
 			this->HasBeenCollected = true;
 			P->SetPowerUp((void*)this);
-			P->SetPowerUpText(this->PowerUpName);
 		}
 	}
 	else if(this->HasBeenCollected && !this->NeedsToBeDestroyed && this->HasBeenUsed)

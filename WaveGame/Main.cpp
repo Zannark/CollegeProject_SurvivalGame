@@ -23,7 +23,7 @@ int main(int argc, char** argv)
 	Engine::Core::InitTextureCache();
 	RenderWindow* Window = new RenderWindow(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT, 32), "Wave Game", Style::Close | Style::Titlebar);
 	Event E;
-	
+
 	Player* P = new Engine::GamePlay::Player();
 	Engine::Core::Map M = Engine::Core::MapLoader::Load("Test.xml", Window);
 	Engine::Core::CreateNavigationMesh(Window, *P, M);
