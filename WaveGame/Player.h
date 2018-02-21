@@ -48,8 +48,8 @@ namespace Engine::GamePlay
 		void Attack(void);
 		void HandleMovement(RenderWindow* Window, Map M, float dt);
 		void HandleRotation(RenderWindow* Window, float dt);
-		bool CheckCollision(Map M);
 		void SetPowerUpText(string PowerUpName);
+		bool CheckCollision(Map M);
 
 		int OldHealth;
 		float MovementSpeed;
