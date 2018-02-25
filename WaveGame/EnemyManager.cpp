@@ -122,7 +122,7 @@ vector<Enemy*> Engine::GamePlay::EnemyManager::GetEnemiesInRange()
 
 	for (auto En : this->Enemies)
 	{
-		if (Collision::BoundingBoxTest(*P->GetPlayerWeapon()->GetSFMLSprite(), *En->GetGameTexure()->GetSFMLSprite()))
+		if (Collision::BoundingBoxTest(*P->GetPlayerWeapon()->GetSFMLSprite(), *En->GetAnimator()->GetSFMLSprite()))
 			ReturnValue.push_back(En);
 	}
 

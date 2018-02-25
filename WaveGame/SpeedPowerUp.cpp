@@ -2,8 +2,8 @@
 
 Engine::GamePlay::SpeedPowerUp::SpeedPowerUp(Vector2f Position)
 {
-	this->Texture = make_shared<GameTexture>(TextureCache::Cache("Assets/SpeedPowerUp.png"));
-	this->Texture->SetPosition(Position);
+	this->PowerUpAnimation = make_shared<Animator>(AnimationCache::Cache("Assets/SpeedPowerUp.png"));
+	this->PowerUpAnimation->SetPosition(Position);
 	this->ActiveTime = 2.f;
 	this->PowerUpName = "Speed Boost";
 }

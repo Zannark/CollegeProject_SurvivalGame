@@ -3,7 +3,7 @@
 #include <vector>
 #include <SFML\Graphics.hpp>
 #include <memory>
-#include "GameTexture.h"
+#include "Animator.h"
 
 using namespace std;
 
@@ -17,13 +17,13 @@ namespace Engine::Core
 
 		void AddBackground(string ID);
 		void AddProp(string ID, Vector2f Position);
-		vector<shared_ptr<GameTexture>> GetProps(void);
+		vector<shared_ptr<Animator>> GetProps(void);
 		bool IsPropAtPosition(Vector2f Position);
 		void DrawBackground(RenderWindow* Window);
 		void DrawProps(RenderWindow* Window);
 
 	private:
-		GameTexture Background;
-		vector<shared_ptr<GameTexture>> Props;
+		Animator Background;
+		vector<shared_ptr<Animator>> Props;
 	};
 }

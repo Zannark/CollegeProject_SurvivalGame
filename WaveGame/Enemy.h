@@ -4,7 +4,7 @@
 #include <random>
 #include <functional>
 #include "stlastar.h"
-#include "GameTexture.h"
+//#include "GameTexture.h"
 #include "Character.h"
 #include "Common.h"
 #include "NavigationNode.h"

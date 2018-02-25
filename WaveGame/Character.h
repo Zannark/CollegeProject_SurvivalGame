@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <memory>
-#include "GameTexture.h"
+#include "Animator.h"
 #include "Map.h"
 #include "VectorMaths.h"
 
@@ -21,7 +21,7 @@ namespace Engine::Core
 		void Draw(RenderWindow* Window);
 		void TakeDamage(int Amount);
 		bool CheckHealth(void);
-		shared_ptr<GameTexture> GetGameTexure(void) const;
+		shared_ptr<Animator> GetAnimator(void) const;
 
 		virtual void Update(RenderWindow* Window, Map M, float dt) = 0;
 	protected:
@@ -32,7 +32,7 @@ namespace Engine::Core
 
 		///Saves the last position where the character could move freely.
 		Vector2f LastGoodPosition;
-		shared_ptr<GameTexture> Texture;
+		shared_ptr<Animator> CharacterAnimator;
 
 		void SetPosition(Vector2f Position);
 	};

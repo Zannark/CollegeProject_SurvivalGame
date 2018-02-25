@@ -5,16 +5,16 @@
 
 Engine::GamePlay::Player::Player()
 {
-	this->Texture = make_shared<GameTexture>(TextureCache::Cache.Access("Assets/Player.png"));
-	this->PlayerWeapon = make_shared<GameTexture>(TextureCache::Cache.Access("Assets/PlayerWeapon.png"));
+	this->CharacterAnimator = make_shared<Animator>(AnimationCache::Cache("Assets/Player.png"));
+	this->PlayerWeapon = make_shared<Animator>(AnimationCache::Cache("Assets/PlayerWeapon.png"));
 	this->MovementSpeed = 150.0f;
 	this->MovementSpeedModifer = 1.f;
 	this->AttackDamageModifier = 1;
 	this->Health = PLAYER_MAX_HEALTH;
 	this->OldHealth = PLAYER_MAX_HEALTH;
 
-	this->Texture->SetOrigin(Vector2f((float)(this->Texture->GetSFMLTexture()->getSize().x / 2), (float)(this->Texture->GetSFMLTexture()->getSize().y / 2)));
-	this->Texture->SetPosition(Vector2f(20, 20));
+	this->CharacterAnimator->SetOrigin(Vector2f((float)(this->CharacterAnimator->GetSize().x / 2), (float)(this->CharacterAnimator->GetSize().y / 2)));
+	this->CharacterAnimator->SetPosition(Vector2f(20, 20));
 
 	this->PlayerWeapon->SetOrigin(Vector2f(this->PlayerWeapon->GetSize().x / 2, this->PlayerWeapon->GetSize().y - 4));
 
@@ -108,19 +108,19 @@ void Engine::GamePlay::Player::HandleMovement(RenderWindow* Window, Map M, float
 {
 	Vector2f Offset = Vector2f(0, 0);
 
-	if (Keyboard::isKeyPressed(Keyboard::Key::W) && this->GetPosition().y - (this->Texture->GetSFMLTexture()->getSize().y / 2) > 0)
+	if (Keyboard::isKeyPressed(Keyboard::Key::W) && this->GetPosition().y - (this->CharacterAnimator->GetSize().y / 2) > 0)
 		Offset.y -= (this->MovementSpeed * this->MovementSpeedModifer) * dt;
 
-	if (Keyboard::isKeyPressed(Keyboard::Key::S) && this->GetPosition().y + (this->Texture->GetSFMLTexture()->getSize().y / 2) < Window->getSize().y)
+	if (Keyboard::isKeyPressed(Keyboard::Key::S) && this->GetPosition().y + (this->CharacterAnimator->GetSize().y / 2) < Window->getSize().y)
 		Offset.y += (this->MovementSpeed * this->MovementSpeedModifer) * dt;
 
-	if (Keyboard::isKeyPressed(Keyboard::Key::A) && this->GetPosition().x - (this->Texture->GetSFMLTexture()->getSize().y / 2) > 0)
+	if (Keyboard::isKeyPressed(Keyboard::Key::A) && this->GetPosition().x - (this->CharacterAnimator->GetSize().y / 2) > 0)
 		Offset.x -= (this->MovementSpeed * this->MovementSpeedModifer) * dt;
 
-	if (Keyboard::isKeyPressed(Keyboard::Key::D) && this->GetPosition().x + (this->Texture->GetSFMLTexture()->getSize().y / 2) < Window->getSize().x)
+	if (Keyboard::isKeyPressed(Keyboard::Key::D) && this->GetPosition().x + (this->CharacterAnimator->GetSize().y / 2) < Window->getSize().x)
 		Offset.x += (this->MovementSpeed * this->MovementSpeedModifer) * dt;
 
-	this->Texture->Move(Offset);
+	this->CharacterAnimator->Move(Offset);
 }
 
 ///<summary>
@@ -130,15 +130,15 @@ void Engine::GamePlay::Player::HandleMovement(RenderWindow* Window, Map M, float
 ///<param name = "dt">Delta time, the time the last frame took.</param>
 void Engine::GamePlay::Player::HandleRotation(RenderWindow* Window, float dt)
 {
-	this->Angle = atan2(Mouse::getPosition(*Window).y - this->Texture->GetSFMLSprite()->getPosition().y,
-						Mouse::getPosition(*Window).x - this->Texture->GetSFMLSprite()->getPosition().x);
+	this->Angle = atan2(Mouse::getPosition(*Window).y - this->CharacterAnimator->GetPosition().y,
+						Mouse::getPosition(*Window).x - this->CharacterAnimator->GetPosition().x);
 
 	this->Angle *= (float)(180 / PI);
 
 	if (Angle < 0)
 		Angle += 360;
 
-	this->Texture->SetRotation(Angle + 90);
+	this->CharacterAnimator->SetRotation(Angle + 90);
 }
 
 ///<summary>
@@ -149,7 +149,7 @@ void Engine::GamePlay::Player::HandleRotation(RenderWindow* Window, float dt)
 bool Engine::GamePlay::Player::CheckCollision(Map M)
 {
 	for (auto Prop : M.GetProps())
-		if (Collision::BoundingBoxTest(*this->Texture->GetSFMLSprite(), *Prop->GetSFMLSprite()))
+		if (Collision::BoundingBoxTest(*this->CharacterAnimator->GetSFMLSprite(), *Prop->GetSFMLSprite()))
 			return true;
 	return false;
 }
@@ -252,7 +252,7 @@ void Engine::GamePlay::Player::SetPowerUpText(string PowerUpName)
 ///Gets a pointer to the player weapon.
 ///</summary>
 ///<returns>The pointer to the player weapon.</returns>
-shared_ptr<GameTexture> Engine::GamePlay::Player::GetPlayerWeapon(void) const
+shared_ptr<Animator> Engine::GamePlay::Player::GetPlayerWeapon(void) const
 {
 	return this->PlayerWeapon;
 }

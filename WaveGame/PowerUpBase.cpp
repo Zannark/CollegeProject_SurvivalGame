@@ -7,7 +7,7 @@
 void Engine::Core::PowerUpBase::Draw(RenderWindow * Wnd)
 {
 	if(!this->NeedsToBeDestroyed && !this->HasBeenCollected)
-		this->Texture->Draw(Wnd);
+		this->PowerUpAnimation->Draw(Wnd);
 }
 
 ///<summary>
@@ -83,7 +83,7 @@ void Engine::Core::PowerUpBase::Update(Player* P, float dt)
 {
 	if (!this->HasBeenCollected)
 	{
-		if (Collision::BoundingBoxTest(*P->GetGameTexure()->GetSFMLSprite(), *this->Texture->GetSFMLSprite()))
+		if (Collision::BoundingBoxTest(*P->GetAnimator()->GetSFMLSprite(), *this->PowerUpAnimation->GetSFMLSprite()))
 		{
 			this->HasBeenCollected = true;
 			P->SetPowerUp((void*)this);

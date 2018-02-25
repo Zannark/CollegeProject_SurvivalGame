@@ -2,6 +2,7 @@
 
 #include <SFML\Graphics.hpp>
 #include <SFML\System.hpp>
+#include "Animator.h"
 #include "Player.h"
 #include "SFML_Collision.h"
 
@@ -26,7 +27,7 @@ namespace Engine::Core
 		string GetPowerUpName(void) const;
 
 	protected:
-		shared_ptr<GameTexture> Texture;
+		shared_ptr<Animator> PowerUpAnimation;
 		bool HasBeenCollected; //Has the power up been picked up yet?
 		bool NeedsToBeDestroyed; //A flag for if the time is up.
 		bool HasBeenUsed;

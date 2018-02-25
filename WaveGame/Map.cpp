@@ -14,7 +14,7 @@ Engine::Core::Map::~Map()
 ///<param name = "ID">A string which is the ID of the texture for the background.</param>
 void Engine::Core::Map::AddBackground(string ID)
 {
-	this->Background = TextureCache::Cache.Access(ID);
+	this->Background = AnimationCache::Cache(ID);
 }
 
 ///<summary>
@@ -24,7 +24,7 @@ void Engine::Core::Map::AddBackground(string ID)
 ///<param name = "Position">A Vector2f which contains the on screen position for the prop.</param>
 void Engine::Core::Map::AddProp(string ID, Vector2f Position)
 {
-	shared_ptr<GameTexture> Tex = make_shared<GameTexture>(TextureCache::Cache.Access(ID));
+	shared_ptr<Animator> Tex = make_shared<Animator>(AnimationCache::Cache(ID));
 	Tex->SetPosition(Position);
 	this->Props.push_back(Tex);
 }
@@ -33,7 +33,7 @@ void Engine::Core::Map::AddProp(string ID, Vector2f Position)
 ///Gets all props which are loaded into the map.
 ///</summary>
 ///<returns>The props which are loaded in the map.</returns>
-vector<shared_ptr<Engine::Core::GameTexture>> Engine::Core::Map::GetProps(void)
+vector<shared_ptr<Engine::Core::Animator>> Engine::Core::Map::GetProps(void)
 {
 	return this->Props;
 }
