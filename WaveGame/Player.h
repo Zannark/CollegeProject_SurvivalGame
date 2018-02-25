@@ -3,6 +3,7 @@
 #include <memory>
 #include <math.h>
 #include <map>
+#include <stdlib.h>
 #include <SFML\Graphics.hpp>
 #include "Common.h"
 #include "Character.h"

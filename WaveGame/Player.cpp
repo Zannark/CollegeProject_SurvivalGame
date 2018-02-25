@@ -14,12 +14,12 @@ Engine::GamePlay::Player::Player()
 	this->OldHealth = PLAYER_MAX_HEALTH;
 
 	this->CharacterAnimator->SetOrigin(Vector2f((float)(this->CharacterAnimator->GetSize().x / 2), (float)(this->CharacterAnimator->GetSize().y / 2)));
-	this->CharacterAnimator->SetPosition(Vector2f(20, 20));
+	this->CharacterAnimator->SetPosition(Vector2f((float)(rand() % (WINDOW_WIDTH - (int)this->CharacterAnimator->GetSize().x)), (float)(rand() % (WINDOW_HEIGHT - (int)this->CharacterAnimator->GetSize().y))));
 
 	this->PlayerWeapon->SetOrigin(Vector2f(this->PlayerWeapon->GetSize().x / 2, this->PlayerWeapon->GetSize().y - 4));
 
 	this->HealthBar = RectangleShape(Vector2f(200, 15));
-	this->HealthBar.setFillColor(Color(188, 28, 28));
+	this->HealthBar.setFillColor(Color(188, 28, 28, 192));
 	this->HealthBar.setOutlineColor(Color::Transparent);
 	this->HealthBar.setOutlineThickness(1);
 	this->HealthBar.setPosition(Vector2f(10, 13));

@@ -7,6 +7,7 @@
 #include <memory>
 #include <map>
 #include <iostream>
+#include <fstream>
 #include "Cache.h"
 
 using namespace std;

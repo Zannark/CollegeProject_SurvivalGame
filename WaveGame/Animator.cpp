@@ -3,7 +3,7 @@
 Engine::Core::Cache<Engine::Core::Animator> Engine::Core::AnimationCache::Cache = Engine::Core::Cache<Engine::Core::Animator>();
 
 void Engine::Core::InitAnimatorCache(void)
-{
+{	
 	AnimationCache::Cache.Add("Assets/Background.png", Animator("Assets/Background.png", Vector2i(800, 600)));
 	AnimationCache::Cache.Add("Assets/Player.png", Animator("Assets/Player.png", Vector2i(32, 32)));
 	AnimationCache::Cache.Add("Assets/TestBuilding.png", Animator("Assets/TestBuilding.png", Vector2i(32, 32)));
