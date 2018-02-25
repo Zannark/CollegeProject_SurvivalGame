@@ -14,7 +14,7 @@ Engine::Core::Character::~Character()
 ///<returns>The position as a sf::Vector2f.</returns>
 Vector2f Engine::Core::Character::GetPosition(void)
 {
-	return this->CharacterAnimator->GetSFMLSprite()->getPosition();
+	return this->CharacterAnimator->GetPosition();
 }
 
 ///<summary>

@@ -4,12 +4,11 @@ Engine::Core::Cache<Engine::Core::Animator> Engine::Core::AnimationCache::Cache 
 
 void Engine::Core::InitAnimatorCache(void)
 {
-	AnimationCache::Cache.Add("Assets\\TestAnimation.png", Animator("Assets\\TestAnimation.png", Vector2i(32, 32)));
 	AnimationCache::Cache.Add("Assets/Background.png", Animator("Assets/Background.png", Vector2i(800, 600)));
 	AnimationCache::Cache.Add("Assets/Player.png", Animator("Assets/Player.png", Vector2i(32, 32)));
 	AnimationCache::Cache.Add("Assets/TestBuilding.png", Animator("Assets/TestBuilding.png", Vector2i(32, 32)));
 	AnimationCache::Cache.Add("Assets/Enemy.png", Animator("Assets/Enemy.png", Vector2i(32, 32)));
-	AnimationCache::Cache.Add("Assets/PlayerWeapon.png", Animator("Assets/PlayerWeapon.png", Vector2i(32, 32)));
+	AnimationCache::Cache.Add("Assets/PlayerWeapon.png", Animator("Assets/PlayerWeapon.png", Vector2i(21, 74)));
 	AnimationCache::Cache.Add("Assets/SpeedPowerUp.png", Animator("Assets/SpeedPowerUp.png", Vector2i(32, 32)));
 	AnimationCache::Cache.Add("Assets/DamagePowerUp.png", Animator("Assets/DamagePowerUp.png", Vector2i(32, 32)));
 }
@@ -35,6 +34,22 @@ Engine::Core::Animator::Animator(string SpriteSheetPath, Vector2i FrameSize)
 	this->FrameTime = 0;
 	this->CurrentFrameNumber = 0;
 	this->CurrentAnimation = DummyInfo;
+}
+
+Engine::Core::Animator::Animator(const Animator & Animation)
+{
+	this->DefaultAnimation = Animation.DefaultAnimation;
+	this->AnimationFrameSize = Animation.AnimationFrameSize;
+	this->CurrentAnimation = Animation.CurrentAnimation;
+	this->FrameTime = Animation.FrameTime;
+	this->CurrentFrameNumber = Animation.CurrentFrameNumber;
+	this->Tex = Animation.Tex;
+
+	if (!Animation.AnimationSprite)
+		throw runtime_error("Unable to copy a nullptr sprite!");
+
+	this->AnimationSprite = make_shared<Sprite>(*Animation.AnimationSprite);
+	this->AnimationSprite->setTexture(*this->Tex);
 }
 
 Engine::Core::Animator::~Animator()

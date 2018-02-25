@@ -39,6 +39,7 @@ namespace Engine::Core
 	public:
 		Animator() = default;
 		Animator(string SpriteSheetPath, Vector2i FrameSize);
+		Animator(const Animator& Animation);
 		~Animator();
 
 		void AddAnimation(AnimationInformation Animaiton, bool IsDefaultAnimation = false);

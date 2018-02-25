@@ -22,8 +22,6 @@ float GameTime::DeltaTime()
 {
 	if (PreviousDelta >= 1)
 		return 1;
-	if (PreviousDelta > 0.16)
-		return 0.16;
 	return PreviousDelta;
 }
 

@@ -4,7 +4,7 @@
 
 Engine::GamePlay::Enemy::Enemy(Vector2f Position, RenderWindow* Window, Player* P, float Speed)
 {
-	this->CharacterAnimator = make_shared<Animator>(AnimationCache::Cache("Assets/Enemy.png"));
+	this->CharacterAnimator = make_shared<Animator>(Animator(AnimationCache::Cache("Assets/Enemy.png")));
 	this->CharacterAnimator->SetPosition(Position);
 	this->Window = Window;
 	this->P = P;
@@ -60,8 +60,6 @@ void Engine::GamePlay::Enemy::FindPath(void)
 	{
 		this->SearchState = this->Search.SearchStep();
 	} while (this->SearchState == AStarSearch<NavigationNode>::SEARCH_STATE_SEARCHING);
-			
-	cout << this->SearchState << endl;
 
 	if (this->SearchState == AStarSearch<NavigationNode>::SEARCH_STATE_NOT_INITIALISED)
 	{

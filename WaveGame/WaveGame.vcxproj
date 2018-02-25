@@ -229,7 +229,6 @@
     <ClCompile Include="DamagePowerUp.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyManager.cpp" />
-    <ClCompile Include="GameTexture.cpp" />
     <ClCompile Include="GameTime.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Map.cpp" />
@@ -250,7 +249,6 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyManager.h" />
     <ClInclude Include="fsa.h" />
-    <ClInclude Include="GameTexture.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="MapLoader.h" />
     <ClInclude Include="NavigationNode.h" />
