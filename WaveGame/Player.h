@@ -6,7 +6,7 @@
 #include <SFML\Graphics.hpp>
 #include "Common.h"
 #include "Character.h"
-#include "GameTexture.h"
+#include "Animator.h"
 #include "Map.h"
 #include "SFML_Collision.h"
 #include "VectorMaths.h"
@@ -38,7 +38,7 @@ namespace Engine::GamePlay
 		void SetDamageModifier(int Modifier);
 		void SetPowerUp(void* Power);
 
-		shared_ptr<GameTexture> GetPlayerWeapon(void) const;
+		shared_ptr<Animator> GetPlayerWeapon(void) const;
 
 	protected:
 		void UpdateUI(void);
@@ -57,7 +57,7 @@ namespace Engine::GamePlay
 		float AttackTimer;
 		void* Manager;
 
-		shared_ptr<GameTexture> PlayerWeapon;
+		shared_ptr<Animator> PlayerWeapon;
 		RectangleShape HealthBar;
 		RectangleShape HealthBarOutLine;
 

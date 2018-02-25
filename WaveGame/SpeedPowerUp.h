@@ -2,7 +2,7 @@
 
 #include "PowerUpBase.h"
 #include "Player.h"
-#include "GameTexture.h"
+#include "Animator.h"
 
 using namespace Engine::Core;
 

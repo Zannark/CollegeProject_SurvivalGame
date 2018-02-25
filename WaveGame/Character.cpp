@@ -14,7 +14,7 @@ Engine::Core::Character::~Character()
 ///<returns>The position as a sf::Vector2f.</returns>
 Vector2f Engine::Core::Character::GetPosition(void)
 {
-	return this->Texture->GetSFMLSprite()->getPosition();
+	return this->CharacterAnimator->GetSFMLSprite()->getPosition();
 }
 
 ///<summary>
@@ -23,7 +23,7 @@ Vector2f Engine::Core::Character::GetPosition(void)
 ///<returns>The size of the Texture.</returns>
 Vector2f Engine::Core::Character::GetSize(void)
 {
-	return Vector2f((float)this->Texture->GetSFMLTexture()->getSize().x, (float)this->Texture->GetSFMLTexture()->getSize().y );
+	return this->CharacterAnimator->GetSize();
 }
 
 ///<summary>
@@ -33,7 +33,7 @@ Vector2f Engine::Core::Character::GetSize(void)
 void Engine::Core::Character::Draw(RenderWindow* Window)
 {
 	if(this->CheckHealth())
-		this->Texture->Draw(Window);
+		this->CharacterAnimator->Draw(Window);
 }
 
 ///<summary>
@@ -61,9 +61,9 @@ bool Engine::Core::Character::CheckHealth(void)
 ///Gets the GameTexture.
 ///</summary>
 ///<returns>A pointer to the GameTexture.</returns>
-shared_ptr<Engine::Core::GameTexture> Engine::Core::Character::GetGameTexure(void) const
+shared_ptr<Engine::Core::Animator> Engine::Core::Character::GetAnimator(void) const
 {
-	return this->Texture;
+	return this->CharacterAnimator;
 }
 
 ///<summary>
@@ -72,5 +72,5 @@ shared_ptr<Engine::Core::GameTexture> Engine::Core::Character::GetGameTexure(voi
 ///<param name = "Position">The position to set the Texture in.</param>
 void Engine::Core::Character::SetPosition(Vector2f Position)
 {
-	this->Texture->SetPosition(Position);
+	this->CharacterAnimator->SetPosition(Position);
 }

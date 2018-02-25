@@ -1,4 +1,3 @@
-#include "GameTexture.h"
 #include "Common.h"
 #include "MapLoader.h"
 #include "Player.h"
@@ -6,6 +5,7 @@
 #include "Enemy.h"
 #include "EnemyManager.h"
 #include "PowerUpManager.h"
+#include "Animator.h"
 #include <SFML\Graphics.hpp>
 #include <array>
 #include <random>
@@ -14,13 +14,17 @@ using namespace sf;
 
 #ifndef UNITTEST
 
+///<summary>
+///The entry point of the program.
+///Where the games main loop is, used to create all of the classes.
+///</summary>
 int main(int argc, char** argv)
 {
 	srand((int)time(NULL));
 
 	mt19937* Generator = new mt19937();
 
-	Engine::Core::InitTextureCache();
+	Engine::Core::InitAnimatorCache();
 	RenderWindow* Window = new RenderWindow(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT, 32), "Wave Game", Style::Close | Style::Titlebar);
 	Event E;
 

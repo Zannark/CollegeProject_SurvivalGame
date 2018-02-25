@@ -2,7 +2,6 @@
 
 #include <map>
 #include <exception>
-#include "GameTexture.h"
 
 using namespace std;
 

@@ -5,7 +5,7 @@
 #include <iostream>
 #include <string>
 #include "stlastar.h"
-#include "GameTexture.h"
+#include "Animator.h"
 #include "Character.h"
 #include "Common.h"
 #include "NavigationNode.h"

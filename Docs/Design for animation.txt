@@ -1,0 +1,13 @@
+1 frame = 1 rect.
+
+What do I need for the animator:
+ - Texture Rects.
+ - The size of each Texture Rect.
+ - Time that each frame of the animation is visable for - (float seconds).
+ - How many frames in the animation there are.
+ - A way to trigger each animation.
+ - A way to identify each animation (A string).
+ - A default frame/animation.
+
+Animation releating to one thing (e.g. the player) should be stored in file (.png).
+The rect of the start animation, the length of the animation (in frames), and the time each frame should be shown for. 

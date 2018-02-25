@@ -2,8 +2,8 @@
 
 DamagePowerUp::DamagePowerUp(Vector2f Position)
 {
-	this->Texture = make_shared<GameTexture>(TextureCache::Cache("Assets/DamagePowerUp.png"));
-	this->Texture->SetPosition(Position);
+	this->PowerUpAnimation = make_shared<Animator>(AnimationCache::Cache("Assets/DamagePowerUp.png"));
+	this->PowerUpAnimation->SetPosition(Position);
 	this->ActiveTime = 1.5f;
 	this->PowerUpName = "Damage Boost";
 }
