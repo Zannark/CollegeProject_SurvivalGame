@@ -3,6 +3,7 @@
 #include <memory>
 #include <math.h>
 #include <map>
+#include <tuple>
 #include <stdlib.h>
 #include <SFML\Graphics.hpp>
 #include "Common.h"
@@ -59,7 +60,7 @@ namespace Engine::GamePlay
 		void HandleRotation(RenderWindow* Window, float dt);
 		void SetPowerUpText(string PowerUpName);
 		void CalculateDirection(void);
-		bool CheckCollision(Map M);
+		tuple<bool, FloatRect> CheckCollision(Map M);
 
 		int AttackDamageModifier;
 		int OldHealth;
@@ -78,6 +79,8 @@ namespace Engine::GamePlay
 		string PowerUpName;
 		Font PowerUpFont;
 		Text PowerUpText;
+
+		map<PlayerMovementDirection, bool> CanMoveDirection;
 	};
 }
 

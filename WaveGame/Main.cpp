@@ -25,7 +25,7 @@ int main(int argc, char** argv)
 	mt19937* Generator = new mt19937();
 
 	Engine::Core::InitAnimatorCache();
-	RenderWindow* Window = new RenderWindow(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT, 32), "Wave Game", Style::Close | Style::Titlebar);
+	RenderWindow* Window = new RenderWindow(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT, 32), "A Knights Final Night", Style::Close | Style::Titlebar);
 	Event E;
 
 	Player* P = new Engine::GamePlay::Player();
