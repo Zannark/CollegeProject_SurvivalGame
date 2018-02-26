@@ -39,6 +39,9 @@ Engine::GamePlay::Player::Player()
 	this->PowerUpText.setFont(this->PowerUpFont);
 	this->PowerUpText.setFillColor(Color::Black);
 	this->PowerUpText.setPosition(Vector2f(225, 0));
+
+	this->MovementDirection = PlayerMovementDirection::Stationary;
+	this->PreviousFramePosition = this->GetPosition();
 }
 
 Engine::GamePlay::Player::~Player()
@@ -57,7 +60,7 @@ void Engine::GamePlay::Player::Update(RenderWindow* Window, Map M, float dt)
 	{
 		this->HandleMovement(Window, M, dt);
 		this->HandleRotation(Window, dt);
-
+		
 		if (this->PowerUp)
 		{
 			if (Keyboard::isKeyPressed(Keyboard::Key::E) && !((PowerUpBase*)this->PowerUp)->GetNeedsToBeDestroyed())
@@ -79,6 +82,8 @@ void Engine::GamePlay::Player::Update(RenderWindow* Window, Map M, float dt)
 
 		this->UpdateUI();
 		this->AttackTimer += dt;
+		this->CalculateDirection();
+		this->PreviousFramePosition = this->GetPosition();
 	}
 }
 
@@ -107,18 +112,29 @@ void Engine::GamePlay::Player::Attack(void)
 void Engine::GamePlay::Player::HandleMovement(RenderWindow* Window, Map M, float dt)
 {
 	Vector2f Offset = Vector2f(0, 0);
+	const float HalfPlayerSize = (this->CharacterAnimator->GetSize().y / 2);
+	const bool HasCollided = this->CheckCollision(M);
 
-	if (Keyboard::isKeyPressed(Keyboard::Key::W) && this->GetPosition().y - (this->CharacterAnimator->GetSize().y / 2) > 0)
+	if (Keyboard::isKeyPressed(Keyboard::Key::W) && this->GetPosition().y - HalfPlayerSize > 0)
 		Offset.y -= (this->MovementSpeed * this->MovementSpeedModifer) * dt;
 
-	if (Keyboard::isKeyPressed(Keyboard::Key::S) && this->GetPosition().y + (this->CharacterAnimator->GetSize().y / 2) < Window->getSize().y)
+	if (Keyboard::isKeyPressed(Keyboard::Key::S) && this->GetPosition().y + HalfPlayerSize < Window->getSize().y)
 		Offset.y += (this->MovementSpeed * this->MovementSpeedModifer) * dt;
 
-	if (Keyboard::isKeyPressed(Keyboard::Key::A) && this->GetPosition().x - (this->CharacterAnimator->GetSize().y / 2) > 0)
+	if (Keyboard::isKeyPressed(Keyboard::Key::A) && this->GetPosition().x - HalfPlayerSize > 0)
 		Offset.x -= (this->MovementSpeed * this->MovementSpeedModifer) * dt;
 
-	if (Keyboard::isKeyPressed(Keyboard::Key::D) && this->GetPosition().x + (this->CharacterAnimator->GetSize().y / 2) < Window->getSize().x)
+	if (Keyboard::isKeyPressed(Keyboard::Key::D) && this->GetPosition().x + HalfPlayerSize < Window->getSize().x)
 		Offset.x += (this->MovementSpeed * this->MovementSpeedModifer) * dt;
+
+	if (HasCollided)
+	{
+		if ((int)this->MovementDirection & (int)PlayerMovementDirection::Up || (int)this->MovementDirection & (int)PlayerMovementDirection::Down)
+			Offset.y = 0;
+		
+		if ((int)this->MovementDirection & (int)PlayerMovementDirection::Left || (int)this->MovementDirection & (int)PlayerMovementDirection::Right)
+			Offset.x = 0;
+	}
 
 	this->CharacterAnimator->Move(Offset);
 }
@@ -246,6 +262,21 @@ void Engine::GamePlay::Player::SetPowerUpText(string PowerUpName)
 		this->PowerUpName = PowerUpName;
 		this->PowerUpText.setString(this->PowerUpName);
 	}
+}
+
+void Engine::GamePlay::Player::CalculateDirection(void)
+{
+	if (this->GetPosition().y < this->PreviousFramePosition.y)
+		this->MovementDirection = PlayerMovementDirection::Up;
+	else if (this->GetPosition().y > this->PreviousFramePosition.y)
+		this->MovementDirection = PlayerMovementDirection::Down;
+	//else
+		//this->MovementDirection = PlayerMovementDirection::Stationary;
+
+	if (this->GetPosition().x < this->PreviousFramePosition.x)
+		this->MovementDirection = (PlayerMovementDirection)((int)this->MovementDirection | (int)PlayerMovementDirection::Left);
+	else if (this->GetPosition().x > this->PreviousFramePosition.x)
+		this->MovementDirection = (PlayerMovementDirection)((int)this->MovementDirection | (int)PlayerMovementDirection::Right);
 }
 
 ///<summary>

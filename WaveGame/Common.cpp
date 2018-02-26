@@ -230,6 +230,16 @@ namespace Engine::Misc
 	}
 #endif //UNITTEST
 
+	bool VectorLessThan(Vector2f Element1, Vector2f Element2)
+	{
+		return (Element1.x < Element2.x) && (Element1.y < Element2.y);
+	}
+
+	bool VectorGreaterThan(sf::Vector2f Element1, sf::Vector2f Element2)
+	{
+		return (Element1.x > Element2.x) && (Element1.y > Element2.y);
+	}
+
 	///<summary>
 	///Scales a value down to fit between two values.
 	///</summary>

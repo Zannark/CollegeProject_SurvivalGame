@@ -59,7 +59,7 @@ int main(int argc, char** argv)
 		if (P->CheckHealth())
 		{
 			P->Update(Window, M, GameTime::DeltaTime());
-			Enemies->Update(Window, M, GameTime::DeltaTime());
+			//Enemies->Update(Window, M, GameTime::DeltaTime());
 			PowerUps.Update(P, GameTime::DeltaTime());
 			Window->clear(Color(0, 0, 0, 255));
 
@@ -68,7 +68,7 @@ int main(int argc, char** argv)
 			P->Draw(Window);
 			M.DrawProps(Window);
 			PowerUps.Draw(Window);
-			Enemies->Draw(Window);
+			//Enemies->Draw(Window);
 			P->DrawUI(Window);
 		}
 		else

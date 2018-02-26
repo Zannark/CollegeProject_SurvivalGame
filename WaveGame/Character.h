@@ -26,12 +26,9 @@ namespace Engine::Core
 		virtual void Update(RenderWindow* Window, Map M, float dt) = 0;
 	protected:
 		float Angle;
-		Vector2f Direction;
 		int Health;
 		bool IsAlive;
 
-		///Saves the last position where the character could move freely.
-		Vector2f LastGoodPosition;
 		shared_ptr<Animator> CharacterAnimator;
 
 		void SetPosition(Vector2f Position);

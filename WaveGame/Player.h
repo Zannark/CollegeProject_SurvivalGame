@@ -23,6 +23,15 @@ using namespace Engine::Misc;
 
 namespace Engine::GamePlay
 {
+	enum class PlayerMovementDirection
+	{
+		Up = (1 << 0),
+		Down = (1 << 1),
+		Left = (1 << 2),
+		Right = (1 << 3),
+		Stationary = (1 << 4)
+	};
+
 	class Player : public Character
 	{
 	public:
@@ -49,6 +58,7 @@ namespace Engine::GamePlay
 		void HandleMovement(RenderWindow* Window, Map M, float dt);
 		void HandleRotation(RenderWindow* Window, float dt);
 		void SetPowerUpText(string PowerUpName);
+		void CalculateDirection(void);
 		bool CheckCollision(Map M);
 
 		int AttackDamageModifier;
@@ -58,6 +68,8 @@ namespace Engine::GamePlay
 		float AttackTimer;
 		void* Manager;
 
+		PlayerMovementDirection MovementDirection;
+		Vector2f PreviousFramePosition;
 		shared_ptr<Animator> PlayerWeapon;
 		RectangleShape HealthBar;
 		RectangleShape HealthBarOutLine;
