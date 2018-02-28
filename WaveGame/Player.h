@@ -21,6 +21,9 @@ using namespace Engine::Misc;
 #define PLAYER_ATTACK_INTERVAL 0.25f
 #define PLAYER_MAX_ATTACK_DAMAGE 7
 #define PLAYER_MAX_HEALTH 200
+#define PLAYER_HIGH_HEALTH_THRESHOLD 150 ///<= 75% of 200
+#define PLAYER_MEDIUM_HEALTH_THRESHOLD 50 ///> 75% && <= 25% of 200
+///No need for a low threshold definition, is low health when below PLAYER_MEDIUM_HEALTH_THRESHOLD.
 
 namespace Engine::GamePlay
 {
@@ -81,6 +84,10 @@ namespace Engine::GamePlay
 		Text PowerUpText;
 
 		map<PlayerMovementDirection, bool> CanMoveDirection;
+
+		Color HighHealthColour;
+		Color MediumHealthColour;
+		Color LowHealthColour;
 	};
 }
 

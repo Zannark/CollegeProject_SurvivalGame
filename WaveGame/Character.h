@@ -19,7 +19,7 @@ namespace Engine::Core
 		Vector2f GetPosition(void);
 		Vector2f GetSize(void);
 		void Draw(RenderWindow* Window);
-		void TakeDamage(int Amount);
+		virtual void TakeDamage(int Amount);
 		bool CheckHealth(void);
 		shared_ptr<Animator> GetAnimator(void) const;
 

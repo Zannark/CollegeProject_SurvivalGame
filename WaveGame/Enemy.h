@@ -4,7 +4,6 @@
 #include <random>
 #include <functional>
 #include "stlastar.h"
-//#include "GameTexture.h"
 #include "Character.h"
 #include "Common.h"
 #include "NavigationNode.h"
@@ -23,6 +22,7 @@ using namespace std;
 #define ENEMY_MAX_MOVEMENT_SPEED 4.5f
 #define ENEMY_MIN_MOVEMENT_SPEED 0.45f
 #define ENEMY_MAX_HEALTH 15
+#define ENEMY_RECIEVE_DAMAGE_COLOUR_CHANGE_LENGTH 0.1f ///Seconds
 
 namespace Engine::GamePlay
 {
@@ -40,13 +40,13 @@ namespace Engine::GamePlay
 		~Enemy();
 
 		void Update(RenderWindow* Window, Map M, float dt);
+		void TakeDamage(int Amount) override;
 
 	private:
 		void ManageState(void);
 		void FindPath(void);
 		void CheckDistance(void);
 		void Attack(void);
-		//Vector2f AlignPlayer(void);
 
 		bool HasStarted;
 		bool FinishedPath;
@@ -62,6 +62,9 @@ namespace Engine::GamePlay
 		RenderWindow* Window;
 		Player* P;
 		AStarSearch<NavigationNode> Search;
+		Color RecieveDamageColour;
+		Color DefaultColour;
+		float ColourChangeTimer;
 	};
 }
 

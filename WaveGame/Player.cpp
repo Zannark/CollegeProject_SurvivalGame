@@ -18,8 +18,12 @@ Engine::GamePlay::Player::Player()
 
 	this->PlayerWeapon->SetOrigin(Vector2f(this->PlayerWeapon->GetSize().x / 2, this->PlayerWeapon->GetSize().y - 4));
 
+	this->HighHealthColour = Color(0, 255, 0, 128);
+	this->MediumHealthColour = Color(255, 219, 64, 128); // Color(232, 112, 12, 128);
+	this->LowHealthColour = Color(255, 0, 0, 128);
+
 	this->HealthBar = RectangleShape(Vector2f(200, 15));
-	this->HealthBar.setFillColor(Color(188, 28, 28, 192));
+	this->HealthBar.setFillColor(this->HighHealthColour);
 	this->HealthBar.setOutlineColor(Color::Transparent);
 	this->HealthBar.setOutlineThickness(1);
 	this->HealthBar.setPosition(Vector2f(10, 13));
@@ -87,6 +91,13 @@ void Engine::GamePlay::Player::Update(RenderWindow* Window, Map M, float dt)
 		this->AttackTimer += dt;
 		this->CalculateDirection();
 		this->PreviousFramePosition = this->GetPosition();
+
+		if (this->Health >= PLAYER_HIGH_HEALTH_THRESHOLD && this->HealthBar.getFillColor() != this->HighHealthColour)
+			this->HealthBar.setFillColor(this->HighHealthColour);
+		else if (this->Health >= PLAYER_MEDIUM_HEALTH_THRESHOLD && this->Health < PLAYER_HIGH_HEALTH_THRESHOLD && this->HealthBar.getFillColor() != this->MediumHealthColour)
+			this->HealthBar.setFillColor(this->MediumHealthColour);
+		else if(this->HealthBar.getFillColor() != this->LowHealthColour && this->Health < PLAYER_MEDIUM_HEALTH_THRESHOLD)
+			this->HealthBar.setFillColor(this->LowHealthColour);
 	}
 }
 
@@ -118,8 +129,8 @@ void Engine::GamePlay::Player::HandleMovement(RenderWindow* Window, Map M, float
 	const float HalfPlayerSize = (this->CharacterAnimator->GetSize().y / 2);
 	const auto CollisionResult = this->CheckCollision(M);
 
-	for (int i = 0; i < 4; i++)
-		this->CanMoveDirection[(PlayerMovementDirection)(1 << i)] = true;
+	//for (int i = 0; i < 4; i++)
+		//this->CanMoveDirection[(PlayerMovementDirection)(1 << i)] = true;
 
 	if (Keyboard::isKeyPressed(Keyboard::Key::W) && this->GetPosition().y - HalfPlayerSize > 0 && this->CanMoveDirection[PlayerMovementDirection::Up])
 		Offset.y -= (this->MovementSpeed * this->MovementSpeedModifer) * dt;
@@ -133,7 +144,7 @@ void Engine::GamePlay::Player::HandleMovement(RenderWindow* Window, Map M, float
 	if (Keyboard::isKeyPressed(Keyboard::Key::D) && this->GetPosition().x + HalfPlayerSize < Window->getSize().x && this->CanMoveDirection[PlayerMovementDirection::Right])
 		Offset.x += (this->MovementSpeed * this->MovementSpeedModifer) * dt;
 
-	if (get<0>(CollisionResult))
+	/*if (get<0>(CollisionResult))
 	{
 		FloatRect PlayerBox = FloatRect(this->GetPosition().x, this->GetPosition().y, this->CharacterAnimator->GetSize().x, this->CharacterAnimator->GetSize().y);
 		FloatRect Intersection;
@@ -154,7 +165,7 @@ void Engine::GamePlay::Player::HandleMovement(RenderWindow* Window, Map M, float
 			if ((int)this->MovementDirection & (int)PlayerMovementDirection::Up)
 				Offset.y += Intersection.height;
 		}
-	}
+	}*/
 
 	this->CharacterAnimator->Move(Offset);
 }

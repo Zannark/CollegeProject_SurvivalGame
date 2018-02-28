@@ -20,6 +20,9 @@ Engine::GamePlay::Enemy::Enemy(Vector2f Position, RenderWindow* Window, Player* 
 	this->AttackTimer = ENEMY_ATTACK_INTERVAL;
 	this->IsAlive = true;
 	this->MovementSpeed = Speed;
+	this->RecieveDamageColour = Color(255, 0, 0);
+	this->DefaultColour = this->CharacterAnimator->GetSFMLSprite()->getColor();
+	this->ColourChangeTimer = 0.0f;
 }
 
 Engine::GamePlay::Enemy::~Enemy()
@@ -36,6 +39,18 @@ void Engine::GamePlay::Enemy::Update(RenderWindow* Window, Map M, float dt)
 {
 	this->ManageState();
 	this->AttackTimer += GameTime::DeltaTime();
+
+	if (this->CharacterAnimator->GetSFMLSprite()->getColor() != this->DefaultColour && this->ColourChangeTimer >= ENEMY_RECIEVE_DAMAGE_COLOUR_CHANGE_LENGTH)
+		this->CharacterAnimator->GetSFMLSprite()->setColor(this->DefaultColour);
+	else
+		this->ColourChangeTimer += dt;
+}
+
+void Engine::GamePlay::Enemy::TakeDamage(int Amount)
+{
+	Character::TakeDamage(Amount);
+	this->CharacterAnimator->GetSFMLSprite()->setColor(this->RecieveDamageColour);
+	this->ColourChangeTimer = 0.0f;
 }
 
 ///<summary>
@@ -134,7 +149,9 @@ void Engine::GamePlay::Enemy::FindPath(void)
 ///</summary>
 void Engine::GamePlay::Enemy::CheckDistance(void)
 {
-	if (Distance(this->GetPosition(), this->P->GetPosition()).x <= ENEMY_ATTACK_RANGE && Distance(this->GetPosition(), this->P->GetPosition()).y <= ENEMY_ATTACK_RANGE)
+	const Vector2f PlayerDistance = Distance(this->GetPosition(), this->P->GetPosition());
+
+	if (PlayerDistance.x <= ENEMY_ATTACK_RANGE && PlayerDistance.y <= ENEMY_ATTACK_RANGE)
 		this->State = EnemyState::Attacking;
 	else
 		this->State = EnemyState::Pathfinding;
