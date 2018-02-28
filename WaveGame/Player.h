@@ -75,6 +75,7 @@ namespace Engine::GamePlay
 		PlayerMovementDirection MovementDirection;
 		Vector2f PreviousFramePosition;
 		shared_ptr<Animator> PlayerWeapon;
+		shared_ptr<Animator> HealthBarIcon;
 		RectangleShape HealthBar;
 		RectangleShape HealthBarOutLine;
 

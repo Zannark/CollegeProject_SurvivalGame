@@ -11,6 +11,7 @@ void Engine::Core::InitAnimatorCache(void)
 	AnimationCache::Cache.Add("Assets/PlayerWeapon.png", Animator("Assets/PlayerWeapon.png", Vector2i(21, 74)));
 	AnimationCache::Cache.Add("Assets/SpeedPowerUp.png", Animator("Assets/SpeedPowerUp.png", Vector2i(32, 32)));
 	AnimationCache::Cache.Add("Assets/DamagePowerUp.png", Animator("Assets/DamagePowerUp.png", Vector2i(32, 32)));
+	AnimationCache::Cache.Add("Assets/HealthBarIcon.png", Animator("Assets/HealthBarIcon.png", Vector2i(46, 45)));
 }
 
 Engine::Core::Animator::Animator(string SpriteSheetPath, Vector2i FrameSize)

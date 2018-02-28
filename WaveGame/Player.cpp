@@ -7,6 +7,7 @@ Engine::GamePlay::Player::Player()
 {
 	this->CharacterAnimator = make_shared<Animator>(AnimationCache::Cache("Assets/Player.png"));
 	this->PlayerWeapon = make_shared<Animator>(AnimationCache::Cache("Assets/PlayerWeapon.png"));
+	this->HealthBarIcon = make_shared<Animator>(AnimationCache::Cache("Assets/HealthBarIcon.png"));
 	this->MovementSpeed = 150.0f;
 	this->MovementSpeedModifer = 1.f;
 	this->AttackDamageModifier = 1;
@@ -18,22 +19,24 @@ Engine::GamePlay::Player::Player()
 
 	this->PlayerWeapon->SetOrigin(Vector2f(this->PlayerWeapon->GetSize().x / 2, this->PlayerWeapon->GetSize().y - 4));
 
-	this->HighHealthColour = Color(0, 255, 0, 128);
-	this->MediumHealthColour = Color(255, 219, 64, 128); // Color(232, 112, 12, 128);
-	this->LowHealthColour = Color(255, 0, 0, 128);
+	this->HighHealthColour = Color(0, 255, 0);
+	this->MediumHealthColour = Color(255, 219, 64); 
+	this->LowHealthColour = Color(255, 0, 0);
 
-	this->HealthBar = RectangleShape(Vector2f(200, 15));
-	this->HealthBar.setFillColor(this->HighHealthColour);
-	this->HealthBar.setOutlineColor(Color::Transparent);
-	this->HealthBar.setOutlineThickness(1);
-	this->HealthBar.setPosition(Vector2f(10, 13));
+	this->HealthBarIcon->SetPosition(Vector2f(5, 10));
 
 	this->HealthBarOutLine = RectangleShape(Vector2f(200, 15));
 	this->HealthBarOutLine.setFillColor(Color::Transparent);
 	this->HealthBarOutLine.setOutlineColor(Color::Black);
 	this->HealthBarOutLine.setOutlineThickness(4);
-	this->HealthBarOutLine.setPosition(Vector2f(10, 13));
+	this->HealthBarOutLine.setPosition(Vector2f((this->HealthBarIcon->GetSize().x / 2) + this->HealthBarOutLine.getOutlineThickness(), 25));
 
+	this->HealthBar = RectangleShape(Vector2f(200, 15));
+	this->HealthBar.setFillColor(this->HighHealthColour);
+	this->HealthBar.setOutlineColor(Color::Transparent);
+	this->HealthBar.setOutlineThickness(0);
+	this->HealthBar.setPosition(Vector2f((this->HealthBarIcon->GetSize().x / 2) + this->HealthBarOutLine.getOutlineThickness(), 25));
+	
 	this->IsAlive = true;
 	this->AttackTimer = PLAYER_ATTACK_INTERVAL;
 
@@ -249,6 +252,7 @@ void Engine::GamePlay::Player::RegenHalfMissingHealth(void)
 ///<param name = "Window">A pointer to the RenderWindow to draw to.</param>
 void Engine::GamePlay::Player::DrawUI(RenderWindow * Window)
 {
+	this->HealthBarIcon->Draw(Window);
 	Window->draw(this->HealthBarOutLine);
 	Window->draw(this->HealthBar);
 	Window->draw(this->PowerUpText);
