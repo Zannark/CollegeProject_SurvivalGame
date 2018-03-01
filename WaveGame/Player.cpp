@@ -29,13 +29,13 @@ Engine::GamePlay::Player::Player()
 	this->HealthBarOutLine.setFillColor(Color::Transparent);
 	this->HealthBarOutLine.setOutlineColor(Color::Black);
 	this->HealthBarOutLine.setOutlineThickness(4);
-	this->HealthBarOutLine.setPosition(Vector2f((this->HealthBarIcon->GetSize().x / 2) + this->HealthBarOutLine.getOutlineThickness(), 25));
+	this->HealthBarOutLine.setPosition(Vector2f(this->HealthBarIcon->GetSize().x + this->HealthBarOutLine.getOutlineThickness() + 10, (this->HealthBarIcon->GetSize().y / 2) + this->HealthBarOutLine.getOutlineThickness()));
 
 	this->HealthBar = RectangleShape(Vector2f(200, 15));
 	this->HealthBar.setFillColor(this->HighHealthColour);
 	this->HealthBar.setOutlineColor(Color::Transparent);
 	this->HealthBar.setOutlineThickness(0);
-	this->HealthBar.setPosition(Vector2f((this->HealthBarIcon->GetSize().x / 2) + this->HealthBarOutLine.getOutlineThickness(), 25));
+	this->HealthBar.setPosition(Vector2f(this->HealthBarIcon->GetSize().x + this->HealthBarOutLine.getOutlineThickness() + 10, (this->HealthBarIcon->GetSize().y / 2) + this->HealthBarOutLine.getOutlineThickness()));
 	
 	this->IsAlive = true;
 	this->AttackTimer = PLAYER_ATTACK_INTERVAL;
@@ -45,7 +45,7 @@ Engine::GamePlay::Player::Player()
 	this->PowerUpFont.loadFromFile("Assets/Heavy_Data.ttf");
 	this->PowerUpText.setFont(this->PowerUpFont);
 	this->PowerUpText.setFillColor(Color::Black);
-	this->PowerUpText.setPosition(Vector2f(225, 0));
+	this->PowerUpText.setPosition(Vector2f(300, 12));
 
 	this->MovementDirection = PlayerMovementDirection::Stationary;
 	this->PreviousFramePosition = this->GetPosition();
