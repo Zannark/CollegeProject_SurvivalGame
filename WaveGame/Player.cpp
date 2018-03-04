@@ -70,7 +70,7 @@ void Engine::GamePlay::Player::Update(RenderWindow* Window, Map M, float dt)
 	{
 		this->HandleMovement(Window, M, dt);
 		this->HandleRotation(Window, dt);
-		
+
 		if (this->PowerUp)
 		{
 			if (Keyboard::isKeyPressed(Keyboard::Key::E) && !((PowerUpBase*)this->PowerUp)->GetNeedsToBeDestroyed())
@@ -101,6 +101,8 @@ void Engine::GamePlay::Player::Update(RenderWindow* Window, Map M, float dt)
 			this->HealthBar.setFillColor(this->MediumHealthColour);
 		else if(this->HealthBar.getFillColor() != this->LowHealthColour && this->Health < PLAYER_MEDIUM_HEALTH_THRESHOLD)
 			this->HealthBar.setFillColor(this->LowHealthColour);
+
+		this->HandleCollision(M, 0);
 	}
 }
 
@@ -130,45 +132,22 @@ void Engine::GamePlay::Player::HandleMovement(RenderWindow* Window, Map M, float
 {
 	Vector2f Offset = Vector2f(0, 0);
 	const float HalfPlayerSize = (this->CharacterAnimator->GetSize().y / 2);
-	const auto CollisionResult = this->CheckCollision(M);
+	const PlayerCollisionResult CollisionResult = this->CheckCollision(M);
 
-	//for (int i = 0; i < 4; i++)
-		//this->CanMoveDirection[(PlayerMovementDirection)(1 << i)] = true;
+	for (int i = 0; i < 4; i++)
+		this->CanMoveDirection[(PlayerMovementDirection)(1 << i)] = true;
 
-	if (Keyboard::isKeyPressed(Keyboard::Key::W) && this->GetPosition().y - HalfPlayerSize > 0 && this->CanMoveDirection[PlayerMovementDirection::Up])
+	if (Keyboard::isKeyPressed(Keyboard::Key::W) && this->GetPosition().y - HalfPlayerSize > 0)
 		Offset.y -= (this->MovementSpeed * this->MovementSpeedModifer) * dt;
 
-	if (Keyboard::isKeyPressed(Keyboard::Key::S) && this->GetPosition().y + HalfPlayerSize < Window->getSize().y && this->CanMoveDirection[PlayerMovementDirection::Down])
+	if (Keyboard::isKeyPressed(Keyboard::Key::S) && this->GetPosition().y + HalfPlayerSize < Window->getSize().y)
 		Offset.y += (this->MovementSpeed * this->MovementSpeedModifer) * dt;
 
-	if (Keyboard::isKeyPressed(Keyboard::Key::A) && this->GetPosition().x - HalfPlayerSize > 0 && this->CanMoveDirection[PlayerMovementDirection::Left])
+	if (Keyboard::isKeyPressed(Keyboard::Key::A) && this->GetPosition().x - HalfPlayerSize > 0)
 		Offset.x -= (this->MovementSpeed * this->MovementSpeedModifer) * dt;
 
-	if (Keyboard::isKeyPressed(Keyboard::Key::D) && this->GetPosition().x + HalfPlayerSize < Window->getSize().x && this->CanMoveDirection[PlayerMovementDirection::Right])
+	if (Keyboard::isKeyPressed(Keyboard::Key::D) && this->GetPosition().x + HalfPlayerSize < Window->getSize().x)
 		Offset.x += (this->MovementSpeed * this->MovementSpeedModifer) * dt;
-
-	/*if (get<0>(CollisionResult))
-	{
-		FloatRect PlayerBox = FloatRect(this->GetPosition().x, this->GetPosition().y, this->CharacterAnimator->GetSize().x, this->CharacterAnimator->GetSize().y);
-		FloatRect Intersection;
-		
-		PlayerBox.intersects(get<1>(CollisionResult), Intersection);
-
-		if (Intersection.width > Intersection.height)
-		{
-			if((int)this->MovementDirection & (int)PlayerMovementDirection::Right)
-				Offset.x -= Intersection.width;
-			if ((int)this->MovementDirection & (int)PlayerMovementDirection::Left)
-				Offset.x += Intersection.width;
-		}
-		else
-		{
-			if ((int)this->MovementDirection & (int)PlayerMovementDirection::Down)
-				Offset.y -= Intersection.height;
-			if ((int)this->MovementDirection & (int)PlayerMovementDirection::Up)
-				Offset.y += Intersection.height;
-		}
-	}*/
 
 	this->CharacterAnimator->Move(Offset);
 }
@@ -179,8 +158,8 @@ void Engine::GamePlay::Player::CalculateDirection(void)
 		this->MovementDirection = PlayerMovementDirection::Up;
 	else if (this->GetPosition().y > this->PreviousFramePosition.y)
 		this->MovementDirection = PlayerMovementDirection::Down;
-	//else
-	//this->MovementDirection = PlayerMovementDirection::Stationary;
+	else
+	    this->MovementDirection = PlayerMovementDirection::Stationary;
 
 	if (this->GetPosition().x < this->PreviousFramePosition.x)
 		this->MovementDirection = (PlayerMovementDirection)((int)this->MovementDirection | (int)PlayerMovementDirection::Left);
@@ -206,17 +185,72 @@ void Engine::GamePlay::Player::HandleRotation(RenderWindow* Window, float dt)
 	this->CharacterAnimator->SetRotation(Angle + 90);
 }
 
+void Engine::GamePlay::Player::HandleCollision(Map M, float MovementOffset)
+{
+	PlayerCollisionResult Result = this->CheckCollision(M);
+
+	///There has been no collision, no need to do anything else.
+	if (!get<0>(Result))
+		return;
+
+	shared_ptr<Animator> Prop = get<1>(Result);
+	Vector2f PropCentre = Prop->GetSize();
+	Vector2f PlayerCentre = this->GetSize();
+
+	///Distance between the centres of each point.
+	Vector2f Delta(Prop->GetPosition().x - this->GetPosition().x, Prop->GetPosition().y - this->GetPosition().y);
+	Vector2f Intersection;
+	Intersection.x = abs(Delta.x) - (PropCentre.x + PlayerCentre.x);
+	Intersection.y = abs(Delta.y) - (PropCentre.y + PlayerCentre.y);
+
+	if (Intersection.x < 0.0f && Intersection.y < 0.0f)
+	{
+		MovementOffset = min(max(MovementOffset, 0.f), 1.f);
+		
+		if (Intersection.x > Intersection.y)
+		{
+			///Move on the x axis, posative direction. 
+			if (Delta.x > 0)
+			{
+				this->CharacterAnimator->Move(Vector2f(Intersection.x * (1 - MovementOffset), 0));
+				Prop->GetSFMLSprite()->move(Vector2f(-Intersection.x * MovementOffset, 0));
+			}
+			///Move on the x axis, negative direction.
+			else
+			{
+				this->CharacterAnimator->Move(Vector2f(-Intersection.x * (1 - MovementOffset), 0));
+				Prop->GetSFMLSprite()->move(Vector2f(Intersection.x * MovementOffset, 0));
+			}
+		}
+		else
+		{
+			///Move on the y axis, posative direction. 
+			if (Delta.y > 0)
+			{
+				this->CharacterAnimator->Move(Vector2f(0, Intersection.y * (1 - MovementOffset)));
+				Prop->GetSFMLSprite()->move(Vector2f(0, -Intersection.y * MovementOffset));
+			}
+			///Move on the y axis, negative direction.
+			else
+			{
+				this->CharacterAnimator->Move(Vector2f(0, -Intersection.y * (1 - MovementOffset)));
+				Prop->GetSFMLSprite()->move(Vector2f(0, Intersection.y * MovementOffset));
+			}
+		}
+	}
+}
+
 ///<summary>
 ///Checks if the player is colliding with a prop on screen.
 ///</summary>
 ///<param name = "M">A copy of the Map for the player for movement.</param>
 ///<returns>True if there is collision, false otherwise.</returns>
-tuple<bool, FloatRect> Engine::GamePlay::Player::CheckCollision(Map M)
+PlayerCollisionResult Engine::GamePlay::Player::CheckCollision(Map M)
 {
 	for (auto Prop : M.GetProps())
 		if (Collision::PixelPerfectTest(*this->CharacterAnimator->GetSFMLSprite(), *Prop->GetSFMLSprite()))
-			return make_tuple(true, FloatRect(Prop->GetPosition().x, Prop->GetPosition().y, Prop->GetSize().x, Prop->GetSize().y));
-	return make_tuple(false, FloatRect());
+			return make_tuple(true, Prop);
+	return make_tuple(false, nullptr);
 }
 
 ///<summary>

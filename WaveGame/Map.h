@@ -4,6 +4,7 @@
 #include <SFML\Graphics.hpp>
 #include <memory>
 #include "Animator.h"
+#include "VectorMaths.h"
 
 using namespace std;
 

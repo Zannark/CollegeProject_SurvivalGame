@@ -8,6 +8,7 @@
 #include <map>
 #include <iostream>
 #include <fstream>
+#include "SFML_Collision.h"
 #include "Cache.h"
 
 using namespace std;
@@ -56,6 +57,7 @@ namespace Engine::Core
 		shared_ptr<Sprite> GetSFMLSprite(void) const;
 		Vector2f GetPosition(void) const;
 		Vector2f GetSize(void) const;
+		const string& GetCurrentAnimation(void) const;
 
 	private:
 		///Aniations[(AnimationName)] = AnimationInfo;

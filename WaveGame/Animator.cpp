@@ -21,7 +21,7 @@ Engine::Core::Animator::Animator(string SpriteSheetPath, Vector2i FrameSize)
 
 	this->Tex = make_shared<Texture>();
 
-	if (!this->Tex->loadFromFile(SpriteSheetPath))
+	if (!Collision::CreateTextureAndBitmask(*this->Tex, SpriteSheetPath))
 	{
 		string ErrorMessage = string("Failed to load the sprite sheet at location: ") + SpriteSheetPath;
 		throw runtime_error(ErrorMessage);
@@ -127,6 +127,11 @@ Vector2f Engine::Core::Animator::GetPosition(void) const
 Vector2f Engine::Core::Animator::GetSize(void) const
 {
 	return Vector2f(this->AnimationFrameSize);
+}
+
+const string & Engine::Core::Animator::GetCurrentAnimation(void) const
+{
+	return this->CurrentAnimation.AnimationName;
 }
 
 void Engine::Core::Animator::SetPosition(const Vector2f & Position)

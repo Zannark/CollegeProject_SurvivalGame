@@ -25,6 +25,7 @@ void Engine::Core::Map::AddBackground(string ID)
 void Engine::Core::Map::AddProp(string ID, Vector2f Position)
 {
 	shared_ptr<Animator> Tex = make_shared<Animator>(AnimationCache::Cache(ID));
+	Tex->GetSFMLSprite()->setOrigin(Vector2f(Tex->GetSize().x / 2, Tex->GetSize().y / 2));
 	Tex->SetPosition(Position);
 	this->Props.push_back(Tex);
 }

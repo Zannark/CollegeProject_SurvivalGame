@@ -3,6 +3,9 @@
 #include <memory>
 #include <random>
 #include <functional>
+#include <SFML\Graphics.hpp>
+#include <SFML\System.hpp>
+
 #include "stlastar.h"
 #include "Character.h"
 #include "Common.h"

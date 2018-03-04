@@ -4,6 +4,7 @@
 #include <math.h>
 #include <map>
 #include <tuple>
+#include <algorithm>
 #include <stdlib.h>
 #include <SFML\Graphics.hpp>
 #include "Common.h"
@@ -27,6 +28,8 @@ using namespace Engine::Misc;
 
 namespace Engine::GamePlay
 {
+	using PlayerCollisionResult = tuple<bool, shared_ptr<Animator>>;
+
 	enum class PlayerMovementDirection
 	{
 		Up = (1 << 0),
@@ -51,7 +54,8 @@ namespace Engine::GamePlay
 		void SetSpeedModifier(float Modifier);
 		void SetDamageModifier(int Modifier);
 		void SetPowerUp(void* Power);
-
+		
+		
 		shared_ptr<Animator> GetPlayerWeapon(void) const;
 
 	protected:
@@ -61,9 +65,10 @@ namespace Engine::GamePlay
 		void Attack(void);
 		void HandleMovement(RenderWindow* Window, Map M, float dt);
 		void HandleRotation(RenderWindow* Window, float dt);
+		void HandleCollision(Map M, float MovementOffset);
 		void SetPowerUpText(string PowerUpName);
 		void CalculateDirection(void);
-		tuple<bool, FloatRect> CheckCollision(Map M);
+		PlayerCollisionResult CheckCollision(Map M);
 
 		int AttackDamageModifier;
 		int OldHealth;
