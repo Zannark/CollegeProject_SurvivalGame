@@ -46,12 +46,6 @@ Engine::GamePlay::Player::Player()
 	this->PowerUpText.setFont(this->PowerUpFont);
 	this->PowerUpText.setFillColor(Color::Black);
 	this->PowerUpText.setPosition(Vector2f(300, 12));
-
-	this->MovementDirection = PlayerMovementDirection::Stationary;
-	this->PreviousFramePosition = this->GetPosition();
-
-	for (int i = 0; i < 4; i++)
-		this->CanMoveDirection[(PlayerMovementDirection)(1 << i)] = true;
 }
 
 Engine::GamePlay::Player::~Player()
@@ -92,8 +86,6 @@ void Engine::GamePlay::Player::Update(RenderWindow* Window, Map M, float dt)
 
 		this->UpdateUI();
 		this->AttackTimer += dt;
-		this->CalculateDirection();
-		this->PreviousFramePosition = this->GetPosition();
 
 		if (this->Health >= PLAYER_HIGH_HEALTH_THRESHOLD && this->HealthBar.getFillColor() != this->HighHealthColour)
 			this->HealthBar.setFillColor(this->HighHealthColour);
@@ -134,9 +126,6 @@ void Engine::GamePlay::Player::HandleMovement(RenderWindow* Window, Map M, float
 	const float HalfPlayerSize = (this->CharacterAnimator->GetSize().y / 2);
 	const PlayerCollisionResult CollisionResult = this->CheckCollision(M);
 
-	for (int i = 0; i < 4; i++)
-		this->CanMoveDirection[(PlayerMovementDirection)(1 << i)] = true;
-
 	if (Keyboard::isKeyPressed(Keyboard::Key::W) && this->GetPosition().y - HalfPlayerSize > 0)
 		Offset.y -= (this->MovementSpeed * this->MovementSpeedModifer) * dt;
 
@@ -150,21 +139,6 @@ void Engine::GamePlay::Player::HandleMovement(RenderWindow* Window, Map M, float
 		Offset.x += (this->MovementSpeed * this->MovementSpeedModifer) * dt;
 
 	this->CharacterAnimator->Move(Offset);
-}
-
-void Engine::GamePlay::Player::CalculateDirection(void)
-{
-	if (this->GetPosition().y < this->PreviousFramePosition.y)
-		this->MovementDirection = PlayerMovementDirection::Up;
-	else if (this->GetPosition().y > this->PreviousFramePosition.y)
-		this->MovementDirection = PlayerMovementDirection::Down;
-	else
-	    this->MovementDirection = PlayerMovementDirection::Stationary;
-
-	if (this->GetPosition().x < this->PreviousFramePosition.x)
-		this->MovementDirection = (PlayerMovementDirection)((int)this->MovementDirection | (int)PlayerMovementDirection::Left);
-	else if (this->GetPosition().x > this->PreviousFramePosition.x)
-		this->MovementDirection = (PlayerMovementDirection)((int)this->MovementDirection | (int)PlayerMovementDirection::Right);
 }
 
 ///<summary>

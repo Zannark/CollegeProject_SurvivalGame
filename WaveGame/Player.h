@@ -30,15 +30,6 @@ namespace Engine::GamePlay
 {
 	using PlayerCollisionResult = tuple<bool, shared_ptr<Animator>>;
 
-	enum class PlayerMovementDirection
-	{
-		Up = (1 << 0),
-		Down = (1 << 1),
-		Left = (1 << 2),
-		Right = (1 << 3),
-		Stationary = (1 << 4)
-	};
-
 	class Player : public Character
 	{
 	public:
@@ -67,7 +58,6 @@ namespace Engine::GamePlay
 		void HandleRotation(RenderWindow* Window, float dt);
 		void HandleCollision(Map M, float MovementOffset);
 		void SetPowerUpText(string PowerUpName);
-		void CalculateDirection(void);
 		PlayerCollisionResult CheckCollision(Map M);
 
 		int AttackDamageModifier;
@@ -76,9 +66,6 @@ namespace Engine::GamePlay
 		float MovementSpeedModifer;
 		float AttackTimer;
 		void* Manager;
-
-		PlayerMovementDirection MovementDirection;
-		Vector2f PreviousFramePosition;
 		shared_ptr<Animator> PlayerWeapon;
 		shared_ptr<Animator> HealthBarIcon;
 		RectangleShape HealthBar;
@@ -88,8 +75,6 @@ namespace Engine::GamePlay
 		string PowerUpName;
 		Font PowerUpFont;
 		Text PowerUpText;
-
-		map<PlayerMovementDirection, bool> CanMoveDirection;
 
 		Color HighHealthColour;
 		Color MediumHealthColour;
