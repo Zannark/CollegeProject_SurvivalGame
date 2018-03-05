@@ -6,6 +6,7 @@ Engine::GamePlay::Enemy::Enemy(Vector2f Position, RenderWindow* Window, Player* 
 {
 	this->CharacterAnimator = make_shared<Animator>(Animator(AnimationCache::Cache("Assets/Enemy.png")));
 	this->CharacterAnimator->SetPosition(Position);
+	this->CharacterAnimator->SetOrigin(Div(this->CharacterAnimator->GetSize(), 2));
 	this->Window = Window;
 	this->P = P;
 	this->State = EnemyState::CheckDistance;

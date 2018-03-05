@@ -15,7 +15,8 @@ Engine::GamePlay::Player::Player()
 	this->OldHealth = PLAYER_MAX_HEALTH;
 
 	this->CharacterAnimator->SetOrigin(Vector2f((float)(this->CharacterAnimator->GetSize().x / 2), (float)(this->CharacterAnimator->GetSize().y / 2)));
-	this->CharacterAnimator->SetPosition(Vector2f((float)(rand() % (WINDOW_WIDTH - (int)this->CharacterAnimator->GetSize().x)), (float)(rand() % (WINDOW_HEIGHT - (int)this->CharacterAnimator->GetSize().y))));
+	this->CharacterAnimator->SetPosition(Vector2f(450, 450));
+
 
 	this->PlayerWeapon->SetOrigin(Vector2f(this->PlayerWeapon->GetSize().x / 2, this->PlayerWeapon->GetSize().y - 4));
 
@@ -94,7 +95,7 @@ void Engine::GamePlay::Player::Update(RenderWindow* Window, Map M, float dt)
 		else if(this->HealthBar.getFillColor() != this->LowHealthColour && this->Health < PLAYER_MEDIUM_HEALTH_THRESHOLD)
 			this->HealthBar.setFillColor(this->LowHealthColour);
 
-		this->HandleCollision(M, 0.1);
+		this->HandleCollision(M, 0.1f);
 	}
 }
 
@@ -167,7 +168,7 @@ void Engine::GamePlay::Player::HandleCollision(Map M, float MovementOffset)
 	if (!get<0>(Result))
 		return;
 
-	const int CollisionBuffer = 3;
+	const float CollisionBuffer = 3.5f;
 
 	shared_ptr<Animator> Prop = get<1>(Result);
 	Vector2f PropCentre = Prop->GetSize();

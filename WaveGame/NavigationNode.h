@@ -3,6 +3,7 @@
 #include <SFML\Graphics.hpp>
 #include <memory>
 #include <vector>
+#include <limits>
 #include "stlastar.h"
 #include "Common.h"
 #include "Map.h"
@@ -28,6 +29,7 @@ namespace Engine::Core
 		bool GetSuccessors(AStarSearch<NavigationNode> *astarsearch, NavigationNode *parent_node);
 		float GetCost(NavigationNode &successor);
 		bool IsSameState(NavigationNode &rhs);
+		bool GetCollision(void) const;
 		
 		Vector2f Position;
 		RenderWindow* Window;
