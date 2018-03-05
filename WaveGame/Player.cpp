@@ -102,7 +102,7 @@ void Engine::GamePlay::Player::Update(RenderWindow* Window, Map M, float dt)
 		else if(this->HealthBar.getFillColor() != this->LowHealthColour && this->Health < PLAYER_MEDIUM_HEALTH_THRESHOLD)
 			this->HealthBar.setFillColor(this->LowHealthColour);
 
-		this->HandleCollision(M, 0);
+		this->HandleCollision(M, 0.1);
 	}
 }
 
@@ -193,6 +193,8 @@ void Engine::GamePlay::Player::HandleCollision(Map M, float MovementOffset)
 	if (!get<0>(Result))
 		return;
 
+	const int CollisionBuffer = 3;
+
 	shared_ptr<Animator> Prop = get<1>(Result);
 	Vector2f PropCentre = Prop->GetSize();
 	Vector2f PlayerCentre = this->GetSize();
@@ -211,31 +213,19 @@ void Engine::GamePlay::Player::HandleCollision(Map M, float MovementOffset)
 		{
 			///Move on the x axis, posative direction. 
 			if (Delta.x > 0)
-			{
-				this->CharacterAnimator->Move(Vector2f(Intersection.x * (1 - MovementOffset), 0));
-				Prop->GetSFMLSprite()->move(Vector2f(-Intersection.x * MovementOffset, 0));
-			}
+				this->CharacterAnimator->Move(Vector2f(Intersection.x * (1 - MovementOffset) + PlayerCentre.x - CollisionBuffer, 0));
 			///Move on the x axis, negative direction.
 			else
-			{
-				this->CharacterAnimator->Move(Vector2f(-Intersection.x * (1 - MovementOffset), 0));
-				Prop->GetSFMLSprite()->move(Vector2f(Intersection.x * MovementOffset, 0));
-			}
+				this->CharacterAnimator->Move(Vector2f(-Intersection.x * (1 - MovementOffset) - PlayerCentre.x + CollisionBuffer, 0));
 		}
 		else
 		{
 			///Move on the y axis, posative direction. 
-			if (Delta.y > 0)
-			{
-				this->CharacterAnimator->Move(Vector2f(0, Intersection.y * (1 - MovementOffset)));
-				Prop->GetSFMLSprite()->move(Vector2f(0, -Intersection.y * MovementOffset));
-			}
+			if (Delta.y > 0) 
+				this->CharacterAnimator->Move(Vector2f(0, Intersection.y * (1 - MovementOffset) + PlayerCentre.y - CollisionBuffer));
 			///Move on the y axis, negative direction.
 			else
-			{
-				this->CharacterAnimator->Move(Vector2f(0, -Intersection.y * (1 - MovementOffset)));
-				Prop->GetSFMLSprite()->move(Vector2f(0, Intersection.y * MovementOffset));
-			}
+				this->CharacterAnimator->Move(Vector2f(0, -Intersection.y * (1 - MovementOffset) - PlayerCentre.y + CollisionBuffer));
 		}
 	}
 }
