@@ -199,6 +199,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)/Deps/SFML/include/;$(SolutionDir)/Deps/rapidxml;$(SolutionDir)/Deps/doctest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AssemblerOutput>NoListing</AssemblerOutput>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

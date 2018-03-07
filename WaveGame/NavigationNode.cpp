@@ -115,10 +115,41 @@ bool Engine::Core::NavigationNode::IsGoal(NavigationNode& GoalNode)
 ///<returns>True, requirement of library to have a boolean return value. Not used in this case.</returns>
 bool Engine::Core::NavigationNode::GetSuccessors(AStarSearch<NavigationNode>* AStarSearch, NavigationNode* ParentNode)
 {
-	auto AddSuccessor = [this, AStarSearch, ParentNode](Vector2f Position)
+	auto HandlePathfindingCollision = [](Vector2f Position) -> bool
 	{
-		auto Node = GetNodeByPosition(Position);
-		if (Node != nullptr && (!ParentNode || !Node->IsSameState(*ParentNode)))
+		shared_ptr<NavigationNode> NeighbourNode = GetNodeByPosition(Position);
+		if ((NeighbourNode && NeighbourNode->GetCollision()))
+			return true;
+		return false;
+	};
+
+	auto AddSuccessor = [this, AStarSearch, ParentNode, HandlePathfindingCollision](Vector2f SuccessorPos)
+	{
+		auto Node = GetNodeByPosition(SuccessorPos);
+		if (!Node)
+			return;
+
+		bool IsNearCollisionNode = (HandlePathfindingCollision(Vector2f(Node->Position.x + NAVIGATION_NODE_DISTANCE, 0)) || ///Node to the right
+			HandlePathfindingCollision(Vector2f(Node->Position.x - NAVIGATION_NODE_DISTANCE, 0)) || ///Node to the left
+			HandlePathfindingCollision(Vector2f(0, Node->Position.y + NAVIGATION_NODE_DISTANCE)) || ///Node below
+			HandlePathfindingCollision(Vector2f(0, Node->Position.y - NAVIGATION_NODE_DISTANCE)) || ///Node above
+
+			HandlePathfindingCollision(Vector2f(Node->Position.x + NAVIGATION_NODE_DISTANCE, Node->Position.y + NAVIGATION_NODE_DISTANCE)) || ///Node to the right and below
+			HandlePathfindingCollision(Vector2f(Node->Position.x - NAVIGATION_NODE_DISTANCE, Node->Position.y + NAVIGATION_NODE_DISTANCE)) || ///Node to the left and below
+			HandlePathfindingCollision(Vector2f(Node->Position.x + NAVIGATION_NODE_DISTANCE, Node->Position.y - NAVIGATION_NODE_DISTANCE)) || ///Node to the right and up
+			HandlePathfindingCollision(Vector2f(Node->Position.x - NAVIGATION_NODE_DISTANCE, Node->Position.y - NAVIGATION_NODE_DISTANCE)) || ///Node to the left and up
+
+			HandlePathfindingCollision(Vector2f(Node->Position.x + (NAVIGATION_NODE_DISTANCE * 2), 0)) || ///Node to the right, NAVIGATION_NODE_DISTANCE * 2
+			HandlePathfindingCollision(Vector2f(Node->Position.x - (NAVIGATION_NODE_DISTANCE * 2), 0)) || ///Node to the left, NAVIGATION_NODE_DISTANCE * 2
+			HandlePathfindingCollision(Vector2f(0, Node->Position.y + (NAVIGATION_NODE_DISTANCE * 2))) || ///Node below, NAVIGATION_NODE_DISTANCE * 2
+			HandlePathfindingCollision(Vector2f(0, Node->Position.y - (NAVIGATION_NODE_DISTANCE * 2))) || ///Node above, NAVIGATION_NODE_DISTANCE * 2
+
+			HandlePathfindingCollision(Vector2f(Node->Position.x + (NAVIGATION_NODE_DISTANCE * 2), Node->Position.y + (NAVIGATION_NODE_DISTANCE * 2))) || ///Node to the right and below, NAVIGATION_NODE_DISTANCE * 2
+			HandlePathfindingCollision(Vector2f(Node->Position.x - (NAVIGATION_NODE_DISTANCE * 2), Node->Position.y + (NAVIGATION_NODE_DISTANCE * 2))) || ///Node to the left and below, NAVIGATION_NODE_DISTANCE * 2
+			HandlePathfindingCollision(Vector2f(Node->Position.x + (NAVIGATION_NODE_DISTANCE * 2), Node->Position.y - (NAVIGATION_NODE_DISTANCE * 2))) || ///Node to the right and up, NAVIGATION_NODE_DISTANCE * 2
+			HandlePathfindingCollision(Vector2f(Node->Position.x - (NAVIGATION_NODE_DISTANCE * 2), Node->Position.y - (NAVIGATION_NODE_DISTANCE * 2))));///Node to the left and up, NAVIGATION_NODE_DISTANCE * 2
+
+		if ((!ParentNode || !Node->IsSameState(*ParentNode) || (Node->GetCollision() && IsNearCollisionNode)))
 			AStarSearch->AddSuccessor(*Node);
 	};
 
@@ -131,7 +162,7 @@ bool Engine::Core::NavigationNode::GetSuccessors(AStarSearch<NavigationNode>* AS
 	AddSuccessor(this->Position + Vector2f(-NAVIGATION_NODE_DISTANCE, NAVIGATION_NODE_DISTANCE)); ///Down Left
 	AddSuccessor(this->Position + Vector2f(NAVIGATION_NODE_DISTANCE, -NAVIGATION_NODE_DISTANCE));  ///Up Right
 	AddSuccessor(this->Position + Vector2f(NAVIGATION_NODE_DISTANCE, NAVIGATION_NODE_DISTANCE));  ///Down Right
-	
+
 	return true;
 }
 
@@ -142,6 +173,15 @@ bool Engine::Core::NavigationNode::GetSuccessors(AStarSearch<NavigationNode>* AS
 ///<returns>The cost of the traveling.</returns>
 float Engine::Core::NavigationNode::GetCost(NavigationNode& Successor)
 {
+	///A high cost is returned so the enemies will avoid it.
+	const float CollisionCost = 100000000.f;
+
+	if (this->DoesCollision)
+		return CollisionCost;
+
+	if (false)
+		return CollisionCost;
+
 	return fabsf(EuclideanDistance(this->Position, Successor.Position));
 }
 

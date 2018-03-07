@@ -3,5 +3,10 @@
 <Prop X = "50" Y = "50">Assets/TestBuilding.png</Prop>
 <Prop X = "50" Y = "150">Assets/TestBuilding.png</Prop>
 <Prop X = "600" Y = "70">Assets/TestBuilding.png</Prop>
-<Prop X = "750" Y = "150">Assets/TestBuilding.png</Prop>
+<Prop X = "500" Y = "150">Assets/TestBuilding.png</Prop>
+<Prop X = "500" Y = "182">Assets/TestBuilding.png</Prop>
+<Prop X = "500" Y = "214">Assets/TestBuilding.png</Prop>
+<Prop X = "500" Y = "278">Assets/TestBuilding.png</Prop>
+<Prop X = "500" Y = "310">Assets/TestBuilding.png</Prop>
+<Prop X = "500" Y = "342">Assets/TestBuilding.png</Prop>
 </Map>
