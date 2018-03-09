@@ -30,16 +30,21 @@ namespace Engine::Core
 		float GetCost(NavigationNode &successor);
 		bool IsSameState(NavigationNode &rhs);
 		bool GetCollision(void) const;
+		void SetCollision(bool Collides);
+		bool GetIsNearCollision(void) const;
+		void SetIsNearCollision(bool NearCollision);
 		
 		Vector2f Position;
 		RenderWindow* Window;
 
 	private:
 		bool DoesCollision;
+		bool IsNearCollision;
 	};
 
 	extern void CreateNavigationMesh(RenderWindow* Window, Player P, Map M);
 	extern shared_ptr<NavigationNode> GetNodeByPosition(Vector2f Position);
+	extern shared_ptr<NavigationNode> GetNodeByCell(Vector2u Cell);
 	extern void DrawNavigationMesh(RenderWindow* Window);
 }
 

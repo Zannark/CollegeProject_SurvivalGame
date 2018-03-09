@@ -6,8 +6,51 @@ namespace
 	bool SetupShape = true;
 	RectangleShape DebugShapeNonCollision;
 	RectangleShape DebugShapeCollision;
+	RectangleShape DebugShapeNearCollision;
 #endif
 	vector<vector<shared_ptr<Engine::Core::NavigationNode>>> NavigationMesh;
+
+
+	///TODO: Probably should think of a better name.
+	void SetCollisionOnNodes(void)
+	{
+		shared_ptr<NavigationNode> NeighbourNode;
+
+		auto HandleNodeCollision = [NeighbourNode](shared_ptr<NavigationNode> ThisNode, Vector2f NodePosition) mutable
+		{
+			NeighbourNode = GetNodeByPosition(NodePosition);
+			if ((NeighbourNode && NeighbourNode->GetCollision()))
+				ThisNode->SetIsNearCollision(true);
+		};
+
+		///Loop for the multiplier on how far out it goes.
+		for (size_t i = 1; i < 3; i++)
+		{
+			///Loop over each node which is near this one.
+			///Go over each row of NavigationNodes.
+			for (size_t NodeXPosition = 0; NodeXPosition < NavigationMesh.size(); NodeXPosition++)
+			{
+				///Go over each node in the row.
+				for (size_t NodeYPosition = 0; NodeYPosition < NavigationMesh[NodeXPosition].size(); NodeYPosition++)
+				{
+					shared_ptr<NavigationNode> ThisNode = GetNodeByCell(Vector2u((unsigned int)NodeXPosition, (unsigned int)NodeYPosition));
+					if (!ThisNode)
+						continue;
+					
+					///Go over each direction with ThisNode->Position * i. Eight Lines of glory!
+					HandleNodeCollision(ThisNode, Vector2f(ThisNode->Position.x + (NAVIGATION_NODE_DISTANCE * i), ThisNode->Position.y)); ///Right
+					HandleNodeCollision(ThisNode, Vector2f(ThisNode->Position.x - (NAVIGATION_NODE_DISTANCE * i), ThisNode->Position.y)); ///Left
+					HandleNodeCollision(ThisNode, Vector2f(ThisNode->Position.x, ThisNode->Position.y + (NAVIGATION_NODE_DISTANCE * i))); ///Down
+					HandleNodeCollision(ThisNode, Vector2f(ThisNode->Position.x, ThisNode->Position.y - (NAVIGATION_NODE_DISTANCE * i))); ///Up
+
+					HandleNodeCollision(ThisNode, Vector2f(ThisNode->Position.x + (NAVIGATION_NODE_DISTANCE * i), ThisNode->Position.y + (NAVIGATION_NODE_DISTANCE * i))); ///Right Down
+					HandleNodeCollision(ThisNode, Vector2f(ThisNode->Position.x - (NAVIGATION_NODE_DISTANCE * i), ThisNode->Position.y + (NAVIGATION_NODE_DISTANCE * i))); ///Left Down
+					HandleNodeCollision(ThisNode, Vector2f(ThisNode->Position.x + (NAVIGATION_NODE_DISTANCE * i), ThisNode->Position.y - (NAVIGATION_NODE_DISTANCE * i))); ///Right Up
+					HandleNodeCollision(ThisNode, Vector2f(ThisNode->Position.x - (NAVIGATION_NODE_DISTANCE * i), ThisNode->Position.y - (NAVIGATION_NODE_DISTANCE * i))); ///Left Up
+				}
+			}
+		}
+	}
 }
 
 ///<summary>
@@ -52,6 +95,8 @@ void Engine::Core::CreateNavigationMesh(RenderWindow* Window, Player P, Map M)
 
 		x += NAVIGATION_NODE_DISTANCE;
 	}
+
+	SetCollisionOnNodes();
 }
 
 ///<summary>
@@ -61,16 +106,18 @@ void Engine::Core::CreateNavigationMesh(RenderWindow* Window, Player P, Map M)
 ///<returns>A pointer to the NavigationNode at the given position.</returns>
 shared_ptr<NavigationNode> Engine::Core::GetNodeByPosition(Vector2f Position)
 {
-	shared_ptr<NavigationNode> ReturnValue;
-	auto WindowSize = NavigationMesh[0][0]->Window->getSize();
-
 	size_t x = (size_t)(Position.x / NAVIGATION_NODE_DISTANCE);
 	size_t y = (size_t)(Position.y / NAVIGATION_NODE_DISTANCE);
 	
-	if (x >= NavigationMesh.size() || y >= NavigationMesh[0].size())
+	return GetNodeByCell(Vector2u(x, y));
+}
+
+shared_ptr<NavigationNode> Engine::Core::GetNodeByCell(Vector2u Cell)
+{
+	if (Cell.x >= NavigationMesh.size() || Cell.y >= NavigationMesh[0].size())
 		return nullptr;
 
-	return NavigationMesh[x][y];
+	return NavigationMesh[Cell.x][Cell.y];
 }
 
 Engine::Core::NavigationNode::NavigationNode(Vector2f Position, RenderWindow* Window, bool DoesCollision)
@@ -78,6 +125,7 @@ Engine::Core::NavigationNode::NavigationNode(Vector2f Position, RenderWindow* Wi
 	this->Position = Position;
 	this->Window = Window;
 	this->DoesCollision = DoesCollision;
+	this->IsNearCollision = false;
 }
 
 Engine::Core::NavigationNode::NavigationNode(float x, float y, RenderWindow* Window, bool DoesCollision)
@@ -85,6 +133,7 @@ Engine::Core::NavigationNode::NavigationNode(float x, float y, RenderWindow* Win
 	this->Position = Vector2f(x, y);
 	this->DoesCollision = DoesCollision;
 	this->Window = Window;
+	this->IsNearCollision = false;
 }
 
 ///<summary>
@@ -115,41 +164,11 @@ bool Engine::Core::NavigationNode::IsGoal(NavigationNode& GoalNode)
 ///<returns>True, requirement of library to have a boolean return value. Not used in this case.</returns>
 bool Engine::Core::NavigationNode::GetSuccessors(AStarSearch<NavigationNode>* AStarSearch, NavigationNode* ParentNode)
 {
-	auto HandlePathfindingCollision = [](Vector2f Position) -> bool
-	{
-		shared_ptr<NavigationNode> NeighbourNode = GetNodeByPosition(Position);
-		if ((NeighbourNode && NeighbourNode->GetCollision()))
-			return true;
-		return false;
-	};
-
-	auto AddSuccessor = [this, AStarSearch, ParentNode, HandlePathfindingCollision](Vector2f SuccessorPos)
+	auto AddSuccessor = [this, AStarSearch, ParentNode](Vector2f SuccessorPos)
 	{
 		auto Node = GetNodeByPosition(SuccessorPos);
-		if (!Node)
-			return;
 
-		bool IsNearCollisionNode = (HandlePathfindingCollision(Vector2f(Node->Position.x + NAVIGATION_NODE_DISTANCE, 0)) || ///Node to the right
-			HandlePathfindingCollision(Vector2f(Node->Position.x - NAVIGATION_NODE_DISTANCE, 0)) || ///Node to the left
-			HandlePathfindingCollision(Vector2f(0, Node->Position.y + NAVIGATION_NODE_DISTANCE)) || ///Node below
-			HandlePathfindingCollision(Vector2f(0, Node->Position.y - NAVIGATION_NODE_DISTANCE)) || ///Node above
-
-			HandlePathfindingCollision(Vector2f(Node->Position.x + NAVIGATION_NODE_DISTANCE, Node->Position.y + NAVIGATION_NODE_DISTANCE)) || ///Node to the right and below
-			HandlePathfindingCollision(Vector2f(Node->Position.x - NAVIGATION_NODE_DISTANCE, Node->Position.y + NAVIGATION_NODE_DISTANCE)) || ///Node to the left and below
-			HandlePathfindingCollision(Vector2f(Node->Position.x + NAVIGATION_NODE_DISTANCE, Node->Position.y - NAVIGATION_NODE_DISTANCE)) || ///Node to the right and up
-			HandlePathfindingCollision(Vector2f(Node->Position.x - NAVIGATION_NODE_DISTANCE, Node->Position.y - NAVIGATION_NODE_DISTANCE)) || ///Node to the left and up
-
-			HandlePathfindingCollision(Vector2f(Node->Position.x + (NAVIGATION_NODE_DISTANCE * 2), 0)) || ///Node to the right, NAVIGATION_NODE_DISTANCE * 2
-			HandlePathfindingCollision(Vector2f(Node->Position.x - (NAVIGATION_NODE_DISTANCE * 2), 0)) || ///Node to the left, NAVIGATION_NODE_DISTANCE * 2
-			HandlePathfindingCollision(Vector2f(0, Node->Position.y + (NAVIGATION_NODE_DISTANCE * 2))) || ///Node below, NAVIGATION_NODE_DISTANCE * 2
-			HandlePathfindingCollision(Vector2f(0, Node->Position.y - (NAVIGATION_NODE_DISTANCE * 2))) || ///Node above, NAVIGATION_NODE_DISTANCE * 2
-
-			HandlePathfindingCollision(Vector2f(Node->Position.x + (NAVIGATION_NODE_DISTANCE * 2), Node->Position.y + (NAVIGATION_NODE_DISTANCE * 2))) || ///Node to the right and below, NAVIGATION_NODE_DISTANCE * 2
-			HandlePathfindingCollision(Vector2f(Node->Position.x - (NAVIGATION_NODE_DISTANCE * 2), Node->Position.y + (NAVIGATION_NODE_DISTANCE * 2))) || ///Node to the left and below, NAVIGATION_NODE_DISTANCE * 2
-			HandlePathfindingCollision(Vector2f(Node->Position.x + (NAVIGATION_NODE_DISTANCE * 2), Node->Position.y - (NAVIGATION_NODE_DISTANCE * 2))) || ///Node to the right and up, NAVIGATION_NODE_DISTANCE * 2
-			HandlePathfindingCollision(Vector2f(Node->Position.x - (NAVIGATION_NODE_DISTANCE * 2), Node->Position.y - (NAVIGATION_NODE_DISTANCE * 2))));///Node to the left and up, NAVIGATION_NODE_DISTANCE * 2
-
-		if ((!ParentNode || !Node->IsSameState(*ParentNode) || (Node->GetCollision() && IsNearCollisionNode)))
+		if (Node && ((!ParentNode || !Node->IsSameState(*ParentNode)) && !Node->GetCollision() && !Node->GetIsNearCollision()))
 			AStarSearch->AddSuccessor(*Node);
 	};
 
@@ -200,6 +219,22 @@ bool Engine::Core::NavigationNode::GetCollision(void) const
 	return this->DoesCollision;
 }
 
+void Engine::Core::NavigationNode::SetCollision(bool Collides)
+{
+	this->DoesCollision = Collides;
+}
+
+bool Engine::Core::NavigationNode::GetIsNearCollision(void) const
+{
+	return this->IsNearCollision;
+}
+
+void Engine::Core::NavigationNode::SetIsNearCollision(bool NearCollision)
+{
+	if(!this->DoesCollision)
+		this->IsNearCollision = NearCollision;
+}
+
 void Engine::Core::DrawNavigationMesh(RenderWindow* Window)
 {
 #if _DEBUG
@@ -215,16 +250,28 @@ void Engine::Core::DrawNavigationMesh(RenderWindow* Window)
 		DebugShapeCollision.setOutlineThickness(1);
 		DebugShapeCollision.setOutlineColor(Color(0, 0, 0, 255));
 		DebugShapeCollision.setSize(Vector2f(3, 3));
+
+		DebugShapeNearCollision.setFillColor(Color::Green);
+		DebugShapeNearCollision.setOutlineThickness(1);
+		DebugShapeNearCollision.setOutlineColor(Color(0, 0, 0, 255));
+		DebugShapeNearCollision.setSize(Vector2f(3, 3));
 	}
 
 	for (unsigned int k = 0; k < NavigationMesh.size(); k++)
 	{
 		for (unsigned int j = 0; j < NavigationMesh[k].size(); j++)
 		{	
+			if (k == 16 && j == 8)
+				cout << "" << endl;
+
 			if(NavigationMesh[k][j]->GetCollision())
 				DebugShapeCollision.setPosition(NavigationMesh[k][j]->Position);
+			else if(NavigationMesh[k][j]->GetIsNearCollision())
+				DebugShapeNearCollision.setPosition(NavigationMesh[k][j]->Position);
 			else
 				DebugShapeNonCollision.setPosition(NavigationMesh[k][j]->Position);
+
+			Window->draw(DebugShapeNearCollision);
 			Window->draw(DebugShapeNonCollision);
 			Window->draw(DebugShapeCollision);
 		}
