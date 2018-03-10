@@ -24,7 +24,7 @@ namespace
 		};
 
 		///Loop for the multiplier on how far out it goes.
-		for (size_t i = 1; i < 3; i++)
+		for (size_t i = 1; i < 2; i++)
 		{
 			///Loop over each node which is near this one.
 			///Go over each row of NavigationNodes.
@@ -170,6 +170,12 @@ bool Engine::Core::NavigationNode::GetSuccessors(AStarSearch<NavigationNode>* AS
 
 		if (Node && ((!ParentNode || !Node->IsSameState(*ParentNode)) && !Node->GetCollision() && !Node->GetIsNearCollision()))
 			AStarSearch->AddSuccessor(*Node);
+
+		if (Node && AStarSearch->GetSolutionEnd())
+		{
+			if (Node->IsGoal(*AStarSearch->GetSolutionEnd()))
+				AStarSearch->AddSuccessor(*Node);
+		}
 	};
 
 	AddSuccessor(this->Position + Vector2f(-NAVIGATION_NODE_DISTANCE, 0)); ///Left

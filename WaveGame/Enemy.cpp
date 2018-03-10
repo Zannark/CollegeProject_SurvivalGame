@@ -72,6 +72,27 @@ void Engine::GamePlay::Enemy::ManageState(void)
 ///</summary>
 void Engine::GamePlay::Enemy::FindPath(void)
 {
+	shared_ptr<NavigationNode> PlayerNode = GetNodeByPosition(this->P->GetPosition());
+
+	if (PlayerNode && (PlayerNode->GetCollision() || PlayerNode->GetIsNearCollision()))
+	{
+		this->StartNode = *GetNodeByPosition(this->GetPosition());
+			
+	  	shared_ptr<NavigationNode> NewEndNode = GetNodeByPosition(PlayerNode->Position + Vector2f(0, NAVIGATION_NODE_DISTANCE * 2)); ///Right
+		if (NewEndNode && (NewEndNode->GetCollision() || NewEndNode->GetIsNearCollision()))
+			NewEndNode = GetNodeByPosition(PlayerNode->Position - Vector2f(0, NAVIGATION_NODE_DISTANCE * 2)); ///Left
+		if (NewEndNode && (NewEndNode->GetCollision() || NewEndNode->GetIsNearCollision()))
+			NewEndNode = GetNodeByPosition(PlayerNode->Position + Vector2f(NAVIGATION_NODE_DISTANCE * 2, 0)); ///Down
+		if (NewEndNode && (NewEndNode->GetCollision() || NewEndNode->GetIsNearCollision()))
+			NewEndNode = GetNodeByPosition(PlayerNode->Position - Vector2f(NAVIGATION_NODE_DISTANCE * 2, 0)); ///Up
+
+		if (NewEndNode)
+			this->EndNode = *NewEndNode;
+
+		this->Search.FreeSolutionNodes();
+		this->Search.SetStartAndGoalStates(this->StartNode, this->EndNode);
+	}
+
 	do 
 	{
 		this->SearchState = this->Search.SearchStep();
@@ -80,6 +101,7 @@ void Engine::GamePlay::Enemy::FindPath(void)
 	if (this->SearchState == AStarSearch<NavigationNode>::SEARCH_STATE_NOT_INITIALISED)
 	{
 		cout << "Not Initalised" << endl;
+		this->Search.FreeSolutionNodes();
 		this->Search.SetStartAndGoalStates(this->StartNode, this->EndNode);
 	}
 
@@ -101,10 +123,10 @@ void Engine::GamePlay::Enemy::FindPath(void)
 			{
 				if (this->EndNode.Position != AlignPlayer((void*)P))
 				{
-					this->Search.FreeSolutionNodes();
-					this->EndNode = NavigationNode(AlignPlayer((void*)P), Window, false);
-					this->StartNode = NavigationNode(this->GetPosition(), Window, false);
+					this->EndNode = NavigationNode(AlignPlayer((void*)P), this->Window, false);
+					this->StartNode = NavigationNode(this->GetPosition(), this->Window, false);
 
+					this->Search.FreeSolutionNodes();
 					this->Search.SetStartAndGoalStates(this->StartNode, this->EndNode);
 					this->SearchState = AStarSearch<NavigationNode>::SEARCH_STATE_SEARCHING;
 					this->HasStarted = false;

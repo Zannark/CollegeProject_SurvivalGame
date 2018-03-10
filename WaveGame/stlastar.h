@@ -42,7 +42,7 @@ using namespace std;
 
 // Fixed size memory allocator can be disabled to compare performance
 // Uses std new and delete instead if you turn it off
-//#define USE_FSA_MEMORY 1
+#define USE_FSA_MEMORY 1
 
 // disable warning that debugging information has lines that are truncated
 // occurs in stl headers
