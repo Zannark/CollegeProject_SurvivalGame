@@ -170,11 +170,11 @@ bool Engine::Core::NavigationNode::GetSuccessors(AStarSearch<NavigationNode>* AS
 		if (Node && (!ParentNode || !Node->IsSameState(*ParentNode)))
 			AStarSearch->AddSuccessor(*Node);
 
-		/*if (Node && AStarSearch->GetSolutionEnd())
+		if (Node && AStarSearch->GetSolutionEnd())
 		{
 			if (Node->IsGoal(*AStarSearch->GetSolutionEnd()))
 				AStarSearch->AddSuccessor(*Node);
-		}*/
+		}
 	};
 
 	AddSuccessor(this->Position + Vector2f(-NAVIGATION_NODE_DISTANCE, 0)); ///Left

@@ -41,18 +41,29 @@ void Engine::GamePlay::PowerUpManager::SpawnPowerUps(Player* P, RenderWindow* Wn
 
 			float X = 0;
 			float Y = 0;
+			bool HasCollisionOccured = false;
 
-			for (Prop P : M.GetProps())
+			for (size_t i = 0; i < M.GetProps().size(); i++)
 			{
 				X = (float)(rand() % (int)(((Wnd->getSize().x - POWER_UP_TEXTURE_SIZE) - POWER_UP_TEXTURE_SIZE + 1) + POWER_UP_TEXTURE_SIZE));
 				Y = (float)(rand() % (int)(((Wnd->getSize().y - POWER_UP_TEXTURE_SIZE) - POWER_UP_TEXTURE_SIZE + 1) + POWER_UP_TEXTURE_SIZE));
 
-				FloatRect CollisionTesterRect = FloatRect(X, Y, POWER_UP_TEXTURE_SIZE, POWER_UP_TEXTURE_SIZE);
-				auto PropBoundingBox = get<0>(P)->GetSFMLSprite()->getGlobalBounds();
-				if (!CollisionTesterRect.intersects(PropBoundingBox))
-					break;
+				for (Prop P : M.GetProps())
+				{
+					FloatRect PropBoundingBox;
+					FloatRect CollisionTesterRect;
+
+					CollisionTesterRect = FloatRect(X, Y, POWER_UP_TEXTURE_SIZE, POWER_UP_TEXTURE_SIZE);
+					PropBoundingBox = get<0>(P)->GetSFMLSprite()->getGlobalBounds();
+					
+					if(CollisionTesterRect.intersects(PropBoundingBox))
+						HasCollisionOccured = true;
+				}
+
+				if (HasCollisionOccured)
+					HasCollisionOccured = false;
 				else
-					cout << "Intersects" << endl;
+					break;
 			}
 
 			///SpeedPowerUp
