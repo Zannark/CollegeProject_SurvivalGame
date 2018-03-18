@@ -25,7 +25,7 @@ Engine::GamePlay::PowerUpManager::PowerUpManager()
 ///It randomly selects a new power up, every POWER_UP_MANAGER_MINIMUM_SPAWN_LIMIT seconds.
 ///</summary>
 ///<param name = "P">A pointer to the player.</param>
-void Engine::GamePlay::PowerUpManager::SpawnPowerUps(Player* P)
+void Engine::GamePlay::PowerUpManager::SpawnPowerUps(Player* P, RenderWindow* Wnd, Map M)
 {
 	if (!IsRaritySetUp)
 		SetUpRarities();
@@ -37,12 +37,28 @@ void Engine::GamePlay::PowerUpManager::SpawnPowerUps(Player* P)
 		for (map<string, int>::iterator It = PowerUpRarities.begin(); It != PowerUpRarities.end(); ++It)
 		{
 			int SpawnValue = rand() % It->second;
-			Vector2f Position = Vector2f((float)(rand() % (WINDOW_WIDTH - POWER_UP_TEXTURE_SIZE)), (float)(rand() % (WINDOW_HEIGHT - POWER_UP_TEXTURE_SIZE)));
+			//Vector2f Position = Vector2f((float)(rand() % (WINDOW_WIDTH - POWER_UP_TEXTURE_SIZE)), (float)(rand() % (WINDOW_HEIGHT - POWER_UP_TEXTURE_SIZE)));
+
+			float X = 0;
+			float Y = 0;
+
+			for (Prop P : M.GetProps())
+			{
+				X = (float)(rand() % (int)(((Wnd->getSize().x - POWER_UP_TEXTURE_SIZE) - POWER_UP_TEXTURE_SIZE + 1) + POWER_UP_TEXTURE_SIZE));
+				Y = (float)(rand() % (int)(((Wnd->getSize().y - POWER_UP_TEXTURE_SIZE) - POWER_UP_TEXTURE_SIZE + 1) + POWER_UP_TEXTURE_SIZE));
+
+				FloatRect CollisionTesterRect = FloatRect(X, Y, POWER_UP_TEXTURE_SIZE, POWER_UP_TEXTURE_SIZE);
+				auto PropBoundingBox = get<0>(P)->GetSFMLSprite()->getGlobalBounds();
+				if (!CollisionTesterRect.intersects(PropBoundingBox))
+					break;
+				else
+					cout << "Intersects" << endl;
+			}
 
 			///SpeedPowerUp
 			if (SpawnValue >= (PreviousRarity + 1) && SpawnValue < (++It)->second)
 			{
-				auto Power = new SpeedPowerUp(Position);
+				auto Power = new SpeedPowerUp(Vector2f(X, Y));
 				Power->InitBasicPowerUp();
 				this->SpawnedPowerUps.push_back(Power);
 				this->Timer = 0;
@@ -51,7 +67,7 @@ void Engine::GamePlay::PowerUpManager::SpawnPowerUps(Player* P)
 			///DamagePowerUp
 			else if (SpawnValue >= (PreviousRarity + 1))
 			{
-				auto Power = new DamagePowerUp(Position);
+				auto Power = new DamagePowerUp(Vector2f(X, Y));
 				Power->InitBasicPowerUp();
 				this->SpawnedPowerUps.push_back(Power);
 				this->Timer = 0;
@@ -68,10 +84,10 @@ void Engine::GamePlay::PowerUpManager::SpawnPowerUps(Player* P)
 ///</summary>
 ///<param name = "P">A pointer to the player.</param>
 ///<param name = "dt">Delta time.</param>
-void Engine::GamePlay::PowerUpManager::Update(Player * P, float dt)
+void Engine::GamePlay::PowerUpManager::Update(Player * P, RenderWindow* Wnd, Map M, float dt)
 {
 	this->Timer += dt;
-	this->SpawnPowerUps(P);
+	this->SpawnPowerUps(P, Wnd, M);
 
 	for (size_t i = 0; i < this->SpawnedPowerUps.size(); i++)
 	{

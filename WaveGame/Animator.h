@@ -60,7 +60,7 @@ namespace Engine::Core
 		const string& GetCurrentAnimation(void) const;
 
 	private:
-		///Aniations[(AnimationName)] = AnimationInfo;
+		///Animations[(AnimationName)] = AnimationInfo;
 		map<string, AnimationInformation> Animations;
 		///The size of each animation frame.
 		Vector2i AnimationFrameSize;

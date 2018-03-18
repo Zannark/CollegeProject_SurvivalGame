@@ -39,14 +39,14 @@ namespace Engine::Misc
 	extern void WaitForAnyKeyAndExit(int ReturnCode = EXIT_FAILURE);
 	extern bool StringToBool(std::string Str);
 	extern std::string ToUpper(std::string Str);
-	extern std::string ToLower(std::string Str);
-	extern double ToRadians(double Degrees);
-	extern double ToDegrees(double Radians);
+	//extern std::string ToLower(std::string Str);
+	//extern double ToRadians(double Degrees);
+	//extern double ToDegrees(double Radians);
 	extern double Difference(double a, double b);
 	extern float EuclideanDistance(sf::Vector2f P, sf::Vector2f Q);
 	extern bool VectorLessThan(sf::Vector2i Element1, sf::Vector2i Element2);
 	extern bool VectorLessThan(sf::Vector2f Element1, sf::Vector2f Element2);
 	extern bool VectorGreaterThan(sf::Vector2f Element1, sf::Vector2f Element2);
-	extern float NormaliseToRange(float Min, float Max, float Data);
+	//extern float NormaliseToRange(float Min, float Max, float Data);
 	extern sf::Vector2f AlignPlayer(void* P);
 }

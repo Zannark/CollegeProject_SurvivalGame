@@ -22,19 +22,19 @@ void Engine::Core::Map::AddBackground(string ID)
 ///</summary>
 ///<param name = "ID">A string which is the ID for the texture.</param>
 ///<param name = "Position">A Vector2f which contains the on screen position for the prop.</param>
-void Engine::Core::Map::AddProp(string ID, Vector2f Position)
+void Engine::Core::Map::AddProp(string ID, Vector2f Position, bool DoesCollision)
 {
 	shared_ptr<Animator> Tex = make_shared<Animator>(AnimationCache::Cache(ID));
 	Tex->GetSFMLSprite()->setOrigin(Vector2f(Tex->GetSize().x / 2, Tex->GetSize().y / 2));
 	Tex->SetPosition(Position);
-	this->Props.push_back(Tex);
+	this->Props.push_back(make_tuple(Tex, DoesCollision));
 }
 
 ///<summary>
 ///Gets all props which are loaded into the map.
 ///</summary>
 ///<returns>The props which are loaded in the map.</returns>
-vector<shared_ptr<Engine::Core::Animator>> Engine::Core::Map::GetProps(void)
+vector<Engine::Core::Prop> Engine::Core::Map::GetProps(void)
 {
 	return this->Props;
 }
@@ -66,5 +66,5 @@ void Engine::Core::Map::DrawBackground(RenderWindow* Window)
 void Engine::Core::Map::DrawProps(RenderWindow* Window)
 {
 	for (auto Prop : this->Props)
-		Prop->Draw(Window);
+		get<0>(Prop)->Draw(Window);
 }

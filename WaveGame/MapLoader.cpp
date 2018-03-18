@@ -64,8 +64,10 @@ Engine::Core::Map Engine::Core::MapLoader::Load(string Path, RenderWindow* Windo
 		Position.x = stof(GetAttribute("X", PropNode));
 		///Y
 		Position.y = stof(GetAttribute("Y", PropNode));
-
-		M.AddProp(string(PropNode->value()), Position);
+		///Get if the prop can collide with the player.
+		bool DoesCollision = Engine::Misc::StringToBool(GetAttribute("DoesCollision", PropNode));
+		
+		M.AddProp(string(PropNode->value()), Position, DoesCollision);
 	}
 
 	return M;

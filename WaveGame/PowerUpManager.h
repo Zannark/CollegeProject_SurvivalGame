@@ -25,8 +25,8 @@ namespace Engine::GamePlay
 		PowerUpManager();
 		~PowerUpManager() = default;
 
-		void SpawnPowerUps(Player* P);
-		void Update(Player* P, float dt);
+		void SpawnPowerUps(Player* P, RenderWindow* Wnd, Map M);
+		void Update(Player* P, RenderWindow* Wnd, Map M, float dt);
 		void Draw(RenderWindow* Window);
 
 	private:

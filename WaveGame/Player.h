@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <stdlib.h>
 #include <SFML\Graphics.hpp>
+#include <SFML\Window.hpp>
 #include "Common.h"
 #include "Character.h"
 #include "Animator.h"
@@ -33,7 +34,7 @@ namespace Engine::GamePlay
 	class Player : public Character
 	{
 	public:
-		Player();
+		Player(RenderWindow* Wnd, Map M);
 		~Player();
 
 		void Update(RenderWindow* Window, Map M, float dt) override;

@@ -68,7 +68,6 @@ void Engine::Core::CreateNavigationMesh(RenderWindow* Window, Player P, Map M)
 	auto Props = M.GetProps();
 	float x = 0;
 	float y = 0;
-	int Count = 0;
 
 	for (float i = 0; x < Width; i++)
 	{
@@ -82,9 +81,9 @@ void Engine::Core::CreateNavigationMesh(RenderWindow* Window, Player P, Map M)
 
 			for (auto P : Props)
 			{
-				if (P->GetSFMLSprite()->getGlobalBounds().intersects(Tester))
+				if (get<0>(P)->GetSFMLSprite()->getGlobalBounds().intersects(Tester))
 				{
-					DoesCollision = true;
+					DoesCollision = get<1>(P);
 					break;
 				}
 			}
@@ -96,7 +95,7 @@ void Engine::Core::CreateNavigationMesh(RenderWindow* Window, Player P, Map M)
 		x += NAVIGATION_NODE_DISTANCE;
 	}
 
-	SetCollisionOnNodes();
+	//SetCollisionOnNodes();
 }
 
 ///<summary>
@@ -153,7 +152,7 @@ float Engine::Core::NavigationNode::GoalDistanceEstimate(NavigationNode& GoalNod
 ///<returns>True if it is the goal, false otherwise.</returns>
 bool Engine::Core::NavigationNode::IsGoal(NavigationNode& GoalNode)
 {
-	return (this->Position == GoalNode.Position);
+	return this->IsSameState(GoalNode);//(this->Position == GoalNode.Position);
 }
 
 ///<summary>
@@ -167,15 +166,15 @@ bool Engine::Core::NavigationNode::GetSuccessors(AStarSearch<NavigationNode>* AS
 	auto AddSuccessor = [this, AStarSearch, ParentNode](Vector2f SuccessorPos)
 	{
 		auto Node = GetNodeByPosition(SuccessorPos);
-
-		if (Node && ((!ParentNode || !Node->IsSameState(*ParentNode)) && !Node->GetCollision() && !Node->GetIsNearCollision()))
+		//&& !Node->GetCollision() && !Node->GetIsNearCollision()
+		if (Node && (!ParentNode || !Node->IsSameState(*ParentNode)))
 			AStarSearch->AddSuccessor(*Node);
 
-		if (Node && AStarSearch->GetSolutionEnd())
+		/*if (Node && AStarSearch->GetSolutionEnd())
 		{
 			if (Node->IsGoal(*AStarSearch->GetSolutionEnd()))
 				AStarSearch->AddSuccessor(*Node);
-		}
+		}*/
 	};
 
 	AddSuccessor(this->Position + Vector2f(-NAVIGATION_NODE_DISTANCE, 0)); ///Left
@@ -204,8 +203,8 @@ float Engine::Core::NavigationNode::GetCost(NavigationNode& Successor)
 	if (this->DoesCollision)
 		return CollisionCost;
 
-	if (false)
-		return CollisionCost;
+	//if (false)
+		//return CollisionCost;
 
 	return fabsf(EuclideanDistance(this->Position, Successor.Position));
 }

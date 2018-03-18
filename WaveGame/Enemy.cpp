@@ -16,7 +16,6 @@ Engine::GamePlay::Enemy::Enemy(Vector2f Position, RenderWindow* Window, Player* 
 	this->EndNode = NavigationNode(AlignPlayer((void*)P), Window, false);
 	this->Search.SetStartAndGoalStates(this->StartNode, this->EndNode);
 	this->HasStarted = false;
-	this->FinishedPath = false;
 	this->Health = ENEMY_MAX_HEALTH;
 	this->AttackTimer = ENEMY_ATTACK_INTERVAL;
 	this->IsAlive = true;
@@ -72,7 +71,7 @@ void Engine::GamePlay::Enemy::ManageState(void)
 ///</summary>
 void Engine::GamePlay::Enemy::FindPath(void)
 {
-	shared_ptr<NavigationNode> PlayerNode = GetNodeByPosition(this->P->GetPosition());
+	/*shared_ptr<NavigationNode> PlayerNode = GetNodeByPosition(this->P->GetPosition());
 
 	if (PlayerNode && (PlayerNode->GetCollision() || PlayerNode->GetIsNearCollision()))
 	{
@@ -91,7 +90,7 @@ void Engine::GamePlay::Enemy::FindPath(void)
 
 		this->Search.FreeSolutionNodes();
 		this->Search.SetStartAndGoalStates(this->StartNode, this->EndNode);
-	}
+	}*/
 
 	do 
 	{

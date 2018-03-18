@@ -27,9 +27,9 @@ int main(int argc, char** argv)
 	Engine::Core::InitAnimatorCache();
 	RenderWindow* Window = new RenderWindow(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT, 32), "A Knights Final Night", Style::Close | Style::Titlebar);
 	Event E;
-
-	Player* P = new Engine::GamePlay::Player();
+		
 	Engine::Core::Map M = Engine::Core::MapLoader::Load("Test.xml", Window);
+	Player* P = new Engine::GamePlay::Player(Window, M);
 	Engine::Core::CreateNavigationMesh(Window, *P, M);
 	Engine::GamePlay::EnemyManager* Enemies = new Engine::GamePlay::EnemyManager(Window, P, Generator);
 	P->SetEnemyManager((void*)Enemies);
@@ -60,7 +60,7 @@ int main(int argc, char** argv)
 		{
 			P->Update(Window, M, GameTime::DeltaTime());
 			Enemies->Update(Window, M, GameTime::DeltaTime());
-			PowerUps.Update(P, GameTime::DeltaTime());
+			PowerUps.Update(P, Window, M, GameTime::DeltaTime());
 
 			Window->clear(Color(0, 0, 0, 255));
 
@@ -71,7 +71,7 @@ int main(int argc, char** argv)
 			PowerUps.Draw(Window);
 			Enemies->Draw(Window);
 			P->DrawUI(Window);
-			DrawNavigationMesh(Window);
+			//DrawNavigationMesh(Window);
 		}
 		else
 		{

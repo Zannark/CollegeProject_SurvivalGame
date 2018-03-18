@@ -114,7 +114,7 @@ namespace Engine::Misc
 	}
 #endif //UNITTEST
 
-	/// <Summary>
+	/*// <Summary>
 	/// Turns every letter in a string to a lower case letter.
 	/// </summary>
 	/// <param name = "Str">The string to be convtered.</param>
@@ -170,7 +170,7 @@ namespace Engine::Misc
 		CHECK(ApproximateEquals(ToDegrees(6), 343.7f, 0.2f));
 		CHECK(ApproximateEquals(ToDegrees(0.5f), 28.6f, 0.2f));
 	}
-#endif //UNITTEST
+#endif //UNITTEST*/
 
 	///<summary>
 	///Calculates the difference between a and b.
@@ -240,7 +240,7 @@ namespace Engine::Misc
 		return (Element1.x > Element2.x) && (Element1.y > Element2.y);
 	}
 
-	///<summary>
+	/*//<summary>
 	///Scales a value down to fit between two values.
 	///</summary>
 	///<param name = "Min">The lowest value which the data can be.</param>
@@ -250,7 +250,7 @@ namespace Engine::Misc
 	float NormaliseToRange(float Min, float Max, float Data)
 	{
 		return (Data - Min) / (Max - Min);
-	}
+	}*/
 
 	///<summary>
 	///Aligned the player within Nodes.

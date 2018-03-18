@@ -42,7 +42,7 @@ namespace Engine::GamePlay
 		Enemy(Vector2f Position, RenderWindow* Window, Player* P, float Speed);
 		~Enemy();
 
-		void Update(RenderWindow* Window, Map M, float dt);
+		void Update(RenderWindow* Window, Map M, float dt) override;
 		void TakeDamage(int Amount) override;
 
 	private:
@@ -52,7 +52,6 @@ namespace Engine::GamePlay
 		void Attack(void);
 
 		bool HasStarted;
-		bool FinishedPath;
 		int SearchState;
 		float MovementPercentage;
 		float AttackTimer;

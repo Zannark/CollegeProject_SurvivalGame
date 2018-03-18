@@ -3,7 +3,7 @@
 #include "PowerUpBase.h"
 #include "SpeedPowerUp.h"
 
-Engine::GamePlay::Player::Player()
+Engine::GamePlay::Player::Player(RenderWindow* Wnd, Map M)
 {
 	this->CharacterAnimator = make_shared<Animator>(AnimationCache::Cache("Assets/Player.png"));
 	this->PlayerWeapon = make_shared<Animator>(AnimationCache::Cache("Assets/PlayerWeapon.png"));
@@ -15,8 +15,23 @@ Engine::GamePlay::Player::Player()
 	this->OldHealth = PLAYER_MAX_HEALTH;
 
 	this->CharacterAnimator->SetOrigin(Vector2f((float)(this->CharacterAnimator->GetSize().x / 2), (float)(this->CharacterAnimator->GetSize().y / 2)));
-	this->CharacterAnimator->SetPosition(Vector2f(450, 450));
+	//this->CharacterAnimator->SetPosition(Vector2f(450, 450));
+	
+	float X = 0;
+	float Y = 0;
 
+	for (Prop P : M.GetProps())
+	{
+		X = (float)(rand() % (int)(((Wnd->getSize().x - this->CharacterAnimator->GetSize().x) - (this->CharacterAnimator->GetSize().x * 2) + 1) + (this->CharacterAnimator->GetSize().x / 2)));
+		Y = (float)(rand() % (int)(((Wnd->getSize().y - this->CharacterAnimator->GetSize().y) - (this->CharacterAnimator->GetSize().y * 2) + 1) + (this->CharacterAnimator->GetSize().y / 2)));
+
+		FloatRect CollisionTesterRect = FloatRect(X, Y, this->CharacterAnimator->GetSize().x, this->CharacterAnimator->GetSize().y);
+
+		if (!CollisionTesterRect.intersects(get<0>(P)->GetSFMLSprite()->getGlobalBounds()))
+			break;
+	}
+
+	this->CharacterAnimator->SetPosition(Vector2f(X, Y));
 
 	this->PlayerWeapon->SetOrigin(Vector2f(this->PlayerWeapon->GetSize().x / 2, this->PlayerWeapon->GetSize().y - 4));
 
@@ -142,7 +157,7 @@ void Engine::GamePlay::Player::HandleMovement(RenderWindow* Window, Map M, float
 	this->CharacterAnimator->Move(Offset);
 }
 
-///<summary>
+///<summary>O
 ///Handles the direction which the player is facing.
 ///</summary>
 ///<param name = "Window">A pointer to the RenderWindow which is being used.</param>
@@ -213,8 +228,8 @@ void Engine::GamePlay::Player::HandleCollision(Map M, float MovementOffset)
 PlayerCollisionResult Engine::GamePlay::Player::CheckCollision(Map M)
 {
 	for (auto Prop : M.GetProps())
-		if (Collision::PixelPerfectTest(*this->CharacterAnimator->GetSFMLSprite(), *Prop->GetSFMLSprite()))
-			return make_tuple(true, Prop);
+		if (get<1>(Prop) && Collision::PixelPerfectTest(*this->CharacterAnimator->GetSFMLSprite(), *get<0>(Prop)->GetSFMLSprite()))
+			return make_tuple(true, get<0>(Prop));
 	return make_tuple(false, nullptr);
 }
 
