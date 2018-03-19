@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['shape',['Shape',['../struct_engine_1_1_core_1_1_navigation_node.html#a7a1470734947944ba351df516e2a7cc1',1,'Engine::Core::NavigationNode']]]
+  ['framelength',['FrameLength',['../struct_engine_1_1_core_1_1_animation_information.html#a50b291bafb36566f840985fd1e60bd0d',1,'Engine::Core::AnimationInformation']]]
 ];

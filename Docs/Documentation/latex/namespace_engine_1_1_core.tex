@@ -1,0 +1,227 @@
+\hypertarget{namespace_engine_1_1_core}{}\section{Engine\+:\+:Core Namespace Reference}
+\label{namespace_engine_1_1_core}\index{Engine\+::\+Core@{Engine\+::\+Core}}
+
+
+N\+O\+TE\+: Animators need to have their animations added in the ctor for the classes which use them, for now.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_engine_1_1_core_1_1_animation_cache}{Animation\+Cache}
+\item 
+struct \hyperlink{struct_engine_1_1_core_1_1_animation_information}{Animation\+Information}
+\begin{DoxyCompactList}\small\item\em Describes a single animation on a sprite sheet. There can be many animations per sprite sheet. /summary$>$ \end{DoxyCompactList}\item 
+class \hyperlink{class_engine_1_1_core_1_1_animator}{Animator}
+\item 
+class \hyperlink{class_engine_1_1_core_1_1_cache}{Cache}
+\begin{DoxyCompactList}\small\item\em The cache stores data in a map which uses a string as the key. The map stores data of type T. /summary$>$ \end{DoxyCompactList}\item 
+class \hyperlink{class_engine_1_1_core_1_1_character}{Character}
+\begin{DoxyCompactList}\small\item\em The base class for enemies and the player to inherit from. Provides common functions, procedures, and attributes. /summary$>$ \end{DoxyCompactList}\item 
+class \hyperlink{class_engine_1_1_core_1_1_map}{Map}
+\item 
+class \hyperlink{class_engine_1_1_core_1_1_map_loader}{Map\+Loader}
+\begin{DoxyCompactList}\small\item\em Responsible for loading a map in from X\+ML. /summary$>$ \end{DoxyCompactList}\item 
+class \hyperlink{class_engine_1_1_core_1_1_navigation_mesh}{Navigation\+Mesh}
+\item 
+class \hyperlink{struct_engine_1_1_core_1_1_navigation_node}{Navigation\+Node}
+\begin{DoxyCompactList}\small\item\em An object which represents point in 2D space for the Navigation mesh. /summary$>$ \end{DoxyCompactList}\item 
+class \hyperlink{class_engine_1_1_core_1_1_power_up_base}{Power\+Up\+Base}
+\begin{DoxyCompactList}\small\item\em The base powerup for the other powerups to inherit from. Provides common functions, procedures, and attributes. /summary$>$ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{namespace_engine_1_1_core_aa19279815c8e1c96d68332fcaa7d59d8}{Prop} = tuple$<$ shared\+\_\+ptr$<$ \hyperlink{class_engine_1_1_core_1_1_animator}{Animator} $>$, bool $>$
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{namespace_engine_1_1_core_a0a9fabc0b4dac04e7f2871a2ce13d795}{Init\+Animator\+Cache} (void)
+\item 
+void \hyperlink{namespace_engine_1_1_core_aed5870f781469ec1fcbb7b7114de91ff}{Create\+Navigation\+Mesh} (Render\+Window $\ast$Window, \hyperlink{class_engine_1_1_game_play_1_1_player}{Player} P, \hyperlink{class_engine_1_1_core_1_1_map}{Map} M)
+\begin{DoxyCompactList}\small\item\em Generates a mesh of navigation nodes across the map. They\textquotesingle{}re evenly distrubuted at a distance of N\+A\+V\+I\+G\+A\+T\+I\+O\+N\+\_\+\+N\+O\+D\+E\+\_\+\+D\+I\+S\+T\+A\+N\+CE from each other. /summary$>$ param name = \char`\"{}\+Window\char`\"{}$>$A pointer to the Render\+Window used.
+
+param name = \char`\"{}\+P\char`\"{}$>$A copy of the currently used Player object.
+
+param name = \char`\"{}\+M\char`\"{}$>$A copy of the map which is currently being used.\end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespace_engine_1_1_core_a4eaf009494fa2585558ca3304f50e5e3}\label{namespace_engine_1_1_core_a4eaf009494fa2585558ca3304f50e5e3}} 
+shared\+\_\+ptr$<$ \hyperlink{struct_engine_1_1_core_1_1_navigation_node}{Navigation\+Node} $>$ {\bfseries Get\+Node\+By\+Position} (Vector2f Position)
+\item 
+\mbox{\Hypertarget{namespace_engine_1_1_core_a7119d03c8c96615994192f46e9aebf06}\label{namespace_engine_1_1_core_a7119d03c8c96615994192f46e9aebf06}} 
+shared\+\_\+ptr$<$ \hyperlink{struct_engine_1_1_core_1_1_navigation_node}{Navigation\+Node} $>$ {\bfseries Get\+Node\+By\+Cell} (Vector2u Cell)
+\item 
+\mbox{\Hypertarget{namespace_engine_1_1_core_afa102a2c2f09440acd93027cdc866245}\label{namespace_engine_1_1_core_afa102a2c2f09440acd93027cdc866245}} 
+void {\bfseries Draw\+Navigation\+Mesh} (Render\+Window $\ast$Window)
+\item 
+Vector2f \hyperlink{namespace_engine_1_1_core_a168a564b1bf2d0949b409aa78ed292f2}{Distance} (Vector2f Vec1, Vector2f Vec2)
+\begin{DoxyCompactList}\small\item\em Gets the distance between two vectors. \end{DoxyCompactList}\item 
+float \hyperlink{namespace_engine_1_1_core_a81febf5a36b0440b0e1cf7b3116113ec}{Magnitude} (Vector2f Vec)
+\begin{DoxyCompactList}\small\item\em Gets the magnitude, or length, of the vector. \end{DoxyCompactList}\item 
+Vector2f \hyperlink{namespace_engine_1_1_core_a816eef2f0a1a1ae9bfb3b520eeb73677}{Normalise} (Vector2f Vec)
+\begin{DoxyCompactList}\small\item\em Normalises the vector. \end{DoxyCompactList}\item 
+float \hyperlink{namespace_engine_1_1_core_a72cfe6298618c9023d217b9ab03664ee}{Dot} (Vector2f Vec1, Vector2f Vec2)
+\begin{DoxyCompactList}\small\item\em Gets the dot products of the vector. \end{DoxyCompactList}\item 
+Vector2f \hyperlink{namespace_engine_1_1_core_a5c9f2a12905370df10a29ffd47e8e919}{Perpendicular} (Vector2f Vec)
+\begin{DoxyCompactList}\small\item\em Finds the vector perpendicular to the given vector. \end{DoxyCompactList}\item 
+Vector2f \hyperlink{namespace_engine_1_1_core_a98107ac0730234291d51fea94ff04ce1}{Lerp} (sf\+::\+Vector2f Start, sf\+::\+Vector2f End, float t)
+\item 
+Vector2f \hyperlink{namespace_engine_1_1_core_ab86967f310b47cf168e87591f207cf04}{Abs} (Vector2f Vec)
+\item 
+\mbox{\Hypertarget{namespace_engine_1_1_core_a8c45e2c1031721ea1f73ccae7e92ffc0}\label{namespace_engine_1_1_core_a8c45e2c1031721ea1f73ccae7e92ffc0}} 
+Vector2f {\bfseries Div} (Vector2f Vec, float Factor)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+N\+O\+TE\+: Animators need to have their animations added in the ctor for the classes which use them, for now. 
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{namespace_engine_1_1_core_aa19279815c8e1c96d68332fcaa7d59d8}\label{namespace_engine_1_1_core_aa19279815c8e1c96d68332fcaa7d59d8}} 
+\index{Engine\+::\+Core@{Engine\+::\+Core}!Prop@{Prop}}
+\index{Prop@{Prop}!Engine\+::\+Core@{Engine\+::\+Core}}
+\subsubsection{\texorpdfstring{Prop}{Prop}}
+{\footnotesize\ttfamily using \hyperlink{namespace_engine_1_1_core_aa19279815c8e1c96d68332fcaa7d59d8}{Engine\+::\+Core\+::\+Prop} = typedef tuple$<$shared\+\_\+ptr$<$\hyperlink{class_engine_1_1_core_1_1_animator}{Animator}$>$, bool$>$}
+
+summary$>$ The map which is shown in game. Contain props, they can have their collision on or off. /summary$>$ 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespace_engine_1_1_core_ab86967f310b47cf168e87591f207cf04}\label{namespace_engine_1_1_core_ab86967f310b47cf168e87591f207cf04}} 
+\index{Engine\+::\+Core@{Engine\+::\+Core}!Abs@{Abs}}
+\index{Abs@{Abs}!Engine\+::\+Core@{Engine\+::\+Core}}
+\subsubsection{\texorpdfstring{Abs()}{Abs()}}
+{\footnotesize\ttfamily Vector2f Engine\+::\+Core\+::\+Abs (\begin{DoxyParamCaption}\item[{Vector2f}]{Vec }\end{DoxyParamCaption})}
+
+summary$>$ Divides the vector by a value. /summary$>$ param name = \char`\"{}\+Vec\char`\"{}$>$The vector to divide.
+
+param name = \char`\"{}\+Factor\char`\"{}$>$The value to divide by.
+
+returns$>$The value of the divided vector.\mbox{\Hypertarget{namespace_engine_1_1_core_aed5870f781469ec1fcbb7b7114de91ff}\label{namespace_engine_1_1_core_aed5870f781469ec1fcbb7b7114de91ff}} 
+\index{Engine\+::\+Core@{Engine\+::\+Core}!Create\+Navigation\+Mesh@{Create\+Navigation\+Mesh}}
+\index{Create\+Navigation\+Mesh@{Create\+Navigation\+Mesh}!Engine\+::\+Core@{Engine\+::\+Core}}
+\subsubsection{\texorpdfstring{Create\+Navigation\+Mesh()}{CreateNavigationMesh()}}
+{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Create\+Navigation\+Mesh (\begin{DoxyParamCaption}\item[{Render\+Window $\ast$}]{Window,  }\item[{\hyperlink{class_engine_1_1_game_play_1_1_player}{Player}}]{P,  }\item[{\hyperlink{class_engine_1_1_core_1_1_map}{Map}}]{M }\end{DoxyParamCaption})}
+
+
+
+Generates a mesh of navigation nodes across the map. They\textquotesingle{}re evenly distrubuted at a distance of N\+A\+V\+I\+G\+A\+T\+I\+O\+N\+\_\+\+N\+O\+D\+E\+\_\+\+D\+I\+S\+T\+A\+N\+CE from each other. /summary$>$ param name = \char`\"{}\+Window\char`\"{}$>$A pointer to the Render\+Window used.
+
+param name = \char`\"{}\+P\char`\"{}$>$A copy of the currently used Player object.
+
+param name = \char`\"{}\+M\char`\"{}$>$A copy of the map which is currently being used.
+
+summary$>$ Gets a node at a certain position. /summary$>$ param name = \char`\"{}\+Position\char`\"{}$>$The position to get the node at.
+
+returns$>$A pointer to the \hyperlink{struct_engine_1_1_core_1_1_navigation_node}{Navigation\+Node} at the given position.For ease \mbox{\Hypertarget{namespace_engine_1_1_core_a168a564b1bf2d0949b409aa78ed292f2}\label{namespace_engine_1_1_core_a168a564b1bf2d0949b409aa78ed292f2}} 
+\index{Engine\+::\+Core@{Engine\+::\+Core}!Distance@{Distance}}
+\index{Distance@{Distance}!Engine\+::\+Core@{Engine\+::\+Core}}
+\subsubsection{\texorpdfstring{Distance()}{Distance()}}
+{\footnotesize\ttfamily Vector2f Engine\+::\+Core\+::\+Distance (\begin{DoxyParamCaption}\item[{Vector2f}]{Vec1,  }\item[{Vector2f}]{Vec2 }\end{DoxyParamCaption})}
+
+
+
+Gets the distance between two vectors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Vec1} & The starting point.\\
+\hline
+{\em Vec2} & The ending point.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The distance between the two vectors, as a vector
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespace_engine_1_1_core_a72cfe6298618c9023d217b9ab03664ee}\label{namespace_engine_1_1_core_a72cfe6298618c9023d217b9ab03664ee}} 
+\index{Engine\+::\+Core@{Engine\+::\+Core}!Dot@{Dot}}
+\index{Dot@{Dot}!Engine\+::\+Core@{Engine\+::\+Core}}
+\subsubsection{\texorpdfstring{Dot()}{Dot()}}
+{\footnotesize\ttfamily float Engine\+::\+Core\+::\+Dot (\begin{DoxyParamCaption}\item[{Vector2f}]{Vec1,  }\item[{Vector2f}]{Vec2 }\end{DoxyParamCaption})}
+
+
+
+Gets the dot products of the vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Vec1} & The first vector to find the dot product of.\\
+\hline
+{\em Vec2} & The second vector to find the dot product of.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespace_engine_1_1_core_a0a9fabc0b4dac04e7f2871a2ce13d795}\label{namespace_engine_1_1_core_a0a9fabc0b4dac04e7f2871a2ce13d795}} 
+\index{Engine\+::\+Core@{Engine\+::\+Core}!Init\+Animator\+Cache@{Init\+Animator\+Cache}}
+\index{Init\+Animator\+Cache@{Init\+Animator\+Cache}!Engine\+::\+Core@{Engine\+::\+Core}}
+\subsubsection{\texorpdfstring{Init\+Animator\+Cache()}{InitAnimatorCache()}}
+{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Init\+Animator\+Cache (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+summary$>$ Loads a sprite sheet from the hard drive into memory. /summary$>$ param name = \char`\"{}\+Sprite\+Sheer\+Path\char`\"{}$>$The path that the sprite sheet file is located at, can be either a relative or absolute path.
+
+param name = \char`\"{}\+Frame\+Size\char`\"{}$>$The size of an animation frame. The size of a frame is the size for all animations.\mbox{\Hypertarget{namespace_engine_1_1_core_a98107ac0730234291d51fea94ff04ce1}\label{namespace_engine_1_1_core_a98107ac0730234291d51fea94ff04ce1}} 
+\index{Engine\+::\+Core@{Engine\+::\+Core}!Lerp@{Lerp}}
+\index{Lerp@{Lerp}!Engine\+::\+Core@{Engine\+::\+Core}}
+\subsubsection{\texorpdfstring{Lerp()}{Lerp()}}
+{\footnotesize\ttfamily Vector2f Engine\+::\+Core\+::\+Lerp (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{Start,  }\item[{sf\+::\+Vector2f}]{End,  }\item[{float}]{t }\end{DoxyParamCaption})}
+
+summary$>$ Gets the absolute value of a vector. /summary$>$ param name = \char`\"{}\+Vec\char`\"{}$>$The vector to get the value of.
+
+returns$>$The absolute value.\mbox{\Hypertarget{namespace_engine_1_1_core_a81febf5a36b0440b0e1cf7b3116113ec}\label{namespace_engine_1_1_core_a81febf5a36b0440b0e1cf7b3116113ec}} 
+\index{Engine\+::\+Core@{Engine\+::\+Core}!Magnitude@{Magnitude}}
+\index{Magnitude@{Magnitude}!Engine\+::\+Core@{Engine\+::\+Core}}
+\subsubsection{\texorpdfstring{Magnitude()}{Magnitude()}}
+{\footnotesize\ttfamily float Engine\+::\+Core\+::\+Magnitude (\begin{DoxyParamCaption}\item[{Vector2f}]{Vec }\end{DoxyParamCaption})}
+
+
+
+Gets the magnitude, or length, of the vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Vec} & The vector to find the length of\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of the vector.
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespace_engine_1_1_core_a816eef2f0a1a1ae9bfb3b520eeb73677}\label{namespace_engine_1_1_core_a816eef2f0a1a1ae9bfb3b520eeb73677}} 
+\index{Engine\+::\+Core@{Engine\+::\+Core}!Normalise@{Normalise}}
+\index{Normalise@{Normalise}!Engine\+::\+Core@{Engine\+::\+Core}}
+\subsubsection{\texorpdfstring{Normalise()}{Normalise()}}
+{\footnotesize\ttfamily Vector2f Engine\+::\+Core\+::\+Normalise (\begin{DoxyParamCaption}\item[{Vector2f}]{Vec }\end{DoxyParamCaption})}
+
+
+
+Normalises the vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Vec} & The vector to normalise.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The normalised vector.
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespace_engine_1_1_core_a5c9f2a12905370df10a29ffd47e8e919}\label{namespace_engine_1_1_core_a5c9f2a12905370df10a29ffd47e8e919}} 
+\index{Engine\+::\+Core@{Engine\+::\+Core}!Perpendicular@{Perpendicular}}
+\index{Perpendicular@{Perpendicular}!Engine\+::\+Core@{Engine\+::\+Core}}
+\subsubsection{\texorpdfstring{Perpendicular()}{Perpendicular()}}
+{\footnotesize\ttfamily Vector2f Engine\+::\+Core\+::\+Perpendicular (\begin{DoxyParamCaption}\item[{Vector2f}]{Vec }\end{DoxyParamCaption})}
+
+
+
+Finds the vector perpendicular to the given vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Vec} & The vector to find the perpendicular of.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The purpendicular vector.
+\end{DoxyReturn}
+summary$>$ Lerps between two points /summary$>$ param name = \char`\"{}\+Start\char`\"{}$>$The point where the lerp starts.
+
+param name = \char`\"{}\+End\char`\"{}$>$The point where the lerp ends.
+
+param name = \char`\"{}t\char`\"{}$>$The current progress in the lerp.
+
+returns$>$The current result of lerping.

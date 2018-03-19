@@ -1,0 +1,55 @@
+\hypertarget{namespace_engine_1_1_game_play}{}\section{Engine\+:\+:Game\+Play Namespace Reference}
+\label{namespace_engine_1_1_game_play}\index{Engine\+::\+Game\+Play@{Engine\+::\+Game\+Play}}
+
+
+No need for a low threshold definition, is low health when below P\+L\+A\+Y\+E\+R\+\_\+\+M\+E\+D\+I\+U\+M\+\_\+\+H\+E\+A\+L\+T\+H\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_engine_1_1_game_play_1_1_damage_power_up}{Damage\+Power\+Up}
+\begin{DoxyCompactList}\small\item\em The powerup which is responsible for increasing the attack damage of the player. /summary$>$ \end{DoxyCompactList}\item 
+class \hyperlink{class_engine_1_1_game_play_1_1_enemy}{Enemy}
+\item 
+class \hyperlink{class_engine_1_1_game_play_1_1_enemy_manager}{Enemy\+Manager}
+\item 
+class \hyperlink{class_engine_1_1_game_play_1_1_player}{Player}
+\item 
+class \hyperlink{class_engine_1_1_game_play_1_1_power_up_manager}{Power\+Up\+Manager}
+\begin{DoxyCompactList}\small\item\em The object which is resposible for controlling all of the powerups in the game. /summary$>$ \end{DoxyCompactList}\item 
+class \hyperlink{class_engine_1_1_game_play_1_1_speed_power_up}{Speed\+Power\+Up}
+\begin{DoxyCompactList}\small\item\em The powerup which is responisble for increasing and decreasing the speed of the player. /summary$>$ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{namespace_engine_1_1_game_play_a89de39a63577930bef8a01ad64b643c6}{Player\+Collision\+Result} = tuple$<$ bool, shared\+\_\+ptr$<$ \hyperlink{class_engine_1_1_core_1_1_animator}{Animator} $>$ $>$
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespace_engine_1_1_game_play_a835aedaa2c294a7f7b63da8964c77461}\label{namespace_engine_1_1_game_play_a835aedaa2c294a7f7b63da8964c77461}} 
+enum \hyperlink{namespace_engine_1_1_game_play_a835aedaa2c294a7f7b63da8964c77461}{Enemy\+State} \{ {\bfseries Pathfinding} = 0, 
+{\bfseries Check\+Distance}, 
+{\bfseries Attacking}
+ \}\begin{DoxyCompactList}\small\item\em The different states that the player could be. /summary$>$ \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{namespace_engine_1_1_game_play_a06a8ba6c73c14715e83f2b2ee2351175}\label{namespace_engine_1_1_game_play_a06a8ba6c73c14715e83f2b2ee2351175}} 
+enum \hyperlink{namespace_engine_1_1_game_play_a06a8ba6c73c14715e83f2b2ee2351175}{Match\+State} \{ {\bfseries In\+Match} = 0, 
+{\bfseries Interval}, 
+{\bfseries New\+Match}
+ \}\begin{DoxyCompactList}\small\item\em The different states that the round can be in. /summary$>$ \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+No need for a low threshold definition, is low health when below P\+L\+A\+Y\+E\+R\+\_\+\+M\+E\+D\+I\+U\+M\+\_\+\+H\+E\+A\+L\+T\+H\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD. 
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{namespace_engine_1_1_game_play_a89de39a63577930bef8a01ad64b643c6}\label{namespace_engine_1_1_game_play_a89de39a63577930bef8a01ad64b643c6}} 
+\index{Engine\+::\+Game\+Play@{Engine\+::\+Game\+Play}!Player\+Collision\+Result@{Player\+Collision\+Result}}
+\index{Player\+Collision\+Result@{Player\+Collision\+Result}!Engine\+::\+Game\+Play@{Engine\+::\+Game\+Play}}
+\subsubsection{\texorpdfstring{Player\+Collision\+Result}{PlayerCollisionResult}}
+{\footnotesize\ttfamily using \hyperlink{namespace_engine_1_1_game_play_a89de39a63577930bef8a01ad64b643c6}{Engine\+::\+Game\+Play\+::\+Player\+Collision\+Result} = typedef tuple$<$bool, shared\+\_\+ptr$<$\hyperlink{class_engine_1_1_core_1_1_animator}{Animator}$>$ $>$}
+
+summary$>$ The object which represents the player, and can be controlled by the user. Inherits from the Character class. /summary$>$ 

@@ -7,9 +7,9 @@
 \item 
 void \hyperlink{class_engine_1_1_core_1_1_map_aa81a28822b49c3c7750f0444a189ed8c}{Add\+Background} (string ID)
 \item 
-void \hyperlink{class_engine_1_1_core_1_1_map_aad4517115b5d8713aed2f67338cd7259}{Add\+Prop} (string ID, Vector2f Position)
+void \hyperlink{class_engine_1_1_core_1_1_map_a7aa7b53aadcd106a169eb19435bba5ab}{Add\+Prop} (string ID, Vector2f Position, bool Does\+Collision)
 \item 
-vector$<$ shared\+\_\+ptr$<$ \hyperlink{class_engine_1_1_core_1_1_game_texture}{Game\+Texture} $>$ $>$ \hyperlink{class_engine_1_1_core_1_1_map_afafd62cdfe87b27796d0900e76aa09ea}{Get\+Props} (void)
+vector$<$ \hyperlink{namespace_engine_1_1_core_aa19279815c8e1c96d68332fcaa7d59d8}{Prop} $>$ \hyperlink{class_engine_1_1_core_1_1_map_a6e78069a9f1911a3ade60f38d4783563}{Get\+Props} (void)
 \item 
 bool \hyperlink{class_engine_1_1_core_1_1_map_a5d17ba161757b4b971dba919e7e0b1c1}{Is\+Prop\+At\+Position} (Vector2f Position)
 \item 
@@ -38,11 +38,11 @@ summary$>$ Sets what the background texture is for the map. /summary$>$ param na
 
 summary$>$ Adds a prop to the Props vector, so they can be drawn. /summary$>$ param name = \char`\"{}\+I\+D\char`\"{}$>$A string which is the ID for the texture.
 
-param name = \char`\"{}\+Position\char`\"{}$>$A Vector2f which contains the on screen position for the prop.\mbox{\Hypertarget{class_engine_1_1_core_1_1_map_aad4517115b5d8713aed2f67338cd7259}\label{class_engine_1_1_core_1_1_map_aad4517115b5d8713aed2f67338cd7259}} 
+param name = \char`\"{}\+Position\char`\"{}$>$A Vector2f which contains the on screen position for the prop.\mbox{\Hypertarget{class_engine_1_1_core_1_1_map_a7aa7b53aadcd106a169eb19435bba5ab}\label{class_engine_1_1_core_1_1_map_a7aa7b53aadcd106a169eb19435bba5ab}} 
 \index{Engine\+::\+Core\+::\+Map@{Engine\+::\+Core\+::\+Map}!Add\+Prop@{Add\+Prop}}
 \index{Add\+Prop@{Add\+Prop}!Engine\+::\+Core\+::\+Map@{Engine\+::\+Core\+::\+Map}}
 \subsubsection{\texorpdfstring{Add\+Prop()}{AddProp()}}
-{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Map\+::\+Add\+Prop (\begin{DoxyParamCaption}\item[{string}]{ID,  }\item[{Vector2f}]{Position }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Map\+::\+Add\+Prop (\begin{DoxyParamCaption}\item[{string}]{ID,  }\item[{Vector2f}]{Position,  }\item[{bool}]{Does\+Collision }\end{DoxyParamCaption})}
 
 summary$>$ Gets all props which are loaded into the map. /summary$>$ returns$>$The props which are loaded in the map.\mbox{\Hypertarget{class_engine_1_1_core_1_1_map_aea4443f092aabf355e2427fa27605d4d}\label{class_engine_1_1_core_1_1_map_aea4443f092aabf355e2427fa27605d4d}} 
 \index{Engine\+::\+Core\+::\+Map@{Engine\+::\+Core\+::\+Map}!Draw\+Background@{Draw\+Background}}
@@ -50,11 +50,11 @@ summary$>$ Gets all props which are loaded into the map. /summary$>$ returns$>$T
 \subsubsection{\texorpdfstring{Draw\+Background()}{DrawBackground()}}
 {\footnotesize\ttfamily void Engine\+::\+Core\+::\+Map\+::\+Draw\+Background (\begin{DoxyParamCaption}\item[{Render\+Window $\ast$}]{Window }\end{DoxyParamCaption})}
 
-summary$>$ Draws the prop to the screen. /summary$>$ param name = \char`\"{}\+Window\char`\"{}$>$A pointer to the Render\+Window is being drawn to.\mbox{\Hypertarget{class_engine_1_1_core_1_1_map_afafd62cdfe87b27796d0900e76aa09ea}\label{class_engine_1_1_core_1_1_map_afafd62cdfe87b27796d0900e76aa09ea}} 
+summary$>$ Draws the prop to the screen. /summary$>$ param name = \char`\"{}\+Window\char`\"{}$>$A pointer to the Render\+Window is being drawn to.\mbox{\Hypertarget{class_engine_1_1_core_1_1_map_a6e78069a9f1911a3ade60f38d4783563}\label{class_engine_1_1_core_1_1_map_a6e78069a9f1911a3ade60f38d4783563}} 
 \index{Engine\+::\+Core\+::\+Map@{Engine\+::\+Core\+::\+Map}!Get\+Props@{Get\+Props}}
 \index{Get\+Props@{Get\+Props}!Engine\+::\+Core\+::\+Map@{Engine\+::\+Core\+::\+Map}}
 \subsubsection{\texorpdfstring{Get\+Props()}{GetProps()}}
-{\footnotesize\ttfamily vector$<$ shared\+\_\+ptr$<$ \hyperlink{class_engine_1_1_core_1_1_game_texture}{Engine\+::\+Core\+::\+Game\+Texture} $>$ $>$ Engine\+::\+Core\+::\+Map\+::\+Get\+Props (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily vector$<$ \hyperlink{namespace_engine_1_1_core_aa19279815c8e1c96d68332fcaa7d59d8}{Engine\+::\+Core\+::\+Prop} $>$ Engine\+::\+Core\+::\+Map\+::\+Get\+Props (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 summary$>$ Checks if there is an prop at the given position. /summary$>$ param name = \char`\"{}\+Position\char`\"{}$>$The position to see if there is a prop there.
 

@@ -10,11 +10,20 @@ Inheritance diagram for Engine\+:\+:Game\+Play\+:\+:Enemy\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{class_engine_1_1_game_play_1_1_enemy_aecd83da9f05f6d81d512e56f0f16b1d2}\label{class_engine_1_1_game_play_1_1_enemy_aecd83da9f05f6d81d512e56f0f16b1d2}} 
-{\bfseries Enemy} (Vector2f Position, Render\+Window $\ast$Window, \hyperlink{class_engine_1_1_game_play_1_1_player}{Player} $\ast$P, float Speed)
-\item 
+\hyperlink{class_engine_1_1_game_play_1_1_enemy_aecd83da9f05f6d81d512e56f0f16b1d2}{Enemy} (Vector2f Position, Render\+Window $\ast$Window, \hyperlink{class_engine_1_1_game_play_1_1_player}{Player} $\ast$P, float Speed)
+\begin{DoxyCompactList}\small\item\em Constructs the enemy object. Loads the Animator from the cache. /summary$>$ param name = \char`\"{}\+Position\char`\"{}$>$The position to set the enemy at.
+
+param name = \char`\"{}\+Window\char`\"{}$>$The window which is being rendered to.
+
+param name = \char`\"{}\+P\char`\"{}$>$The player which is being currently used.
+
+param name = \char`\"{}\+Speed\char`\"{}$>$The speed (in pixels per second) the enemy can move at.\end{DoxyCompactList}\item 
 \hyperlink{class_engine_1_1_game_play_1_1_enemy_a4fc3aafb331e8cf852ea31bcc63940ff}{$\sim$\+Enemy} ()
 \item 
-void \hyperlink{class_engine_1_1_game_play_1_1_enemy_abc8825ecfc278a6308e8e8bd523cb03f}{Update} (Render\+Window $\ast$Window, \hyperlink{class_engine_1_1_core_1_1_map}{Map} M, float dt)
+\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_enemy_a57b75fc882a4315cfda071dbb5c1b5ea}\label{class_engine_1_1_game_play_1_1_enemy_a57b75fc882a4315cfda071dbb5c1b5ea}} 
+void {\bfseries Update} (Render\+Window $\ast$Window, \hyperlink{class_engine_1_1_core_1_1_map}{Map} M, float dt) override
+\item 
+void \hyperlink{class_engine_1_1_game_play_1_1_enemy_a0eec9ea5a61636db10b5f02f9e74189a}{Take\+Damage} (int Amount) override
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
@@ -33,15 +42,15 @@ param name = \char`\"{}\+M\char`\"{}$>$A copy of the Map for the player for move
 param name = \char`\"{}dt\char`\"{}$>$Delta time, the time the last frame took.
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_enemy_abc8825ecfc278a6308e8e8bd523cb03f}\label{class_engine_1_1_game_play_1_1_enemy_abc8825ecfc278a6308e8e8bd523cb03f}} 
-\index{Engine\+::\+Game\+Play\+::\+Enemy@{Engine\+::\+Game\+Play\+::\+Enemy}!Update@{Update}}
-\index{Update@{Update}!Engine\+::\+Game\+Play\+::\+Enemy@{Engine\+::\+Game\+Play\+::\+Enemy}}
-\subsubsection{\texorpdfstring{Update()}{Update()}}
-{\footnotesize\ttfamily void Engine\+::\+Game\+Play\+::\+Enemy\+::\+Update (\begin{DoxyParamCaption}\item[{Render\+Window $\ast$}]{Window,  }\item[{\hyperlink{class_engine_1_1_core_1_1_map}{Map}}]{M,  }\item[{float}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_enemy_a0eec9ea5a61636db10b5f02f9e74189a}\label{class_engine_1_1_game_play_1_1_enemy_a0eec9ea5a61636db10b5f02f9e74189a}} 
+\index{Engine\+::\+Game\+Play\+::\+Enemy@{Engine\+::\+Game\+Play\+::\+Enemy}!Take\+Damage@{Take\+Damage}}
+\index{Take\+Damage@{Take\+Damage}!Engine\+::\+Game\+Play\+::\+Enemy@{Engine\+::\+Game\+Play\+::\+Enemy}}
+\subsubsection{\texorpdfstring{Take\+Damage()}{TakeDamage()}}
+{\footnotesize\ttfamily void Engine\+::\+Game\+Play\+::\+Enemy\+::\+Take\+Damage (\begin{DoxyParamCaption}\item[{int}]{Amount }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 summary$>$ Carries out different functions, depending on the current state. /summary$>$ 
 
-Implements \hyperlink{class_engine_1_1_core_1_1_character}{Engine\+::\+Core\+::\+Character}.
+Reimplemented from \hyperlink{class_engine_1_1_core_1_1_character_a2156c371584ca6a8d2961154f1b49c09}{Engine\+::\+Core\+::\+Character}.
 
 
 

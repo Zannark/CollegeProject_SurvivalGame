@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['point',['Point',['../struct_engine_1_1_core_1_1_navigation_node.html#a09e7506d996f8bd91b478f3e013fd48e',1,'Engine::Core::NavigationNode']]]
+  ['estimate',['Estimate',['../struct_engine_1_1_core_1_1_navigation_node.html#a707b571c58bffbf140fd4f6ebe6a4f37',1,'Engine::Core::NavigationNode']]]
 ];

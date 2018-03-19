@@ -1,0 +1,152 @@
+\hypertarget{class_engine_1_1_core_1_1_animator}{}\section{Engine\+:\+:Core\+:\+:Animator Class Reference}
+\label{class_engine_1_1_core_1_1_animator}\index{Engine\+::\+Core\+::\+Animator@{Engine\+::\+Core\+::\+Animator}}
+
+
+{\ttfamily \#include $<$Animator.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_engine_1_1_core_1_1_animator_aff070abc3b379dad575e88484b077dc1}{Animator} (string Sprite\+Sheet\+Path, Vector2i Frame\+Size)
+\item 
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_animator_afef975bcfc2b1ba36e10dc09b5e68556}\label{class_engine_1_1_core_1_1_animator_afef975bcfc2b1ba36e10dc09b5e68556}} 
+{\bfseries Animator} (const \hyperlink{class_engine_1_1_core_1_1_animator}{Animator} \&Animation)
+\item 
+\hyperlink{class_engine_1_1_core_1_1_animator_a5eb5382d793dc2d27b9049cb7f91aa63}{$\sim$\+Animator} ()
+\item 
+void \hyperlink{class_engine_1_1_core_1_1_animator_afebfde85efb9f5fafc32fa4103bb8e44}{Add\+Animation} (\hyperlink{struct_engine_1_1_core_1_1_animation_information}{Animation\+Information} Animaiton, bool Is\+Default\+Animation=false)
+\item 
+void \hyperlink{class_engine_1_1_core_1_1_animator_acf3e63a6bc60cde6b4b26ed4387c92cc}{Switch\+Animation} (string Animation\+Name)
+\item 
+void \hyperlink{class_engine_1_1_core_1_1_animator_a9d81dd25418ebaf1bcae5f88ac879f56}{Switch\+To\+Default} (void)
+\item 
+void \hyperlink{class_engine_1_1_core_1_1_animator_a2605b91ae769e14ab92d9a210e4b3d5c}{Play\+Animation} (float dt)
+\item 
+void \hyperlink{class_engine_1_1_core_1_1_animator_aefd22a2fa9e388be63a993cb7aa1875e}{Draw} (Render\+Window $\ast$Wnd)
+\item 
+void \hyperlink{class_engine_1_1_core_1_1_animator_a1bfe987d5417116a39a8963a8f2ab4ca}{Set\+Position} (const Vector2f \&Position)
+\item 
+void \hyperlink{class_engine_1_1_core_1_1_animator_ac5d217c5dd3257349dca55cd6a62b7ed}{Set\+Origin} (const Vector2f \&Origin)
+\item 
+void \hyperlink{class_engine_1_1_core_1_1_animator_a5071cebf52c5e8e5f2dbebaa1b9621fd}{Set\+Rotation} (const float \&Angle)
+\item 
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_animator_aea6291cbe191c4b9909002f3840f5299}\label{class_engine_1_1_core_1_1_animator_aea6291cbe191c4b9909002f3840f5299}} 
+void {\bfseries Move} (const Vector2f \&Offset)
+\item 
+shared\+\_\+ptr$<$ Texture $>$ \hyperlink{class_engine_1_1_core_1_1_animator_a6a87289d258c863d02a3bee22074e92f}{Get\+S\+F\+M\+L\+Texture} (void) const
+\item 
+shared\+\_\+ptr$<$ Sprite $>$ \hyperlink{class_engine_1_1_core_1_1_animator_a50aef70515ac26985da30be5fc5247a1}{Get\+S\+F\+M\+L\+Sprite} (void) const
+\item 
+const Vector2f \& \hyperlink{class_engine_1_1_core_1_1_animator_adfbba33a29a643ed447ca292705e4e00}{Get\+Position} (void) const
+\item 
+const Vector2f \& \hyperlink{class_engine_1_1_core_1_1_animator_a1d8675cde73dfe307d11bde8ffccf78c}{Get\+Size} (void) const
+\item 
+const string \& \hyperlink{class_engine_1_1_core_1_1_animator_a107b26ce06d5429db241cb6fe8ddef44}{Get\+Current\+Animation} (void) const
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+summary$>$ A cache of animations which can be addressed throughout the program. /summary$>$ 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_animator_aff070abc3b379dad575e88484b077dc1}\label{class_engine_1_1_core_1_1_animator_aff070abc3b379dad575e88484b077dc1}} 
+\index{Engine\+::\+Core\+::\+Animator@{Engine\+::\+Core\+::\+Animator}!Animator@{Animator}}
+\index{Animator@{Animator}!Engine\+::\+Core\+::\+Animator@{Engine\+::\+Core\+::\+Animator}}
+\subsubsection{\texorpdfstring{Animator()}{Animator()}}
+{\footnotesize\ttfamily Engine\+::\+Core\+::\+Animator\+::\+Animator (\begin{DoxyParamCaption}\item[{string}]{Sprite\+Sheet\+Path,  }\item[{Vector2i}]{Frame\+Size }\end{DoxyParamCaption})}
+
+summary$>$ A copy construtor to copy data from one animation to another. /summary$>$ param name = \char`\"{}\+Animation\char`\"{}$>$The \hyperlink{class_engine_1_1_core_1_1_animator}{Animator} to copy information from.\mbox{\Hypertarget{class_engine_1_1_core_1_1_animator_a5eb5382d793dc2d27b9049cb7f91aa63}\label{class_engine_1_1_core_1_1_animator_a5eb5382d793dc2d27b9049cb7f91aa63}} 
+\index{Engine\+::\+Core\+::\+Animator@{Engine\+::\+Core\+::\+Animator}!````~Animator@{$\sim$\+Animator}}
+\index{````~Animator@{$\sim$\+Animator}!Engine\+::\+Core\+::\+Animator@{Engine\+::\+Core\+::\+Animator}}
+\subsubsection{\texorpdfstring{$\sim$\+Animator()}{~Animator()}}
+{\footnotesize\ttfamily Engine\+::\+Core\+::\+Animator\+::$\sim$\+Animator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+summary$>$ Adds an animation to the animator. /summary$>$ param name = \char`\"{}\+Animation\char`\"{}$>$The description of the animation to add to the animator.
+
+param name = \char`\"{}\+Is\+Default\+Animation\char`\"{}$>$Flags if the animation is the default animation to play or not, true if it is otherwise false.
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_animator_afebfde85efb9f5fafc32fa4103bb8e44}\label{class_engine_1_1_core_1_1_animator_afebfde85efb9f5fafc32fa4103bb8e44}} 
+\index{Engine\+::\+Core\+::\+Animator@{Engine\+::\+Core\+::\+Animator}!Add\+Animation@{Add\+Animation}}
+\index{Add\+Animation@{Add\+Animation}!Engine\+::\+Core\+::\+Animator@{Engine\+::\+Core\+::\+Animator}}
+\subsubsection{\texorpdfstring{Add\+Animation()}{AddAnimation()}}
+{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Animator\+::\+Add\+Animation (\begin{DoxyParamCaption}\item[{\hyperlink{struct_engine_1_1_core_1_1_animation_information}{Animation\+Information}}]{Animaiton,  }\item[{bool}]{Is\+Default\+Animation = {\ttfamily false} }\end{DoxyParamCaption})}
+
+summary$>$ Switches animations from the current playing animation to a given animation. /summary$>$ param name = \char`\"{}\+Animation\+Name\char`\"{}$>$The name of the animation to switch to.\mbox{\Hypertarget{class_engine_1_1_core_1_1_animator_aefd22a2fa9e388be63a993cb7aa1875e}\label{class_engine_1_1_core_1_1_animator_aefd22a2fa9e388be63a993cb7aa1875e}} 
+\index{Engine\+::\+Core\+::\+Animator@{Engine\+::\+Core\+::\+Animator}!Draw@{Draw}}
+\index{Draw@{Draw}!Engine\+::\+Core\+::\+Animator@{Engine\+::\+Core\+::\+Animator}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Animator\+::\+Draw (\begin{DoxyParamCaption}\item[{Render\+Window $\ast$}]{Wnd }\end{DoxyParamCaption})}
+
+summary$>$ Gets the sf\+::\+Texture which is used by the object. /summary$>$ returns$>$The sf\+::\+Texture used.\mbox{\Hypertarget{class_engine_1_1_core_1_1_animator_a107b26ce06d5429db241cb6fe8ddef44}\label{class_engine_1_1_core_1_1_animator_a107b26ce06d5429db241cb6fe8ddef44}} 
+\index{Engine\+::\+Core\+::\+Animator@{Engine\+::\+Core\+::\+Animator}!Get\+Current\+Animation@{Get\+Current\+Animation}}
+\index{Get\+Current\+Animation@{Get\+Current\+Animation}!Engine\+::\+Core\+::\+Animator@{Engine\+::\+Core\+::\+Animator}}
+\subsubsection{\texorpdfstring{Get\+Current\+Animation()}{GetCurrentAnimation()}}
+{\footnotesize\ttfamily const string \& Engine\+::\+Core\+::\+Animator\+::\+Get\+Current\+Animation (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+summary$>$ Sets the position of the \hyperlink{class_engine_1_1_core_1_1_animator}{Animator}, in 2D space. /summary$>$ param name = \char`\"{}\+Position\char`\"{}$>$The position to set the \hyperlink{class_engine_1_1_core_1_1_animator}{Animator}.\mbox{\Hypertarget{class_engine_1_1_core_1_1_animator_adfbba33a29a643ed447ca292705e4e00}\label{class_engine_1_1_core_1_1_animator_adfbba33a29a643ed447ca292705e4e00}} 
+\index{Engine\+::\+Core\+::\+Animator@{Engine\+::\+Core\+::\+Animator}!Get\+Position@{Get\+Position}}
+\index{Get\+Position@{Get\+Position}!Engine\+::\+Core\+::\+Animator@{Engine\+::\+Core\+::\+Animator}}
+\subsubsection{\texorpdfstring{Get\+Position()}{GetPosition()}}
+{\footnotesize\ttfamily const Vector2f \& Engine\+::\+Core\+::\+Animator\+::\+Get\+Position (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+summary$>$ Gets the size of a single frame from the spritesheet. /summary$>$ returns$>$The size of the \hyperlink{class_engine_1_1_core_1_1_animator}{Animator}.\mbox{\Hypertarget{class_engine_1_1_core_1_1_animator_a50aef70515ac26985da30be5fc5247a1}\label{class_engine_1_1_core_1_1_animator_a50aef70515ac26985da30be5fc5247a1}} 
+\index{Engine\+::\+Core\+::\+Animator@{Engine\+::\+Core\+::\+Animator}!Get\+S\+F\+M\+L\+Sprite@{Get\+S\+F\+M\+L\+Sprite}}
+\index{Get\+S\+F\+M\+L\+Sprite@{Get\+S\+F\+M\+L\+Sprite}!Engine\+::\+Core\+::\+Animator@{Engine\+::\+Core\+::\+Animator}}
+\subsubsection{\texorpdfstring{Get\+S\+F\+M\+L\+Sprite()}{GetSFMLSprite()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ Sprite $>$ Engine\+::\+Core\+::\+Animator\+::\+Get\+S\+F\+M\+L\+Sprite (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+summary$>$ Gets the position of the \hyperlink{class_engine_1_1_core_1_1_animator}{Animator}. /summary$>$ returns$>$The position of the Game\+Texture on the window.\mbox{\Hypertarget{class_engine_1_1_core_1_1_animator_a6a87289d258c863d02a3bee22074e92f}\label{class_engine_1_1_core_1_1_animator_a6a87289d258c863d02a3bee22074e92f}} 
+\index{Engine\+::\+Core\+::\+Animator@{Engine\+::\+Core\+::\+Animator}!Get\+S\+F\+M\+L\+Texture@{Get\+S\+F\+M\+L\+Texture}}
+\index{Get\+S\+F\+M\+L\+Texture@{Get\+S\+F\+M\+L\+Texture}!Engine\+::\+Core\+::\+Animator@{Engine\+::\+Core\+::\+Animator}}
+\subsubsection{\texorpdfstring{Get\+S\+F\+M\+L\+Texture()}{GetSFMLTexture()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ Texture $>$ Engine\+::\+Core\+::\+Animator\+::\+Get\+S\+F\+M\+L\+Texture (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+summary$>$ Gets the sf\+::\+Sprite used by the object. /summary$>$ returns$>$A shared\+\_\+ptr to the sf\+::sprite.\mbox{\Hypertarget{class_engine_1_1_core_1_1_animator_a1d8675cde73dfe307d11bde8ffccf78c}\label{class_engine_1_1_core_1_1_animator_a1d8675cde73dfe307d11bde8ffccf78c}} 
+\index{Engine\+::\+Core\+::\+Animator@{Engine\+::\+Core\+::\+Animator}!Get\+Size@{Get\+Size}}
+\index{Get\+Size@{Get\+Size}!Engine\+::\+Core\+::\+Animator@{Engine\+::\+Core\+::\+Animator}}
+\subsubsection{\texorpdfstring{Get\+Size()}{GetSize()}}
+{\footnotesize\ttfamily const Vector2f \& Engine\+::\+Core\+::\+Animator\+::\+Get\+Size (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+summary$>$ Gets the current playing animation. /summary$>$ returns$>$The current playing animation\mbox{\Hypertarget{class_engine_1_1_core_1_1_animator_a2605b91ae769e14ab92d9a210e4b3d5c}\label{class_engine_1_1_core_1_1_animator_a2605b91ae769e14ab92d9a210e4b3d5c}} 
+\index{Engine\+::\+Core\+::\+Animator@{Engine\+::\+Core\+::\+Animator}!Play\+Animation@{Play\+Animation}}
+\index{Play\+Animation@{Play\+Animation}!Engine\+::\+Core\+::\+Animator@{Engine\+::\+Core\+::\+Animator}}
+\subsubsection{\texorpdfstring{Play\+Animation()}{PlayAnimation()}}
+{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Animator\+::\+Play\+Animation (\begin{DoxyParamCaption}\item[{float}]{dt }\end{DoxyParamCaption})}
+
+summary$>$ Renders the texture to the screen. /summary$>$ param name = \char`\"{}\+Render\+Window\char`\"{}$>$The window to draw to.For ease \mbox{\Hypertarget{class_engine_1_1_core_1_1_animator_ac5d217c5dd3257349dca55cd6a62b7ed}\label{class_engine_1_1_core_1_1_animator_ac5d217c5dd3257349dca55cd6a62b7ed}} 
+\index{Engine\+::\+Core\+::\+Animator@{Engine\+::\+Core\+::\+Animator}!Set\+Origin@{Set\+Origin}}
+\index{Set\+Origin@{Set\+Origin}!Engine\+::\+Core\+::\+Animator@{Engine\+::\+Core\+::\+Animator}}
+\subsubsection{\texorpdfstring{Set\+Origin()}{SetOrigin()}}
+{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Animator\+::\+Set\+Origin (\begin{DoxyParamCaption}\item[{const Vector2f \&}]{Origin }\end{DoxyParamCaption})}
+
+summary$>$ Sets the rotation of the \hyperlink{class_engine_1_1_core_1_1_animator}{Animator}. /summary$>$ param name = \char`\"{}\+Angle\char`\"{}$>$The angle to set the \hyperlink{class_engine_1_1_core_1_1_animator}{Animator} to.\mbox{\Hypertarget{class_engine_1_1_core_1_1_animator_a1bfe987d5417116a39a8963a8f2ab4ca}\label{class_engine_1_1_core_1_1_animator_a1bfe987d5417116a39a8963a8f2ab4ca}} 
+\index{Engine\+::\+Core\+::\+Animator@{Engine\+::\+Core\+::\+Animator}!Set\+Position@{Set\+Position}}
+\index{Set\+Position@{Set\+Position}!Engine\+::\+Core\+::\+Animator@{Engine\+::\+Core\+::\+Animator}}
+\subsubsection{\texorpdfstring{Set\+Position()}{SetPosition()}}
+{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Animator\+::\+Set\+Position (\begin{DoxyParamCaption}\item[{const Vector2f \&}]{Position }\end{DoxyParamCaption})}
+
+summary$>$ Sets the origin for rotating the \hyperlink{class_engine_1_1_core_1_1_animator}{Animator}. /summary$>$ param name = \char`\"{}\+Position\char`\"{}$>$The position, relative to the sprite, to rotate the texture by.\mbox{\Hypertarget{class_engine_1_1_core_1_1_animator_a5071cebf52c5e8e5f2dbebaa1b9621fd}\label{class_engine_1_1_core_1_1_animator_a5071cebf52c5e8e5f2dbebaa1b9621fd}} 
+\index{Engine\+::\+Core\+::\+Animator@{Engine\+::\+Core\+::\+Animator}!Set\+Rotation@{Set\+Rotation}}
+\index{Set\+Rotation@{Set\+Rotation}!Engine\+::\+Core\+::\+Animator@{Engine\+::\+Core\+::\+Animator}}
+\subsubsection{\texorpdfstring{Set\+Rotation()}{SetRotation()}}
+{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Animator\+::\+Set\+Rotation (\begin{DoxyParamCaption}\item[{const float \&}]{Angle }\end{DoxyParamCaption})}
+
+summary$>$ Moves the \hyperlink{class_engine_1_1_core_1_1_animator}{Animator} a given amount of pixels across the screen. /summary$>$ param name = \char`\"{}\+Offset\char`\"{}$>$The amount of pixels to move the \hyperlink{class_engine_1_1_core_1_1_animator}{Animator} by from its current position.\mbox{\Hypertarget{class_engine_1_1_core_1_1_animator_acf3e63a6bc60cde6b4b26ed4387c92cc}\label{class_engine_1_1_core_1_1_animator_acf3e63a6bc60cde6b4b26ed4387c92cc}} 
+\index{Engine\+::\+Core\+::\+Animator@{Engine\+::\+Core\+::\+Animator}!Switch\+Animation@{Switch\+Animation}}
+\index{Switch\+Animation@{Switch\+Animation}!Engine\+::\+Core\+::\+Animator@{Engine\+::\+Core\+::\+Animator}}
+\subsubsection{\texorpdfstring{Switch\+Animation()}{SwitchAnimation()}}
+{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Animator\+::\+Switch\+Animation (\begin{DoxyParamCaption}\item[{string}]{Animation\+Name }\end{DoxyParamCaption})}
+
+summary$>$ Switches animations from the current playing animation to the default animations. /summary$>$ \mbox{\Hypertarget{class_engine_1_1_core_1_1_animator_a9d81dd25418ebaf1bcae5f88ac879f56}\label{class_engine_1_1_core_1_1_animator_a9d81dd25418ebaf1bcae5f88ac879f56}} 
+\index{Engine\+::\+Core\+::\+Animator@{Engine\+::\+Core\+::\+Animator}!Switch\+To\+Default@{Switch\+To\+Default}}
+\index{Switch\+To\+Default@{Switch\+To\+Default}!Engine\+::\+Core\+::\+Animator@{Engine\+::\+Core\+::\+Animator}}
+\subsubsection{\texorpdfstring{Switch\+To\+Default()}{SwitchToDefault()}}
+{\footnotesize\ttfamily void Engine\+::\+Core\+::\+Animator\+::\+Switch\+To\+Default (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+summary$>$ Plays the animation, switches frames at the required intervals. /summary$>$ param name = \char`\"{}dt\char`\"{}$>$Delta time
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Wave\+Game/Animator.\+h\item 
+Wave\+Game/Animator.\+cpp\end{DoxyCompactItemize}

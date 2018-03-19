@@ -1,5 +1,14 @@
 \hypertarget{class_engine_1_1_core_1_1_power_up_base}{}\section{Engine\+:\+:Core\+:\+:Power\+Up\+Base Class Reference}
 \label{class_engine_1_1_core_1_1_power_up_base}\index{Engine\+::\+Core\+::\+Power\+Up\+Base@{Engine\+::\+Core\+::\+Power\+Up\+Base}}
+
+
+The base powerup for the other powerups to inherit from. Provides common functions, procedures, and attributes. /summary$>$  
+
+
+
+
+{\ttfamily \#include $<$Power\+Up\+Base.\+h$>$}
+
 Inheritance diagram for Engine\+:\+:Core\+:\+:Power\+Up\+Base\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -24,13 +33,16 @@ void \hyperlink{class_engine_1_1_core_1_1_power_up_base_a8f6f5112493d25a67ec0c05
 \item 
 bool \hyperlink{class_engine_1_1_core_1_1_power_up_base_a2b54cfc2afda10849a05f3095539c682}{Get\+Needs\+To\+Be\+Destroyed} (void)
 \item 
-bool \hyperlink{class_engine_1_1_core_1_1_power_up_base_a3a2b9ec8b5c8151afd2790bd54ce323e}{Get\+Collected} (void)
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_power_up_base_a3a2b9ec8b5c8151afd2790bd54ce323e}\label{class_engine_1_1_core_1_1_power_up_base_a3a2b9ec8b5c8151afd2790bd54ce323e}} 
+bool {\bfseries Get\+Collected} (void)
+\item 
+string \hyperlink{class_engine_1_1_core_1_1_power_up_base_a8545dee1e4beb94132acc0f03ae05a08}{Get\+Power\+Up\+Name} (void) const
 \end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_engine_1_1_core_1_1_power_up_base_aa54bef6e0787bb0b1cc9c11511d53698}\label{class_engine_1_1_core_1_1_power_up_base_aa54bef6e0787bb0b1cc9c11511d53698}} 
-shared\+\_\+ptr$<$ \hyperlink{class_engine_1_1_core_1_1_game_texture}{Game\+Texture} $>$ {\bfseries Texture}
+\mbox{\Hypertarget{class_engine_1_1_core_1_1_power_up_base_a1d6666dbc7e262d602657883ce47f37f}\label{class_engine_1_1_core_1_1_power_up_base_a1d6666dbc7e262d602657883ce47f37f}} 
+shared\+\_\+ptr$<$ \hyperlink{class_engine_1_1_core_1_1_animator}{Animator} $>$ {\bfseries Power\+Up\+Animation}
 \item 
 \mbox{\Hypertarget{class_engine_1_1_core_1_1_power_up_base_af8eee8047d8b8cc862cd2f2a7b478d7b}\label{class_engine_1_1_core_1_1_power_up_base_af8eee8047d8b8cc862cd2f2a7b478d7b}} 
 bool {\bfseries Has\+Been\+Collected}
@@ -52,6 +64,9 @@ string {\bfseries Power\+Up\+Name}
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+The base powerup for the other powerups to inherit from. Provides common functions, procedures, and attributes. /summary$>$ 
+
 \subsection{Member Function Documentation}
 \mbox{\Hypertarget{class_engine_1_1_core_1_1_power_up_base_a5d145e5909ed25fb656416fe10ba7052}\label{class_engine_1_1_core_1_1_power_up_base_a5d145e5909ed25fb656416fe10ba7052}} 
 \index{Engine\+::\+Core\+::\+Power\+Up\+Base@{Engine\+::\+Core\+::\+Power\+Up\+Base}!Draw@{Draw}}
@@ -63,19 +78,19 @@ string {\bfseries Power\+Up\+Name}
 
 Renders the power up if it hasn\textquotesingle{}t been destroyed or picked up. /summary$>$ param name = \char`\"{}\+Window\char`\"{}$>$A pointer to the Render\+Window to draw to.
 
-summary$>$ Basically constructs the object. It\textquotesingle{}s safer to have this here and called from derived classes, rather than have each class make their own. This is because C++ doesn\textquotesingle{}t have a generic super, it\textquotesingle{}s compiler specific and I\textquotesingle{}m only aware of M\+S\+VC having it. /summary$>$ \mbox{\Hypertarget{class_engine_1_1_core_1_1_power_up_base_a3a2b9ec8b5c8151afd2790bd54ce323e}\label{class_engine_1_1_core_1_1_power_up_base_a3a2b9ec8b5c8151afd2790bd54ce323e}} 
-\index{Engine\+::\+Core\+::\+Power\+Up\+Base@{Engine\+::\+Core\+::\+Power\+Up\+Base}!Get\+Collected@{Get\+Collected}}
-\index{Get\+Collected@{Get\+Collected}!Engine\+::\+Core\+::\+Power\+Up\+Base@{Engine\+::\+Core\+::\+Power\+Up\+Base}}
-\subsubsection{\texorpdfstring{Get\+Collected()}{GetCollected()}}
-{\footnotesize\ttfamily bool Engine\+::\+Core\+::\+Power\+Up\+Base\+::\+Get\+Collected (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
-
-summary$>$ For overriding, would be purely virtual but ran in to errors. See derived classes. /summary$>$ param name = \char`\"{}\+P\char`\"{}$>$A pointer to the player.\mbox{\Hypertarget{class_engine_1_1_core_1_1_power_up_base_a2b54cfc2afda10849a05f3095539c682}\label{class_engine_1_1_core_1_1_power_up_base_a2b54cfc2afda10849a05f3095539c682}} 
+summary$>$ Basically constructs the object. It\textquotesingle{}s safer to have this here and called from derived classes, rather than have each class make their own. This is because C++ doesn\textquotesingle{}t have a generic super, it\textquotesingle{}s compiler specific and I\textquotesingle{}m only aware of M\+S\+VC having it. /summary$>$ \mbox{\Hypertarget{class_engine_1_1_core_1_1_power_up_base_a2b54cfc2afda10849a05f3095539c682}\label{class_engine_1_1_core_1_1_power_up_base_a2b54cfc2afda10849a05f3095539c682}} 
 \index{Engine\+::\+Core\+::\+Power\+Up\+Base@{Engine\+::\+Core\+::\+Power\+Up\+Base}!Get\+Needs\+To\+Be\+Destroyed@{Get\+Needs\+To\+Be\+Destroyed}}
 \index{Get\+Needs\+To\+Be\+Destroyed@{Get\+Needs\+To\+Be\+Destroyed}!Engine\+::\+Core\+::\+Power\+Up\+Base@{Engine\+::\+Core\+::\+Power\+Up\+Base}}
 \subsubsection{\texorpdfstring{Get\+Needs\+To\+Be\+Destroyed()}{GetNeedsToBeDestroyed()}}
 {\footnotesize\ttfamily bool Engine\+::\+Core\+::\+Power\+Up\+Base\+::\+Get\+Needs\+To\+Be\+Destroyed (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-summary$>$ Gets the collection status of the power up. /summary$>$ returns$>$True if picked up, false otherwise.\mbox{\Hypertarget{class_engine_1_1_core_1_1_power_up_base_aa60b222fd4cd9be0b8fcca5e06ba4c62}\label{class_engine_1_1_core_1_1_power_up_base_aa60b222fd4cd9be0b8fcca5e06ba4c62}} 
+summary$>$ Gets the collection status of the power up. /summary$>$ returns$>$True if picked up, false otherwise.\mbox{\Hypertarget{class_engine_1_1_core_1_1_power_up_base_a8545dee1e4beb94132acc0f03ae05a08}\label{class_engine_1_1_core_1_1_power_up_base_a8545dee1e4beb94132acc0f03ae05a08}} 
+\index{Engine\+::\+Core\+::\+Power\+Up\+Base@{Engine\+::\+Core\+::\+Power\+Up\+Base}!Get\+Power\+Up\+Name@{Get\+Power\+Up\+Name}}
+\index{Get\+Power\+Up\+Name@{Get\+Power\+Up\+Name}!Engine\+::\+Core\+::\+Power\+Up\+Base@{Engine\+::\+Core\+::\+Power\+Up\+Base}}
+\subsubsection{\texorpdfstring{Get\+Power\+Up\+Name()}{GetPowerUpName()}}
+{\footnotesize\ttfamily string Engine\+::\+Core\+::\+Power\+Up\+Base\+::\+Get\+Power\+Up\+Name (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+summary$>$ For overriding, would be purely virtual but ran in to errors. See derived classes. /summary$>$ param name = \char`\"{}\+P\char`\"{}$>$A pointer to the player.\mbox{\Hypertarget{class_engine_1_1_core_1_1_power_up_base_aa60b222fd4cd9be0b8fcca5e06ba4c62}\label{class_engine_1_1_core_1_1_power_up_base_aa60b222fd4cd9be0b8fcca5e06ba4c62}} 
 \index{Engine\+::\+Core\+::\+Power\+Up\+Base@{Engine\+::\+Core\+::\+Power\+Up\+Base}!Init\+Basic\+Power\+Up@{Init\+Basic\+Power\+Up}}
 \index{Init\+Basic\+Power\+Up@{Init\+Basic\+Power\+Up}!Engine\+::\+Core\+::\+Power\+Up\+Base@{Engine\+::\+Core\+::\+Power\+Up\+Base}}
 \subsubsection{\texorpdfstring{Init\+Basic\+Power\+Up()}{InitBasicPowerUp()}}

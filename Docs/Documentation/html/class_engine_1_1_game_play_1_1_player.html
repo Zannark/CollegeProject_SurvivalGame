@@ -58,7 +58,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>Engine</b></li><li class="navelem"><b>GamePlay</b></li><li class="navelem"><a class="el" href="class_engine_1_1_game_play_1_1_player.html">Player</a></li>  </ul>
+<li class="navelem"><b>Engine</b></li><li class="navelem"><a class="el" href="namespace_engine_1_1_game_play.html">GamePlay</a></li><li class="navelem"><a class="el" href="class_engine_1_1_game_play_1_1_player.html">Player</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -76,12 +76,15 @@ Inheritance diagram for Engine::GamePlay::Player:</div>
  <div class="center">
   <img src="class_engine_1_1_game_play_1_1_player.png" usemap="#Engine::GamePlay::Player_map" alt=""/>
   <map id="Engine::GamePlay::Player_map" name="Engine::GamePlay::Player_map">
-<area href="class_engine_1_1_core_1_1_character.html" alt="Engine::Core::Character" shape="rect" coords="0,0,157,24"/>
+<area href="class_engine_1_1_core_1_1_character.html" title="The base class for enemies and the player to inherit from. Provides common functions, procedures, and attributes. /summary&gt; " alt="Engine::Core::Character" shape="rect" coords="0,0,157,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:accf9a014d2a29a17582907f6b042553b"><td class="memItemLeft" align="right" valign="top"><a id="accf9a014d2a29a17582907f6b042553b"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Player</b> (RenderWindow *Wnd, <a class="el" href="class_engine_1_1_core_1_1_map.html">Map</a> M)</td></tr>
+<tr class="separator:accf9a014d2a29a17582907f6b042553b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39c82fa94afe71949a7fff50fed2a4d0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_game_play_1_1_player.html#a39c82fa94afe71949a7fff50fed2a4d0">~Player</a> ()</td></tr>
 <tr class="separator:a39c82fa94afe71949a7fff50fed2a4d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06c682bf13c20fb2390807ec681b0121"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_game_play_1_1_player.html#a06c682bf13c20fb2390807ec681b0121">Update</a> (RenderWindow *Window, <a class="el" href="class_engine_1_1_core_1_1_map.html">Map</a> M, float dt) override</td></tr>
@@ -102,10 +105,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a04dccb49dde0606ba440b07944abdc65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa592871c49210d80e1cda615e0dee15d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_game_play_1_1_player.html#aa592871c49210d80e1cda615e0dee15d">SetPowerUp</a> (void *Power)</td></tr>
 <tr class="separator:aa592871c49210d80e1cda615e0dee15d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97680b34067c1b28ee3d43ab994f10ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_game_play_1_1_player.html#a97680b34067c1b28ee3d43ab994f10ef">SetPowerUpText</a> (string PowerUpName)</td></tr>
-<tr class="separator:a97680b34067c1b28ee3d43ab994f10ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22261e9c06350f20de748418085dd26a"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_engine_1_1_core_1_1_game_texture.html">GameTexture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_game_play_1_1_player.html#a22261e9c06350f20de748418085dd26a">GetPlayerWeapon</a> (void) const</td></tr>
-<tr class="separator:a22261e9c06350f20de748418085dd26a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a270ca0729136ca9105b152c5147bdbf0"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_engine_1_1_core_1_1_animator.html">Animator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_game_play_1_1_player.html#a270ca0729136ca9105b152c5147bdbf0">GetPlayerWeapon</a> (void) const</td></tr>
+<tr class="separator:a270ca0729136ca9105b152c5147bdbf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_engine_1_1_core_1_1_character"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_engine_1_1_core_1_1_character')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_engine_1_1_core_1_1_character.html">Engine::Core::Character</a></td></tr>
 <tr class="memitem:a0377de26714b79374d0591ca44c77fd1 inherit pub_methods_class_engine_1_1_core_1_1_character"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_core_1_1_character.html#a0377de26714b79374d0591ca44c77fd1">~Character</a> ()</td></tr>
 <tr class="separator:a0377de26714b79374d0591ca44c77fd1 inherit pub_methods_class_engine_1_1_core_1_1_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -115,12 +116,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3465481aed27d24909b8e40577f09b10 inherit pub_methods_class_engine_1_1_core_1_1_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae25a76e7497eeb6dbd1ad3b72c1ff721 inherit pub_methods_class_engine_1_1_core_1_1_character"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_core_1_1_character.html#ae25a76e7497eeb6dbd1ad3b72c1ff721">Draw</a> (RenderWindow *Window)</td></tr>
 <tr class="separator:ae25a76e7497eeb6dbd1ad3b72c1ff721 inherit pub_methods_class_engine_1_1_core_1_1_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2156c371584ca6a8d2961154f1b49c09 inherit pub_methods_class_engine_1_1_core_1_1_character"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_core_1_1_character.html#a2156c371584ca6a8d2961154f1b49c09">TakeDamage</a> (int Amount)</td></tr>
+<tr class="memitem:a2156c371584ca6a8d2961154f1b49c09 inherit pub_methods_class_engine_1_1_core_1_1_character"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_core_1_1_character.html#a2156c371584ca6a8d2961154f1b49c09">TakeDamage</a> (int Amount)</td></tr>
 <tr class="separator:a2156c371584ca6a8d2961154f1b49c09 inherit pub_methods_class_engine_1_1_core_1_1_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad32924505f5bc7761590ecbfd06e6f09 inherit pub_methods_class_engine_1_1_core_1_1_character"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_core_1_1_character.html#ad32924505f5bc7761590ecbfd06e6f09">CheckHealth</a> (void)</td></tr>
 <tr class="separator:ad32924505f5bc7761590ecbfd06e6f09 inherit pub_methods_class_engine_1_1_core_1_1_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afff37c4ff688837f42509f721853bab8 inherit pub_methods_class_engine_1_1_core_1_1_character"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_engine_1_1_core_1_1_game_texture.html">GameTexture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_core_1_1_character.html#afff37c4ff688837f42509f721853bab8">GetGameTexure</a> (void) const</td></tr>
-<tr class="separator:afff37c4ff688837f42509f721853bab8 inherit pub_methods_class_engine_1_1_core_1_1_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcc0ba87be08fa12740a260cdd2d9adc inherit pub_methods_class_engine_1_1_core_1_1_character"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_engine_1_1_core_1_1_animator.html">Animator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_core_1_1_character.html#abcc0ba87be08fa12740a260cdd2d9adc">GetAnimator</a> (void) const</td></tr>
+<tr class="separator:abcc0ba87be08fa12740a260cdd2d9adc inherit pub_methods_class_engine_1_1_core_1_1_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -138,22 +139,15 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:ad98ac89b7c82b587306e83b5aa6acf07 inherit pro_attribs_class_engine_1_1_core_1_1_character"><td class="memItemLeft" align="right" valign="top"><a id="ad98ac89b7c82b587306e83b5aa6acf07"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>Angle</b></td></tr>
 <tr class="separator:ad98ac89b7c82b587306e83b5aa6acf07 inherit pro_attribs_class_engine_1_1_core_1_1_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aacac55c620345c41b3eb09f4abbd4318 inherit pro_attribs_class_engine_1_1_core_1_1_character"><td class="memItemLeft" align="right" valign="top"><a id="aacac55c620345c41b3eb09f4abbd4318"></a>
-Vector2f&#160;</td><td class="memItemRight" valign="bottom"><b>Direction</b></td></tr>
-<tr class="separator:aacac55c620345c41b3eb09f4abbd4318 inherit pro_attribs_class_engine_1_1_core_1_1_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f898cc76d7384b27f3105babb9ea27a inherit pro_attribs_class_engine_1_1_core_1_1_character"><td class="memItemLeft" align="right" valign="top"><a id="a5f898cc76d7384b27f3105babb9ea27a"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>Health</b></td></tr>
 <tr class="separator:a5f898cc76d7384b27f3105babb9ea27a inherit pro_attribs_class_engine_1_1_core_1_1_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b0c92ea505c26b00f1a4873bdf747b2 inherit pro_attribs_class_engine_1_1_core_1_1_character"><td class="memItemLeft" align="right" valign="top"><a id="a4b0c92ea505c26b00f1a4873bdf747b2"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsAlive</b></td></tr>
 <tr class="separator:a4b0c92ea505c26b00f1a4873bdf747b2 inherit pro_attribs_class_engine_1_1_core_1_1_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab749582f4376b908cdf23d6cc4ac2fe2 inherit pro_attribs_class_engine_1_1_core_1_1_character"><td class="memItemLeft" align="right" valign="top"><a id="ab749582f4376b908cdf23d6cc4ac2fe2"></a>
-Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_core_1_1_character.html#ab749582f4376b908cdf23d6cc4ac2fe2">LastGoodPosition</a></td></tr>
-<tr class="memdesc:ab749582f4376b908cdf23d6cc4ac2fe2 inherit pro_attribs_class_engine_1_1_core_1_1_character"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the last position where the character could move freely. <br /></td></tr>
-<tr class="separator:ab749582f4376b908cdf23d6cc4ac2fe2 inherit pro_attribs_class_engine_1_1_core_1_1_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a289559b0eea38088ed1135ef8cf994dd inherit pro_attribs_class_engine_1_1_core_1_1_character"><td class="memItemLeft" align="right" valign="top"><a id="a289559b0eea38088ed1135ef8cf994dd"></a>
-shared_ptr&lt; <a class="el" href="class_engine_1_1_core_1_1_game_texture.html">GameTexture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Texture</b></td></tr>
-<tr class="separator:a289559b0eea38088ed1135ef8cf994dd inherit pro_attribs_class_engine_1_1_core_1_1_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a668946febda09d2a3e808a604b627fd4 inherit pro_attribs_class_engine_1_1_core_1_1_character"><td class="memItemLeft" align="right" valign="top"><a id="a668946febda09d2a3e808a604b627fd4"></a>
+shared_ptr&lt; <a class="el" href="class_engine_1_1_core_1_1_animator.html">Animator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>CharacterAnimator</b></td></tr>
+<tr class="separator:a668946febda09d2a3e808a604b627fd4 inherit pro_attribs_class_engine_1_1_core_1_1_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a39c82fa94afe71949a7fff50fed2a4d0"></a>
@@ -215,14 +209,14 @@ shared_ptr&lt; <a class="el" href="class_engine_1_1_core_1_1_game_texture.html">
 
 </div>
 </div>
-<a id="a22261e9c06350f20de748418085dd26a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a22261e9c06350f20de748418085dd26a">&#9670;&nbsp;</a></span>GetPlayerWeapon()</h2>
+<a id="a270ca0729136ca9105b152c5147bdbf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a270ca0729136ca9105b152c5147bdbf0">&#9670;&nbsp;</a></span>GetPlayerWeapon()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">shared_ptr&lt; <a class="el" href="class_engine_1_1_core_1_1_game_texture.html">GameTexture</a> &gt; Engine::GamePlay::Player::GetPlayerWeapon </td>
+          <td class="memname">shared_ptr&lt; <a class="el" href="class_engine_1_1_core_1_1_animator.html">Animator</a> &gt; Engine::GamePlay::Player::GetPlayerWeapon </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -329,25 +323,6 @@ shared_ptr&lt; <a class="el" href="class_engine_1_1_core_1_1_game_texture.html">
 
 </div>
 </div>
-<a id="a97680b34067c1b28ee3d43ab994f10ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97680b34067c1b28ee3d43ab994f10ef">&#9670;&nbsp;</a></span>SetPowerUpText()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Engine::GamePlay::Player::SetPowerUpText </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>PowerUpName</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>summary&gt; Gets a pointer to the player weapon. /summary&gt; returns&gt;The pointer to the player weapon.</p>
-
-</div>
-</div>
 <a id="a5a67ed64c644e9ebea338feb0db0ac98"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5a67ed64c644e9ebea338feb0db0ac98">&#9670;&nbsp;</a></span>SetSpeedModifier()</h2>
 
@@ -406,7 +381,7 @@ shared_ptr&lt; <a class="el" href="class_engine_1_1_core_1_1_game_texture.html">
   </tr>
 </table>
 </div><div class="memdoc">
-<p>summary&gt; Gets the enemies which in range of the player and then deals a random amount of damage, between 0 and PLAYER_MAX_ATTACK_DAMAGE. /summary&gt; </p>
+<p>summary&gt; Handles the powerup useage and lifetime. /summary&gt; </p>
 
 <p>Implements <a class="el" href="class_engine_1_1_core_1_1_character.html">Engine::Core::Character</a>.</p>
 
@@ -419,7 +394,7 @@ shared_ptr&lt; <a class="el" href="class_engine_1_1_core_1_1_game_texture.html">
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jan 17 2018 23:18:52 for CollegeProject_SurvivalGame by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 19 2018 22:02:00 for CollegeProject_SurvivalGame by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

@@ -1,5 +1,14 @@
 \hypertarget{class_engine_1_1_game_play_1_1_damage_power_up}{}\section{Engine\+:\+:Game\+Play\+:\+:Damage\+Power\+Up Class Reference}
 \label{class_engine_1_1_game_play_1_1_damage_power_up}\index{Engine\+::\+Game\+Play\+::\+Damage\+Power\+Up@{Engine\+::\+Game\+Play\+::\+Damage\+Power\+Up}}
+
+
+The powerup which is responsible for increasing the attack damage of the player. /summary$>$  
+
+
+
+
+{\ttfamily \#include $<$Damage\+Power\+Up.\+h$>$}
+
 Inheritance diagram for Engine\+:\+:Game\+Play\+:\+:Damage\+Power\+Up\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -10,7 +19,7 @@ Inheritance diagram for Engine\+:\+:Game\+Play\+:\+:Damage\+Power\+Up\+:\begin{f
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_engine_1_1_game_play_1_1_damage_power_up_a25af42480a9ce9eedbb82e1be666891c}{Damage\+Power\+Up} (Vector2f Position)
-\item 
+\begin{DoxyCompactList}\small\item\em Constructs the \hyperlink{class_engine_1_1_game_play_1_1_damage_power_up}{Damage\+Power\+Up} object. Loads in the Animator from the Animation\+Cache. /summary$>$ param name = \char`\"{}\+Position\char`\"{}$>$The position to set the powerup.\end{DoxyCompactList}\item 
 virtual void \hyperlink{class_engine_1_1_game_play_1_1_damage_power_up_abadfb61b67dd580bc98d7e120c2809cd}{On\+Use} (\hyperlink{class_engine_1_1_game_play_1_1_player}{Player} $\ast$P) override
 \item 
 virtual void \hyperlink{class_engine_1_1_game_play_1_1_damage_power_up_a97bdd448602470ff4305b39eee866fd2}{On\+Use\+End} (\hyperlink{class_engine_1_1_game_play_1_1_player}{Player} $\ast$P) override
@@ -18,12 +27,19 @@ virtual void \hyperlink{class_engine_1_1_game_play_1_1_damage_power_up_a97bdd448
 \subsection*{Additional Inherited Members}
 
 
+\subsection{Detailed Description}
+The powerup which is responsible for increasing the attack damage of the player. /summary$>$ 
+
 \subsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_engine_1_1_game_play_1_1_damage_power_up_a25af42480a9ce9eedbb82e1be666891c}\label{class_engine_1_1_game_play_1_1_damage_power_up_a25af42480a9ce9eedbb82e1be666891c}} 
 \index{Engine\+::\+Game\+Play\+::\+Damage\+Power\+Up@{Engine\+::\+Game\+Play\+::\+Damage\+Power\+Up}!Damage\+Power\+Up@{Damage\+Power\+Up}}
 \index{Damage\+Power\+Up@{Damage\+Power\+Up}!Engine\+::\+Game\+Play\+::\+Damage\+Power\+Up@{Engine\+::\+Game\+Play\+::\+Damage\+Power\+Up}}
 \subsubsection{\texorpdfstring{Damage\+Power\+Up()}{DamagePowerUp()}}
 {\footnotesize\ttfamily Damage\+Power\+Up\+::\+Damage\+Power\+Up (\begin{DoxyParamCaption}\item[{Vector2f}]{Position }\end{DoxyParamCaption})}
+
+
+
+Constructs the \hyperlink{class_engine_1_1_game_play_1_1_damage_power_up}{Damage\+Power\+Up} object. Loads in the Animator from the Animation\+Cache. /summary$>$ param name = \char`\"{}\+Position\char`\"{}$>$The position to set the powerup.
 
 summary$>$ Called when the player presses the Power\+Up use key. Changes the players damage modifier. /summary$>$ param name = \char`\"{}\+P\char`\"{}$>$A pointer to the player.
 

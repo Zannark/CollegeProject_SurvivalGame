@@ -1,5 +1,14 @@
 \hypertarget{class_engine_1_1_game_play_1_1_speed_power_up}{}\section{Engine\+:\+:Game\+Play\+:\+:Speed\+Power\+Up Class Reference}
 \label{class_engine_1_1_game_play_1_1_speed_power_up}\index{Engine\+::\+Game\+Play\+::\+Speed\+Power\+Up@{Engine\+::\+Game\+Play\+::\+Speed\+Power\+Up}}
+
+
+The powerup which is responisble for increasing and decreasing the speed of the player. /summary$>$  
+
+
+
+
+{\ttfamily \#include $<$Speed\+Power\+Up.\+h$>$}
+
 Inheritance diagram for Engine\+:\+:Game\+Play\+:\+:Speed\+Power\+Up\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -10,7 +19,7 @@ Inheritance diagram for Engine\+:\+:Game\+Play\+:\+:Speed\+Power\+Up\+:\begin{fi
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_engine_1_1_game_play_1_1_speed_power_up_ac619eef8e87815cc58a256ddde54d049}{Speed\+Power\+Up} (Vector2f Position)
-\item 
+\begin{DoxyCompactList}\small\item\em Constructs the \hyperlink{class_engine_1_1_game_play_1_1_damage_power_up}{Damage\+Power\+Up} object. Loads in the Animator from the Animation\+Cache. /summary$>$ param name = \char`\"{}\+Position\char`\"{}$>$The position to set the powerup.\end{DoxyCompactList}\item 
 virtual void \hyperlink{class_engine_1_1_game_play_1_1_speed_power_up_a0901961fb01656a2b81ccf846e370e31}{On\+Use} (\hyperlink{class_engine_1_1_game_play_1_1_player}{Player} $\ast$P) override
 \item 
 virtual void \hyperlink{class_engine_1_1_game_play_1_1_speed_power_up_ad305e70493c2b51a87e58d58cea73521}{On\+Use\+End} (\hyperlink{class_engine_1_1_game_play_1_1_player}{Player} $\ast$P) override
@@ -18,12 +27,19 @@ virtual void \hyperlink{class_engine_1_1_game_play_1_1_speed_power_up_ad305e7049
 \subsection*{Additional Inherited Members}
 
 
+\subsection{Detailed Description}
+The powerup which is responisble for increasing and decreasing the speed of the player. /summary$>$ 
+
 \subsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_engine_1_1_game_play_1_1_speed_power_up_ac619eef8e87815cc58a256ddde54d049}\label{class_engine_1_1_game_play_1_1_speed_power_up_ac619eef8e87815cc58a256ddde54d049}} 
 \index{Engine\+::\+Game\+Play\+::\+Speed\+Power\+Up@{Engine\+::\+Game\+Play\+::\+Speed\+Power\+Up}!Speed\+Power\+Up@{Speed\+Power\+Up}}
 \index{Speed\+Power\+Up@{Speed\+Power\+Up}!Engine\+::\+Game\+Play\+::\+Speed\+Power\+Up@{Engine\+::\+Game\+Play\+::\+Speed\+Power\+Up}}
 \subsubsection{\texorpdfstring{Speed\+Power\+Up()}{SpeedPowerUp()}}
 {\footnotesize\ttfamily Engine\+::\+Game\+Play\+::\+Speed\+Power\+Up\+::\+Speed\+Power\+Up (\begin{DoxyParamCaption}\item[{Vector2f}]{Position }\end{DoxyParamCaption})}
+
+
+
+Constructs the \hyperlink{class_engine_1_1_game_play_1_1_damage_power_up}{Damage\+Power\+Up} object. Loads in the Animator from the Animation\+Cache. /summary$>$ param name = \char`\"{}\+Position\char`\"{}$>$The position to set the powerup.
 
 summary$>$ Called when the player presses the Power\+Up use key. Changes the players speed modifier. /summary$>$ param name = \char`\"{}\+P\char`\"{}$>$A pointer to the player.
 

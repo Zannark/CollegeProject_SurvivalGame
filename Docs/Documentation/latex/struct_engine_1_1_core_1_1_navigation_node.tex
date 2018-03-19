@@ -49,6 +49,18 @@ float \hyperlink{struct_engine_1_1_core_1_1_navigation_node_a2d2f49adb68c3b880b7
 \item 
 \mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_ab265c716b1b82675c800f7027e0666d8}\label{struct_engine_1_1_core_1_1_navigation_node_ab265c716b1b82675c800f7027e0666d8}} 
 bool {\bfseries Is\+Same\+State} (\hyperlink{struct_engine_1_1_core_1_1_navigation_node}{Navigation\+Node} \&rhs)
+\item 
+\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_aec68263cc16b965ebb1cb3aad7fcd43e}\label{struct_engine_1_1_core_1_1_navigation_node_aec68263cc16b965ebb1cb3aad7fcd43e}} 
+bool {\bfseries Get\+Collision} (void) const
+\item 
+\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_ab28fdd33b51904a568654711b3180822}\label{struct_engine_1_1_core_1_1_navigation_node_ab28fdd33b51904a568654711b3180822}} 
+void {\bfseries Set\+Collision} (bool Collides)
+\item 
+\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_aee18a68d77e248666450829dc954338a}\label{struct_engine_1_1_core_1_1_navigation_node_aee18a68d77e248666450829dc954338a}} 
+bool {\bfseries Get\+Is\+Near\+Collision} (void) const
+\item 
+\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_a0528bb5286ad2b1c42b2bb3c929d059b}\label{struct_engine_1_1_core_1_1_navigation_node_a0528bb5286ad2b1c42b2bb3c929d059b}} 
+void {\bfseries Set\+Is\+Near\+Collision} (bool Near\+Collision)
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -72,6 +84,8 @@ Render\+Window $\ast$ {\bfseries Window}
 
 \subsection{Detailed Description}
 An object which represents point in 2D space for the Navigation mesh. /summary$>$ 
+
+A node which is used for the A$\ast$ pathfinding. Represents a single point on the screen. /summary$>$
 
 summary$>$ A mesh of all the Navigation\+Nodes, used for A$\ast$ pathfinding. /summary$>$ 
 
@@ -109,7 +123,7 @@ summary$>$ A visual representation of the \hyperlink{struct_engine_1_1_core_1_1_
 
 summary$>$ Checks if two nodes are the same state. /summary$>$ param name = \char`\"{}\+Other\+Node\char`\"{}$>$The node to test against.
 
-returns$>$True if they\textquotesingle{}re the same state, false otherwise.\mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_a4e049fbcda1bb269303da91692d05033}\label{struct_engine_1_1_core_1_1_navigation_node_a4e049fbcda1bb269303da91692d05033}} 
+returns$>$True if they\textquotesingle{}re the same state, false otherwise.A high cost is returned so the enemies will avoid it. \mbox{\Hypertarget{struct_engine_1_1_core_1_1_navigation_node_a4e049fbcda1bb269303da91692d05033}\label{struct_engine_1_1_core_1_1_navigation_node_a4e049fbcda1bb269303da91692d05033}} 
 \index{Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}!Get\+Successors@{Get\+Successors}}
 \index{Get\+Successors@{Get\+Successors}!Engine\+::\+Core\+::\+Navigation\+Node@{Engine\+::\+Core\+::\+Navigation\+Node}}
 \subsubsection{\texorpdfstring{Get\+Successors()}{GetSuccessors()}}

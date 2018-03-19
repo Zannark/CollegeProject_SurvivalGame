@@ -9,6 +9,9 @@ Inheritance diagram for Engine\+:\+:Game\+Play\+:\+:Player\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_player_accf9a014d2a29a17582907f6b042553b}\label{class_engine_1_1_game_play_1_1_player_accf9a014d2a29a17582907f6b042553b}} 
+{\bfseries Player} (Render\+Window $\ast$Wnd, \hyperlink{class_engine_1_1_core_1_1_map}{Map} M)
+\item 
 \hyperlink{class_engine_1_1_game_play_1_1_player_a39c82fa94afe71949a7fff50fed2a4d0}{$\sim$\+Player} ()
 \item 
 void \hyperlink{class_engine_1_1_game_play_1_1_player_a06c682bf13c20fb2390807ec681b0121}{Update} (Render\+Window $\ast$Window, \hyperlink{class_engine_1_1_core_1_1_map}{Map} M, float dt) override
@@ -29,9 +32,7 @@ void \hyperlink{class_engine_1_1_game_play_1_1_player_a04dccb49dde0606ba440b0794
 \item 
 void \hyperlink{class_engine_1_1_game_play_1_1_player_aa592871c49210d80e1cda615e0dee15d}{Set\+Power\+Up} (void $\ast$Power)
 \item 
-void \hyperlink{class_engine_1_1_game_play_1_1_player_a97680b34067c1b28ee3d43ab994f10ef}{Set\+Power\+Up\+Text} (string Power\+Up\+Name)
-\item 
-shared\+\_\+ptr$<$ \hyperlink{class_engine_1_1_core_1_1_game_texture}{Game\+Texture} $>$ \hyperlink{class_engine_1_1_game_play_1_1_player_a22261e9c06350f20de748418085dd26a}{Get\+Player\+Weapon} (void) const
+shared\+\_\+ptr$<$ \hyperlink{class_engine_1_1_core_1_1_animator}{Animator} $>$ \hyperlink{class_engine_1_1_game_play_1_1_player_a270ca0729136ca9105b152c5147bdbf0}{Get\+Player\+Weapon} (void) const
 \end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
@@ -68,11 +69,11 @@ summary$>$ Renders the weapon to the screen. /summary$>$ param name = \char`\"{}
 \subsubsection{\texorpdfstring{Draw\+Weapon()}{DrawWeapon()}}
 {\footnotesize\ttfamily void Engine\+::\+Game\+Play\+::\+Player\+::\+Draw\+Weapon (\begin{DoxyParamCaption}\item[{Render\+Window $\ast$}]{Window }\end{DoxyParamCaption})}
 
-summary$>$ Sets the Movement Speec modifier. /summary$>$ param name = \char`\"{}\+Modifier\char`\"{}$>$The modifier to apply to the movement speed.\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_player_a22261e9c06350f20de748418085dd26a}\label{class_engine_1_1_game_play_1_1_player_a22261e9c06350f20de748418085dd26a}} 
+summary$>$ Sets the Movement Speec modifier. /summary$>$ param name = \char`\"{}\+Modifier\char`\"{}$>$The modifier to apply to the movement speed.\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_player_a270ca0729136ca9105b152c5147bdbf0}\label{class_engine_1_1_game_play_1_1_player_a270ca0729136ca9105b152c5147bdbf0}} 
 \index{Engine\+::\+Game\+Play\+::\+Player@{Engine\+::\+Game\+Play\+::\+Player}!Get\+Player\+Weapon@{Get\+Player\+Weapon}}
 \index{Get\+Player\+Weapon@{Get\+Player\+Weapon}!Engine\+::\+Game\+Play\+::\+Player@{Engine\+::\+Game\+Play\+::\+Player}}
 \subsubsection{\texorpdfstring{Get\+Player\+Weapon()}{GetPlayerWeapon()}}
-{\footnotesize\ttfamily shared\+\_\+ptr$<$ \hyperlink{class_engine_1_1_core_1_1_game_texture}{Game\+Texture} $>$ Engine\+::\+Game\+Play\+::\+Player\+::\+Get\+Player\+Weapon (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \hyperlink{class_engine_1_1_core_1_1_animator}{Animator} $>$ Engine\+::\+Game\+Play\+::\+Player\+::\+Get\+Player\+Weapon (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
 
 summary$>$ Update the on screen UI. /summary$>$ \mbox{\Hypertarget{class_engine_1_1_game_play_1_1_player_aad2c7f9e75ef259e202be0d00924ec1d}\label{class_engine_1_1_game_play_1_1_player_aad2c7f9e75ef259e202be0d00924ec1d}} 
 \index{Engine\+::\+Game\+Play\+::\+Player@{Engine\+::\+Game\+Play\+::\+Player}!Regen\+Half\+Missing\+Health@{Regen\+Half\+Missing\+Health}}
@@ -104,13 +105,7 @@ summary$>$ Sets the health of the player to half of the difference between the c
 \subsubsection{\texorpdfstring{Set\+Power\+Up()}{SetPowerUp()}}
 {\footnotesize\ttfamily void Engine\+::\+Game\+Play\+::\+Player\+::\+Set\+Power\+Up (\begin{DoxyParamCaption}\item[{void $\ast$}]{Power }\end{DoxyParamCaption})}
 
-summary$>$ Sets the power up text. /summary$>$ param name = \char`\"{}\+Power\+Up\+Mark\char`\"{}$>$The power up name, to be displayed on the UI.\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_player_a97680b34067c1b28ee3d43ab994f10ef}\label{class_engine_1_1_game_play_1_1_player_a97680b34067c1b28ee3d43ab994f10ef}} 
-\index{Engine\+::\+Game\+Play\+::\+Player@{Engine\+::\+Game\+Play\+::\+Player}!Set\+Power\+Up\+Text@{Set\+Power\+Up\+Text}}
-\index{Set\+Power\+Up\+Text@{Set\+Power\+Up\+Text}!Engine\+::\+Game\+Play\+::\+Player@{Engine\+::\+Game\+Play\+::\+Player}}
-\subsubsection{\texorpdfstring{Set\+Power\+Up\+Text()}{SetPowerUpText()}}
-{\footnotesize\ttfamily void Engine\+::\+Game\+Play\+::\+Player\+::\+Set\+Power\+Up\+Text (\begin{DoxyParamCaption}\item[{string}]{Power\+Up\+Name }\end{DoxyParamCaption})}
-
-summary$>$ Gets a pointer to the player weapon. /summary$>$ returns$>$The pointer to the player weapon.\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_player_a5a67ed64c644e9ebea338feb0db0ac98}\label{class_engine_1_1_game_play_1_1_player_a5a67ed64c644e9ebea338feb0db0ac98}} 
+summary$>$ Sets the power up text. /summary$>$ param name = \char`\"{}\+Power\+Up\+Mark\char`\"{}$>$The power up name, to be displayed on the UI.\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_player_a5a67ed64c644e9ebea338feb0db0ac98}\label{class_engine_1_1_game_play_1_1_player_a5a67ed64c644e9ebea338feb0db0ac98}} 
 \index{Engine\+::\+Game\+Play\+::\+Player@{Engine\+::\+Game\+Play\+::\+Player}!Set\+Speed\+Modifier@{Set\+Speed\+Modifier}}
 \index{Set\+Speed\+Modifier@{Set\+Speed\+Modifier}!Engine\+::\+Game\+Play\+::\+Player@{Engine\+::\+Game\+Play\+::\+Player}}
 \subsubsection{\texorpdfstring{Set\+Speed\+Modifier()}{SetSpeedModifier()}}
@@ -122,7 +117,7 @@ summary$>$ Sets the amount that the damage multiplier is. /summary$>$ param name
 \subsubsection{\texorpdfstring{Update()}{Update()}}
 {\footnotesize\ttfamily void Engine\+::\+Game\+Play\+::\+Player\+::\+Update (\begin{DoxyParamCaption}\item[{Render\+Window $\ast$}]{Window,  }\item[{\hyperlink{class_engine_1_1_core_1_1_map}{Map}}]{M,  }\item[{float}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-summary$>$ Gets the enemies which in range of the player and then deals a random amount of damage, between 0 and P\+L\+A\+Y\+E\+R\+\_\+\+M\+A\+X\+\_\+\+A\+T\+T\+A\+C\+K\+\_\+\+D\+A\+M\+A\+GE. /summary$>$ 
+summary$>$ Handles the powerup useage and lifetime. /summary$>$ 
 
 Implements \hyperlink{class_engine_1_1_core_1_1_character}{Engine\+::\+Core\+::\+Character}.
 
