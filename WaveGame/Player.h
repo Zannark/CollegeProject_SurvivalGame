@@ -53,8 +53,8 @@ namespace Engine::GamePlay
 		void UpdateUI(void);
 
 	private:
-		void Attack(void);
-		void HandleAttack(float dt);
+		void Attack(Map M);
+		void HandleAttack(Map M, float dt);
 		void HandleMovement(RenderWindow* Window, Map M, float dt);
 		void HandleRotation(RenderWindow* Window, float dt);
 		void HandleCollision(Map M, float MovementOffset);

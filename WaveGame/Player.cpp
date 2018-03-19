@@ -82,7 +82,7 @@ void Engine::GamePlay::Player::Update(RenderWindow* Window, Map M, float dt)
 		this->UpdatePowerUp();
 		this->PlayerWeapon->SetPosition(this->GetPosition());
 		this->PlayerWeapon->SetRotation(this->Angle + 90);
-		this->HandleAttack(dt);
+		this->HandleAttack(M, dt);
 		this->UpdateUI();
 		this->UpdateHealthBar();
 		this->HandleCollision(M, 0.1f);
@@ -113,10 +113,10 @@ void Engine::GamePlay::Player::UpdatePowerUp(void)
 ///Updates the attack timer.
 ///</summary>
 ///<param name = "dt">Delta time</param>
-void Engine::GamePlay::Player::HandleAttack(float dt)
+void Engine::GamePlay::Player::HandleAttack(Map M, float dt)
 {
 	if (Mouse::isButtonPressed(Mouse::Button::Left) && this->AttackTimer >= PLAYER_ATTACK_INTERVAL)
-		this->Attack();
+		this->Attack(M);
 	this->AttackTimer += dt;
 }
 
@@ -136,16 +136,32 @@ void Engine::GamePlay::Player::UpdateHealthBar(void)
 ///<summary>
 ///Gets the enemies which in range of the player and then deals a random amount of damage, between 0 and PLAYER_MAX_ATTACK_DAMAGE.
 ///</summary>
-void Engine::GamePlay::Player::Attack(void)
+void Engine::GamePlay::Player::Attack(Map M)
 {
-	auto Enemies = ((EnemyManager*)this->Manager)->GetEnemiesInRange();
+	vector<Enemy*> Enemies = ((EnemyManager*)this->Manager)->GetEnemiesInRange();
+	vector<Prop> Props = M.GetProps();
 
-	for(auto En : Enemies)
+	for (Enemy* En : Enemies)
 	{
-		int AttackDamage = rand() % (PLAYER_MAX_ATTACK_DAMAGE * this->AttackDamageModifier);
-		En->TakeDamage(AttackDamage);
-	}
+		bool CanAttackEnemy = false;
+		Prop CollisionProp = make_tuple<shared_ptr<Animator>, bool>(nullptr, false);
 
+		for (Prop P : M.GetProps())
+		{
+			if (Collision::PixelPerfectTest(*get<0>(P)->GetSFMLSprite(), *this->PlayerWeapon->GetSFMLSprite()))
+			{
+				CollisionProp = P;
+				break;
+			}
+		}
+
+		if (!get<0>(CollisionProp))
+		{
+			int AttackDamage = rand() % (PLAYER_MAX_ATTACK_DAMAGE * this->AttackDamageModifier);
+			En->TakeDamage(AttackDamage);
+		}
+	}
+	
 	this->AttackTimer = 0;
 }
 
