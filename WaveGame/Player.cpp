@@ -15,7 +15,6 @@ Engine::GamePlay::Player::Player(RenderWindow* Wnd, Map M)
 	this->OldHealth = PLAYER_MAX_HEALTH;
 
 	this->CharacterAnimator->SetOrigin(Vector2f((float)(this->CharacterAnimator->GetSize().x / 2), (float)(this->CharacterAnimator->GetSize().y / 2)));
-	//this->CharacterAnimator->SetPosition(Vector2f(450, 450));
 	
 	float X = 0;
 	float Y = 0;
@@ -80,38 +79,55 @@ void Engine::GamePlay::Player::Update(RenderWindow* Window, Map M, float dt)
 	{
 		this->HandleMovement(Window, M, dt);
 		this->HandleRotation(Window, dt);
-
-		if (this->PowerUp)
-		{
-			if (Keyboard::isKeyPressed(Keyboard::Key::E) && !((PowerUpBase*)this->PowerUp)->GetNeedsToBeDestroyed())
-				((PowerUpBase*)this->PowerUp)->OnUse(this);
-
-			if (((PowerUpBase*)this->PowerUp)->GetNeedsToBeDestroyed())
-			{
-				((PowerUpBase*)this->PowerUp)->OnUseEnd(this);
-				this->PowerUp = nullptr;
-				this->PowerUpText.setString("");
-			}
-		}
-		
+		this->UpdatePowerUp();
 		this->PlayerWeapon->SetPosition(this->GetPosition());
 		this->PlayerWeapon->SetRotation(this->Angle + 90);
-
-		if (Mouse::isButtonPressed(Mouse::Button::Left) && this->AttackTimer >= PLAYER_ATTACK_INTERVAL)
-			this->Attack();
-
+		this->HandleAttack(dt);
 		this->UpdateUI();
-		this->AttackTimer += dt;
-
-		if (this->Health >= PLAYER_HIGH_HEALTH_THRESHOLD && this->HealthBar.getFillColor() != this->HighHealthColour)
-			this->HealthBar.setFillColor(this->HighHealthColour);
-		else if (this->Health >= PLAYER_MEDIUM_HEALTH_THRESHOLD && this->Health < PLAYER_HIGH_HEALTH_THRESHOLD && this->HealthBar.getFillColor() != this->MediumHealthColour)
-			this->HealthBar.setFillColor(this->MediumHealthColour);
-		else if(this->HealthBar.getFillColor() != this->LowHealthColour && this->Health < PLAYER_MEDIUM_HEALTH_THRESHOLD)
-			this->HealthBar.setFillColor(this->LowHealthColour);
-
+		this->UpdateHealthBar();
 		this->HandleCollision(M, 0.1f);
 	}
+}
+
+void Engine::GamePlay::Player::UpdatePowerUp(void)
+{
+	if (this->PowerUp)
+	{
+		if (Keyboard::isKeyPressed(Keyboard::Key::E) && !((PowerUpBase*)this->PowerUp)->GetNeedsToBeDestroyed())
+			((PowerUpBase*)this->PowerUp)->OnUse(this);
+
+		if (((PowerUpBase*)this->PowerUp)->GetNeedsToBeDestroyed())
+		{
+			((PowerUpBase*)this->PowerUp)->OnUseEnd(this);
+			this->PowerUp = nullptr;
+			this->PowerUpText.setString("");
+		}
+	}
+}
+
+///<summary>
+///Handles the left mouse button being pressed, and the attack call.
+///Updates the attack timer.
+///</summary>
+///<param name = "dt">Delta time</param>
+void Engine::GamePlay::Player::HandleAttack(float dt)
+{
+	if (Mouse::isButtonPressed(Mouse::Button::Left) && this->AttackTimer >= PLAYER_ATTACK_INTERVAL)
+		this->Attack();
+	this->AttackTimer += dt;
+}
+
+///<summary>
+///Checks the players health and changes the colour of the health bar depending on their health.
+///</summary>
+void Engine::GamePlay::Player::UpdateHealthBar(void)
+{
+	if (this->Health >= PLAYER_HIGH_HEALTH_THRESHOLD && this->HealthBar.getFillColor() != this->HighHealthColour)
+		this->HealthBar.setFillColor(this->HighHealthColour);
+	else if (this->Health >= PLAYER_MEDIUM_HEALTH_THRESHOLD && this->Health < PLAYER_HIGH_HEALTH_THRESHOLD && this->HealthBar.getFillColor() != this->MediumHealthColour)
+		this->HealthBar.setFillColor(this->MediumHealthColour);
+	else if (this->HealthBar.getFillColor() != this->LowHealthColour && this->Health < PLAYER_MEDIUM_HEALTH_THRESHOLD)
+		this->HealthBar.setFillColor(this->LowHealthColour);
 }
 
 ///<summary>
@@ -157,7 +173,7 @@ void Engine::GamePlay::Player::HandleMovement(RenderWindow* Window, Map M, float
 	this->CharacterAnimator->Move(Offset);
 }
 
-///<summary>O
+///<summary>
 ///Handles the direction which the player is facing.
 ///</summary>
 ///<param name = "Window">A pointer to the RenderWindow which is being used.</param>

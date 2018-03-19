@@ -46,8 +46,7 @@ namespace Engine::GamePlay
 		void SetSpeedModifier(float Modifier);
 		void SetDamageModifier(int Modifier);
 		void SetPowerUp(void* Power);
-		
-		
+				
 		shared_ptr<Animator> GetPlayerWeapon(void) const;
 
 	protected:
@@ -55,12 +54,15 @@ namespace Engine::GamePlay
 
 	private:
 		void Attack(void);
+		void HandleAttack(float dt);
 		void HandleMovement(RenderWindow* Window, Map M, float dt);
 		void HandleRotation(RenderWindow* Window, float dt);
 		void HandleCollision(Map M, float MovementOffset);
 		void SetPowerUpText(string PowerUpName);
+		void UpdateHealthBar(void);
+		void UpdatePowerUp(void);
 		PlayerCollisionResult CheckCollision(Map M);
-
+		
 		int AttackDamageModifier;
 		int OldHealth;
 		float MovementSpeed;
