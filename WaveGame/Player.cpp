@@ -89,6 +89,9 @@ void Engine::GamePlay::Player::Update(RenderWindow* Window, Map M, float dt)
 	}
 }
 
+///<summary>
+///Handles the powerup useage and lifetime.
+///</summary>
 void Engine::GamePlay::Player::UpdatePowerUp(void)
 {
 	if (this->PowerUp)
