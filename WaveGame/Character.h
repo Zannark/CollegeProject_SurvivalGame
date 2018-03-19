@@ -10,6 +10,10 @@ using namespace std;
 
 namespace Engine::Core
 {
+	///<summary>
+	///The base class for enemies and the player to inherit from.
+	///Provides common functions, procedures, and attributes.
+	///</summary>
 	class Character
 	{
 	public:

@@ -29,6 +29,9 @@ using namespace std;
 
 namespace Engine::GamePlay
 {
+	///<summary>
+	///The different states that the player could be.
+	///</summary>
 	enum EnemyState
 	{
 		Pathfinding = 0,
@@ -36,6 +39,10 @@ namespace Engine::GamePlay
 		Attacking
 	};
 
+	///<summary>
+	///The enemy object which is used to fight the player.
+	///Inherits from the Character class.
+	///</summary>
 	class Enemy : public Character
 	{
 	public:

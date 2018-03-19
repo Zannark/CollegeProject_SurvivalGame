@@ -17,6 +17,10 @@ using namespace Engine::GamePlay;
 
 namespace Engine::Core
 {
+	///<summary>
+	///A node which is used for the A* pathfinding.
+	///Represents a single point on the screen.
+	///</summary>
 	class NavigationNode
 	{
 	public:

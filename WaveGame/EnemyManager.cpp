@@ -1,5 +1,11 @@
 #include "EnemyManager.h"
 
+///<summary>
+///Creates the enemy manager object.
+///</summary>
+///<param name = "Window">The window to render to.</param>
+///<param name = "P">The player object which is currently being used.</param>
+///<param name = "Generator">A random number generator.</param>
 Engine::GamePlay::EnemyManager::EnemyManager(RenderWindow * Window, Player* P, mt19937* Generator)
 {
 	this->CurrentWave = 0;

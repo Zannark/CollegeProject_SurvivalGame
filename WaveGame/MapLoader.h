@@ -21,6 +21,9 @@ using namespace std;
 
 namespace Engine::Core
 {
+	///<summary>
+	///Responsible for loading a map in from XML.
+	///</summary>
 	class MapLoader
 	{
 	public:

@@ -10,6 +10,10 @@ using namespace Engine::GamePlay;
 
 namespace Engine::Core
 {
+	///<summary>
+	///The base powerup for the other powerups to inherit from.
+	///Provides common functions, procedures, and attributes.
+	///</summary>
 	class PowerUpBase
 	{
 	public:

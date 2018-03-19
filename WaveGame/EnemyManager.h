@@ -23,6 +23,9 @@ using namespace sf;
 
 namespace Engine::GamePlay
 {
+	///<summary>
+	///The different states that the round can be in.
+	///</summary>
 	enum MatchState
 	{
 		InMatch = 0,
@@ -30,6 +33,9 @@ namespace Engine::GamePlay
 		NewMatch
 	};
 
+	///<summary>
+	///The object which is resposible for controlling all of the enemies in the game.
+	///</summary>
 	class EnemyManager
 	{
 	public:

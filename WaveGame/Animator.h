@@ -18,6 +18,10 @@ using namespace sf;
 
 namespace Engine::Core
 {
+	///<summary>
+	///Describes a single animation on a sprite sheet.
+	///There can be many animations per sprite sheet.
+	///</summary>
 	struct AnimationInformation
 	{
 		AnimationInformation()
@@ -36,6 +40,10 @@ namespace Engine::Core
 		string AnimationName;
 	};
 
+	///<summary>
+	///Handles the rendering and animation of sprites, from a sprite sheet.
+	///Replaces the GameTexture class.
+	///</summary>
 	class Animator
 	{
 	public:
@@ -55,8 +63,8 @@ namespace Engine::Core
 		void Move(const Vector2f& Offset);
 		shared_ptr<Texture> GetSFMLTexture(void) const;
 		shared_ptr<Sprite> GetSFMLSprite(void) const;
-		Vector2f GetPosition(void) const;
-		Vector2f GetSize(void) const;
+		const Vector2f& GetPosition(void) const;
+		const Vector2f& GetSize(void) const;
 		const string& GetCurrentAnimation(void) const;
 
 	private:
@@ -79,6 +87,9 @@ namespace Engine::Core
 		shared_ptr<Sprite> AnimationSprite;
 	};
 
+	///<summary>
+	///A cache of animations which can be addressed throughout the program.
+	///</summary>
 	class AnimationCache
 	{
 	public:

@@ -1,5 +1,10 @@
 #include "SpeedPowerUp.h"
 
+///<summary>
+///Constructs the DamagePowerUp object.
+///Loads in the Animator from the AnimationCache.
+///</summary>
+///<param name = "Position">The position to set the powerup.</param>
 Engine::GamePlay::SpeedPowerUp::SpeedPowerUp(Vector2f Position)
 {
 	this->PowerUpAnimation = make_shared<Animator>(AnimationCache::Cache("Assets/SpeedPowerUp.png"));

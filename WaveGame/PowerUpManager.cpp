@@ -15,6 +15,9 @@ void SetUpRarities(void)
 	PowerUpRarities["Damage Boost"] = 15;
 }
 
+///<summary>
+///Constructs the powerup manager object.
+///</summary>
 Engine::GamePlay::PowerUpManager::PowerUpManager()
 {
 	this->Timer = 0;

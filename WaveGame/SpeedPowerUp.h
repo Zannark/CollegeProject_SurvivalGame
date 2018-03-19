@@ -10,6 +10,9 @@ using namespace Engine::Core;
 
 namespace Engine::GamePlay 
 {
+	///<summary>
+	///The powerup which is responisble for increasing and decreasing the speed of the player.
+	///</summary>
 	class SpeedPowerUp : public PowerUpBase
 	{
 	public:

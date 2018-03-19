@@ -1,7 +1,13 @@
 #include "Enemy.h"
 
-///BUG: TODO: FPS drop - investigate could just be FFXIV running in the background but shouldn't cause that bad stuttering...
-
+///<summary>
+///Constructs the enemy object.
+///Loads the Animator from the cache.
+///</summary>
+///<param name = "Position">The position to set the enemy at.</param>
+///<param name = "Window">The window which is being rendered to.</param>
+///<param name = "P">The player which is being currently used.</param>
+///<param name = "Speed">The speed (in pixels per second) the enemy can move at.</param>
 Engine::GamePlay::Enemy::Enemy(Vector2f Position, RenderWindow* Window, Player* P, float Speed)
 {
 	this->CharacterAnimator = make_shared<Animator>(Animator(AnimationCache::Cache("Assets/Enemy.png")));

@@ -210,6 +210,12 @@ void Engine::GamePlay::Player::HandleRotation(RenderWindow* Window, float dt)
 	this->CharacterAnimator->SetRotation(Angle + 90);
 }
 
+///<summary>
+///Stops the player from being able to move into props which have collision turned on.
+///Pushes them out of the colliding prop.
+///</summary>
+///<param name = "M">A copy of the map for collision checking.</param>
+///<param name = "MovementOffset">The amount to push the player back by.</param>
 void Engine::GamePlay::Player::HandleCollision(Map M, float MovementOffset)
 {
 	PlayerCollisionResult Result = this->CheckCollision(M);

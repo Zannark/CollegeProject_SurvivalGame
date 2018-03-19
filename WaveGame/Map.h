@@ -13,6 +13,10 @@ namespace Engine::Core
 {
 	using Prop = tuple<shared_ptr<Animator>, bool>;
 
+	///<summary>
+	///The map which is shown in game.
+	///Contain props, they can have their collision on or off.
+	///</summary>
 	class Map
 	{
 	public:

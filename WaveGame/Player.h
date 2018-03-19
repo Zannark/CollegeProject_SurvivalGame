@@ -31,6 +31,10 @@ namespace Engine::GamePlay
 {
 	using PlayerCollisionResult = tuple<bool, shared_ptr<Animator>>;
 
+	///<summary>
+	///The object which represents the player, and can be controlled by the user.
+	///Inherits from the Character class.
+	///</summary>
 	class Player : public Character
 	{
 	public:

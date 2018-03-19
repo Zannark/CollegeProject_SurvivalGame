@@ -19,6 +19,9 @@ using namespace Engine::Core;
 
 namespace Engine::GamePlay
 {
+	///<summary>
+	///The object which is resposible for controlling all of the powerups in the game.
+	///</summary>
 	class PowerUpManager
 	{
 	public:

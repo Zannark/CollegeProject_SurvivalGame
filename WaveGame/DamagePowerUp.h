@@ -8,6 +8,9 @@ using namespace Engine::Core;
 
 namespace Engine::GamePlay
 {
+	///<summary>
+	///The powerup which is responsible for increasing the attack damage of the player.
+	///</summary>
 	class DamagePowerUp : public PowerUpBase
 	{
 	public:

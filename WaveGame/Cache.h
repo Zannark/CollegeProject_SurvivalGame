@@ -7,6 +7,10 @@ using namespace std;
 
 namespace Engine::Core
 {
+	///<summary>
+	///The cache stores data in a map which uses a string as the key.
+	///The map stores data of type T.
+	///</summary>
 	template<class T>
 	class Cache
 	{
