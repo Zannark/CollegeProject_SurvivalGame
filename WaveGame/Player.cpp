@@ -3,6 +3,12 @@
 #include "PowerUpBase.h"
 #include "SpeedPowerUp.h"
 
+///<summary>
+///Constructs the player object.
+///Loads the Animators for the player, player weapon, and the health bar icon from the cache.
+///Sets the player at a random location.
+///Loads the font for the powerup name in the UI.
+///</summary>
 Engine::GamePlay::Player::Player(RenderWindow* Wnd, Map M)
 {
 	this->CharacterAnimator = make_shared<Animator>(AnimationCache::Cache("Assets/Player.png"));
