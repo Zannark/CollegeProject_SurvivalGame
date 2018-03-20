@@ -152,7 +152,7 @@ void Engine::GamePlay::Player::Attack(Map M)
 		bool CanAttackEnemy = false;
 		Prop CollisionProp = make_tuple<shared_ptr<Animator>, bool>(nullptr, false);
 
-		for (Prop P : M.GetProps())
+		for (Prop P : Props)
 		{
 			if (Collision::PixelPerfectTest(*get<0>(P)->GetSFMLSprite(), *this->PlayerWeapon->GetSFMLSprite()))
 			{
