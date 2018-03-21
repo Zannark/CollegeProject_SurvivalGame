@@ -65,6 +65,7 @@ namespace Engine::GamePlay
 		void SetPowerUpText(string PowerUpName);
 		void UpdateHealthBar(void);
 		void UpdatePowerUp(void);
+		void GenerateRandomPlayerPosition(RenderWindow* Wnd, Map &M);
 		PlayerCollisionResult CheckCollision(Map M);
 		
 		int AttackDamageModifier;

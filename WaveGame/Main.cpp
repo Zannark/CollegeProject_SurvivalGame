@@ -71,7 +71,6 @@ int main(int argc, char** argv)
 			PowerUps.Draw(Window);
 			Enemies->Draw(Window);
 			P->DrawUI(Window);
-			//DrawNavigationMesh(Window);
 		}
 		else
 		{

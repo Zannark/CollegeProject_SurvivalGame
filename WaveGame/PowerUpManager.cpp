@@ -40,8 +40,7 @@ void Engine::GamePlay::PowerUpManager::SpawnPowerUps(Player* P, RenderWindow* Wn
 		for (map<string, int>::iterator It = PowerUpRarities.begin(); It != PowerUpRarities.end(); ++It)
 		{
 			int SpawnValue = rand() % It->second;
-			//Vector2f Position = Vector2f((float)(rand() % (WINDOW_WIDTH - POWER_UP_TEXTURE_SIZE)), (float)(rand() % (WINDOW_HEIGHT - POWER_UP_TEXTURE_SIZE)));
-
+			
 			float X = 0;
 			float Y = 0;
 			bool HasCollisionOccured = false;

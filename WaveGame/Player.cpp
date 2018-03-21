@@ -22,21 +22,7 @@ Engine::GamePlay::Player::Player(RenderWindow* Wnd, Map M)
 
 	this->CharacterAnimator->SetOrigin(Vector2f((float)(this->CharacterAnimator->GetSize().x / 2), (float)(this->CharacterAnimator->GetSize().y / 2)));
 	
-	float X = 0;
-	float Y = 0;
-
-	for (Prop P : M.GetProps())
-	{
-		X = (float)(rand() % (int)(((Wnd->getSize().x - this->CharacterAnimator->GetSize().x) - (this->CharacterAnimator->GetSize().x * 2) + 1) + (this->CharacterAnimator->GetSize().x / 2)));
-		Y = (float)(rand() % (int)(((Wnd->getSize().y - this->CharacterAnimator->GetSize().y) - (this->CharacterAnimator->GetSize().y * 2) + 1) + (this->CharacterAnimator->GetSize().y / 2)));
-
-		FloatRect CollisionTesterRect = FloatRect(X, Y, this->CharacterAnimator->GetSize().x, this->CharacterAnimator->GetSize().y);
-
-		if (!CollisionTesterRect.intersects(get<0>(P)->GetSFMLSprite()->getGlobalBounds()))
-			break;
-	}
-
-	this->CharacterAnimator->SetPosition(Vector2f(X, Y));
+	GenerateRandomPlayerPosition(Wnd, M);
 
 	this->PlayerWeapon->SetOrigin(Vector2f(this->PlayerWeapon->GetSize().x / 2, this->PlayerWeapon->GetSize().y - 4));
 
@@ -67,6 +53,43 @@ Engine::GamePlay::Player::Player(RenderWindow* Wnd, Map M)
 	this->PowerUpText.setFont(this->PowerUpFont);
 	this->PowerUpText.setFillColor(Color::Black);
 	this->PowerUpText.setPosition(Vector2f(300, 12));
+}
+
+void Engine::GamePlay::Player::GenerateRandomPlayerPosition(RenderWindow* Wnd, Map &M)
+{
+	float X = 0;
+	float Y = 0;
+	bool HasCollisionOccured = false;
+
+	while (true)
+	{
+		X = (float)(rand() % (int)(((Wnd->getSize().x - this->CharacterAnimator->GetSize().x) -
+			(this->CharacterAnimator->GetSize().x - this->CharacterAnimator->GetSFMLSprite()->getOrigin().x) + 1) +
+			(this->CharacterAnimator->GetSize().x - this->CharacterAnimator->GetSFMLSprite()->getOrigin().x)));
+
+		Y = (float)(rand() % (int)(((Wnd->getSize().y - this->CharacterAnimator->GetSize().y) -
+			(this->CharacterAnimator->GetSize().y - this->CharacterAnimator->GetSFMLSprite()->getOrigin().y) + 1) +
+			(this->CharacterAnimator->GetSize().y - this->CharacterAnimator->GetSFMLSprite()->getOrigin().y)));
+
+		for (Prop P : M.GetProps())
+		{
+			FloatRect PropBoundingBox;
+			FloatRect CollisionTesterRect;
+
+			CollisionTesterRect = FloatRect(X, Y, this->CharacterAnimator->GetSize().x, this->CharacterAnimator->GetSize().y);
+			PropBoundingBox = get<0>(P)->GetSFMLSprite()->getGlobalBounds();
+
+			if (CollisionTesterRect.intersects(PropBoundingBox))
+				HasCollisionOccured = true;
+		}
+
+		if (HasCollisionOccured)
+			HasCollisionOccured = false;
+		else
+			break;
+	}
+
+	this->CharacterAnimator->SetPosition(Vector2f(X, Y));
 }
 
 Engine::GamePlay::Player::~Player()
