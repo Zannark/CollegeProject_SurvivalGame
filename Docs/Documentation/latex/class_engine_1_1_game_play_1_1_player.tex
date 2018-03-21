@@ -9,9 +9,8 @@ Inheritance diagram for Engine\+:\+:Game\+Play\+:\+:Player\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_player_accf9a014d2a29a17582907f6b042553b}\label{class_engine_1_1_game_play_1_1_player_accf9a014d2a29a17582907f6b042553b}} 
-{\bfseries Player} (Render\+Window $\ast$Wnd, \hyperlink{class_engine_1_1_core_1_1_map}{Map} M)
-\item 
+\hyperlink{class_engine_1_1_game_play_1_1_player_accf9a014d2a29a17582907f6b042553b}{Player} (Render\+Window $\ast$Wnd, \hyperlink{class_engine_1_1_core_1_1_map}{Map} M)
+\begin{DoxyCompactList}\small\item\em Constructs the player object. Loads the Animators for the player, player weapon, and the health bar icon from the cache. Sets the player at a random location. Loads the font for the powerup name in the UI. /summary$>$ \end{DoxyCompactList}\item 
 \hyperlink{class_engine_1_1_game_play_1_1_player_a39c82fa94afe71949a7fff50fed2a4d0}{$\sim$\+Player} ()
 \item 
 void \hyperlink{class_engine_1_1_game_play_1_1_player_a06c682bf13c20fb2390807ec681b0121}{Update} (Render\+Window $\ast$Window, \hyperlink{class_engine_1_1_core_1_1_map}{Map} M, float dt) override
@@ -44,7 +43,19 @@ void {\bfseries Update\+UI} (void)
 
 
 \subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_player_a39c82fa94afe71949a7fff50fed2a4d0}\label{class_engine_1_1_game_play_1_1_player_a39c82fa94afe71949a7fff50fed2a4d0}} 
+\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_player_accf9a014d2a29a17582907f6b042553b}\label{class_engine_1_1_game_play_1_1_player_accf9a014d2a29a17582907f6b042553b}} 
+\index{Engine\+::\+Game\+Play\+::\+Player@{Engine\+::\+Game\+Play\+::\+Player}!Player@{Player}}
+\index{Player@{Player}!Engine\+::\+Game\+Play\+::\+Player@{Engine\+::\+Game\+Play\+::\+Player}}
+\subsubsection{\texorpdfstring{Player()}{Player()}}
+{\footnotesize\ttfamily Engine\+::\+Game\+Play\+::\+Player\+::\+Player (\begin{DoxyParamCaption}\item[{Render\+Window $\ast$}]{Wnd,  }\item[{\hyperlink{class_engine_1_1_core_1_1_map}{Map}}]{M }\end{DoxyParamCaption})}
+
+
+
+Constructs the player object. Loads the Animators for the player, player weapon, and the health bar icon from the cache. Sets the player at a random location. Loads the font for the powerup name in the UI. /summary$>$ 
+
+summary$>$ Generates a random position on the screen and places the player there. Doesn\textquotesingle{}t place a player in any props. /summary$>$ param name = \char`\"{}\+Wnd\char`\"{}$>$The window which is being rendered to.
+
+param name = \char`\"{}\+M\char`\"{}$>$The map which is being used.\mbox{\Hypertarget{class_engine_1_1_game_play_1_1_player_a39c82fa94afe71949a7fff50fed2a4d0}\label{class_engine_1_1_game_play_1_1_player_a39c82fa94afe71949a7fff50fed2a4d0}} 
 \index{Engine\+::\+Game\+Play\+::\+Player@{Engine\+::\+Game\+Play\+::\+Player}!````~Player@{$\sim$\+Player}}
 \index{````~Player@{$\sim$\+Player}!Engine\+::\+Game\+Play\+::\+Player@{Engine\+::\+Game\+Play\+::\+Player}}
 \subsubsection{\texorpdfstring{$\sim$\+Player()}{~Player()}}

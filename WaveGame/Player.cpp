@@ -55,6 +55,12 @@ Engine::GamePlay::Player::Player(RenderWindow* Wnd, Map M)
 	this->PowerUpText.setPosition(Vector2f(300, 12));
 }
 
+///<summary>
+///Generates a random position on the screen and places the player there.
+///Doesn't place a player in any props.
+///</summary>
+///<param name = "Wnd">The window which is being rendered to.</param>
+///<param name = "M">The map which is being used.</param>
 void Engine::GamePlay::Player::GenerateRandomPlayerPosition(RenderWindow* Wnd, Map &M)
 {
 	float X = 0;
