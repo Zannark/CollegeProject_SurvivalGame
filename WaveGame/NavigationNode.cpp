@@ -202,10 +202,7 @@ float Engine::Core::NavigationNode::GetCost(NavigationNode& Successor)
 
 	if (this->DoesCollision)
 		return CollisionCost;
-
-	//if (false)
-		//return CollisionCost;
-
+	
 	return fabsf(EuclideanDistance(this->Position, Successor.Position));
 }
 
