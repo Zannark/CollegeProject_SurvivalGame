@@ -25,12 +25,12 @@ using namespace std;
 #define ENEMY_MAX_MOVEMENT_SPEED 4.5f
 #define ENEMY_MIN_MOVEMENT_SPEED 0.45f
 #define ENEMY_MAX_HEALTH 15
-#define ENEMY_RECIEVE_DAMAGE_COLOUR_CHANGE_LENGTH 0.1f ///Seconds
+#define ENEMY_RECIEVE_DAMAGE_COLOUR_CHANGE_LENGTH 1.f//0.1f ///Seconds
 
 namespace Engine::GamePlay
 {
 	///<summary>
-	///The different states that the player could be.
+	///The different states that the enemy could be.
 	///</summary>
 	enum EnemyState
 	{

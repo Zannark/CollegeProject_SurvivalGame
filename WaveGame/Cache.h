@@ -41,13 +41,20 @@ namespace Engine::Core
 		///<param name = "ID">The string ID of the item to be added.</param>
 		///<param name = "Item">The item to be added.</param>
 		///<returns>The item which was added.</returns>
-		T Add(string ID, T Item)
+		T Add(string ID, T Item) 
 		{
 			if (this->Storage.find(ID) == this->Storage.end())
 				this->Storage[ID] = Item;
 			return Item;
 		}
 
+		///<summary>
+		///Overloads the () operator.
+		///Accesses an item if it is in the cache. 
+		///Calls the Access function.
+		///</summary>
+		///<param name = "ID">A string which is the identifier for accessing the item.</param>
+		///<returns>The item required of type T.</returns>		
 		T operator()(string ID)
 		{
 			return this->Access(ID);

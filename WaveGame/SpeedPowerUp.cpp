@@ -1,7 +1,7 @@
 #include "SpeedPowerUp.h"
 
 ///<summary>
-///Constructs the DamagePowerUp object.
+///Constructs the SpeedPowerUp object.
 ///Loads in the Animator from the AnimationCache.
 ///</summary>
 ///<param name = "Position">The position to set the powerup.</param>

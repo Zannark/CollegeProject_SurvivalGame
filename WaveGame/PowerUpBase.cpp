@@ -49,6 +49,10 @@ bool Engine::Core::PowerUpBase::GetCollected(void)
 	return this->HasBeenCollected;
 }
 
+///<summary>
+///Gets the name of the powerup.
+///</summary>
+///<returns>A string, the name of the powerup.</returns>
 string Engine::Core::PowerUpBase::GetPowerUpName(void) const
 {
 	return this->PowerUpName;
